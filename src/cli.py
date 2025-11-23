@@ -13,12 +13,12 @@ from exporter import save_summary
 console = Console()
 load_dotenv()
 
-DEVICE = os.getenv("DEVICE", "cpu")
-MODEL = os.getenv("MODEL", "tiny")
-OUTPUT_DIR = os.getenv("OUTPUT_DIR", "outputs")
-FORMAT = os.getenv("FORMAT", "md")
-OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
-OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama2")
+DEVICE = os.getenv("DEVICE")
+MODEL = os.getenv("MODEL")
+OUTPUT_DIR = os.getenv("OUTPUT_DIR")
+FORMAT = os.getenv("FORMAT")
+OLLAMA_HOST = os.getenv("OLLAMA_HOST")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL")
 FFMPEG_DIR = os.getenv("FFMPEG")
 
 if FFMPEG_DIR:
