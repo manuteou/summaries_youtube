@@ -15,7 +15,6 @@ def search_subject(subject):
     filters =(
         Filter.create()
         .type(Filter.Type.VIDEO)
-        .sort_by(Filter.SortBy.UPLOAD_DATE)
     )
 
     s = Search(f"{subject}", filters=filters)

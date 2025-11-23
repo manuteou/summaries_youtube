@@ -1,49 +1,55 @@
-# 🎬 YouTube Video Summarizer
+🎬 YouTube Video Summarizer & Synthesizer
+Un script CLI qui permet :
+- soit de résumer une vidéo YouTube à partir de son URL,
+- soit de faire une synthèse multi‑sources en lançant une recherche YouTube.
+Dans les deux cas, l’audio est téléchargé, transcrit avec Whisper, puis résumé grâce à Ollama.
+Le tout est exporté en Markdown ou txt pour une utilisation simple.
 
-Un script CLI qui télécharge l’audio d’une vidéo YouTube, le transcrit avec **Whisper**, puis génère un résumé grâce à **Ollama**.  
-Le tout est exporté  en Markdown ou txt pour une utilisation simple.
-
----
-
-## 🚀 Fonctionnalités
-- 📥 Téléchargement de l’audio via **FFmpeg**
-- 📝 Transcription locale avec **Whisper**
-- 🤖 Résumé généré par un modèle **Ollama**
+🚀 Fonctionnalités
+- 📥 Téléchargement de l’audio via FFmpeg
+- 📝 Transcription locale avec Whisper
+- 🤖 Résumé ou synthèse généré(e) par un modèle Ollama
 - 📂 Export automatique dans le répertoire de sortie
-- ⚙️ Configuration flexible via fichier `.env`
+- 🔀 Deux modes disponibles :
+- --url → résumé d’une seule vidéo
+- --search → synthèse multi‑vidéos à partir d’un sujet
+- ⚙️ Configuration flexible via fichier .env
 
----
-
-## 📂 Structure
-
-Summaries   ├── src 
-            └── ffmpeg   # mettre le binaire ffmpeg pour le système
+📂 Structure
+Summaries
+ ├── src
+ └── ffmpeg   # mettre le binaire ffmpeg pour le système
 
 
----
 
-## ⚙️ Configuration `.env`
+⚙️ Configuration .env
 Avant de lancer le script, configurez les variables d’environnement :
+|  |  |  | 
+| OUTPUT_DIR |  | src/summaries | 
+| MODEL |  | tiny | 
+| DEVICE |  | cpu | 
+| FORMAT |  | markdown | 
+| OLLAMA_MODEL |  |  | 
+| OLLAMA_HOST |  |  | 
+| FFMPEG |  |  | 
 
-| Variable       | Description                                      | Valeur par défaut         |
-|----------------|--------------------------------------------------|---------------------------|
-| `OUTPUT_DIR`   | Répertoire de sortie des résumés                 | `src/summaries`           |
-| `MODEL`        | Modèle Whisper utilisé pour la transcription     | `tiny`                    |
-| `DEVICE`       | Périphérique de décodage                         | `cpu`                     |
-| `FORMAT`       | Format de sortie du résumé                       | `markdown`                |
-| `OLLAMA_MODEL` | Modèle Ollama utilisé pour le résumé             | *(à définir)*             |
-| `OLLAMA_HOST`  | Adresse IP du serveur Ollama                     | *(à définir)*             |
-| `FFMPEG`       | Chemin vers le binaire FFmpeg                    | *(à définir)*             |
 
----
 
-## ▶️ Lancement du script
-
-Deux façons de lancer le script :
-
-```bash
+▶️ Lancement du script
+Deux modes sont disponibles :
+1. Résumer une seule vidéo
 # Méthode classique
-python cly.py --url "url_de_la_video"
+python cli.py --url "https://youtube.com/watch?v=xxxx"
 
 # Avec uv
-uv run cly.py --url "url_de_la_video"
+uv run cli.py --url "https://youtube.com/watch?v=xxxx"
+
+
+2. Synthèse multi‑vidéos via recherche
+# Méthode classique
+python cli.py --search "impact de l'IA sur l'informatique"
+
+# Avec uv
+uv run cli.py --search "impact de l'IA sur l'informatique"
+
+

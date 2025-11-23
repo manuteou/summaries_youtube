@@ -24,7 +24,7 @@ FFMPEG_DIR = os.getenv("FFMPEG")
 
 os.environ["PATH"] += os.pathsep + FFMPEG_DIR
 
-title = "impact de l'IA generative sur les metiers de l'informatique"
+title = "l'info politique en france"
 s = search_subject(title)
 for ss in s : print(ss.watch_url)
 
