@@ -33,11 +33,11 @@ def main():
 
     try:
         
-        audio_file, title = download_audio(args.url)
+        audio_file, title, author = download_audio(args.url)
         result = transcribe_audio(audio_file, device=args.device, model_size=args.model)
 
         client = Client(host=OLLAMA_HOST, headers={"x-some-header": "some-value"})
-        summary = summarize_text(result["text"], client, OLLAMA_MODEL)
+        summary = summarize_text(result["text"], client, OLLAMA_MODEL, author)
 
         md = Markdown(summary)
         console.print(md)

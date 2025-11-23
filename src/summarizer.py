@@ -1,6 +1,6 @@
-def summarize_text(text: str, client, model) -> str:
+def summarize_text(text: str, client, model, author: str) -> str:
     prompt = f"""
-    Résume efficacement le texte suivant (issu d'une transcription audio) :
+    Résume efficacement le texte de cet auteur {author} suivant (issu d'une transcription audio) :
     {text}
 
     🎯 Objectifs :
@@ -14,6 +14,7 @@ def summarize_text(text: str, client, model) -> str:
     - Organisation : titres, sous-titres et listes à puces
     - Style : ordonné, lisible et professionnel
     - Ton : neutre et informatif
+    - tu nommeras l'auteur dans le titre
 
     ✅ Bonus :
     - Commence par un titre général du résumé
