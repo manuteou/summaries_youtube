@@ -3,28 +3,32 @@ import os
 from rich.console import Console
 from rich.markdown import Markdown
 from ollama import Client
-
-from downloader import download_audio
-from transcriber import transcribe_audio
-from summarizer import summarize_text
-from exporter import save_summary
 from dotenv import load_dotenv
+
+from downloader import download_audio, search_subject
+from transcriber import transcribe_audio
+from summarizer import summarize_text, summarize_multi_texts
+from exporter import save_summary
 
 console = Console()
 load_dotenv()
-DEVICE = os.getenv("DEVICE")
-MODEL = os.getenv("MODEL")
-OUTPUT_DIR = os.getenv("OUTPUT_DIR")
-FORMAT = os.getenv("FORMAT")
-OLLAMA_HOST = os.getenv("OLLAMA_HOST")
-OLLAMA_MODEL = os.getenv("OLLAMA_MODEL")
-FFMPEG_DIR = os.getenv("FFMPEG") 
 
-os.environ["PATH"] += os.pathsep + FFMPEG_DIR
+DEVICE = os.getenv("DEVICE", "cpu")
+MODEL = os.getenv("MODEL", "tiny")
+OUTPUT_DIR = os.getenv("OUTPUT_DIR", "outputs")
+FORMAT = os.getenv("FORMAT", "md")
+OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama2")
+FFMPEG_DIR = os.getenv("FFMPEG")
+
+if FFMPEG_DIR:
+    os.environ["PATH"] += os.pathsep + FFMPEG_DIR
+
 
 def main():
-    parser = argparse.ArgumentParser(description="Résumé d'une vidéo YouTube à partir de son audio")
-    parser.add_argument("--url", required=True, help="URL de la vidéo YouTube")
+    parser = argparse.ArgumentParser(description="Résumé ou synthèse de vidéos YouTube")
+    parser.add_argument("--url", help="URL d'une vidéo YouTube (mode résumé)")
+    parser.add_argument("--search", help="Terme de recherche YouTube (mode synthèse multi‑vidéos)")
     parser.add_argument("--device", default=DEVICE, help="Choix du device (cpu ou cuda)")
     parser.add_argument("--model", default=MODEL, help="Taille du modèle Whisper (tiny, base, small, medium, large)")
     parser.add_argument("--output-dir", default=OUTPUT_DIR, help="Dossier de sortie")
@@ -32,20 +36,42 @@ def main():
     args = parser.parse_args()
 
     try:
-        
-        audio_file, title, author = download_audio(args.url)
-        result = transcribe_audio(audio_file, device=args.device, model_size=args.model)
-
         client = Client(host=OLLAMA_HOST, headers={"x-some-header": "some-value"})
-        summary = summarize_text(result["text"], client, OLLAMA_MODEL, author)
 
-        md = Markdown(summary)
-        console.print(md)
+        # --- Mode résumé d'une seule vidéo ---
+        if args.url:
+            audio_file, title, author = download_audio(args.url)
+            result = transcribe_audio(audio_file, device=args.device, model_size=args.model)
+            summary = summarize_text(result["text"], client, OLLAMA_MODEL, author)
 
-        save_summary(summary, title, args.output_dir, args.format)
+            md = Markdown(summary)
+            console.print(md)
+            save_summary(summary, title, args.output_dir, args.format)
+
+        # --- Mode synthèse multi‑vidéos ---
+        elif args.search:
+            title = args.search
+            videos = search_subject(title)
+            audios = [download_audio(video.watch_url) for video in videos]
+
+            texts = []
+            for audio in audios:
+                result = transcribe_audio(audio[0], device=args.device, model_size=args.model)
+                texts.append(f"Source : {audio[1]} (Auteur : {audio[2]})\n{result['text']}")
+
+            all_texts = "\n\n".join(texts)
+            summary = summarize_multi_texts(all_texts, client, OLLAMA_MODEL)
+
+            md = Markdown(summary)
+            console.print(md)
+            save_summary(summary, title, args.output_dir, args.format)
+
+        else:
+            console.print("[red]Erreur : vous devez fournir --url ou --search[/red]")
 
     except Exception as e:
         console.print(f"[red]Erreur : {e}[/red]")
+
 
 if __name__ == "__main__":
     main()

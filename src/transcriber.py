@@ -8,3 +8,4 @@ def transcribe_audio(audio_file: str, device: str = "cpu", model_size: str = "ti
     if os.path.exists(audio_file):
         os.remove(audio_file)
     return result
+
