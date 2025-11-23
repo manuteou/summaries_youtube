@@ -18,7 +18,9 @@ OUTPUT_DIR = os.getenv("OUTPUT_DIR")
 FORMAT = os.getenv("FORMAT")
 OLLAMA_HOST = os.getenv("OLLAMA_HOST")
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL")
+FFMPEG_DIR = os.getenv("FFMPEG") 
 
+os.environ["PATH"] += os.pathsep + FFMPEG_DIR
 
 def main():
     parser = argparse.ArgumentParser(description="Résumé d'une vidéo YouTube à partir de son audio")
