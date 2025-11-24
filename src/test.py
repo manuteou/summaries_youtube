@@ -1,5 +1,5 @@
 from pytubefix import YouTube
-import re
+
 
 yt = YouTube('https://www.youtube.com/watch?v=9jX2ZT0-iiA')
 caption = yt.captions['a.fr']
@@ -18,6 +18,6 @@ def extraire_dialogues(fichier_srt, bloc=3):
     texte = " ".join(text_ligne)
     return texte
 
-# Exemple d'utilisation
+
 result = extraire_dialogues(r, bloc=3)
 print(result)

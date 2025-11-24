@@ -5,8 +5,8 @@ from rich.markdown import Markdown
 from ollama import Client
 from dotenv import load_dotenv
 
-from downloader import download_audio, search_subject
-from transcriber import transcribe_audio
+from downloader import download_audio, search_subject, check_subtitles, get_subtitles
+from transcriber import transcribe_audio, extract_subtitles
 from summarizer import summarize_text, summarize_multi_texts
 from exporter import save_summary
 
@@ -35,15 +35,25 @@ def main():
     parser.add_argument("--format", default=FORMAT, choices=["md", "txt"], help="Format de sortie")
     args = parser.parse_args()
 
+   
+
     try:
         client = Client(host=OLLAMA_HOST, headers={"x-some-header": "some-value"})
 
         # --- Mode résumé d'une seule vidéo ---
         if args.url:
-            audio_file, title, author = download_audio(args.url)
-            result = transcribe_audio(audio_file, device=args.device, model_size=args.model)
-            summary = summarize_text(result["text"], client, OLLAMA_MODEL, author)
+            code = check_subtitles(args.url)
+            if code:
+                print("Sous-titre detectés")
+                subtitles_file, title, author = get_subtitles(args.url, code)
+                result = extract_subtitles(subtitles_file)
 
+            else:
+                print("pas de sous titre detecté -> lancement du transcribe audio")
+                audio_file, title, author = download_audio(args.url)
+                result = transcribe_audio(audio_file, device=args.device, model_size=args.model)
+            
+            summary = summarize_text(result["text"], client, OLLAMA_MODEL, author)
             md = Markdown(summary)
             console.print(md)
             save_summary(summary, title, args.output_dir, args.format)
