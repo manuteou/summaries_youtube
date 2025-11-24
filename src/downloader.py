@@ -25,7 +25,7 @@ def search_subject(subject):
 
 def check_subtitles(url):
     yt = YouTube(url, on_progress_callback=on_progress)
-    cles_fr = [cle for cle in yt.captions.keys() if "fr" in cle.code]
+    cles_fr = [cle for cle in yt.captions.keys() if "fr" in cle.code or "en" in cle.code]
     if len(cles_fr) == 0:
         return None
     return cles_fr[0].code
@@ -34,9 +34,11 @@ def check_subtitles(url):
 def get_subtitles(url, code):
     yt = YouTube(url, on_progress_callback=on_progress)
     caption = yt.captions[code]
+    if yt.title is None:
+        return caption.generate_srt_captions(), "inconnue", yt.author
     return caption.generate_srt_captions(), yt.title, yt.author
 
 if __name__ == "__main__":
    
-    code = check_subtitles('http://youtube.com/watch?v=2lAe1cqCOXo')
+    code = check_subtitles('https://www.youtube.com/watch?v=yoiCjhPAdBA')
     print(code)

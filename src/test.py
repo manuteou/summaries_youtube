@@ -1,13 +1,13 @@
 from pytubefix import YouTube
 
 
-yt = YouTube('https://www.youtube.com/watch?v=9jX2ZT0-iiA')
+yt = YouTube('https://www.youtube.com/watch?v=GQ-qucP4g_s')
 caption = yt.captions['a.fr']
 r = caption.generate_srt_captions()
 
 
-def extraire_dialogues(fichier_srt, bloc=3):
-    lignes = r.splitlines()
+def extraire_dialogues(fichier_srt):
+    lignes = fichier_srt.splitlines()
     lignes = [ligne.strip() for ligne in lignes if ligne.strip()]
     i = 0
     text_ligne = []
@@ -19,5 +19,5 @@ def extraire_dialogues(fichier_srt, bloc=3):
     return texte
 
 
-result = extraire_dialogues(r, bloc=3)
+result = extraire_dialogues(r)
 print(result)

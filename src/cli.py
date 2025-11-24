@@ -1,5 +1,8 @@
 import argparse
 import os
+import warnings
+warnings.filterwarnings("ignore")
+
 from rich.console import Console
 from rich.markdown import Markdown
 from ollama import Client
@@ -13,12 +16,12 @@ from exporter import save_summary
 console = Console()
 load_dotenv()
 
-DEVICE = os.getenv("DEVICE", "cpu")
-MODEL = os.getenv("MODEL", "tiny")
-OUTPUT_DIR = os.getenv("OUTPUT_DIR", "outputs")
-FORMAT = os.getenv("FORMAT", "md")
-OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
-OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama2")
+DEVICE = os.getenv("DEVICE")
+MODEL = os.getenv("MODEL")
+OUTPUT_DIR = os.getenv("OUTPUT_DIR")
+FORMAT = os.getenv("FORMAT")
+OLLAMA_HOST = os.getenv("OLLAMA_HOST")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL")
 FFMPEG_DIR = os.getenv("FFMPEG")
 
 if FFMPEG_DIR:
@@ -44,16 +47,17 @@ def main():
         if args.url:
             code = check_subtitles(args.url)
             if code:
-                print("Sous-titre detectés")
+                console.print("[blue]Sous-titre detecté[/blue]")
                 subtitles_file, title, author = get_subtitles(args.url, code)
                 result = extract_subtitles(subtitles_file)
 
             else:
-                print("pas de sous titre detecté -> lancement du transcribe audio")
+                console.print("[green]Pas de sous titre detecté -> lancement du transcribe audio[/green]")
                 audio_file, title, author = download_audio(args.url)
                 result = transcribe_audio(audio_file, device=args.device, model_size=args.model)
+                
             
-            summary = summarize_text(result["text"], client, OLLAMA_MODEL, author)
+            summary = summarize_text(result, client, OLLAMA_MODEL, author)
             md = Markdown(summary)
             console.print(md)
             save_summary(summary, title, args.output_dir, args.format)
@@ -62,13 +66,22 @@ def main():
         elif args.search:
             title = args.search
             videos = search_subject(title)
-            audios = [download_audio(video.watch_url) for video in videos]
-
             texts = []
-            for audio in audios:
-                result = transcribe_audio(audio[0], device=args.device, model_size=args.model)
-                texts.append(f"Source : {audio[1]} (Auteur : {audio[2]})\n{result['text']}")
-
+            for video in videos:
+                code = check_subtitles(video.watch_url)
+                if code:
+                    console.print("[blue]Sous-titre detectés[/blue]")
+                    subtitles_file, source , author = get_subtitles(video.watch_url, code)
+                    text = extract_subtitles(subtitles_file)
+                    text = summarize_text(text, client, OLLAMA_MODEL, author)
+                    texts.append(f"Source : {source} (Auteur : {author})\n{text}")
+                else:
+                    console.print("[green]Pas de sous titre detecté -> lancement du transcribe audio[/green]")
+                    audio_file, title, author = download_audio(video.watch_url)
+                    text = transcribe_audio(audio_file, device=args.device, model_size=args.model)
+                    text = summarize_text(text, client, OLLAMA_MODEL, author)
+                    texts.append(f"Source : {source} (Auteur : {author})\n{text}")
+       
             all_texts = "\n\n".join(texts)
             summary = summarize_multi_texts(all_texts, client, OLLAMA_MODEL)
 
