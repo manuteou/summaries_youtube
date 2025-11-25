@@ -47,13 +47,16 @@ def main():
         if args.url:
             code = check_subtitles(args.url)
             if code:
-                console.print("[blue]Sous-titre detecté[/blue]")
                 subtitles_file, title, author = get_subtitles(args.url, code)
+                console.print(f"[blue]video a analyser =>[/blue] [yellow4]{source}[/yellow4]")
+                console.print("[blue]Sous-titre detectés[/blue]")
+                text = extract_subtitles(subtitles_file)
                 result = extract_subtitles(subtitles_file)
 
             else:
-                console.print("[green]Pas de sous titre detecté -> lancement du transcribe audio[/green]")
                 audio_file, title, author = download_audio(args.url)
+                console.print(f"[blue]video a analyser =>[/blue] [yellow4]{source}[/yellow4]")
+                console.print("[yellow]Pas de sous titre detecté[/yellow] -> [green]lancement du transcribe audio[/green]")
                 result = transcribe_audio(audio_file, device=args.device, model_size=args.model)
                 
             
@@ -70,21 +73,23 @@ def main():
             for video in videos:
                 code = check_subtitles(video.watch_url)
                 if code:
-                    console.print("[blue]Sous-titre detectés[/blue]")
                     subtitles_file, source , author = get_subtitles(video.watch_url, code)
+                    console.print(f"[blue]video a analyser =>[/blue] [yellow4]{source}[/yellow4]")
+                    console.print("[blue]Sous-titre detectés[/blue]")
                     text = extract_subtitles(subtitles_file)
                     text = summarize_long_text(text, client, OLLAMA_MODEL, author)
                     texts.append(f"Source : {source} (Auteur : {author})\n{text}")
                 else:
-                    console.print("[orange]Pas de sous titre detecté[/orange] -> [green]lancement du transcribe audio[/green]")
-                    audio_file, title, author = download_audio(video.watch_url)
+                    audio_file, source, author = download_audio(video.watch_url)
+                    console.print(f"[blue]video a analyser =>[/blue] [yellow4]{source}[/yellow4]")
+                    console.print("[yellow]Pas de sous titre detecté[/yellow] -> [green]lancement du transcribe audio[/green]")
                     text = transcribe_audio(audio_file, device=args.device, model_size=args.model)
                     text = summarize_long_text(text, client, OLLAMA_MODEL, author)
                     texts.append(f"Source : {source} (Auteur : {author})\n{text}")
        
             all_texts = "\n\n".join(texts)
             summary = summarize_multi_texts(all_texts, client, OLLAMA_MODEL)
-            final_summary = enhance_markdown(summary)
+            final_summary = enhance_markdown(summary,client, OLLAMA_MODEL)
             md = Markdown(final_summary)
             console.print(md)
             save_summary(final_summary, title, args.output_dir, args.format)

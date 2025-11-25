@@ -14,7 +14,7 @@ def chunk_text(text: str, max_chars: int = 6000) -> List[str]:
                 end = start + max_chars
         chunks.append(text[start:end].strip())
         start = end
-    console.print(f"[green]nombre de partie à analyser {len(chunks)}[/green]")
+    console.print(f"[blue]nombre de partie à analyser[/blue] [yellow4]{len(chunks)}[/yellow4]")
     return chunks
 
 
@@ -70,32 +70,33 @@ def summarize_text(text: str, client, model, author: str) -> str:
 
 
 def summarize_multi_texts(text: str, client, model) -> str:
-    prompt = f"""
-            Voici plusieurs transcriptions issues de différentes sources :
-            {text}
-
-🎯 Objectifs :
-- Produire une synthèse qui couvre **toutes les sources**
-- Mentionner les auteurs dans les sections correspondantes
-- Mettre en évidence les points communs et les divergences
-- Ne pas se limiter à la dernière source
-
-📑 Contraintes de sortie :
-- Langue : français
-- Organisation : titres et sous-titres clairs
-- Style : rédigé en **paragraphes continus**, comme un rapport ou une note de synthèse
-- Ton : neutre, informatif et professionnel
-- Tu nommeras l'auteur dans le titre de chaque section
-
-✅ Bonus :
-- Commence par un titre général du résumé
-- Ajoute une section "Points essentiels" en **paragraphes courts** (pas de puces)
-- Termine par une conclusion synthétique en un paragraphe
-
-🚫 Interdiction :
-- Ne pas utiliser de listes à puces
-- Ne pas donner autre chose que le résumé en sortie
-"""
+    prompt = prompt = f"""
+    Voici plusieurs transcriptions issues de différentes sources :
+    {text}
+    
+    🎯 Objectifs :
+    - Produire une synthèse intégrée qui couvre toutes les sources
+    - Mettre en évidence les points communs et les divergences
+    - Relier les idées dans un texte continu, comme une dissertation
+    - Ne pas se limiter à la dernière source
+    
+    📑 Contraintes de sortie :
+    - Langue : français
+    - Organisation : introduction, développement, conclusion
+    - Style : rédigé en paragraphes continus, argumentés et liés
+    - Ton : neutre, informatif et professionnel
+    - Mentionner les auteurs uniquement dans le flux du texte (pas en titres séparés)
+    
+    ✅ Bonus :
+    - Commencer par une introduction générale qui présente le thème
+    - Développer les arguments en regroupant les sources par thématique
+    - Terminer par une conclusion synthétique en un paragraphe
+    
+    🚫 Interdiction :
+    - Ne pas utiliser de listes à puces
+    - Ne pas donner autre chose que le résumé en sortie
+    - Ne pas structurer par sections ou titres individuels
+    """
     response = client.chat(model=model, messages=[{"role": "user", "content": prompt}])
     return response["message"]["content"]
 
@@ -130,16 +131,16 @@ def summarize_long_text(text: str, client, model, author: str) -> str:
         end = time.time()
         duration = end - start
         partial_summaries.append(summary)
-        console.print(f"[green]analyse {i+1} effectuée en {duration:.2f} secondes[/green]")
+        console.print(f"[blue]analyse[/blue] [yellow4]{i+1}[/yellow4] [blue]effectuée en[/blue] [yellow4]{duration:.2f}[/yellow4] [blue]secondes[/blue]")
 
 
     combined_text = "\n\n".join(partial_summaries)
     start_final = time.time()
     final_summary = summarize_text(combined_text, client, model, author)
     end_final = time.time()
-    console.print(f"[green]résumé final généré en {end_final - start_final:.2f} secondes[/green]")
-    console.print(f"[green]mise en forme effectuée en {end_final - start_final:.2f} secondes[/green]")
+    console.print(f"[blue]résumé final généré en[/blue] [yellow4]{end_final - start_final:.2f}[/yellow4] [blue]secondes[/[blue]]")
+    console.print(f"[blue]mise en forme effectuée en[/blue] [yellow4]{end_final - start_final:.2f}[/yellow4] [blue]secondes[/[blue]]")
     total_end = time.time()
-    console.print(f"[bold green]Travail total effectué en {total_end - total_start:.2f} secondes[/bold green]")
+    console.print(f"[bold green]Travail total effectué en[/bold green] [yellow4]{total_end - total_start:.2f}[/yellow4] [bold green]secondes[/bold green]")
 
     return final_summary
