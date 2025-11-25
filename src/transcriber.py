@@ -19,5 +19,5 @@ def extract_subtitles(fichier_srt):
         if i%3==0:
            text_ligne.append(ligne)
     text = " ".join(text_ligne)
-    
+  
     return text

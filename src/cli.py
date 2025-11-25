@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 
 from downloader import download_audio, search_subject, check_subtitles, get_subtitles
 from transcriber import transcribe_audio, extract_subtitles
-from summarizer import summarize_text, summarize_multi_texts
+from summarizer import summarize_multi_texts, summarize_long_text, enhance_markdown
 from exporter import save_summary
 
 console = Console()
@@ -57,7 +57,7 @@ def main():
                 result = transcribe_audio(audio_file, device=args.device, model_size=args.model)
                 
             
-            summary = summarize_text(result, client, OLLAMA_MODEL, author)
+            summary = summarize_long_text(result, client, OLLAMA_MODEL, author)
             md = Markdown(summary)
             console.print(md)
             save_summary(summary, title, args.output_dir, args.format)
@@ -73,21 +73,21 @@ def main():
                     console.print("[blue]Sous-titre detectés[/blue]")
                     subtitles_file, source , author = get_subtitles(video.watch_url, code)
                     text = extract_subtitles(subtitles_file)
-                    text = summarize_text(text, client, OLLAMA_MODEL, author)
+                    text = summarize_long_text(text, client, OLLAMA_MODEL, author)
                     texts.append(f"Source : {source} (Auteur : {author})\n{text}")
                 else:
-                    console.print("[green]Pas de sous titre detecté -> lancement du transcribe audio[/green]")
+                    console.print("[orange]Pas de sous titre detecté[/orange] -> [green]lancement du transcribe audio[/green]")
                     audio_file, title, author = download_audio(video.watch_url)
                     text = transcribe_audio(audio_file, device=args.device, model_size=args.model)
-                    text = summarize_text(text, client, OLLAMA_MODEL, author)
+                    text = summarize_long_text(text, client, OLLAMA_MODEL, author)
                     texts.append(f"Source : {source} (Auteur : {author})\n{text}")
        
             all_texts = "\n\n".join(texts)
             summary = summarize_multi_texts(all_texts, client, OLLAMA_MODEL)
-
-            md = Markdown(summary)
+            final_summary = enhance_markdown(summary)
+            md = Markdown(final_summary)
             console.print(md)
-            save_summary(summary, title, args.output_dir, args.format)
+            save_summary(final_summary, title, args.output_dir, args.format)
 
         else:
             console.print("[red]Erreur : vous devez fournir --url ou --search[/red]")
