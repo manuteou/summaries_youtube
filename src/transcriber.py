@@ -1,8 +1,8 @@
 import whisper
 import os
 
-def transcribe_audio(audio_file: str, device: str = "cpu", model_size: str = "tiny") -> dict:
-    model = whisper.load_model(model_size, device=device)
+def transcribe_audio(audio_file: str, model_whisper) -> dict:
+    model = model_whisper
     result = model.transcribe(audio_file)
     if os.path.exists(audio_file):
         os.remove(audio_file)

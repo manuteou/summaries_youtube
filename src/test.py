@@ -10,22 +10,14 @@ from rich.console import Console
 from rich.markdown import Markdown
 from exporter import save_summary
 from ollama import Client
-import multiprocessing as mp
-
-from tqdm import tqdm
 import time
-
+from transcriber import transcribe_audio
 from dotenv import load_dotenv
 load_dotenv()
 
 DEVICE = os.getenv("DEVICE")
 MODEL = os.getenv("MODEL")
 
-whisper_model = None
-
-def init_worker():
-    global whisper_model
-    whisper_model = whisper.load_model(MODEL, device=DEVICE)
 
 
 def split_audio_equal(input_file, output_dir, num_segments=10):
@@ -54,42 +46,19 @@ def extract_audio_from_mp4(input_video, output_dir="./test_audio", num_segments=
     return segments
 
 
-def transcribe_audio(audio_file: str) -> str:
-    global whisper_model
-    result = whisper_model.transcribe(audio_file)
-    if os.path.exists(audio_file):
-        os.remove(audio_file)
-    return result['text']
-
-#def transcribe_audio_from_mp4(segments):
-#    text = []
-#    for segment in segments:
-#        data = transcribe_audio(segment)
-#        text.append(data)
-#        os.remove(segment)
-#    print(data)
-#    return data
-
-
 def transcribe_audio_from_mp4(segments):
-    start_time = time.time()  
-    results = []
-
-    with mp.Pool(processes=mp.cpu_count(), initializer=init_worker) as pool:
-        for result in tqdm(pool.imap(transcribe_audio, segments),
-                           total=len(segments),
-                           desc="Transcription en cours",
-                           unit="segment",
-                           dynamic_ncols=True):
-            results.append(result)
-
+    text = []
+    start_time = time.time() 
+    whisper_model = whisper.load_model(MODEL, device=DEVICE)
+    for i,segment in enumerate(segments):
+        print(f"traitement du segement {i} en cours")
+        data = transcribe_audio(segment, whisper_model)
+        text.append(data)
+        os.remove(segment)
     elapsed = time.time() - start_time
     print(f"\n✅ Transcription terminée : {len(segments)} segments traités en {elapsed:.2f} secondes")
-    print(f"⏱ Temps moyen par segment : {elapsed / len(segments):.2f} s")
-    print(f"⚡ Vitesse : {len(segments) / elapsed:.2f} segments/sec")
-
-    return results
-
+    print(data)
+    return data
 
 
 if __name__ == "__main__":
