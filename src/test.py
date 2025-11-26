@@ -17,8 +17,11 @@ load_dotenv()
 
 DEVICE = os.getenv("DEVICE")
 MODEL = os.getenv("MODEL")
+OLLAMA_HOST = os.getenv("OLLAMA_HOST")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL")
 
-
+FFMPEG_DIR = os.getenv("FFMPEG")
+os.environ["PATH"] += os.pathsep + FFMPEG_DIR
 
 def split_audio_equal(input_file, output_dir, num_segments=10):
     audio = AudioSegment.from_file(input_file)
@@ -51,22 +54,20 @@ def transcribe_audio_from_mp4(segments):
     start_time = time.time() 
     whisper_model = whisper.load_model(MODEL, device=DEVICE)
     for i,segment in enumerate(segments):
-        print(f"traitement du segement {i} en cours")
+        print(f"traitement du segement {i+1} en cours")
         data = transcribe_audio(segment, whisper_model)
         text.append(data)
-        os.remove(segment)
+        os.remove(rf"{segment}")
     elapsed = time.time() - start_time
     print(f"\n✅ Transcription terminée : {len(segments)} segments traités en {elapsed:.2f} secondes")
-    print(data)
-    return data
+    return text
 
 
 if __name__ == "__main__":
-    OLLAMA_MODEL="gemma3:4b"
-    OLLAMA_HOST="localhost:11434"
+    
     console = Console()
     client = Client(host=OLLAMA_HOST, headers={"x-some-header": "some-value"})
-    segments = extract_audio_from_mp4("/home/manu/app/summaries_youtube/src/Réunion Pilotage Direction de campus-20251125_093453-Enregistrement de la réunion.mp4")
+    segments = extract_audio_from_mp4(r"C:\Users\froge\Documents\vscode\test_whisper\src\Réunion Pilotage Direction de campus-20251125_093453-Enregistrement de la réunion.mp4")
     texts = transcribe_audio_from_mp4(segments)
     all_texts = "\n\n".join(texts)
     summary =  summarize_long_text(all_texts, client, OLLAMA_MODEL, author="Laura")

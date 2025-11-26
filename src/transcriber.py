@@ -3,9 +3,9 @@ import os
 
 def transcribe_audio(audio_file: str, model_whisper) -> dict:
     model = model_whisper
-    result = model.transcribe(audio_file)
-    if os.path.exists(audio_file):
-        os.remove(audio_file)
+    result = model.transcribe(f"{audio_file}")
+    #if os.path.exists(audio_file):
+    #    os.remove(audio_file)
     return result['text']
 
 
