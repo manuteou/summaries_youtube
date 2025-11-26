@@ -8,6 +8,7 @@ dependencies = [
     "markdown>=3.10",
     "ollama>=0.6.1",
     "openai-whisper>=20250625",
+    "pydub>=0.25.1",
     "python-dotenv>=1.2.1",
     "pytubefix>=10.3.4",
     "rich>=14.2.0",
