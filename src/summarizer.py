@@ -2,6 +2,7 @@ from typing import List
 import time
 from rich.console import Console
 console = Console()
+from utils import write_data
 
 def chunk_text(text: str, max_chars: int = 6000) -> List[str]:
     chunks = []
@@ -20,20 +21,25 @@ def chunk_text(text: str, max_chars: int = 6000) -> List[str]:
 
 def summarize_chunk(text: str, client, model) -> str:
     prompt = f"""
-    Résume efficacement le texte suivant (issu d'une transcription audio) :
+    Tu es un assistant qui doit produire uniquement un résumé.
+
+    Texte à résumer (issu d'une transcription audio) :
     {text}
 
     🎯 Objectifs :
-    - Produire une synthèse claire, concise et fidèle au contenu
+    - Synthèse claire, concise et fidèle au contenu
     - Mettre en avant les idées principales et les points clés
     - Éliminer les détails superflus ou les répétitions
+    - met un titre qui resume les points important du text
 
     📑 Contraintes de sortie :
     - Langue : français
     - Style : ordonné, lisible et professionnel
     - Ton : neutre et informatif
-    - 200 mots au total
-    - pas de conclusion
+    - Longueur : exactement 200 mots (ni plus, ni moins)
+    - Pas de conclusion
+    - La sortie doit être uniquement le résumé demandé
+    - Interdiction absolue d'afficher ton raisonnement, tes étapes ou une partie "think"
     - Il est interdit de donner autre chose que le resumer en sortie
     """
     response = client.chat(model=model, messages=[{"role": "user", "content": prompt}])
@@ -49,6 +55,7 @@ def summarize_text(text: str, client, model, author: str) -> str:
     - Produire une synthèse claire, concise et fidèle au contenu
     - Mettre en avant les idées principales et les points clés
     - Éliminer les détails superflus ou les répétitions
+    - Ne pas se limiter à la dernière source
    
 
     📑 Contraintes de sortie :
@@ -118,25 +125,26 @@ def enhance_markdown(text: str, client, model)-> str:
     response = client.chat(model=model, messages=[{"role": "user", "content": prompt}])
     return response["message"]["content"]
 
-
-def summarize_long_text(text: str, client, model, author: str) -> str:
+def sumarize_part_chunk(text, client):
     chunks = chunk_text(text)
     partial_summaries = []
-
-    total_start = time.time()
-
     for  i,chunk in enumerate(chunks):
         start = time.time()
-        summary = summarize_chunk(chunk, client, model='qwen3:4b')
+        summary = summarize_chunk(chunk, client, model='gemma3:4b')
+        write_data("./chunk_data", summary, i)
         end = time.time()
         duration = end - start
         partial_summaries.append(summary)
         console.print(f"[blue]analyse[/blue] [yellow4]{i+1}[/yellow4] [blue]effectuée en[/blue] [yellow4]{duration:.2f}[/yellow4] [blue]secondes[/blue]")
+    return partial_summaries
 
-
-    combined_text = "\n\n".join(partial_summaries)
+def summarize_long_text(text: str, client, model, author: str, nbr: int =2) -> str:
+    for i in range(nbr):
+        text = sumarize_part_chunk(text,client)
+        text = "\n\n".join(text)
+        write_data("./chunk_data_all", text, i)
     start_final = time.time()
-    final_summary = summarize_text(combined_text, client, model, author)
+    final_summary = summarize_text(text, client, model, author)
     end_final = time.time()
     console.print(f"[blue]résumé final généré en[/blue] [yellow4]{end_final - start_final:.2f}[/yellow4] [blue]secondes[/[blue]]")
     console.print(f"[blue]mise en forme effectuée en[/blue] [yellow4]{end_final - start_final:.2f}[/yellow4] [blue]secondes[/[blue]]")

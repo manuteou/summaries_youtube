@@ -11,13 +11,14 @@ from rich.markdown import Markdown
 from exporter import save_summary
 from ollama import Client
 import time
+from utils import write_data, load_text
 from transcriber import transcribe_audio
 from dotenv import load_dotenv
+import glob
 load_dotenv()
 
 DEVICE = os.getenv("DEVICE")
 MODEL = os.getenv("MODEL")
-
 
 
 def split_audio_equal(input_file, output_dir, num_segments=10):
@@ -49,12 +50,14 @@ def extract_audio_from_mp4(input_video, output_dir="./test_audio", num_segments=
 def transcribe_audio_from_mp4(segments):
     text = []
     start_time = time.time() 
-    whisper_model = whisper.load_model(MODEL, device=DEVICE)
+    whisper_model = whisper.load_model(MODEL, device="cpu")
+    whisper_model.to(DEVICE)
+
     for i,segment in enumerate(segments):
-        print(f"traitement du segement {i} en cours")
+        print(f"traitement du segement {i+1} en cours")
         data = transcribe_audio(segment, whisper_model)
         text.append(data)
-        os.remove(segment)
+        write_data(output_dir="./segment_text", data=data,seg=i)
     elapsed = time.time() - start_time
     print(f"\n✅ Transcription terminée : {len(segments)} segments traités en {elapsed:.2f} secondes")
     print(data)
@@ -62,15 +65,25 @@ def transcribe_audio_from_mp4(segments):
 
 
 if __name__ == "__main__":
+    EXTRACT_AUDIO = False
     OLLAMA_MODEL="gemma3:4b"
     OLLAMA_HOST="localhost:11434"
     console = Console()
     client = Client(host=OLLAMA_HOST, headers={"x-some-header": "some-value"})
-    segments = extract_audio_from_mp4("/home/manu/app/summaries_youtube/src/Réunion Pilotage Direction de campus-20251125_093453-Enregistrement de la réunion.mp4")
-    texts = transcribe_audio_from_mp4(segments)
+    start_time = time.time() 
+    if EXTRACT_AUDIO:
+        segments = extract_audio_from_mp4("/home/manu/app/summaries_youtube/src/Réunion Pilotage Direction de campus-20251125_093453-Enregistrement de la réunion.mp4")
+        texts = transcribe_audio_from_mp4(segments)
+    else:
+        files = glob.glob("./segment_text/*")
+        texts = load_text(files)
+        print(texts)
     all_texts = "\n\n".join(texts)
-    summary =  summarize_long_text(all_texts, client, OLLAMA_MODEL, author="Laura")
+    for i in range(2):
+        summary =  summarize_long_text(all_texts, client, OLLAMA_MODEL, author="Laura")
+        write_data(output_dir="./segment_text", data=all_texts,seg=i)
     final_summary = enhance_markdown(summary,client, OLLAMA_MODEL)
+    
     md = Markdown(final_summary)
     console.print(md)
     title = 'test'

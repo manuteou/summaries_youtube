@@ -3,16 +3,21 @@ name = "test-whisper"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.10,<3.12"
 dependencies = [
-    "markdown>=3.10",
-    "ollama>=0.6.1",
-    "openai-whisper>=20250625",
+    "torch>=2.0,<2.3",
+    "torchvision",
+    "torchaudio",
+    "moviepy",
     "pydub>=0.25.1",
-    "python-dotenv>=1.2.1",
-    "pytubefix>=10.3.4",
     "rich>=14.2.0",
-    "weasyprint>=66.0",
+    "openai-whisper>=20231106",
+    "ollama>=0.6.1",
+    "numpy<2",
 ]
+[tool.uv]
+package = true
+index-url = "https://pypi.org/simple"
+#extra-index-urls = ["https://download.pytorch.org/whl/cu124"]
 [project.scripts]
 summarize-video = "summarize_video.cli:main"
