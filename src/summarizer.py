@@ -96,12 +96,14 @@ def summarize_multi_texts(text: str, client, model) -> str:
     - Relier les idées dans un texte continu, comme une dissertation
     - Ne pas se limiter à la dernière source
     
+    
     📑 Contraintes de sortie :
     - Langue : français
     - Organisation : introduction, développement, conclusion
     - Style : rédigé en paragraphes continus, argumentés et liés
     - Ton : neutre, informatif et professionnel
     - Mentionner les auteurs uniquement dans le flux du texte (pas en titres séparés)
+    - utiliser toutes les sources
     
     ✅ Bonus :
     - Commencer par une introduction générale qui présente le thème
@@ -146,5 +148,12 @@ def sumarize_part_chunk(text, client, model):
 def summarize_long_text(text: str, client, model, author: str) -> str:
     text = sumarize_part_chunk(text,client, model)
     text = "\n\n".join(text)
+    current_time = time.localtime()
+    formatted_time = time.strftime("%H:%M:%S", current_time)
+    write_data(
+        output_dir='/home/manu/app/summaries_youtube/src/chunk_data', 
+        data=text, 
+        seg=f"{author}_{formatted_time}"
+        )
     #final_summary = summarize_text(text, client, model, author)
     return text

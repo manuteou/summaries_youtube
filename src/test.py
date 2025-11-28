@@ -69,7 +69,7 @@ if __name__ == "__main__":
     EXTRACT_AUDIO = True
     console = Console()
     client = Client(host=OLLAMA_HOST, headers={"x-some-header": "some-value"})
-    video_path = r"C:\Users\froge\Documents\vscode\test_whisper\src\Réunion Pilotage Direction de campus-20251125_093453-Enregistrement de la réunion.mp4"
+    video_path = r"/home/manu/app/summaries_youtube/src/Réunion Pilotage Direction de campus-20251125_093453-Enregistrement de la réunion.mp4"
     save_path = "summaries"
     title = video_path.split("\\")[-1].split(".")[0]
     if EXTRACT_AUDIO:
