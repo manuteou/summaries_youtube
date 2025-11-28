@@ -11,8 +11,10 @@ from rich.markdown import Markdown
 from exporter import save_summary
 from ollama import Client
 import time
+import  glob
 from transcriber import transcribe_audio
 from dotenv import load_dotenv
+from utils import load_text
 load_dotenv()
 
 DEVICE = os.getenv("DEVICE")
@@ -64,15 +66,22 @@ def transcribe_audio_from_mp4(segments):
 
 
 if __name__ == "__main__":
-    
+    EXTRACT_AUDIO = False
     console = Console()
     client = Client(host=OLLAMA_HOST, headers={"x-some-header": "some-value"})
-    segments = extract_audio_from_mp4(r"C:\Users\froge\Documents\vscode\test_whisper\src\Réunion Pilotage Direction de campus-20251125_093453-Enregistrement de la réunion.mp4")
-    texts = transcribe_audio_from_mp4(segments)
-    all_texts = "\n\n".join(texts)
-    summary =  summarize_long_text(all_texts, client, OLLAMA_MODEL, author="Laura")
+    video_path = r"C:\Users\froge\Documents\vscode\test_whisper\src\Réunion Pilotage Direction de campus-20251125_093453-Enregistrement de la réunion.mp4"
+    save_path = "summaries"
+    title = video_path.split("\\")[-1].split(".")[0]
+    if EXTRACT_AUDIO:
+        segments = extract_audio_from_mp4("/home/manu/app/summaries_youtube/src/Réunion Pilotage Direction de campus-20251125_093453-Enregistrement de la réunion.mp4")
+        texts = transcribe_audio_from_mp4(segments)
+    else:
+        files = glob.glob("./segment_text/*")
+        texts = load_text(files)
+    summary = "\n\n".join(texts)
+    for _ in range(2):
+        summary =  summarize_long_text(summary, client, OLLAMA_MODEL, author=title)
     final_summary = enhance_markdown(summary,client, OLLAMA_MODEL)
     md = Markdown(final_summary)
     console.print(md)
-    title = 'test'
-    save_summary(final_summary, title, "summaries", "md")
+    save_summary(final_summary, title, save_path , "md")
