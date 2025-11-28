@@ -5,18 +5,6 @@ from tqdm import tqdm
 from utils import write_data
 
 
-def chunk_text(text: str, max_chars: int = 6000) -> List[str]:
-    chunks = []
-    start = 0
-    while start < len(text):
-        end = start + max_chars
-        if end < len(text):
-            end = text.rfind(" ", start, end)
-            if end == -1:
-                end = start + max_chars
-        chunks.append(text[start:end].strip())
-        start = end
-    return chunks
 
 
 def summarize_chunk(text: str, client, model) -> str:
@@ -85,10 +73,14 @@ Texte à résumer (issu d'une transcription audio) :
     return response["message"]["content"]
 
 
-def summarize_multi_texts(text: str, client, model) -> str:
+def summarize_multi_texts(search: str, text: str, client, model) -> str:
     prompt = prompt = f"""
-    Voici plusieurs transcriptions issues de différentes sources :
-    {text}
+    
+    
+Tu dois rédiger une synthèse complète sur le sujet suivant : {search}.
+Utilise exclusivement les informations contenues dans les transcriptions ci-dessous (issues de différentes sources) :
+{text}
+
     
     🎯 Objectifs :
     - Produire une synthèse intégrée qui couvre toutes les sources
@@ -135,6 +127,18 @@ def enhance_markdown(text: str, client, model)-> str:
     response = client.chat(model=model, messages=[{"role": "user", "content": prompt}])
     return response["message"]["content"]
 
+def chunk_text(text: str, max_chars: int = 6000) -> List[str]:
+    chunks = []
+    start = 0
+    while start < len(text):
+        end = start + max_chars
+        if end < len(text):
+            end = text.rfind(" ", start, end)
+            if end == -1:
+                end = start + max_chars
+        chunks.append(text[start:end].strip())
+        start = end
+    return chunks
 
 def sumarize_part_chunk(text, client, model):
     chunks = chunk_text(text)
@@ -155,5 +159,4 @@ def summarize_long_text(text: str, client, model, author: str) -> str:
         data=text, 
         seg=f"{author}_{formatted_time}"
         )
-    #final_summary = summarize_text(text, client, model, author)
     return text
