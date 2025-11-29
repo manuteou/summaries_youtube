@@ -11,7 +11,7 @@ from pathlib import Path
 
 from downloader import  YouTubeAudioProcessor
 from transcriber import WhisperTranscriber
-from summarizer import summarize_multi_texts, summarize_long_text, enhance_markdown
+from summarizer import summarize_multi_texts, summarize_long_text, enhance_markdown, check_synthese
 from exporter import save_summary
 
 
@@ -55,6 +55,11 @@ def process_single_video(args, client, transcribe):
     save_summary(summary, source, args.output_dir, args.format)
 
 
+def check_result(text, serach, client):
+    check_valide_search = check_synthese(text, serach, client, OLLAMA_MODEL)
+    return check_valide_search
+
+
 def process_multiple_videos(args, client, transcribe, processor):
     videos = processor.search_subject(args.search)
     texts = []
@@ -62,10 +67,17 @@ def process_multiple_videos(args, client, transcribe, processor):
         text, source, author = get_video_text(video.watch_url, args.device, args.model, transcribe, processor)
         text = summarize_long_text(text, client, OLLAMA_MODEL, author)
         texts.append(f"Source : {source} (Auteur : {author})\n{text}")
-    summary = "\n\n== Text suivant ==".join(texts)
-    for _ in range(2):
-        summary = summarize_multi_texts(args.search, summary, client, OLLAMA_MODEL)
-  
+    
+    check = False
+    for attempt in range(3):
+        if not check:
+            summary = "\n\n== Text suivant ==".join(texts)
+        for _ in range(2):
+            summary = summarize_multi_texts(args.search, summary, client, OLLAMA_MODEL)
+        check = eval(check_result(text, args.search, client))
+        if check:
+            break
+
     summary = enhance_markdown(summary, client, OLLAMA_MODEL)
     md = Markdown(summary)
     console.print(md)

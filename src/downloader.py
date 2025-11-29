@@ -8,9 +8,10 @@ from pydub import AudioSegment
 from utils import slugify
 
 class YouTubeAudioProcessor:
-    def __init__(self, output_dir: str, num_segments: int = 10):
+    def __init__(self, output_dir: str, num_segments: int = 10, source: int = 3):
         self.output_dir = output_dir
         self.num_segments = num_segments
+        self.source = source
         os.makedirs(output_dir, exist_ok=True)
 
     def download_audio(self, url: str) -> tuple[str, str, str]:
@@ -25,7 +26,7 @@ class YouTubeAudioProcessor:
         filters = Filter.create().type(Filter.Type.VIDEO)
         s = Search(subject, filters=filters)
         non_shorts = [v for v in s.results if v not in s.shorts]
-        return non_shorts[:5]
+        return non_shorts[:self.source]
 
     def check_subtitles(self, url: str):
         yt = YouTube(url, on_progress_callback=on_progress)
