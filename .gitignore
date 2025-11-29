@@ -18,3 +18,11 @@ src/summaries/*
 ffmpeg/
 *.mp4
 *.m4a 
+
+# Test and debug
+test_output/
+*.pdf
+debug_*.py
+debug_*.html
+test_*.py
+summaries/

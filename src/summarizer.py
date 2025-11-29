@@ -28,7 +28,7 @@ Texte à résumer (issu d'une transcription audio) :
 - Langue : français
 - Style : ordonné, lisible et professionnel
 - Ton : neutre et informatif
-- Longueur : exactement 200 mots (ni plus, ni moins)
+- Longueur : environ 200 mots
 - Pas de conclusion
 - La sortie doit être uniquement le résumé demandé
 - Interdiction absolue d'afficher ton raisonnement, tes étapes ou une partie "think"
@@ -61,7 +61,7 @@ Texte à résumer (issu d'une transcription audio) :
 - Langue : français
 - Style : ordonné, lisible et professionnel
 - Ton : neutre et informatif
-- Longueur : exactement 200 mots (ni plus, ni moins)
+- Longueur : environ 200 mots
 - Pas de conclusion
 - La sortie doit être uniquement le résumé demandé
 - Interdiction absolue d'afficher ton raisonnement, tes étapes ou une partie "think"
@@ -76,7 +76,7 @@ Texte à résumer (issu d'une transcription audio) :
 
 
     def summarize_multi_texts(self, search: str, text: str) -> str:
-        prompt = prompt = f"""
+        prompt = f"""
 Tu dois rédiger une synthèse complète sur le sujet suivant : {search}.
 Utilise exclusivement les informations contenues dans les transcriptions ci-dessous (issues de différentes sources) :
 {text}
@@ -112,17 +112,24 @@ Utilise exclusivement les informations contenues dans les transcriptions ci-dess
 
 
     def enhance_markdown(self, text: str)-> str:
-        prompt = f"""Transforme le texte suivant en **Markdown** structuré et hiérarchisé,
-                en respectant strictement ces contraintes :
+        prompt = f"""
+            Tu es un expert en édition et mise en page de documents.
+            Ta mission est de transformer le texte brut suivant en un document Markdown **visuellement impeccable et très lisible**.
 
-                - Langue : français
-                - Format : Markdown avec titres, sous-titres clairs et paragraphes
-                - Conserver **tous les mots du texte original sans les modifier, supprimer ou reformuler**
-                - Ne pas résumer, ne pas paraphraser, ne pas ajouter de contenu
+            Objectifs de mise en forme :
+            - Utilise une hiérarchie de titres claire (H1, H2, H3).
+            - Utilise des **listes à puces** pour énumérer les points.
+            - Mets en **gras** les concepts clés et les termes importants.
+            - Utilise des > citations pour les passages marquants.
+            - Aère le texte avec des sauts de ligne appropriés.
+            
+            Contraintes :
+            - Le contenu informatif doit rester le même (pas de suppression d'information).
+            - Tu peux reformuler légèrement les phrases pour améliorer la fluidité et le style professionnel.
+            - Le résultat doit être prêt à être publié.
 
-                Texte à mettre en forme :
-                {text}
-
+            Texte à sublimer :
+            {text}
             """
         response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}])
         return response["message"]["content"]
@@ -130,11 +137,16 @@ Utilise exclusivement les informations contenues dans les transcriptions ci-dess
 
     def check_synthese(self, text: str, subject: str):
         prompt = f"""
-            Tu es un validateur.
-            Tu dois valider que ce texte {text} parle majoritairement de ce sujet {subject}.
-            📑 Contraintes de sortie :
-            Réponds uniquement par True ou False.
-            exemple de sortie : True
+            Tu es un validateur automatique.
+            Ton rôle est de vérifier si le texte fourni traite principalement du sujet demandé.
+
+            Sujet attendu : {subject}
+            Texte à analyser : {text}
+
+            Consigne stricte :
+            - Si le texte parle bien de ce sujet, réponds uniquement : True
+            - Sinon, réponds uniquement : False
+            - Ne donne aucune explication, aucun autre mot.
             """
         response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}])
         return response["message"]["content"]
