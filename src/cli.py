@@ -157,6 +157,9 @@ def check_result(text, serach, summarizer):
 def process_multiple_videos(args, summarizer, transcribe, processor):
     videos = processor.search_subject(args.search)
     texts = []
+    if not videos:
+        console.print(f"[yellow]Aucune vidéo trouvée pour la recherche : {args.search}[/yellow]")
+        return
     for video in videos:
         text, source, author = get_video_text(video.watch_url, args.device, args.model, transcribe, processor)
         text = summarizer.summarize_long_text(text, author)
@@ -168,7 +171,7 @@ def process_multiple_videos(args, summarizer, transcribe, processor):
             summary = "\n\n== Text suivant ==".join(texts)
         for _ in range(2):
             summary = summarizer.summarize_multi_texts(args.search, summary)
-        check = eval(check_result(text, args.search, summarizer))
+        check = eval(check_result(summary, args.search, summarizer))
         if check:
             break
 
