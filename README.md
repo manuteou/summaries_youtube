@@ -2,7 +2,8 @@
 Un script CLI qui permet :
 - soit de résumer une vidéo YouTube à partir de son URL,
 - soit de faire une synthèse multi‑sources en lançant une recherche YouTube.
-Dans les deux cas, l’audio est téléchargé, transcrit avec Whisper, puis résumé grâce à Ollama.
+- soit de faire une synthèse à partir d'une video mp4.
+Dans tout les cas, l’audio ou les sous titre sont téléchargés, transcrit avec Whisper si nécessaire, puis résumé grâce à Ollama.
 Le tout est exporté en Markdown ou txt pour une utilisation simple.
 
 🚀 Fonctionnalités
@@ -10,9 +11,10 @@ Le tout est exporté en Markdown ou txt pour une utilisation simple.
 - 📝 Transcription locale avec Whisper
 - 🤖 Résumé ou synthèse généré(e) par un modèle Ollama
 - 📂 Export automatique dans le répertoire de sortie
-- 🔀 Deux modes disponibles :
+- 🔀 Trois modes disponibles :
 - --url → résumé d’une seule vidéo
 - --search → synthèse multi‑vidéos à partir d’un sujet
+- --video-path → synthèse à partir d'une video mp4
 - ⚙️ Configuration flexible via fichier .env
 
 📂 Structure
@@ -51,5 +53,12 @@ python cli.py --search "impact de l'IA sur l'informatique"
 
 # Avec uv
 uv run cli.py --search "impact de l'IA sur l'informatique"
+
+3. Synthèse vidéos mp4
+# Méthode classique
+python cli.py --video-path "le path du fichier.mp4"
+
+# Avec uv
+uv run cli.py --video-path "le path du fichier.mp4"
 
 

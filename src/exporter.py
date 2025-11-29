@@ -3,9 +3,6 @@ from datetime import datetime
 from utils import slugify
 
 def save_summary(summary: str, title: str, output_dir: str, fmt: str):
-    """
-    Sauvegarde le résumé dans un fichier Markdown (.md) ou texte brut (.txt).
-    """
     os.makedirs(output_dir, exist_ok=True)
     slug = slugify(title)
     date_str = datetime.now().strftime("%Y-%m-%d")
@@ -16,7 +13,6 @@ def save_summary(summary: str, title: str, output_dir: str, fmt: str):
         with open(output_file, "w", encoding="utf-8") as f:
             f.write(summary)
     elif fmt == "txt":
-        # On enlève la syntaxe Markdown pour un rendu brut
         plain_text = summary.replace("**", "").replace("#", "").replace("-", "")
         with open(output_file, "w", encoding="utf-8") as f:
             f.write(plain_text.strip())
