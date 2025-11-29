@@ -14,6 +14,7 @@ dependencies = [
     "openai-whisper>=20231106",
     "ollama>=0.6.1",
     "numpy<2",
+    "pytubefix>=10.3.5",
 ]
 [tool.uv]
 package = true

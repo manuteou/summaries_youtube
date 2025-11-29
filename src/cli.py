@@ -7,6 +7,7 @@ from rich.console import Console
 from rich.markdown import Markdown
 from ollama import Client
 from dotenv import load_dotenv
+from pathlib import Path
 
 from downloader import  YouTubeAudioProcessor
 from transcriber import WhisperTranscriber
@@ -72,19 +73,14 @@ def process_multiple_videos(args, client, transcribe, processor):
 
 
 def process_video_path(args, client, transcribe, processor):
-    #segments = processor.extract_audio_from_mp4(args.video_path)
-    #summary = transcribe.transcribe_segments(segments)
-    
-    title = args.video_path.split("/")[-1].split(".")[0]
-    import glob
-    from utils import load_text
-    files = glob.glob("./segment_text/*")
-    
-    segments = load_text(files)
+    video_path = Path(args.video_path)
+    segments = processor.extract_audio_from_mp4(video_path)
+    summary = transcribe.transcribe_segments(segments)
+    title = video_path.stem
     summary = "\n\n".join(segments)
     for _ in range(2):
         summary =  summarize_long_text(summary, client, OLLAMA_MODEL, author=title)
-    #[os.remove(path) for path in segments]
+    [os.remove(path) for path in segments]
     md = Markdown(summary)
     console.print(md)
     save_summary(summary, title, args.output_dir, args.format) 
@@ -104,7 +100,7 @@ def main():
 
     try:
         transcribe = WhisperTranscriber(model_size=args.model, device=args.device)
-        processor = YouTubeAudioProcessor(output_dir="./audio_segments", num_segments=5)
+        processor = YouTubeAudioProcessor(output_dir="./audio_segments")
         client = Client(host=OLLAMA_HOST)
         
         if args.url:

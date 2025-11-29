@@ -8,7 +8,7 @@ from pydub import AudioSegment
 from utils import slugify
 
 class YouTubeAudioProcessor:
-    def __init__(self, output_dir: str = "./downloads", num_segments: int = 10):
+    def __init__(self, output_dir: str, num_segments: int = 10):
         self.output_dir = output_dir
         self.num_segments = num_segments
         os.makedirs(output_dir, exist_ok=True)
@@ -58,4 +58,4 @@ class YouTubeAudioProcessor:
             segment_path = os.path.join(self.output_dir, f"segment_{i}.mp3")
             segment.export(segment_path, format="mp3")
             segments.append(segment_path)
-            return segments
+        return segments
