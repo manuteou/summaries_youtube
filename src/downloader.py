@@ -3,7 +3,7 @@ import os
 from pytubefix import YouTube
 from pytubefix.cli import on_progress
 from pytubefix.contrib.search import Search, Filter
-from moviepy import AudioFileClip
+import subprocess
 from pydub import AudioSegment
 from utils import slugify
 
@@ -41,8 +41,17 @@ class YouTubeAudioProcessor:
 
     def extract_audio_from_mp4(self, input_video: str) -> list[str]:
         audio_path = os.path.join(self.output_dir, "full_audio.mp3")
-        audio = AudioFileClip(input_video)
-        audio.write_audiofile(audio_path, codec="mp3", bitrate="80k")
+        
+        command = [
+            "ffmpeg",
+            "-i", input_video,
+            "-vn",
+            "-acodec", "libmp3lame",
+            "-ab", "80k",
+            "-y",
+            audio_path
+        ]
+        subprocess.run(command, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         segments = self.split_audio_equal(audio_path)
         os.remove(audio_path)
         return segments
