@@ -92,7 +92,7 @@ def process_video_path(args, summarizer, transcribe, processor):
     summary = "\n\n".join(summary)
     for _ in range(2):
         summary =  summarizer.summarize_long_text(summary, author=title)
-    [os.remove(path) for path in segments]
+    # [os.remove(path) for path in segments]
     md = Markdown(summary)
     console.print(md)
     save_summary(summary, title, args.output_dir, args.format) 

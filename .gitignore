@@ -15,4 +15,6 @@ uv.lock
 src/summaries/*
 .env
 .python-version
-ffmpeg/*git 
+ffmpeg/
+*.mp4
+*.m4a 
