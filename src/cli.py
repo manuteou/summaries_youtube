@@ -19,7 +19,7 @@ console = Console()
 load_dotenv()
 
 DEVICE = os.getenv("DEVICE")
-MODEL = os.getenv("MODEL")
+MODEL = os.getenv("MODEL", "medium")
 OUTPUT_DIR = os.getenv("OUTPUT_DIR")
 FORMAT = os.getenv("FORMAT")
 OLLAMA_HOST = os.getenv("OLLAMA_HOST")
