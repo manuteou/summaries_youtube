@@ -11,7 +11,7 @@ from pathlib import Path
 
 from downloader import  YouTubeAudioProcessor
 from transcriber import WhisperTranscriber
-from summarizer import summarize_multi_texts, summarize_long_text, enhance_markdown, check_synthese
+from summarizer import Summarizer
 from exporter import save_summary
 
 
@@ -42,30 +42,30 @@ def get_video_text(url, device, model, transcribe, processor):
         audio_file, title, author = processor.download_audio(url)
         console.print(f"[blue]video a analyser =>[/blue] [yellow4]{title}[/yellow4]")
         console.print("[yellow]Pas de sous titre detecté[/yellow] -> [green]lancement du transcribe audio[/green]")
-        result = transcribe.transcribe_audio(audio_file, device=device, model_size=model)
+        result = transcribe.transcribe_audio(audio_file)
 
     return result, title, author
 
 
-def process_single_video(args, client, transcribe):
+def process_single_video(args, summarizer, transcribe):
     text, source, author = get_video_text(args.url, args.device, args.model, transcribe)
-    summary = summarize_long_text(text, client, OLLAMA_MODEL, author)
+    summary = summarizer.summarize_long_text(text, author)
     md = Markdown(summary)
     console.print(md)
     save_summary(summary, source, args.output_dir, args.format)
 
 
-def check_result(text, serach, client):
-    check_valide_search = check_synthese(text, serach, client, OLLAMA_MODEL)
+def check_result(text, serach, summarizer):
+    check_valide_search = summarizer.check_synthese(text, serach)
     return check_valide_search
 
 
-def process_multiple_videos(args, client, transcribe, processor):
+def process_multiple_videos(args, summarizer, transcribe, processor):
     videos = processor.search_subject(args.search)
     texts = []
     for video in videos:
         text, source, author = get_video_text(video.watch_url, args.device, args.model, transcribe, processor)
-        text = summarize_long_text(text, client, OLLAMA_MODEL, author)
+        text = summarizer.summarize_long_text(text, author)
         texts.append(f"Source : {source} (Auteur : {author})\n{text}")
     
     check = False
@@ -73,25 +73,25 @@ def process_multiple_videos(args, client, transcribe, processor):
         if not check:
             summary = "\n\n== Text suivant ==".join(texts)
         for _ in range(2):
-            summary = summarize_multi_texts(args.search, summary, client, OLLAMA_MODEL)
-        check = eval(check_result(text, args.search, client))
+            summary = summarizer.summarize_multi_texts(args.search, summary)
+        check = eval(check_result(text, args.search, summarizer))
         if check:
             break
 
-    summary = enhance_markdown(summary, client, OLLAMA_MODEL)
+    summary = summarizer.enhance_markdown(summary)
     md = Markdown(summary)
     console.print(md)
     save_summary(summary,args.search, args.output_dir, args.format)
 
 
-def process_video_path(args, client, transcribe, processor):
+def process_video_path(args, summarizer, transcribe, processor):
     video_path = Path(args.video_path)
     segments = processor.extract_audio_from_mp4(video_path)
     summary = transcribe.transcribe_segments(segments)
     title = video_path.stem
-    summary = "\n\n".join(segments)
+    summary = "\n\n".join(summary)
     for _ in range(2):
-        summary =  summarize_long_text(summary, client, OLLAMA_MODEL, author=title)
+        summary =  summarizer.summarize_long_text(summary, author=title)
     [os.remove(path) for path in segments]
     md = Markdown(summary)
     console.print(md)
@@ -114,13 +114,14 @@ def main():
         transcribe = WhisperTranscriber(model_size=args.model, device=args.device)
         processor = YouTubeAudioProcessor(output_dir="./audio_segments")
         client = Client(host=OLLAMA_HOST)
+        summarizer = Summarizer(client, OLLAMA_MODEL)
         
         if args.url:
-            process_single_video(args, client, transcribe, processor)
+            process_single_video(args, summarizer, transcribe, processor)
         elif args.search:
-            process_multiple_videos(args, client, transcribe, processor)
+            process_multiple_videos(args, summarizer, transcribe, processor)
         elif args.video_path:
-            process_video_path(args, client, transcribe, processor)
+            process_video_path(args, summarizer, transcribe, processor)
         else:
             console.print("[red]Erreur : vous devez fournir --url ou --search[/red]")
 

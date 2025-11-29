@@ -1,4 +1,4 @@
-from summarizer import summarize_text
+from summarizer import Summarizer
 
 class DummyClient:
     def chat(self, model, messages):
@@ -6,5 +6,6 @@ class DummyClient:
 
 def test_summarize_text():
     client = DummyClient()
-    result = summarize_text("Texte de test", client)
+    summarizer = Summarizer(client, "model")
+    result = summarizer.summarize_text("Texte de test", "author")
     assert "Résumé" in result
