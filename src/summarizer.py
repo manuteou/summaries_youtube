@@ -75,8 +75,6 @@ Texte à résumer (issu d'une transcription audio) :
 
 def summarize_multi_texts(search: str, text: str, client, model) -> str:
     prompt = prompt = f"""
-    
-    
 Tu dois rédiger une synthèse complète sur le sujet suivant : {search}.
 Utilise exclusivement les informations contenues dans les transcriptions ci-dessous (issues de différentes sources) :
 {text}
@@ -127,6 +125,19 @@ def enhance_markdown(text: str, client, model)-> str:
     response = client.chat(model=model, messages=[{"role": "user", "content": prompt}])
     return response["message"]["content"]
 
+
+def check_synthese(text: str, subject: str, client, model):
+    prompt = f"""
+            Tu es un validateur.
+            Tu dois valider que ce texte {text} parle majoritairement de ce sujet {subject}.
+            📑 Contraintes de sortie :
+            Réponds uniquement par True ou False.
+            exemple de sortie : True
+            """
+    response = client.chat(model=model, messages=[{"role": "user", "content": prompt}])
+    return response["message"]["content"]
+
+
 def chunk_text(text: str, max_chars: int = 6000) -> List[str]:
     chunks = []
     start = 0
@@ -153,7 +164,7 @@ def summarize_long_text(text: str, client, model, author: str) -> str:
     text = sumarize_part_chunk(text,client, model)
     text = "\n\n".join(text)
     current_time = time.localtime()
-    formatted_time = time.strftime("%H:%M:%S", current_time)
+    formatted_time = time.strftime("%H-%M-%S", current_time)
     write_data(
         output_dir='/home/manu/app/summaries_youtube/src/chunk_data', 
         data=text, 
