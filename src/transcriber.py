@@ -11,8 +11,6 @@ class WhisperTranscriber:
 
     def transcribe_audio(self, audio_file: str) -> str:
         result = self.model.transcribe(audio_file)
-        if os.path.exists(audio_file):
-            os.remove(audio_file)
         return result['text']
 
     @staticmethod
