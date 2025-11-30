@@ -26,7 +26,7 @@ Texte à résumer (issu d'une transcription audio) :
 
 📑 Contraintes de sortie :
 - Langue : français
-- Style : ordonné, lisible et professionnel
+- Style : rédigé en paragraphes clairs et professionnels
 - Ton : neutre et informatif
 - Longueur : environ 200 mots
 - Pas de conclusion
@@ -34,6 +34,7 @@ Texte à résumer (issu d'une transcription audio) :
 - Interdiction absolue d'afficher ton raisonnement, tes étapes ou une partie "think"
 - Il est interdit de donner autre chose que le résumé en sortie
 - Interdiction d'utiliser les mots "Résumé", "Ce résumé", "Résumé des points clés", "Ce document" dans les titres ou le texte
+- Éviter les listes à puces, privilégier la rédaction
 """
 
         response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}])
@@ -59,7 +60,7 @@ Texte à résumer (issu d'une transcription audio) :
 
 📑 Contraintes de sortie :
 - Langue : français
-- Style : ordonné, lisible et professionnel
+- Style : rédigé en paragraphes clairs et professionnels
 - Ton : neutre et informatif
 - Longueur : environ 200 mots
 - Pas de conclusion
@@ -70,6 +71,7 @@ Texte à résumer (issu d'une transcription audio) :
 - Le résumé doit être structuré en deux sections : 
   1. Informations descendantes
   2. Actions attendues
+- Éviter les listes à puces, privilégier la rédaction
 """
         response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}])
         return response["message"]["content"]
@@ -92,14 +94,14 @@ Utilise exclusivement les informations contenues dans les transcriptions ci-dess
     📑 Contraintes de sortie :
     - Langue : français
     - Organisation : introduction, développement, conclusion
-    - Style : rédigé en paragraphes continus, argumentés et liés
+    - Style : rédigé en paragraphes étoffés, argumentés et liés
     - Ton : neutre, informatif et professionnel
     - Mentionner les auteurs uniquement dans le flux du texte (pas en titres séparés)
-    - utiliser toutes les sources
+    - Utiliser toutes les sources pour enrichir le contenu
     
     ✅ Bonus :
     - Commencer par une introduction générale qui présente le thème
-    - Développer les arguments en regroupant les sources par thématique
+    - Développer les arguments en regroupant les sources par thématique dans des paragraphes détaillés
     - Terminer par une conclusion synthétique en un paragraphe
     
     🚫 Interdiction :
@@ -118,7 +120,7 @@ Utilise exclusivement les informations contenues dans les transcriptions ci-dess
 
             Objectifs de mise en forme :
             - Utilise une hiérarchie de titres claire (H1, H2, H3).
-            - Utilise des **listes à puces** pour énumérer les points.
+            - Privilégie les **paragraphes** pour le texte.
             - Mets en **gras** les concepts clés et les termes importants.
             - Utilise des > citations pour les passages marquants.
             - Aère le texte avec des sauts de ligne appropriés.
@@ -180,7 +182,7 @@ Utilise exclusivement les informations contenues dans les transcriptions ci-dess
         current_time = time.localtime()
         formatted_time = time.strftime("%H-%M-%S", current_time)
         write_data(
-            output_dir='/home/manu/app/summaries_youtube/src/chunk_data', 
+            output_dir='chunk_data', 
             data=text, 
             seg=f"{author}_{formatted_time}"
             )

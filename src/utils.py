@@ -12,7 +12,8 @@ def slugify(value: str) -> str:
 def write_data(output_dir, data, seg):
     output_dir = Path(output_dir)       
     output_dir.mkdir(parents=True, exist_ok=True) 
-    file_path = output_dir / f"segment_{seg}.txt" 
+    safe_seg = slugify(str(seg))
+    file_path = output_dir / f"segment_{safe_seg}.txt" 
     with file_path.open("w", encoding="utf-8") as file:
         file.write(data)
 
