@@ -1,6 +1,8 @@
 import argparse
 import os
 import warnings
+import shutil
+
 warnings.filterwarnings("ignore")
 
 from rich.console import Console
@@ -95,113 +97,22 @@ def process_video_path(args, summarizer, transcribe, processor, exporter):
     summary = transcribe.transcribe_segments(segments)
     title = video_path.stem
     summary = "\n\n".join(summary)
-    for _ in range(2):
-        summary =  summarizer.summarize_long_text(summary, author=title)
-    # [os.remove(path) for path in segments]
-import argparse
-import os
-import warnings
-warnings.filterwarnings("ignore")
-
-from rich.console import Console
-from rich.markdown import Markdown
-from ollama import Client
-from dotenv import load_dotenv
-from pathlib import Path
-
-from downloader import  YouTubeAudioProcessor
-from transcriber import WhisperTranscriber
-from summarizer import Summarizer
-from exporter import Exporter
-
-
-console = Console()
-load_dotenv()
-
-DEVICE = os.getenv("DEVICE")
-MODEL = os.getenv("MODEL", "medium")
-OUTPUT_DIR = os.getenv("OUTPUT_DIR")
-FORMAT = os.getenv("FORMAT")
-OLLAMA_HOST = os.getenv("OLLAMA_HOST")
-OLLAMA_MODEL = os.getenv("OLLAMA_MODEL")
-FFMPEG_DIR = os.getenv("FFMPEG")
-
-if FFMPEG_DIR:
-    os.environ["PATH"] += os.pathsep + FFMPEG_DIR
-
-
-def get_video_text(url, device, model, transcribe, processor):
-    code = processor.check_subtitles(url)
-    if code:
-        subtitles_file, title, author = processor.get_subtitles(url, code)
-        console.print(f"[blue]video a analyser =>[/blue] [yellow4]{title}[/yellow4]")
-        console.print("[blue]Sous-titre detectés[/blue]")
-        result = transcribe.extract_subtitles(subtitles_file)
-
-    else:
-        audio_file, title, author = processor.download_audio(url)
-        console.print(f"[blue]video a analyser =>[/blue] [yellow4]{title}[/yellow4]")
-        console.print("[yellow]Pas de sous titre detecté[/yellow] -> [green]lancement du transcribe audio[/green]")
-        result = transcribe.transcribe_audio(audio_file)
-
-    return result, title, author
-
-
-def process_single_video(args, summarizer, transcribe, processor, exporter):
-    text, source, author = get_video_text(args.url, args.device, args.model, transcribe, processor)
-    summary = summarizer.summarize_long_text(text, author)
-    md = Markdown(summary)
-    console.print(md)
-    source_info = [{"title": source, "url": args.url}]
-    exporter.save_summary(summary, source, args.format, source_info)
-
-
-def check_result(text, serach, summarizer):
-    check_valide_search = summarizer.check_synthese(text, serach)
-    return check_valide_search
-
-
-def process_multiple_videos(args, summarizer, transcribe, processor, exporter):
-    videos = processor.search_subject(args.search)
-    texts = []
-    if not videos:
-        console.print(f"[yellow]Aucune vidéo trouvée pour la recherche : {args.search}[/yellow]")
-        return
-    for video in videos:
-        text, source, author = get_video_text(video.watch_url, args.device, args.model, transcribe, processor)
-        text = summarizer.summarize_long_text(text, author)
-        texts.append(f"Source : {source} (Auteur : {author})\n{text}")
     
-    check = False
-    for attempt in range(3):
-        if not check:
-            summary = "\n\n== Text suivant ==".join(texts)
-        for _ in range(2):
-            summary = summarizer.summarize_multi_texts(args.search, summary)
-        check = eval(check_result(summary, args.search, summarizer))
-        if check:
-            break
+    # 1. Generate detailed summary (one pass only)
+    detailed_summary = summarizer.summarize_long_text(summary, author=title)
+    
+    # 2. Generate global analysis if type is long
+    if args.type == "long":
+        global_analysis = summarizer.generate_global_analysis(detailed_summary)
+        final_output = f"{global_analysis}\n\n---\n\n# Détails des Sections\n\n{detailed_summary}"
+    else:
+        final_output = detailed_summary
 
-    summary = summarizer.enhance_markdown(summary)
-    md = Markdown(summary)
-    console.print(md)
-    source_info = [{"title": v.title, "url": v.watch_url} for v in videos]
-    exporter.save_summary(summary, args.search, args.format, source_info)
-
-
-def process_video_path(args, summarizer, transcribe, processor, exporter):
-    video_path = Path(args.video_path)
-    segments = processor.extract_audio_from_mp4(video_path)
-    summary = transcribe.transcribe_segments(segments)
-    title = video_path.stem
-    summary = "\n\n".join(summary)
-    for _ in range(2):
-        summary =  summarizer.summarize_long_text(summary, author=title)
     # [os.remove(path) for path in segments]
-    md = Markdown(summary)
+    md = Markdown(final_output)
     console.print(md)
     source_info = [{"title": title, "url": str(video_path.absolute())}]
-    exporter.save_summary(summary, title, args.format, source_info) 
+    exporter.save_summary(final_output, title, args.format, source_info) 
 
 
 def main():
@@ -217,6 +128,11 @@ def main():
     parser.add_argument("--type", default="short", choices=["short", "medium", "long"], help="Type de résumé : short (concis), medium (équilibré), long (exhaustif)")
     args = parser.parse_args()
 
+  
+    chunk_data_dir = os.path.join("src", "chunk_data")
+    if os.path.exists(chunk_data_dir):
+        shutil.rmtree(chunk_data_dir)
+    os.makedirs(chunk_data_dir, exist_ok=True)
 
     try:
         transcribe = WhisperTranscriber(model_size=args.model, device=args.device)

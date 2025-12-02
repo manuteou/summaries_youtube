@@ -12,9 +12,9 @@ class Summarizer:
 
     def _get_chunk_size(self) -> int:
         if self.summary_type == "long":
-            return 20000
-        elif self.summary_type == "medium":
             return 10000
+        elif self.summary_type == "medium":
+            return 20000
         return 6000
 
     def _get_prompts(self, text: str, context: str = "chunk") -> str:
@@ -122,11 +122,14 @@ Texte à résumer :
 {text}
 
 🎯 Objectifs :
-- Produire un résumé équilibré : ni trop concis, ni trop verbeux.
+- Produire un résumé équilibré et STRUCTURÉ.
 - Capturer l'essentiel tout en conservant les nuances importantes.
 - Développer les points clés avec des explications claires.
-- Développer les points clés avec des explications claires.
-- Structurer le contenu avec des titres thématiques pertinents.
+
+STRUCTURE OBLIGATOIRE :
+- Utilise des **Titres H2 (##)** pour les grandes thématiques.
+- Utilise des **Titres H3 (###)** pour les sous-sections.
+- Le but est de générer un sommaire détaillé automatiquement.
 
 📑 Contraintes :
 - Langue : français
@@ -135,6 +138,7 @@ Texte à résumer :
 - Pas de méta-commentaires (ex: "Voici le résumé").
 - COMMENCER DIRECTEMENT par le contenu.
 - Ton IMPERSONNEL et OBJECTIF. Pas de "Je", "Mon", "Nous".
+- NE JAMAIS inventer de dates, de lieux ou de noms s'ils ne sont pas explicitement dans le texte.
 - Interdiction d'utiliser les mots "Résumé", "Ce résumé", "Résumé des points clés", "Ce document"
 """
             elif context == "full_text":
@@ -145,10 +149,14 @@ Texte à résumer :
 {text}
 
 🎯 Objectifs :
-- Fournir une vue d'ensemble complète et structurée.
+- Fournir une vue d'ensemble complète et STRUCTURÉE.
 - Détailler les informations descendantes et les actions attendues.
-- Conserver le contexte et les nuances des propos tenus.
 - Hiérarchiser l'information par importance.
+
+STRUCTURE OBLIGATOIRE :
+- Utilise des **Titres H2 (##)** pour les sections principales.
+- Utilise des **Titres H3 (###)** pour les détails spécifiques.
+- Cela permettra de générer une table des matières claire.
 
 📑 Contraintes :
 - Langue : français
@@ -157,6 +165,7 @@ Texte à résumer :
 - Style : Rédaction soignée, paragraphes bien construits.
 - COMMENCER DIRECTEMENT par le contenu.
 - Ton IMPERSONNEL et OBJECTIF. Pas de "Je", "Mon", "Nous".
+- NE JAMAIS inventer de dates, de lieux ou de noms s'ils ne sont pas explicitement dans le texte.
 - Interdiction d'utiliser les mots "Résumé", "Ce résumé", "Résumé des points clés", "Ce document"
 """
             elif context == "multi":
@@ -169,8 +178,11 @@ Sources :
 🎯 Objectifs :
 - Croiser les informations des différentes sources.
 - Identifier les tendances et les consensus.
-- Noter les points de désaccord ou les perspectives uniques.
 - Produire un texte cohérent et fluide.
+
+STRUCTURE OBLIGATOIRE :
+- Utilise des **Titres H2 (##)** pour les axes d'analyse.
+- Utilise des **Titres H3 (###)** pour les points de détail.
 
 📑 Contraintes :
 - Langue : français
@@ -178,6 +190,8 @@ Sources :
 - Structure : Introduction -> Analyse thématique -> Conclusion.
 - COMMENCER DIRECTEMENT par le contenu.
 - Ton IMPERSONNEL et OBJECTIF. Pas de "Je", "Mon", "Nous".
+- FUSIONNER les informations. NE PAS dire "Les sources disent", "La première vidéo...". Rédiger un texte unique et cohérent.
+- NE JAMAIS inventer de dates, de lieux ou de noms s'ils ne sont pas explicitement dans le texte.
 - Interdiction d'utiliser les mots "Résumé", "Ce résumé", "Résumé des points clés", "Ce document"
 """
 
@@ -185,70 +199,84 @@ Sources :
         elif self.summary_type == "long":
             if context == "chunk":
                 return f"""
-Tu es un archiviste expert chargé de créer un compte-rendu exhaustif.
-
 Texte à traiter :
 {text}
 
-🎯 Objectifs :
-- NE RIEN OMETTRE : capture tous les détails, chiffres, noms, et nuances.
-- Produire un compte-rendu extrêmement détaillé, proche du verbatim mais restructuré.
-- Développer chaque idée au maximum de son potentiel informatif.
-- Utiliser des titres très descriptifs pour chaque section.
+Tu es un moteur d'extraction d'information. Ta tâche est de traiter une SECTION d'un document plus large.
 
-📑 Contraintes :
-- Langue : français
-- Longueur : ILLIMITÉE (aussi long que nécessaire pour être exhaustif).
-- Style : Formel, précis, dense en informations.
-- Pas de résumé sommaire, on veut du détail.
-- COMMENCER DIRECTEMENT par le contenu.
-- Ton IMPERSONNEL et OBJECTIF. Pas de "Je", "Mon", "Nous".
-- Interdiction d'utiliser les mots "Résumé", "Ce résumé", "Résumé des points clés", "Ce document"
+CONSIGNES DE RÉDACTION :
+1.  **Contexte** : Tu traites une partie d'un tout. NE METS PAS de titre principal (H1) comme "Compte-Rendu". Utilise des H2 ou H3 pour structurer le contenu de cette section.
+2.  **Exhaustivité** : Capture tous les détails, chiffres, noms et nuances de cette section.
+3.  **Fidélité** : Reste strictement fidèle au texte source.
+
+CONTRAINTES STRICTES (A RESPECTER IMPÉRATIVEMENT) :
+-   **PAS DE TITRE DE DOCUMENT** : Ne commence pas par "Introduction" ou "Compte-Rendu". Rentre directement dans le vif du sujet de cette section.
+-   **NE JAMAIS** inventer de dates, de lieux, de noms ou de faits.
+-   **NE PAS** utiliser l'expression "Compte-Rendu Exhaustif".
+-   **PAS DE MÉTA-COMMENTAIRE**.
+-   **SORTIE PURE**.
 """
             elif context == "full_text":
                 return f"""
-Tu es un expert en documentation technique et administrative.
-
 Texte à traiter :
 {text}
 
-🎯 Objectifs :
-- Produire un document de référence complet.
-- Détailler minutieusement toutes les décisions, annonces, et débats.
-- Lister toutes les actions avec leur contexte complet.
-- Restituer la chronologie ou la logique des arguments si pertinent.
+Tu es un moteur de documentation technique. Ta tâche est de produire un document de référence complet à partir du texte ci-dessus.
 
-📑 Contraintes :
-- Langue : français
-- Longueur : ILLIMITÉE.
-- Structure : Très structurée (H1, H2, H3), utilisation de gras pour les points cruciaux.
-- Le but est de remplacer la lecture du transcript original par ce document.
-- COMMENCER DIRECTEMENT par le contenu.
-- Ton IMPERSONNEL et OBJECTIF. Pas de "Je", "Mon", "Nous".
-- Interdiction d'utiliser les mots "Résumé", "Ce résumé", "Résumé des points clés", "Ce document"
+CONSIGNES DE RÉDACTION :
+1.  **Profondeur** : Détaille minutieusement toutes les décisions, annonces et débats.
+2.  **Structure** : Utilise une hiérarchie claire (H1, H2, H3).
+3.  **Contexte** : Liste toutes les actions avec leur contexte complet.
+
+CONTRAINTES STRICTES (A RESPECTER IMPÉRATIVEMENT) :
+-   **NE JAMAIS** inventer de dates, de lieux, de noms ou de faits. Les titres doivent être basés uniquement sur le contenu réel.
+-   **NE PAS** utiliser l'expression "Compte-Rendu Exhaustif" (ni dans le titre, ni dans le texte).
+-   **PAS DE MÉTA-COMMENTAIRE** : Ne dis pas "Voici le document", "Note : Ce compte-rendu...".
+-   **PAS DE BARATIN** : Pas de phrases de remplissage. Va droit au but.
+-   **SORTIE PURE** : Ton output doit contenir UNIQUEMENT le document structuré.
 """
             elif context == "multi":
                 return f"""
-Réalise une thèse ou un dossier complet sur le sujet : {text['search']}.
-
 Sources :
 {text['content']}
 
-🎯 Objectifs :
-- Analyser en profondeur chaque aspect du sujet à travers les sources.
-- Confronter les points de vue avec précision.
-- Fournir une analyse critique et détaillée.
-- Intégrer un maximum de citations ou de références précises au contenu.
+Sujet : {text['search']}
 
-📑 Contraintes :
-- Langue : français
-- Longueur : ILLIMITÉE (viser l'exhaustivité totale).
-- Format : Dossier complet avec sommaire implicite (Introduction, Contexte, Analyse détaillée par axe, Synthèse, Conclusion).
-- COMMENCER DIRECTEMENT par le contenu.
-- Ton IMPERSONNEL et OBJECTIF. Pas de "Je", "Mon", "Nous".
-- Interdiction d'utiliser les mots "Résumé", "Ce résumé", "Résumé des points clés", "Ce document"
+Tu es un moteur de synthèse analytique. Ta tâche est de réaliser un dossier complet sur le sujet demandé en utilisant les sources fournies.
+
+CONSIGNES DE RÉDACTION :
+1.  **Analyse** : Analyse en profondeur chaque aspect du sujet.
+2.  **Confrontation** : Confronte les points de vue des différentes sources.
+3.  **Fusion** : Rédige un texte unique et cohérent (ne dis pas "La source 1 dit...").
+
+CONTRAINTES STRICTES (A RESPECTER IMPÉRATIVEMENT) :
+-   **NE JAMAIS** inventer de dates, de lieux ou de faits non présents dans les sources.
+-   **NE PAS** utiliser l'expression "Compte-Rendu Exhaustif".
+-   **PAS DE MÉTA-COMMENTAIRE** : Ne dis pas "Voici la synthèse", "Parfait", "Note...".
+-   **SORTIE PURE** : Ton output doit contenir UNIQUEMENT le dossier complet.
 """
         return ""
+
+    def generate_global_analysis(self, text: str) -> str:
+        prompt = f"""
+        Tu es un analyste expert. Voici un compte-rendu détaillé composé de plusieurs sections :
+        {text}
+        
+        Ta tâche est de rédiger une SYNTHÈSE ANALYTIQUE GLOBALE qui servira d'introduction au document.
+        
+        Objectifs :
+        1. Identifier les thèmes majeurs transversaux.
+        2. Résumer les décisions clés et les actions à entreprendre.
+        3. Offrir une vue d'hélicoptère du contenu.
+        
+        CONTRAINTES STRICTES :
+        - Titre : "Synthèse Analytique Globale" (H1)
+        - Pas de méta-commentaires.
+        - Pas d'hallucinations.
+        - Ne pas utiliser "Compte-Rendu Exhaustif".
+        """
+        response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}], options={"num_ctx": 8192, "num_predict":-1})
+        return response["message"]["content"]
 
     def summarize_chunk(self, text: str) -> str:
         prompt = self._get_prompts(text, context="chunk")

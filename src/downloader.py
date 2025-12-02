@@ -59,11 +59,24 @@ class YouTubeAudioProcessor:
     def split_audio_equal(self, input_file: str) -> list[str]:
         audio = AudioSegment.from_file(input_file)
         duration = len(audio)
-        segment_length = duration // self.num_segments
+        # 10 minutes in milliseconds
+        segment_length = 10 * 60 * 1000
+        
+        # If video is shorter than segment_length, keep it as one segment
+        if duration <= segment_length:
+            num_segments = 1
+        else:
+            num_segments = (duration // segment_length) + 1
+
         segments = []
-        for i in range(self.num_segments):
+        for i in range(num_segments):
             start = i * segment_length
-            end = start + segment_length if i < self.num_segments - 1 else duration
+            end = min((i + 1) * segment_length, duration)
+            
+            # Avoid creating empty segment if duration is exact multiple
+            if start >= duration:
+                break
+                
             segment = audio[start:end]
             segment_path = os.path.join(self.output_dir, f"segment_{i}.mp3")
             segment.export(segment_path, format="mp3")
