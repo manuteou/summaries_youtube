@@ -26,7 +26,7 @@ class YouTubeAudioProcessor:
         filters = Filter.create().type(Filter.Type.VIDEO)
         s = Search(subject, filters=filters)
         non_shorts = [v for v in s.results if v not in s.shorts]
-        return non_shorts[:self.source]
+        return non_shorts
 
     def check_subtitles(self, url: str):
         yt = YouTube(url, on_progress_callback=on_progress)

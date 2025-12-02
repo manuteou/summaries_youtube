@@ -1,6 +1,8 @@
 import re
 import os
+import shutil
 from pathlib import Path
+from typing import List
 
 def slugify(value: str) -> str:
     value = value.lower()
@@ -26,3 +28,9 @@ def load_text(paths):
         with path.open("r", encoding="utf-8") as f:
             text.append(f.read())
     return text
+
+def clean_files(list_path: List[str]):
+    for path in list_path:
+        if os.path.exists(path):
+            shutil.rmtree(path)
+        os.makedirs(path, exist_ok=True)    

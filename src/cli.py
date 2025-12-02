@@ -1,12 +1,13 @@
 import argparse
 import os
 import warnings
-import shutil
+
 
 warnings.filterwarnings("ignore")
 
 from rich.console import Console
 from rich.markdown import Markdown
+from rich.prompt import Confirm
 from ollama import Client
 from dotenv import load_dotenv
 from pathlib import Path
@@ -15,7 +16,7 @@ from downloader import  YouTubeAudioProcessor
 from transcriber import WhisperTranscriber
 from summarizer import Summarizer
 from exporter import Exporter
-
+from utils import clean_files
 
 console = Console()
 load_dotenv()
@@ -68,8 +69,27 @@ def process_multiple_videos(args, summarizer, transcribe, processor, exporter):
     texts = []
     if not videos:
         console.print(f"[yellow]Aucune vidéo trouvée pour la recherche : {args.search}[/yellow]")
+        console.print("[red]Aucune vidéo sélectionnée. Fin du programme.[/red]")
         return
+
+    selected_videos = []
     for video in videos:
+        if len(selected_videos) >= args.limit:
+            break
+
+        console.print(f"\n[bold blue]Vidéo trouvée :[/bold blue] {video.title}")
+        console.print(f"[dim]Auteur : {video.author} | URL : {video.watch_url}[/dim]")
+        
+        if Confirm.ask("Voulez-vous traiter cette vidéo ?", default=True, console=console):
+            selected_videos.append(video)
+        else:
+            console.print("[yellow]Vidéo ignorée.[/yellow]")
+
+    if not selected_videos:
+        console.print("[red]Aucune vidéo sélectionnée. Fin du programme.[/red]")
+        return
+
+    for video in selected_videos:
         text, source, author = get_video_text(video.watch_url, args.device, args.model, transcribe, processor)
         text = summarizer.summarize_long_text(text, author)
         texts.append(f"Source : {source} (Auteur : {author})\n{text}")
@@ -87,7 +107,7 @@ def process_multiple_videos(args, summarizer, transcribe, processor, exporter):
     summary = summarizer.enhance_markdown(summary)
     md = Markdown(summary)
     console.print(md)
-    source_info = [{"title": v.title, "url": v.watch_url} for v in videos]
+    source_info = [{"title": v.title, "url": v.watch_url} for v in selected_videos]
     exporter.save_summary(summary, args.search, args.format, source_info)
 
 
@@ -107,8 +127,7 @@ def process_video_path(args, summarizer, transcribe, processor, exporter):
         final_output = f"{global_analysis}\n\n---\n\n# Détails des Sections\n\n{detailed_summary}"
     else:
         final_output = detailed_summary
-
-    # [os.remove(path) for path in segments]
+  
     md = Markdown(final_output)
     console.print(md)
     source_info = [{"title": title, "url": str(video_path.absolute())}]
@@ -128,11 +147,8 @@ def main():
     parser.add_argument("--type", default="short", choices=["short", "medium", "long"], help="Type de résumé : short (concis), medium (équilibré), long (exhaustif)")
     args = parser.parse_args()
 
-  
-    chunk_data_dir = os.path.join("src", "chunk_data")
-    if os.path.exists(chunk_data_dir):
-        shutil.rmtree(chunk_data_dir)
-    os.makedirs(chunk_data_dir, exist_ok=True)
+    list_path = ["./audio_segments", "./chunk_data", "./segments_text"]
+    clean_files(list_path)
 
     try:
         transcribe = WhisperTranscriber(model_size=args.model, device=args.device)

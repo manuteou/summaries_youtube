@@ -81,36 +81,24 @@ Texte à résumer (issu d'une transcription audio) :
 """
             elif context == "multi":
                 return f"""
-Tu dois rédiger une synthèse complète sur le sujet suivant : {text['search']}.
-Utilise exclusivement les informations contenues dans les transcriptions ci-dessous (issues de différentes sources) :
-{text['content']}
+Tu es un rédacteur professionnel. Ta mission est de créer une synthèse concise à partir des informations suivantes :
+Sujet : {text['search']}
+Sources : {text['content']}
 
-    
-    🎯 Objectifs :
-    - Produire une synthèse intégrée qui couvre toutes les sources
-    - Mettre en évidence les points communs et les divergences
-    - Relier les idées dans un texte continu, comme une dissertation
-    - Ne pas se limiter à la dernière source
-    
-    
-    📑 Contraintes de sortie :
-    - Langue : français
-    - Organisation : introduction, développement, conclusion
-    - Style : rédigé en paragraphes étoffés, argumentés et liés
-    - Ton : neutre, informatif et professionnel
-    - Mentionner les auteurs uniquement dans le flux du texte (pas en titres séparés)
-    - Utiliser toutes les sources pour enrichir le contenu
-    
-    ✅ Bonus :
-    - Commencer par une introduction générale qui présente le thème
-    - Développer les arguments en regroupant les sources par thématique dans des paragraphes détaillés
-    - Terminer par une conclusion synthétique en un paragraphe
-    
-    🚫 Interdiction :
-    - Ne pas utiliser de listes à puces
-    - Ne pas donner autre chose que le résumé en sortie
-    - Ne pas structurer par sections ou titres individuels
-    """
+🎯 Objectif :
+Produire un texte fluide et direct qui synthétise les informations clés des différentes sources sur le sujet demandé.
+
+⛔ CONTRAINTES STRICTES (A RESPECTER IMPÉRATIVEMENT) :
+- PAS de méta-commentaires (ex: "Voici le résumé", "Ce document présente...", "Dans cette synthèse...").
+- PAS de phrases introductives sur ta méthode de travail (ex: "Cette tâche requiert...", "L'objectif est de...").
+- PAS de plan annoncé (ex: "Nous verrons d'abord...").
+- COMMENCE DIRECTEMENT par le contenu du sujet.
+- Ton neutre et informatif.
+- Pas de listes à puces. Utilise des paragraphes.
+- Langue : Français.
+
+Le résultat doit ressembler à un article de presse ou une note de synthèse professionnelle, pas à une réponse de chatbot.
+"""
 
         # --- MEDIUM MODE (Balanced) ---
         elif self.summary_type == "medium":
@@ -312,6 +300,11 @@ CONTRAINTES STRICTES (A RESPECTER IMPÉRATIVEMENT) :
             - Le contenu informatif doit rester le même (pas de suppression d'information).
             - Tu peux reformuler légèrement les phrases pour améliorer la fluidité et le style professionnel.
             - Le résultat doit être prêt à être publié.
+            
+            ⛔ CONTRAINTES STRICTES (A RESPECTER IMPÉRATIVEMENT) :
+            - PAS de méta-commentaires (ex: "Voici le texte...", "J'ai amélioré...").
+            - PAS de phrases introductives.
+            - SORTIE PURE : Uniquement le code Markdown du document.
 
             Texte à sublimer :
             {text}
