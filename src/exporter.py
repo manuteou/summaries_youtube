@@ -18,7 +18,11 @@ class Exporter:
         for source in source_info:
             title = source.get("title", "Inconnu")
             url = source.get("url", "#")
-            sources_text += f"- [{title}]({url})\n"
+            date = source.get("date")
+            if date:
+                sources_text += f"- [{title} ({date})]({url})\n"
+            else:
+                sources_text += f"- [{title}]({url})\n"
         return sources_text
 
     def save_md(self, summary: str, output_file: str, source_info=None):

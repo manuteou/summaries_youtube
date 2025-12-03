@@ -3,6 +3,41 @@ import os
 import shutil
 from pathlib import Path
 from typing import List
+from datetime import datetime, timezone
+
+def time_since(date_obj: datetime) -> str:
+    """
+    Returns a string representing the time elapsed since the given date.
+    E.g., "il y a 2 ans", "il y a 3 mois", "il y a 5 jours".
+    """
+    if not date_obj:
+        return "Date inconnue"
+    
+    # Ensure date_obj is timezone-aware if it's not
+    if date_obj.tzinfo is None:
+        date_obj = date_obj.replace(tzinfo=timezone.utc)
+        
+    now = datetime.now(timezone.utc)
+    diff = now - date_obj
+    
+    seconds = diff.total_seconds()
+    
+    intervals = (
+        ('ans', 31536000),  # 60 * 60 * 24 * 365
+        ('mois', 2592000),  # 60 * 60 * 24 * 30
+        ('semaines', 604800), # 60 * 60 * 24 * 7
+        ('jours', 86400),    # 60 * 60 * 24
+        ('heures', 3600),    # 60 * 60
+        ('minutes', 60),
+        ('secondes', 1),
+    )
+    
+    for name, count in intervals:
+        value = seconds // count
+        if value >= 1:
+            return f"il y a {int(value)} {name}"
+            
+    return "à l'instant"
 
 def slugify(value: str) -> str:
     value = value.lower()

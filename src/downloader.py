@@ -14,16 +14,16 @@ class YouTubeAudioProcessor:
         self.source = source
         os.makedirs(output_dir, exist_ok=True)
 
-    def download_audio(self, url: str) -> tuple[str, str, str]:
+    def download_audio(self, url: str) -> tuple[str, str, str, str]:
         yt = YouTube(url, on_progress_callback=on_progress)
         ys = yt.streams.get_audio_only()
         safe_title = slugify(yt.title)
         filename = f"{safe_title}.m4a"
         audio_file = ys.download(filename=filename)
-        return audio_file, yt.title, yt.author
+        return audio_file, yt.title, yt.author, yt.publish_date
 
     def search_subject(self, subject: str):
-        filters = Filter.create().type(Filter.Type.VIDEO)
+        filters = Filter.create().type(Filter.Type.VIDEO).sort_by(Filter.SortBy.UPLOAD_DATE)
         s = Search(subject, filters=filters)
         non_shorts = [v for v in s.results if v not in s.shorts]
         return non_shorts
@@ -37,7 +37,7 @@ class YouTubeAudioProcessor:
         yt = YouTube(url, on_progress_callback=on_progress)
         caption = yt.captions[code]
         title = yt.title if yt.title else "inconnue"
-        return caption.generate_srt_captions(), title, yt.author
+        return caption.generate_srt_captions(), title, yt.author, yt.publish_date
 
     def extract_audio_from_mp4(self, input_video: str) -> list[str]:
         audio_path = os.path.join(self.output_dir, "full_audio.mp3")

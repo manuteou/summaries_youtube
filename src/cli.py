@@ -16,7 +16,8 @@ from downloader import  YouTubeAudioProcessor
 from transcriber import WhisperTranscriber
 from summarizer import Summarizer
 from exporter import Exporter
-from utils import clean_files
+from exporter import Exporter
+from utils import clean_files, time_since
 
 console = Console()
 load_dotenv()
@@ -36,26 +37,26 @@ if FFMPEG_DIR:
 def get_video_text(url, device, model, transcribe, processor):
     code = processor.check_subtitles(url)
     if code:
-        subtitles_file, title, author = processor.get_subtitles(url, code)
-        console.print(f"[blue]video a analyser =>[/blue] [yellow4]{title}[/yellow4]")
+        subtitles_file, title, author, date = processor.get_subtitles(url, code)
+        console.print(f"[blue]video a analyser =>[/blue] [yellow4]{title}[/yellow4] [dim]({date})[/dim]")
         console.print("[blue]Sous-titre detectés[/blue]")
         result = transcribe.extract_subtitles(subtitles_file)
 
     else:
-        audio_file, title, author = processor.download_audio(url)
-        console.print(f"[blue]video a analyser =>[/blue] [yellow4]{title}[/yellow4]")
+        audio_file, title, author, date = processor.download_audio(url)
+        console.print(f"[blue]video a analyser =>[/blue] [yellow4]{title}[/yellow4] [dim]({date})[/dim]")
         console.print("[yellow]Pas de sous titre detecté[/yellow] -> [green]lancement du transcribe audio[/green]")
         result = transcribe.transcribe_audio(audio_file)
 
-    return result, title, author
+    return result, title, author, date
 
 
 def process_single_video(args, summarizer, transcribe, processor, exporter):
-    text, source, author = get_video_text(args.url, args.device, args.model, transcribe, processor)
+    text, source, author, date = get_video_text(args.url, args.device, args.model, transcribe, processor)
     summary = summarizer.summarize_long_text(text, author)
     md = Markdown(summary)
     console.print(md)
-    source_info = [{"title": source, "url": args.url}]
+    source_info = [{"title": source, "url": args.url, "date": date}]
     exporter.save_summary(summary, source, args.format, source_info)
 
 
@@ -78,7 +79,8 @@ def process_multiple_videos(args, summarizer, transcribe, processor, exporter):
             break
 
         console.print(f"\n[bold blue]Vidéo trouvée :[/bold blue] {video.title}")
-        console.print(f"[dim]Auteur : {video.author} | URL : {video.watch_url}[/dim]")
+        relative_date = time_since(video.publish_date)
+        console.print(f"[dim]Auteur : {video.author} | Date : {relative_date} | URL : {video.watch_url}[/dim]")
         
         if Confirm.ask("Voulez-vous traiter cette vidéo ?", default=True, console=console):
             selected_videos.append(video)
@@ -90,9 +92,9 @@ def process_multiple_videos(args, summarizer, transcribe, processor, exporter):
         return
 
     for video in selected_videos:
-        text, source, author = get_video_text(video.watch_url, args.device, args.model, transcribe, processor)
+        text, source, author, date = get_video_text(video.watch_url, args.device, args.model, transcribe, processor)
         text = summarizer.summarize_long_text(text, author)
-        texts.append(f"Source : {source} (Auteur : {author})\n{text}")
+        texts.append(f"Source : {source} (Auteur : {author}, Date: {date})\n{text}")
     
     check = False
     for attempt in range(3):
@@ -107,7 +109,7 @@ def process_multiple_videos(args, summarizer, transcribe, processor, exporter):
     summary = summarizer.enhance_markdown(summary)
     md = Markdown(summary)
     console.print(md)
-    source_info = [{"title": v.title, "url": v.watch_url} for v in selected_videos]
+    source_info = [{"title": v.title, "url": v.watch_url, "date": v.publish_date} for v in selected_videos]
     exporter.save_summary(summary, args.search, args.format, source_info)
 
 
