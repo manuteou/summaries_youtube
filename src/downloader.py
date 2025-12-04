@@ -36,6 +36,14 @@ class YouTubeAudioProcessor:
         non_shorts = [v for v in s.results if v not in s.shorts]
         return non_shorts
 
+    def get_search_object(self, subject: str):
+        filters = Filter.create().type(Filter.Type.VIDEO).sort_by(Filter.SortBy.UPLOAD_DATE)
+        return Search(subject, filters=filters)
+
+    def fetch_next(self, search_obj):
+        search_obj.get_next_results()
+        return [v for v in search_obj.results if v not in search_obj.shorts]
+
     def check_subtitles(self, url: str):
         yt = YouTube(url, on_progress_callback=on_progress)
         cles_fr = [cle for cle in yt.captions.keys() if "fr" in cle.code or "en" in cle.code]

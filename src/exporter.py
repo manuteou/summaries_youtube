@@ -80,7 +80,7 @@ class Exporter:
             </style>
         </head>
         <body>
-            <div class="doc-title">{title}</div>
+            <p class="doc-title">{title}</p>
             
             <pdf:nexttemplate name="toc_template" />
             <pdf:nextpage />

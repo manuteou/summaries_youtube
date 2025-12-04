@@ -1,0 +1,7 @@
+**Popularité des Langages de Programmation en 2023**
+
+Le langage de programmation le plus employé par les développeurs au niveau mondial est le JavaScript, occupant la première place.  Le Ruby, bien qu’ayant connu une régression constante depuis 2018, se situe en neuvième position. Le shell, utilisé pour l'interaction avec les terminaux Linux, se classe à la septième position. Le PHP subit une régression continue mais reste l’un des langages les plus accessibles.
+
+Le C++ se maintient en sixième position, représentant une moitié du classement. Le TypeScript, introduisant une nouvelle syntaxe au sein de JavaScript, occupe la troisième marche du podium. Le Java est largement utilisé dans le développement d’applications mobiles, notamment pour le système d'exploitation Android. 
+
+Le langage le plus polyvalent et en constante évolution, le Python, conserve sa position de premier langage de programmation, en raison de sa grande popularité auprès des développeurs. Les campus et les participants doivent prendre en compte l'évolution rapide de ces technologies pour s’adapter aux demandes du marché.

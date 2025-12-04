@@ -11,6 +11,7 @@ Le tout est exporté en Markdown ou txt pour une utilisation simple.
 - 📝 Transcription locale avec Whisper
 - 🤖 Résumé ou synthèse généré(e) par un modèle Ollama
 - 📂 Export automatique dans le répertoire de sortie
+- 🖥️ Interface graphique (Streamlit) pour une expérience visuelle
 - 🔀 Trois modes disponibles :
 - --url → résumé d’une seule vidéo
 - --search → synthèse multi‑vidéos à partir d’un sujet
@@ -61,6 +62,30 @@ python cli.py --video-path "le path du fichier.mp4" --type short
 
 # Avec uv
 uv run cli.py --video-path "le path du fichier.mp4"
+
+4. Mode Manuel (CLI)
+Permet de construire manuellement une liste de vidéos à traiter.
+
+# Méthode classique
+python cli.py --manual
+
+# Avec uv
+uv run cli.py --manual
+
+
+5. Interface Graphique (Streamlit)
+Profitez d'une interface visuelle pour rechercher, sélectionner et éditer vos résumés.
+
+Fonctionnalités de l'app :
+- 🔍 **Recherche Visuelle** : Aperçu des miniatures et détails des vidéos
+- ✍️ **Mode Manuel** : Ajout simple d'URLs
+- 📁 **Fichier Local** : Traitement de vidéos MP4
+- 📝 **Édition** : Modifiez le résumé final avant de l'exporter
+
+# Lancement
+uv run streamlit run src/app.py
+# ou
+streamlit run src/app.py
 
 
 🎯 Options de Résumé (`--type`)

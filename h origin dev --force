@@ -1,0 +1,237 @@
+[1mdiff --git a/pyproject.toml b/pyproject.toml[m
+[1mindex 1573cbe..ef3b0f9 100644[m
+[1m--- a/pyproject.toml[m
+[1m+++ b/pyproject.toml[m
+[36m@@ -3,21 +3,17 @@[m [mname = "test-whisper"[m
+ version = "0.1.0"[m
+ description = "Add your description here"[m
+ readme = "README.md"[m
+[31m-requires-python = ">=3.10,<3.12"[m
+[32m+[m[32mrequires-python = ">=3.12"[m
+ dependencies = [[m
+[31m-    "torch>=2.0,<2.3",[m
+[31m-    "torchvision",[m
+[31m-    "torchaudio",[m
+[31m-    "moviepy",[m
+[32m+[m[32m    "markdown>=3.10",[m
+[32m+[m[32m    "moviepy>=2.2.1",[m
+[32m+[m[32m    "ollama>=0.6.1",[m
+[32m+[m[32m    "openai-whisper>=20250625",[m
+     "pydub>=0.25.1",[m
+[32m+[m[32m    "python-dotenv>=1.2.1",[m
+[32m+[m[32m    "pytubefix>=10.3.4",[m
+     "rich>=14.2.0",[m
+[31m-    "openai-whisper>=20231106",[m
+[31m-    "ollama>=0.6.1",[m
+[31m-    "numpy<2",[m
+[32m+[m[32m    "weasyprint>=66.0",[m
+ ][m
+[31m-[tool.uv][m
+[31m-package = true[m
+[31m-index-url = "https://pypi.org/simple"[m
+[31m-#extra-index-urls = ["https://download.pytorch.org/whl/cu124"][m
+ [project.scripts][m
+ summarize-video = "summarize_video.cli:main"[m
+[1mdiff --git a/src/summarizer.py b/src/summarizer.py[m
+[1mindex f120ea6..7af2862 100644[m
+[1m--- a/src/summarizer.py[m
+[1m+++ b/src/summarizer.py[m
+[36m@@ -2,7 +2,6 @@[m [mfrom typing import List[m
+ import time[m
+ from rich.console import Console[m
+ console = Console()[m
+[31m-from utils import write_data[m
+ [m
+ def chunk_text(text: str, max_chars: int = 6000) -> List[str]:[m
+     chunks = [][m
+[36m@@ -21,25 +20,20 @@[m [mdef chunk_text(text: str, max_chars: int = 6000) -> List[str]:[m
+ [m
+ def summarize_chunk(text: str, client, model) -> str:[m
+     prompt = f"""[m
+[31m-    Tu es un assistant qui doit produire uniquement un résumé.[m
+[31m-[m
+[31m-    Texte à résumer (issu d'une transcription audio) :[m
+[32m+[m[32m    Résume efficacement le texte suivant (issu d'une transcription audio) :[m
+     {text}[m
+ [m
+     🎯 Objectifs :[m
+[31m-    - Synthèse claire, concise et fidèle au contenu[m
+[32m+[m[32m    - Produire une synthèse claire, concise et fidèle au contenu[m
+     - Mettre en avant les idées principales et les points clés[m
+     - Éliminer les détails superflus ou les répétitions[m
+[31m-    - met un titre qui resume les points important du text[m
+ [m
+     📑 Contraintes de sortie :[m
+     - Langue : français[m
+     - Style : ordonné, lisible et professionnel[m
+     - Ton : neutre et informatif[m
+[31m-    - Longueur : exactement 200 mots (ni plus, ni moins)[m
+[31m-    - Pas de conclusion[m
+[31m-    - La sortie doit être uniquement le résumé demandé[m
+[31m-    - Interdiction absolue d'afficher ton raisonnement, tes étapes ou une partie "think"[m
+[32m+[m[32m    - 200 mots au total[m
+[32m+[m[32m    - pas de conclusion[m
+     - Il est interdit de donner autre chose que le resumer en sortie[m
+     """[m
+     response = client.chat(model=model, messages=[{"role": "user", "content": prompt}])[m
+[36m@@ -55,7 +49,6 @@[m [mdef summarize_text(text: str, client, model, author: str) -> str:[m
+     - Produire une synthèse claire, concise et fidèle au contenu[m
+     - Mettre en avant les idées principales et les points clés[m
+     - Éliminer les détails superflus ou les répétitions[m
+[31m-    - Ne pas se limiter à la dernière source[m
+    [m
+ [m
+     📑 Contraintes de sortie :[m
+[36m@@ -125,26 +118,25 @@[m [mdef enhance_markdown(text: str, client, model)-> str:[m
+     response = client.chat(model=model, messages=[{"role": "user", "content": prompt}])[m
+     return response["message"]["content"][m
+ [m
+[31m-def sumarize_part_chunk(text, client):[m
+[32m+[m
+[32m+[m[32mdef summarize_long_text(text: str, client, model, author: str) -> str:[m
+     chunks = chunk_text(text)[m
+     partial_summaries = [][m
+[32m+[m
+[32m+[m[32m    total_start = time.time()[m
+[32m+[m
+     for  i,chunk in enumerate(chunks):[m
+         start = time.time()[m
+[31m-        summary = summarize_chunk(chunk, client, model='gemma3:4b')[m
+[31m-        write_data("./chunk_data", summary, i)[m
+[32m+[m[32m        summary = summarize_chunk(chunk, client, model='qwen3:4b')[m
+         end = time.time()[m
+         duration = end - start[m
+         partial_summaries.append(summary)[m
+         console.print(f"[blue]analyse[/blue] [yellow4]{i+1}[/yellow4] [blue]effectuée en[/blue] [yellow4]{duration:.2f}[/yellow4] [blue]secondes[/blue]")[m
+[31m-    return partial_summaries[m
+ [m
+[31m-def summarize_long_text(text: str, client, model, author: str, nbr: int =2) -> str:[m
+[31m-    for i in range(nbr):[m
+[31m-        text = sumarize_part_chunk(text,client)[m
+[31m-        text = "\n\n".join(text)[m
+[31m-        write_data("./chunk_data_all", text, i)[m
+[32m+[m
+[32m+[m[32m    combined_text = "\n\n".join(partial_summaries)[m
+     start_final = time.time()[m
+[31m-    final_summary = summarize_text(text, client, model, author)[m
+[32m+[m[32m    final_summary = summarize_text(combined_text, client, model, author)[m
+     end_final = time.time()[m
+     console.print(f"[blue]résumé final généré en[/blue] [yellow4]{end_final - start_final:.2f}[/yellow4] [blue]secondes[/[blue]]")[m
+     console.print(f"[blue]mise en forme effectuée en[/blue] [yellow4]{end_final - start_final:.2f}[/yellow4] [blue]secondes[/[blue]]")[m
+[1mdiff --git a/src/test.py b/src/test.py[m
+[1mindex 3362842..184e103 100644[m
+[1m--- a/src/test.py[m
+[1m+++ b/src/test.py[m
+[36m@@ -11,15 +11,17 @@[m [mfrom rich.markdown import Markdown[m
+ from exporter import save_summary[m
+ from ollama import Client[m
+ import time[m
+[31m-from utils import write_data, load_text[m
+ from transcriber import transcribe_audio[m
+ from dotenv import load_dotenv[m
+[31m-import glob[m
+ load_dotenv()[m
+ [m
+ DEVICE = os.getenv("DEVICE")[m
+ MODEL = os.getenv("MODEL")[m
+[32m+[m[32mOLLAMA_HOST = os.getenv("OLLAMA_HOST")[m
+[32m+[m[32mOLLAMA_MODEL = os.getenv("OLLAMA_MODEL")[m
+ [m
+[32m+[m[32mFFMPEG_DIR = os.getenv("FFMPEG")[m
+[32m+[m[32mos.environ["PATH"] += os.pathsep + FFMPEG_DIR[m
+ [m
+ def split_audio_equal(input_file, output_dir, num_segments=10):[m
+     audio = AudioSegment.from_file(input_file)[m
+[36m@@ -50,40 +52,26 @@[m [mdef extract_audio_from_mp4(input_video, output_dir="./test_audio", num_segments=[m
+ def transcribe_audio_from_mp4(segments):[m
+     text = [][m
+     start_time = time.time() [m
+[31m-    whisper_model = whisper.load_model(MODEL, device="cpu")[m
+[31m-    whisper_model.to(DEVICE)[m
+[31m-[m
+[32m+[m[32m    whisper_model = whisper.load_model(MODEL, device=DEVICE)[m
+     for i,segment in enumerate(segments):[m
+         print(f"traitement du segement {i+1} en cours")[m
+         data = transcribe_audio(segment, whisper_model)[m
+         text.append(data)[m
+[31m-        write_data(output_dir="./segment_text", data=data,seg=i)[m
+[32m+[m[32m        os.remove(rf"{segment}")[m
+     elapsed = time.time() - start_time[m
+     print(f"\n✅ Transcription terminée : {len(segments)} segments traités en {elapsed:.2f} secondes")[m
+[31m-    print(data)[m
+[31m-    return data[m
+[32m+[m[32m    return text[m
+ [m
+ [m
+ if __name__ == "__main__":[m
+[31m-    EXTRACT_AUDIO = False[m
+[31m-    OLLAMA_MODEL="gemma3:4b"[m
+[31m-    OLLAMA_HOST="localhost:11434"[m
+[32m+[m[41m    [m
+     console = Console()[m
+     client = Client(host=OLLAMA_HOST, headers={"x-some-header": "some-value"})[m
+[31m-    start_time = time.time() [m
+[31m-    if EXTRACT_AUDIO:[m
+[31m-        segments = extract_audio_from_mp4("/home/manu/app/summaries_youtube/src/Réunion Pilotage Direction de campus-20251125_093453-Enregistrement de la réunion.mp4")[m
+[31m-        texts = transcribe_audio_from_mp4(segments)[m
+[31m-    else:[m
+[31m-        files = glob.glob("./segment_text/*")[m
+[31m-        texts = load_text(files)[m
+[31m-        print(texts)[m
+[32m+[m[32m    segments = extract_audio_from_mp4(r"C:\Users\froge\Documents\vscode\test_whisper\src\Réunion Pilotage Direction de campus-20251125_093453-Enregistrement de la réunion.mp4")[m
+[32m+[m[32m    texts = transcribe_audio_from_mp4(segments)[m
+     all_texts = "\n\n".join(texts)[m
+[31m-    for i in range(2):[m
+[31m-        summary =  summarize_long_text(all_texts, client, OLLAMA_MODEL, author="Laura")[m
+[31m-        write_data(output_dir="./segment_text", data=all_texts,seg=i)[m
+[32m+[m[32m    summary =  summarize_long_text(all_texts, client, OLLAMA_MODEL, author="Laura")[m
+     final_summary = enhance_markdown(summary,client, OLLAMA_MODEL)[m
+[31m-    [m
+     md = Markdown(final_summary)[m
+     console.print(md)[m
+     title = 'test'[m
+[1mdiff --git a/src/transcriber.py b/src/transcriber.py[m
+[1mindex 8aed553..c9fd51f 100644[m
+[1m--- a/src/transcriber.py[m
+[1m+++ b/src/transcriber.py[m
+[36m@@ -3,9 +3,9 @@[m [mimport os[m
+ [m
+ def transcribe_audio(audio_file: str, model_whisper) -> dict:[m
+     model = model_whisper[m
+[31m-    result = model.transcribe(audio_file)[m
+[31m-    if os.path.exists(audio_file):[m
+[31m-        os.remove(audio_file)[m
+[32m+[m[32m    result = model.transcribe(f"{audio_file}")[m
+[32m+[m[32m    #if os.path.exists(audio_file):[m
+[32m+[m[32m    #    os.remove(audio_file)[m
+     return result['text'][m
+ [m
+ [m
+[1mdiff --git a/src/utils.py b/src/utils.py[m
+[1mindex 964f029..6300453 100644[m
+[1m--- a/src/utils.py[m
+[1m+++ b/src/utils.py[m
+[36m@@ -1,20 +1,7 @@[m
+ import re[m
+[31m-import os[m
+ [m
+ def slugify(value: str) -> str:[m
+     value = value.lower()[m
+     value = re.sub(r"[^\w\s-]", "", value)[m
+     value = re.sub(r"\s+", "_", value)[m
+[31m-    return value.strip("_")[m
+[31m-[m
+[31m-def write_data(output_dir, data, seg):[m
+[31m-    os.makedirs(output_dir, exist_ok=True)[m
+[31m-    with open (f"{output_dir}/segment_{seg}.txt", "w") as file:[m
+[31m-        file.write(data)[m
+[31m-[m
+[31m-def load_text(output_dir):[m
+[31m-    text=[][m
+[31m-    for path in output_dir:[m
+[31m-        with open(path, "r") as files:[m
+[31m-            text.append(files.read())[m
+[31m-    return text[m
+\ No newline at end of file[m
+[32m+[m[32m    return value.strip("_")[m
+\ No newline at end of file[m

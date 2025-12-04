@@ -163,6 +163,11 @@ def process_manual_videos(args, summarizer, transcribe, processor, exporter):
             if not selected_videos:
                 console.print("[yellow]Aucune vidéo dans la liste. Ajoutez des URL d'abord.[/yellow]")
                 continue
+            
+            # Ask for title
+            default_title = args.search if args.search else "Synthèse Manuelle"
+            custom_title = Prompt.ask(f"\n[bold green]Titre du document (Entrée pour '{default_title}')[/bold green]", default=default_title, console=console)
+            args.search = custom_title
             break
         
         console.print("[blue]Récupération des informations...[/blue]")

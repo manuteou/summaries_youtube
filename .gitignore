@@ -25,4 +25,6 @@ test_output/
 debug_*.py
 debug_*.html
 test_*.py
-summaries/
+summaries/src/FFMPEG/
+
+src/FFMPEG/
