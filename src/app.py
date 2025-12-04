@@ -74,7 +74,7 @@ with tab_search:
             with st.container():
                 col1, col2 = st.columns([1, 3])
                 with col1:
-                    st.image(v.thumbnail_url, use_container_width=True)
+                    st.image(v.thumbnail_url, width="stretch")
                 with col2:
                     st.subheader(v.title)
                     duration_min = v.length // 60

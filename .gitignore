@@ -28,3 +28,4 @@ test_*.py
 summaries/src/FFMPEG/
 
 src/FFMPEG/
+src/chunk_data/
