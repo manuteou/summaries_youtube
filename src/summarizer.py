@@ -149,7 +149,19 @@ STRUCTURE OBLIGATOIRE :
 📑 Contraintes :
 - Langue : français
 - Longueur : environ 500-800 mots.
-- Structure : Introduction -> Développement par thèmes -> Actions/Directives.
+- Structure : [Choisir un titre d'intro] -> Développement par thèmes -> [Choisir un titre de conclusion].
+- Pour l'Introduction, CHOISIR UN SEUL titre parmi cette liste :
+  * "Aux Sources de la Réflexion"
+  * "De Quoi Parlons-Nous ?"
+  * "Le Début du Chemin"
+  * "Les Fondations"
+  * "La Question Initiale"
+- Pour la Conclusion, CHOISIR UN SEUL titre parmi cette liste :
+  * "Ce Qu'il Faut Retenir"
+  * "Le Mots de la Fin"
+  * "Ainsi s'achève notre exploration"
+  * "Les Grandes Lignes"
+  * "L'Essentiel"
 - Style : Rédaction soignée, paragraphes bien construits.
 - COMMENCER DIRECTEMENT par le contenu.
 - Ton IMPERSONNEL et OBJECTIF. Pas de "Je", "Mon", "Nous".
@@ -175,7 +187,19 @@ STRUCTURE OBLIGATOIRE :
 📑 Contraintes :
 - Langue : français
 - Longueur : Suffisante pour couvrir le sujet en profondeur (environ 1000 mots).
-- Structure : Introduction -> Analyse thématique -> Conclusion.
+- Structure : [Choisir un titre d'intro] -> Analyse thématique -> [Choisir un titre de conclusion].
+- Pour l'Introduction, CHOISIR UN SEUL titre parmi cette liste :
+  * "Aux Sources de la Réflexion"
+  * "De Quoi Parlons-Nous ?"
+  * "Le Début du Chemin"
+  * "Les Fondations"
+  * "La Question Initiale"
+- Pour la Conclusion, CHOISIR UN SEUL titre parmi cette liste :
+    * "Ce Qu'il Faut Retenir"
+    * "Le Mots de la Fin"
+    * "Ainsi s'achève notre exploration"
+    * "Les Grandes Lignes"
+    * "L'Essentiel"
 - COMMENCER DIRECTEMENT par le contenu.
 - Ton IMPERSONNEL et OBJECTIF. Pas de "Je", "Mon", "Nous".
 - FUSIONNER les informations. NE PAS dire "Les sources disent", "La première vidéo...". Rédiger un texte unique et cohérent.

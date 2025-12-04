@@ -19,8 +19,16 @@ class YouTubeAudioProcessor:
         ys = yt.streams.get_audio_only()
         safe_title = slugify(yt.title)
         filename = f"{safe_title}.m4a"
-        audio_file = ys.download(filename=filename)
+        audio_file = ys.download(output_path=self.output_dir, filename=filename)
         return audio_file, yt.title, yt.author, yt.publish_date
+
+    def get_video_info(self, url: str):
+        try:
+            yt = YouTube(url)
+            return yt
+        except Exception as e:
+            print(f"Erreur lors de la récupération des infos : {e}")
+            return None
 
     def search_subject(self, subject: str):
         filters = Filter.create().type(Filter.Type.VIDEO).sort_by(Filter.SortBy.UPLOAD_DATE)
