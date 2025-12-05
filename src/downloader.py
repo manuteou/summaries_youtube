@@ -36,9 +36,46 @@ class YouTubeAudioProcessor:
         non_shorts = [v for v in s.results if v not in s.shorts]
         return non_shorts
 
-    def get_search_object(self, subject: str):
-        filters = Filter.create().type(Filter.Type.VIDEO).sort_by(Filter.SortBy.UPLOAD_DATE)
+    def get_search_object(self, subject: str, sort_by: str = "relevance", upload_date: str = None):
+        filters = Filter.create().type(Filter.Type.VIDEO)
+        
+        if sort_by == "date":
+            filters = filters.sort_by(Filter.SortBy.UPLOAD_DATE)
+        elif sort_by == "views":
+            filters = filters.sort_by(Filter.SortBy.VIEW_COUNT)
+        else:
+            filters = filters.sort_by(Filter.SortBy.RELEVANCE)
+            
+        if upload_date == "today":
+            filters = filters.upload_date(Filter.UploadDate.TODAY)
+        elif upload_date == "week":
+            filters = filters.upload_date(Filter.UploadDate.THIS_WEEK)
+        elif upload_date == "month":
+            filters = filters.upload_date(Filter.UploadDate.THIS_MONTH)
+        elif upload_date == "year":
+            filters = filters.upload_date(Filter.UploadDate.THIS_YEAR)
+            
         return Search(subject, filters=filters)
+
+    def filter_videos(self, videos, duration_mode):
+        if not duration_mode or duration_mode == "any":
+            return videos
+            
+        filtered = []
+        for v in videos:
+            try:
+                length = v.length
+                if duration_mode == "short" and length < 300: # < 5 min
+                    filtered.append(v)
+                elif duration_mode == "medium" and 300 <= length <= 1200: # 5-20 min
+                    filtered.append(v)
+                elif duration_mode == "long" and length > 1200: # > 20 min
+                    filtered.append(v)
+            except Exception:
+                # If length is not available, keep it to be safe or skip? 
+                # Keeping it might be better than losing valid results.
+                filtered.append(v)
+        return filtered
 
     def fetch_next(self, search_obj):
         search_obj.get_next_results()

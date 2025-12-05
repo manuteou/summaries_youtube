@@ -1,0 +1,109 @@
+/* Global Styles */
+.stApp {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Video Card Styling */
+.video-card {
+    background-color: #262730;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #41444C;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.video-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-color: #FF4B4B;
+}
+
+.video-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #FAFAFA;
+}
+
+.video-meta {
+    font-size: 0.85rem;
+    color: #A3A8B8;
+    margin-bottom: 0.8rem;
+}
+
+.video-desc {
+    font-size: 0.9rem;
+    color: #D3D3D3;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+/* Button Styling Override */
+div.stButton>button {
+    width: 100%;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+div.stButton>button:hover {
+    transform: scale(1.02);
+}
+
+/* Tab Styling */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 24px;
+}
+
+.stTabs [data-baseweb="tab"] {
+    height: 50px;
+    white-space: pre-wrap;
+    background-color: transparent;
+    border-radius: 4px 4px 0 0;
+    gap: 1px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Success/Info/Warning Box Styling */
+.stAlert {
+    border-radius: 8px;
+}
+
+/* Quill Editor Styling - Force White Paper Look */
+.ql-toolbar.ql-snow,
+.ql-container.ql-snow {
+    background-color: #FFFFFF !important;
+    border-color: #ccc !important;
+}
+
+.ql-container.ql-snow {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    color: #000000 !important;
+}
+
+.ql-toolbar.ql-snow {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.ql-editor {
+    color: #000000 !important;
+    background-color: #FFFFFF !important;
+    min-height: 300px;
+}
+
+/* Fix toolbar icons color if needed */
+.ql-snow .ql-stroke {
+    stroke: #444 !important;
+}
+
+.ql-snow .ql-fill {
+    fill: #444 !important;
+}
+
+.ql-snow .ql-picker {
+    color: #444 !important;
+}

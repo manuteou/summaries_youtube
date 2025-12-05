@@ -36,23 +36,63 @@ class Exporter:
         with open(output_file, "w", encoding="utf-8") as f:
             f.write(plain_text.strip())
 
+    def save_html(self, summary: str, output_file: str, title: str, source_info=None):
+        # Load CSS
+        css_path = os.path.join(os.path.dirname(__file__), "assets", "style.css")
+        css_content = ""
+        if os.path.exists(css_path):
+            with open(css_path, "r", encoding="utf-8") as f:
+                css_content = f.read()
+
+        sources_html = ""
+        if source_info:
+            sources_html = "<h2>Sources</h2><ul>"
+            for source in source_info:
+                title_src = source.get("title", "Inconnu")
+                url = source.get("url", "#")
+                date = source.get("date")
+                date_str = f" ({date})" if date else ""
+                sources_html += f'<li><a href="{url}">{title_src}{date_str}</a></li>'
+            sources_html += "</ul>"
+
+        full_html = f"""
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <title>{title}</title>
+            <style>
+            {css_content}
+            body {{ max-width: 800px; margin: 0 auto; padding: 20px; }}
+            </style>
+        </head>
+        <body>
+            <h1 class="doc-title">{title}</h1>
+            {summary}
+            {sources_html}
+        </body>
+        </html>
+        """
+        with open(output_file, "w", encoding="utf-8") as f:
+            f.write(full_html)
+
     def save_pdf(self, summary: str, output_file: str, title: str, source_info=None):
-        # Clean up potential markdown code blocks from LLM output
-        clean_summary = summary.strip()
-        if clean_summary.startswith("```markdown"):
-            clean_summary = clean_summary.replace("```markdown", "", 1)
-        if clean_summary.startswith("```"):
-            clean_summary = clean_summary.replace("```", "", 1)
-        if clean_summary.endswith("```"):
-            clean_summary = clean_summary[:-3]
+        # Check if input is likely HTML (starts with <)
+        is_html = summary.strip().startswith("<")
         
-        # Append sources
-        clean_summary += self._format_sources(source_info)
-        
-        print(f"DEBUG: Summary length: {len(clean_summary)}")
-        
-        # Convert Markdown to HTML
-        html_content = markdown.markdown(clean_summary, extensions=['extra', 'codehilite'])
+        if is_html:
+            html_content = summary
+        else:
+            # Clean up potential markdown code blocks from LLM output
+            clean_summary = summary.strip()
+            if clean_summary.startswith("```markdown"):
+                clean_summary = clean_summary.replace("```markdown", "", 1)
+            if clean_summary.startswith("```"):
+                clean_summary = clean_summary.replace("```", "", 1)
+            if clean_summary.endswith("```"):
+                clean_summary = clean_summary[:-3]
+            
+            # Convert Markdown to HTML
+            html_content = markdown.markdown(clean_summary, extensions=['extra', 'codehilite'])
         
         # Load CSS
         css_path = os.path.join(os.path.dirname(__file__), "assets", "style.css")
@@ -114,7 +154,9 @@ class Exporter:
             self.save_txt(summary, output_file, source_info)
         elif fmt == "pdf":
             self.save_pdf(summary, output_file, title, source_info)
+        elif fmt == "html":
+            self.save_html(summary, output_file, title, source_info)
         else:
-            raise ValueError(f"Format non supporté : {fmt}. Utilisez 'md', 'txt' ou 'pdf'.")
+            raise ValueError(f"Format non supporté : {fmt}. Utilisez 'md', 'txt', 'html' ou 'pdf'.")
 
         return output_file

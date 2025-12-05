@@ -28,24 +28,25 @@ Texte à résumer (issu d'une transcription audio) :
 {text}
 
 🎯 Objectifs :
-- Synthèse claire, concise et fidèle au contenu
-- Mettre en avant les idées principales et les points clés
-- Éliminer les détails superflus ou les répétitions
-- Donner un titre thématique et descriptif (jamais générique) à toutes les parties
-- Mettre en avant les actions attendues par les participants et les campus
-- Les informations descendantes doivent être mises en avant dans le texte
+- **Synthèse courte des éléments** : Aller droit au but.
+- Synthèse claire, concise et percutante.
+- Mettre en avant les idées principales et les points clés uniquement.
+- Éliminer tout détail superflu.
+- Donner un titre thématique et descriptif (jamais générique) à toutes les parties.
+- Mettre en avant les actions attendues par les participants et les campus.
+- Les informations descendantes doivent être mises en avant dans le texte.
 
 📑 Contraintes de sortie :
 - Langue : français
-- Style : rédigé en paragraphes clairs et professionnels
-- Ton : neutre et informatif
-- Longueur : environ 200 mots
-- Pas de conclusion
-- La sortie doit être uniquement le résumé demandé
-- Interdiction absolue d'afficher ton raisonnement, tes étapes ou une partie "think"
-- Il est interdit de donner autre chose que le résumé en sortie
-- Interdiction d'utiliser les mots "Résumé", "Ce résumé", "Résumé des points clés", "Ce document" dans les titres ou le texte
-- Éviter les listes à puces, privilégier la rédaction
+- Style : rédigé en paragraphes clairs et professionnels.
+- Ton : neutre, direct et informatif.
+- Longueur : environ 200 mots (cible indicative, privilégier la concision).
+- Pas de conclusion.
+- La sortie doit être uniquement le résumé demandé.
+- Interdiction absolue d'afficher ton raisonnement, tes étapes ou une partie "think".
+- Il est interdit de donner autre chose que le résumé en sortie.
+- Interdiction d'utiliser les mots "Résumé", "Ce résumé", "Résumé des points clés", "Ce document" dans les titres ou le texte.
+- Éviter les listes à puces, privilégier la rédaction.
 """
             elif context == "full_text":
                 return f"""
@@ -110,6 +111,7 @@ Texte à résumer :
 {text}
 
 🎯 Objectifs :
+- **Synthèse de longueur moyenne** : Équilibre parfait entre détails et concision.
 - Produire un résumé équilibré et STRUCTURÉ.
 - Capturer l'essentiel tout en conservant les nuances importantes.
 - Développer les points clés avec des explications claires.
@@ -121,7 +123,7 @@ STRUCTURE OBLIGATOIRE :
 
 📑 Contraintes :
 - Langue : français
-- Longueur : environ 500 mots (ou plus si nécessaire pour la clarté)
+- Longueur : environ 500 mots (ou plus si nécessaire pour la clarté).
 - Style : professionnel, fluide et agréable à lire.
 - Pas de méta-commentaires (ex: "Voici le résumé").
 - COMMENCER DIRECTEMENT par le contenu.
@@ -214,11 +216,16 @@ STRUCTURE OBLIGATOIRE :
 Texte à traiter :
 {text}
 
-Tu es un moteur d'extraction d'information. Ta tâche est de traiter une SECTION d'un document plus large.
+Tu es un moteur d'extraction d'information et de rédaction haute qualité. Ta tâche est de traiter une SECTION d'un document plus large.
+
+🎯 Objectifs :
+- **Synthèse longue avec le maximum d'info et de qualités**.
+- **Ne rien omettre** : Capturer tous les détails, chiffres, noms et nuances de cette section.
+- **Qualité rédactionnelle supérieure** : Utiliser un vocabulaire riche, précis et un style soutenu.
 
 CONSIGNES DE RÉDACTION :
 1.  **Contexte** : Tu traites une partie d'un tout. NE METS PAS de titre principal (H1) comme "Compte-Rendu". Utilise des H2 ou H3 pour structurer le contenu de cette section.
-2.  **Exhaustivité** : Capture tous les détails, chiffres, noms et nuances de cette section.
+2.  **Exhaustivité** : Tout doit y être. Mieux vaut trop long que trop court.
 3.  **Fidélité** : Reste strictement fidèle au texte source.
 
 CONTRAINTES STRICTES (A RESPECTER IMPÉRATIVEMENT) :
@@ -233,10 +240,15 @@ CONTRAINTES STRICTES (A RESPECTER IMPÉRATIVEMENT) :
 Texte à traiter :
 {text}
 
-Tu es un moteur de documentation technique. Ta tâche est de produire un document de référence complet à partir du texte ci-dessus.
+Tu es un moteur de documentation technique et de rédaction avancée. Ta tâche est de produire un document de référence complet à partir du texte ci-dessus.
+
+🎯 Objectifs :
+- **Synthèse longue avec le maximum d'info et de qualités**.
+- **Exhaustivité Totale** : Détailler minutieusement toutes les décisions, annonces et débats.
+- **Qualité rédactionnelle supérieure** : Style fluide, vocabulaire précis, structure impeccable.
 
 CONSIGNES DE RÉDACTION :
-1.  **Profondeur** : Détaille minutieusement toutes les décisions, annonces et débats.
+1.  **Profondeur** : Ne pas résumer pour raccourcir, mais pour structurer. Garder toute la substance.
 2.  **Structure** : Utilise une hiérarchie claire (H1, H2, H3).
 3.  **Contexte** : Liste toutes les actions avec leur contexte complet.
 
@@ -244,7 +256,7 @@ CONTRAINTES STRICTES (A RESPECTER IMPÉRATIVEMENT) :
 -   **NE JAMAIS** inventer de dates, de lieux, de noms ou de faits. Les titres doivent être basés uniquement sur le contenu réel.
 -   **NE PAS** utiliser l'expression "Compte-Rendu Exhaustif" (ni dans le titre, ni dans le texte).
 -   **PAS DE MÉTA-COMMENTAIRE** : Ne dis pas "Voici le document", "Note : Ce compte-rendu...".
--   **PAS DE BARATIN** : Pas de phrases de remplissage. Va droit au but.
+-   **PAS DE BARATIN** : Pas de phrases de remplissage. Chaque phrase doit apporter une information.
 -   **SORTIE PURE** : Ton output doit contenir UNIQUEMENT le document structuré.
 """
             elif context == "multi":

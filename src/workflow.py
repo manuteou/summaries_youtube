@@ -73,20 +73,22 @@ class WorkflowManager:
             return []
         return videos[:limit]
 
-    def init_search(self, query):
+    def init_search(self, query, sort_by="relevance", upload_date=None):
         """Initializes a search session."""
-        search_obj = self.processor.get_search_object(query)
+        search_obj = self.processor.get_search_object(query, sort_by, upload_date)
         # Initial fetch (pytubefix Search object fetches on init usually, or we access results)
         # We return the object to maintain state
         return search_obj
 
-    def get_search_results(self, search_obj):
+    def get_search_results(self, search_obj, duration_mode="any"):
         """Returns filtered results from a search object."""
-        return [v for v in search_obj.results if v not in search_obj.shorts]
+        raw_results = [v for v in search_obj.results if v not in search_obj.shorts]
+        return self.processor.filter_videos(raw_results, duration_mode)
 
-    def load_more_videos(self, search_obj):
+    def load_more_videos(self, search_obj, duration_mode="any"):
         """Fetches more videos for an existing search session."""
-        return self.processor.fetch_next(search_obj)
+        new_videos = self.processor.fetch_next(search_obj)
+        return self.processor.filter_videos(new_videos, duration_mode)
 
     def get_video_info(self, url):
         """Wrapper for processor.get_video_info"""

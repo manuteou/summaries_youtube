@@ -18,6 +18,8 @@ dependencies = [
     "markdown",
     "xhtml2pdf",
     "streamlit>=1.52.0",
+    "streamlit-quill>=0.0.3",
+    "markdownify>=1.2.2",
 ]
 
 [tool.uv]
