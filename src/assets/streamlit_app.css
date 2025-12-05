@@ -7,10 +7,42 @@
 .video-card {
     background-color: #262730;
     border-radius: 10px;
-    padding: 15px;
+    padding: 10px;
+    /* Reduced padding */
     margin-bottom: 20px;
     border: 1px solid #41444C;
     transition: transform 0.2s, box-shadow 0.2s;
+    height: 380px;
+    /* Reduced height */
+    display: flex;
+    flex-direction: column;
+}
+
+.thumbnail-container {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    /* Fixed thumbnail height */
+    margin-bottom: 8px;
+}
+
+.video-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.duration-badge {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
 }
 
 .video-card:hover {
@@ -20,27 +52,35 @@
 }
 
 .video-title {
-    font-size: 1.1rem;
+    font-size: 1.0rem;
+    /* Slightly smaller */
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
     color: #FAFAFA;
+    /* Limit to 2 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 38px;
+    line-height: 1.2;
 }
 
 .video-meta {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: #A3A8B8;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
+    flex-shrink: 0;
 }
 
 .video-desc {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #D3D3D3;
-    line-height: 1.4;
-    margin-bottom: 1rem;
-    height: 120px;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+    flex-grow: 1;
     overflow-y: auto;
     padding-right: 5px;
-    /* Custom scrollbar for webkit */
     scrollbar-width: thin;
     scrollbar-color: #555 #262730;
 }

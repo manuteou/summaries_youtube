@@ -87,6 +87,18 @@ uv run streamlit run src/app.py
 # ou
 streamlit run src/app.py
 
+ ✨ Nouveautés de l'Interface (v2.0) :
+- **🔍 Recherche Dynamique** : Chargement infini, vignettes uniformisées avec durée et date relative.
+- **✨ Refine / Regenerate** : Modifiez le résumé généré avec l'IA directement depuis l'app :
+    - **Taille** : Plus court / Plus long
+    - **Ton** : Professionnel, Formel, Familier
+    - **Format** : Rapport, Dissertation, Article de Blog...
+    - **Langue** : Traduction instantanée
+- **📝 Onglet Result** : 
+    - Éditeur de texte riche
+    - Copie rapide du Markdown
+    - Export multiformat (.pdf, .html, .md, .txt) contextuel
+
 
 🎯 Options de Résumé (`--type`)
 Le script propose 3 niveaux de détail :

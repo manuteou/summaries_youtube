@@ -4,7 +4,8 @@ from workflow import WorkflowManager
 from streamlit_quill import st_quill
 import markdown
 from markdownify import markdownify as md
-from utils import clean_markdown_text
+from utils import clean_markdown_text, time_since
+
 
 # Page config
 st.set_page_config(page_title="YouTube Summarizer", page_icon="📝", layout="wide")
@@ -34,7 +35,7 @@ if "search_object" not in st.session_state:
 if "search_results" not in st.session_state:
     st.session_state.search_results = []
 if "visible_count" not in st.session_state:
-    st.session_state.visible_count = 10
+    st.session_state.visible_count = 9
 if "quill_key" not in st.session_state:
     st.session_state.quill_key = 0
 
@@ -43,7 +44,7 @@ st.sidebar.title("Configuration")
 device = st.sidebar.selectbox("Device", ["cpu", "cuda"], index=0 if os.getenv("DEVICE") == "cpu" else 1)
 model = st.sidebar.selectbox("Whisper Model", ["tiny", "base", "small", "medium", "large"], index=3) # Default medium
 ollama_model = st.sidebar.text_input("Ollama Model", value=os.getenv("OLLAMA_MODEL", "mistral"))
-output_format = st.sidebar.selectbox("Output Format", ["md", "txt", "html", "pdf"], index=2)
+
 summary_type = st.sidebar.selectbox("Summary Type", ["short", "medium", "long"], index=0)
 
 # Initialize Workflow Manager
@@ -97,10 +98,10 @@ with tab_search:
     if "search_results" not in st.session_state:
         st.session_state.search_results = []
     if "visible_count" not in st.session_state:
-        st.session_state.visible_count = 10
+        st.session_state.visible_count = 9
 
     if st.session_state.visible_count not in st.session_state:
-        st.session_state.visible_count = 10
+        st.session_state.visible_count = 9
 
     # Search Button Logic
     do_search = False
@@ -122,46 +123,53 @@ with tab_search:
                 st.session_state.filter_duration = final_dur
                 
                 st.session_state.search_results = workflow.get_search_results(st.session_state.search_object, duration_mode=final_dur)
-                st.session_state.visible_count = 10
+                st.session_state.visible_count = 9
         else:
             st.warning("Please enter a query.")
 
     if st.session_state.search_results:
-        # Slice results based on visible_count
-        visible_results = st.session_state.search_results[:st.session_state.visible_count]
-        st.write(f"Showing {len(visible_results)} videos (Total loaded: {len(st.session_state.search_results)}):")
+        # Show all loaded results directly
+        st.write(f"Résultats trouvés : {len(st.session_state.search_results)}")
         selected_videos = []
         
-        # Display videos in a grid or list with details
         # Display videos in a grid
         cols = st.columns(3) # 3 cards per row
         
-        for idx, v in enumerate(visible_results):
+        for idx, v in enumerate(st.session_state.search_results):
             col = cols[idx % 3]
             with col:
                 # Card Container
                 with st.container():
-                    st.markdown(f"""
-                    <div class="video-card">
-                        <img src="{v.thumbnail_url}" style="width:100%; border-radius: 5px; margin-bottom: 10px;">
-                        <div class="video-title">{v.title}</div>
-                        <div class="video-meta">Author: {v.author}</div>
-                    </div>
-                    """, unsafe_allow_html=True)
+                    # Calculate relative time
+                    rel_time = time_since(v.publish_date)
                     
+                    # Format duration
                     duration_min = v.length // 60
                     duration_sec = v.length % 60
-                    st.caption(f"⏱️ {duration_min}m{duration_sec:02d}s")
-                    
-                    # Try to get description safely
+                    duration_str = f"{duration_min}:{duration_sec:02d}"
+
+                    # Description handling
                     try:
                         desc = v.description
                     except Exception:
                         desc = "No description available."
                     
                     if not desc: desc = "No description available."
-                    # No truncation here, strictly CSS handling
-                    st.markdown(f'<div class="video-desc">{desc}</div>', unsafe_allow_html=True)
+
+                    st.markdown(f"""
+                    <div class="video-card">
+                        <div class="thumbnail-container">
+                            <img src="{v.thumbnail_url}">
+                            <span class="duration-badge">{duration_str}</span>
+                        </div>
+                        <div class="video-title">{v.title}</div>
+                        <div class="video-meta">
+                            Author: {v.author}<br>
+                            <span style="color: #888; font-size: 0.9em;">{rel_time}</span>
+                        </div>
+                        <div class="video-desc">{desc}</div>
+                    </div>
+                    """, unsafe_allow_html=True)
                     
                     if st.checkbox(f"Select", key=v.watch_url):
                         selected_videos.append(v)
@@ -190,20 +198,28 @@ with tab_search:
                     st.warning("Please select at least one video.")
 
         with col_load:
-            if st.session_state.search_object and st.button("Load More (+5)", key="btn_load_more"):
-                with st.spinner("Loading more..."):
-                    st.session_state.visible_count += 5
-                    # Check if we need to fetch more from YouTube
-                    if st.session_state.visible_count > len(st.session_state.search_results):
-                        # Use stored duration filter
-                        dur_mode = st.session_state.get("filter_duration", "any")
-                        new_results = workflow.load_more_videos(st.session_state.search_object, duration_mode=dur_mode)
-                        # Append new results avoiding duplicates if any (though pytube handles this usually)
+            if st.session_state.search_object and st.button("Charger plus de résultats (+20)", key="btn_load_more"):
+                with st.spinner("Récupération depuis YouTube..."):
+                    # Use stored duration filter
+                    dur_mode = st.session_state.get("filter_duration", "any")
+                    new_results = workflow.load_more_videos(st.session_state.search_object, duration_mode=dur_mode)
+                    
+                    if not new_results:
+                        st.warning("Plus aucun résultat trouvé.")
+                    else:
+                        # Append new results avoiding duplicates
                         current_urls = {v.watch_url for v in st.session_state.search_results}
+                        count_added = 0
                         for v in new_results:
                             if v.watch_url not in current_urls:
                                 st.session_state.search_results.append(v)
-                    st.rerun()
+                                count_added += 1
+                        
+                        if count_added > 0:
+                            st.success(f"{count_added} nouvelles vidéos chargées !")
+                            st.rerun()
+                        else:
+                            st.info("Aucune nouvelle vidéo unique trouvée.")
 
 # --- Tab 3: Manual ---
 with tab_manual:
@@ -421,6 +437,8 @@ with tab_result:
             st.divider()
             
             st.warning("⚠️ Editor content is HTML.")
+            
+            output_format = st.selectbox("Format d'export", ["md", "txt", "html", "pdf"], index=2)
             
             if st.button("💾 Save Summary", type="primary"):
                 try:
