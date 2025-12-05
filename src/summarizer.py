@@ -1,4 +1,5 @@
 from typing import List
+import re
 import time
 from tqdm import tqdm
 
@@ -43,10 +44,6 @@ Texte à résumer (issu d'une transcription audio) :
 - Longueur : environ 200 mots (cible indicative, privilégier la concision).
 - Pas de conclusion.
 - La sortie doit être uniquement le résumé demandé.
-- Interdiction absolue d'afficher ton raisonnement, tes étapes ou une partie "think".
-- Il est interdit de donner autre chose que le résumé en sortie.
-- Interdiction d'utiliser les mots "Résumé", "Ce résumé", "Résumé des points clés", "Ce document" dans les titres ou le texte.
-- Éviter les listes à puces, privilégier la rédaction.
 """
             elif context == "full_text":
                 return f"""
@@ -72,13 +69,9 @@ Texte à résumer (issu d'une transcription audio) :
 - Longueur : environ 200 mots
 - Pas de conclusion
 - La sortie doit être uniquement le résumé demandé
-- Interdiction absolue d'afficher ton raisonnement, tes étapes ou une partie "think"
-- Il est interdit de donner autre chose que le résumé en sortie
-- Interdiction d'utiliser les mots "Résumé", "Ce résumé", "Résumé des points clés", "Ce document"
 - Le résumé doit être structuré en deux sections : 
   1. Informations descendantes
   2. Actions attendues
-- Éviter les listes à puces, privilégier la rédaction
 """
             elif context == "multi":
                 return f"""
@@ -89,16 +82,12 @@ Sources : {text['content']}
 🎯 Objectif :
 Produire un texte fluide et direct qui synthétise les informations clés des différentes sources sur le sujet demandé.
 
-⛔ CONTRAINTES STRICTES (A RESPECTER IMPÉRATIVEMENT) :
-- PAS de méta-commentaires (ex: "Voici le résumé", "Ce document présente...", "Dans cette synthèse...").
-- PAS de phrases introductives sur ta méthode de travail (ex: "Cette tâche requiert...", "L'objectif est de...").
-- PAS de plan annoncé (ex: "Nous verrons d'abord...").
+⛔ CONTRAINTES STRICTES :
 - COMMENCE DIRECTEMENT par le contenu du sujet.
 - Ton neutre et informatif.
-- Pas de listes à puces. Utilise des paragraphes.
 - Langue : Français.
 
-Le résultat doit ressembler à un article de presse ou une note de synthèse professionnelle, pas à une réponse de chatbot.
+Le résultat doit ressembler à un article de presse ou une note de synthèse professionnelle.
 """
 
         # --- MEDIUM MODE (Balanced) ---
@@ -125,11 +114,9 @@ STRUCTURE OBLIGATOIRE :
 - Langue : français
 - Longueur : environ 500 mots (ou plus si nécessaire pour la clarté).
 - Style : professionnel, fluide et agréable à lire.
-- Pas de méta-commentaires (ex: "Voici le résumé").
 - COMMENCER DIRECTEMENT par le contenu.
 - Ton IMPERSONNEL et OBJECTIF. Pas de "Je", "Mon", "Nous".
 - NE JAMAIS inventer de dates, de lieux ou de noms s'ils ne sont pas explicitement dans le texte.
-- Interdiction d'utiliser les mots "Résumé", "Ce résumé", "Résumé des points clés", "Ce document"
 """
             elif context == "full_text":
                 return f"""
@@ -168,7 +155,6 @@ STRUCTURE OBLIGATOIRE :
 - COMMENCER DIRECTEMENT par le contenu.
 - Ton IMPERSONNEL et OBJECTIF. Pas de "Je", "Mon", "Nous".
 - NE JAMAIS inventer de dates, de lieux ou de noms s'ils ne sont pas explicitement dans le texte.
-- Interdiction d'utiliser les mots "Résumé", "Ce résumé", "Résumé des points clés", "Ce document"
 """
             elif context == "multi":
                 return f"""
@@ -206,7 +192,6 @@ STRUCTURE OBLIGATOIRE :
 - Ton IMPERSONNEL et OBJECTIF. Pas de "Je", "Mon", "Nous".
 - FUSIONNER les informations. NE PAS dire "Les sources disent", "La première vidéo...". Rédiger un texte unique et cohérent.
 - NE JAMAIS inventer de dates, de lieux ou de noms s'ils ne sont pas explicitement dans le texte.
-- Interdiction d'utiliser les mots "Résumé", "Ce résumé", "Résumé des points clés", "Ce document"
 """
 
         # --- LONG MODE (Exhaustive) ---
@@ -226,7 +211,6 @@ Tu es un moteur d'extraction d'information haute fidélité. Ta tâche est de tr
 ⛔ CONTRAINTES :
 -   Ne supprime aucun détail technique.
 -   Pas de "titre de document" (c'est juste un fragment).
--   Pas de méta-commentaires.
 """
             elif context == "full_text":
                 return f"""
@@ -238,19 +222,24 @@ Tu es un rédacteur technique chargé de produire la DOCUMENTATION DE RÉFÉRENC
 🎯 OBJECTIFS PRIORITAIRES :
 1.  **Exhaustivité Totale** : Le lecteur ne doit plus jamais avoir besoin de consulter l'original. Tout doit être là.
 2.  **Volume** : Produis un texte long (minimum 1500 mots si le contenu le permet), dense et fouillé.
-3.  **Clarté Structurelle** : Utilise abondamment les titres (H2) et sous-titres (H3) pour organiser cette masse d'informations.
+3.  **Clarté Structurelle** : Utilise abondamment les titres (H2) et sous-titres (H3).
+
+CONSIGNES DE STRUCTURE ET TITRES :
+-   **Structure** : [Titre d'ouverture Thématique] -> Développement -> [Titre de fin Thématique].
+-   **TITRES ÉLÉGANTS OBLIGATOIRES** :
+    -   Pour l'ouverture, CHOISIR UN TITRE ÉVOCATEUR (ex: "Contexte et Enjeux", "Les Racines du Problème", "Vue d'Ensemble").
+    -   Pour la fin, CHOISIR UN TITRE ÉVOCATEUR (ex: "Perspectives d'Avenir", "Synthèse et Implications", "Le Mot de la Fin").
+    -   ⛔ **INTERDIT** : "Introduction", "Conclusion", "Résumé", "Abstract".
 
 CONSIGNES DE RÉDACTION :
--   **Introduction** : Pose le cadre complet (qui, quoi, où, quand, pourquoi).
 -   **Développement** : Suis le déroulé logique. Chaque argument doit être développé dans sa propre sous-section.
 -   **Détails Techniques** : Conserve tous les chiffres, dates, noms propres et terminologies spécifiques.
+-   **STYLE** : Rédige UNIQUEMENT des paragraphes complets.
 
 ⛔ INTERDITS ABSOLUS :
--   **PAS DE TEXTE D'INTRODUCTION** (ex: "Voici le code...", "Voici le document..."). Commence DIRECTEMENT par le Titre du document.
--   **PAS DE LISTES VIDES** : Si tu crées une puce ou une section, tu DOIS mettre du contenu factuel dedans.
--   Pas de "résumé" ou de "synthèse rapide".
+-   **PAS DE TEXTE D'INTRODUCTION** (ex: "Voici le code..."). Commence DIRECTEMENT par le Titre du document.
+-   **PAS DE RÉPÉTITION** : Vérifie qu'aucune section ne duplique le contenu d'une autre.
 -   Pas d'hallucinations.
--   L'expression "Compte-Rendu" est interdite.
 """
             elif context == "multi":
                 return f"""
@@ -264,21 +253,27 @@ Tu es un expert en rédaction de dossiers documentaires approfondis. Ta mission 
 🎯 OBJECTIFS PRIORITAIRES :
 1.  **Densité Informationnelle MAXIMALE** : Ne laisse AUCUN détail de côté. Croise les sources mais conserve la richesse de chacune.
 2.  **Longueur conséquente** : Vise un document de référence de 1500 à 2500 mots. Il est interdit de faire court.
-3.  **Structure Granulaire** : Descends dans le détail (H2 > H3 > Listes détaillées).
+3.  **Structure Granulaire** : Descends dans le détail (H2 > H3).
 
-STRUCTURE OBLIGATOIRE :
--   **Introduction Détaillée** : Contexte, définitions, enjeux.
+CONSIGNES DE STRUCTURE ET TITRES :
+-   **Structure** : [Titre d'ouverture Thématique] -> Développement -> [Titre de fin Thématique].
+-   **TITRES ÉLÉGANTS OBLIGATOIRES** :
+    -   Pour l'ouverture, CHOISIR UN TITRE ÉVOCATEUR (ex: "Contexte et Enjeux", "Les Racines du Problème", "Vue d'Ensemble").
+    -   Pour la fin, CHOISIR UN TITRE ÉVOCATEUR (ex: "Perspectives d'Avenir", "Synthèse et Implications", "Le Mot de la Fin").
+    -   ⛔ **INTERDIT** : "Introduction", "Conclusion", "Résumé", "Abstract".
+
+CONSIGNES DE RÉDACTION :
 -   **Développement Thématique** (Plusieurs sections H2) :
     -   Pour chaque thème, développe plusieurs sous-parties (H3).
     -   Intègre les chiffres et faits précis des vidéos.
 -   **Analyse Comparative** : Si les sources divergent, explique précisément en quoi.
--   **Conclusion Synthétique**.
+-   **STYLE** : Rédige UNIQUEMENT des paragraphes complets.
 
 ⛔ CONTRAINTES STRICTES :
 -   **INTERDICTION DE TEXTE D'INTRODUCTION OU DE FIN** (ex: "J'espère que ceci vous aide", "Voici le code markdown").
 -   **COMMENCE DIRECTEMENT** par le titre principal (H1).
 -   **INTERDICTION DE RÉSUMER** : Tu ne dois pas "synthétiser" pour raccourcir, mais "compiler" pour tout garder.
--   **PAS DE SECTIONS VIDES** : Chaque titre doit être suivi d'au moins un paragraphe de texte dense.
+-   **PAS DE RÉPÉTITION** : Ne répète pas les mêmes paragraphes.
 -   Ton : Encyclopédique, neutre, précis.
 -   NE JAMAIS INVENTER : Base-toi uniquement sur les sources fournies.
 """
@@ -298,58 +293,81 @@ STRUCTURE OBLIGATOIRE :
         
         CONTRAINTES STRICTES :
         - Titre : "Synthèse Analytique Globale" (H1)
-        - Pas de méta-commentaires.
         - Pas d'hallucinations.
         - Ne pas utiliser "Compte-Rendu Exhaustif".
         """
         response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}], options={"num_ctx": 8192, "num_predict":-1})
-        return response["message"]["content"]
+        return self._reformat_to_paragraphs(response["message"]["content"])
 
     def summarize_chunk(self, text: str) -> str:
         prompt = self._get_prompts(text, context="chunk")
         response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}], options={"num_ctx": 8192, "num_predict":-1})
-        return response["message"]["content"]
+        return self._reformat_to_paragraphs(response["message"]["content"])
 
 
     def summarize_text(self, text: str, author: str) -> str:
         prompt = self._get_prompts(text, context="full_text")
         response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}], options={"num_ctx": 8192, "num_predict":-1})
-        return response["message"]["content"]
+        return self._reformat_to_paragraphs(response["message"]["content"])
 
 
     def summarize_multi_texts(self, search: str, text: str) -> str:
         prompt = self._get_prompts({'search': search, 'content': text}, context="multi")
         response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}], options={"num_ctx": 8192, "num_predict":-1})
-        return response["message"]["content"]
+        return self._reformat_to_paragraphs(response["message"]["content"])
 
+
+    def _reformat_to_paragraphs(self, text: str) -> str:
+        """
+        Uses the LLM to rewrite the text, specifically transforming bullet points into paragraphs.
+        """
+        prompt = f"""
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        {text}
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        """
+        
+        try:
+            response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}], options={"num_ctx": 8192, "num_predict":-1})
+            return response["message"]["content"].strip()
+        except Exception as e:
+            print(f"Error in LLM reformat: {e}")
+            return text.strip()
 
     def enhance_markdown(self, text: str)-> str:
         prompt = f"""
-            Tu es un expert en édition et mise en page de documents.
-            Ta mission est de transformer le texte brut suivant en un document Markdown **visuellement impeccable et très lisible**.
+            Tu es une MACHINE DE FORMATAGE MARKDOWN. Tu n'es PAS un humain. Tu n'es PAS un critique littéraire.
+            Ta SEULE et UNIQUE fonction est de prendre le texte en entrée et de le reformater en Markdown propre.
 
-            Objectifs de mise en forme :
-            - Utilise une hiérarchie de titres claire (H1, H2, H3).
-            - Privilégie les **paragraphes** pour le texte.
-            - Mets en **gras** les concepts clés et les termes importants.
-            - Utilise des > citations pour les passages marquants.
-            - Aère le texte avec des sauts de ligne appropriés.
-            
-            Contraintes :
-            - Le contenu informatif doit rester le même (pas de suppression d'information).
-            - Tu peux reformuler légèrement les phrases pour améliorer la fluidité et le style professionnel.
-            - Le résultat doit être prêt à être publié.
-            
-            ⛔ CONTRAINTES STRICTES (A RESPECTER IMPÉRATIVEMENT) :
-            - PAS de méta-commentaires (ex: "Voici le texte...", "J'ai amélioré...").
-            - PAS de phrases introductives.
-            - SORTIE PURE : Uniquement le code Markdown du document.
-
-            Texte à sublimer :
+            Texte à traiter :
             {text}
+
+            CONSIGNES ABSOLUES :
+            1.  **RECOPIE ET FORMATE** le texte complet. Ne change PAS le sens. Ne supprime PAS d'informations.
+            2.  **STRUCTURE** : Utilise des titres H1, H2, H3 pour structurer le document.
+            3.  **STYLE** : Rédige UNIQUEMENT des paragraphes complets. **INTERDICTION ABSOLUE DE LISTES À PUCES**.
+            4.  **NETTOYAGE** : Supprime impitoyablement toute ligne vide inutile ou puce vide.
+            5.  **INTERDICTION DE PARLER** : Tu ne dois JAMAIS dire "Voici le texte", "C'est parfait", "J'ai fini".
+            6.  **SORTIE PURE** : Ton output doit commencer par le premier caractère du document Markdown et finir par le dernier. RIEN D'AUTRE.
+
+            Si tu écris une phrase comme "Ce document est parfait", TU AS ÉCHOUÉ.
+            Si tu écris une phrase comme "Voici la version formatée", TU AS ÉCHOUÉ.
+            Si tu mets une liste à puces, TU AS ÉCHOUÉ.
+
+            FORMATAGE UNIQUEMENT. COMMENCE MAINTENANT.
             """
         response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}], options={"num_ctx": 8192, "num_predict":-1})
-        return response["message"]["content"]
+        return self._reformat_to_paragraphs(response["message"]["content"])
 
 
     def check_synthese(self, text: str, subject: str):
@@ -404,7 +422,7 @@ STRUCTURE OBLIGATOIRE :
             data=text, 
             seg=f"{author}_{formatted_time}"
             )
-        return text
+        return text.strip()
 
     def refine_summary(self, current_summary: str, instructions: str) -> str:
         prompt = f"""
@@ -429,4 +447,4 @@ STRUCTURE OBLIGATOIRE :
         - SORTIE PURE : Uniquement le nouveau texte.
         """
         response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}], options={"num_ctx": 8192, "num_predict":-1})
-        return response["message"]["content"]
+        return self._reformat_to_paragraphs(response["message"]["content"])

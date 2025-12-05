@@ -52,7 +52,7 @@ summary_type = st.sidebar.selectbox("Summary Type", ["short", "medium", "long"],
 def get_workflow(device, model, ollama_model, summary_type, version=1):
     return WorkflowManager(device=device, model=model, ollama_model=ollama_model, summary_type=summary_type)
 
-workflow = get_workflow(device, model, ollama_model, summary_type, version=3)
+workflow = get_workflow(device, model, ollama_model, summary_type, version=4)
 
 st.title("📝 YouTube Video Summarizer")
 
@@ -88,6 +88,8 @@ if st.session_state.nav_selection == "🔍 Search":
             dur_option = st.selectbox("Duration", ["Any", "Short (<5m)", "Medium (5-20m)", "Long (>20m)"], index=0)
         with col_f4:
             type_options = st.multiselect("Type", ["Documentary", "Tutorial", "Conference", "Review"])
+        
+        exclude_terms = st.text_input("Mots à exclure (séparés par des espaces)", placeholder="Ex: shorts gaming")
 
     # Mapping for backend
     sort_map = {"Relevance": "relevance", "Date": "date", "Views": "views"}
@@ -129,7 +131,7 @@ if st.session_state.nav_selection == "🔍 Search":
                     final_query += " " + " ".join(type_options)
                 
                 # Init search session
-                st.session_state.search_object = workflow.init_search(final_query, sort_by=final_sort, upload_date=final_date)
+                st.session_state.search_object = workflow.init_search(final_query, sort_by=final_sort, upload_date=final_date, exclude_terms=exclude_terms)
                 # Store duration preference in session state to use during load more
                 st.session_state.filter_duration = final_dur
                 
@@ -190,23 +192,26 @@ if st.session_state.nav_selection == "🔍 Search":
         with col_synth:
             if st.button(f"Synthesize Selected Videos ({len(selected_videos)})", key="btn_synth_search"):
                 if selected_videos:
-                    with st.spinner("Synthesizing..."):
-                        try:
-                            summary, title, source_info = workflow.synthesize_videos(selected_videos, query)
-                            # Clean markdown code blocks from LLM
-                            summary = clean_markdown_text(summary)
-                            # Convert to HTML for the editor
-                            html_summary = markdown.markdown(summary, extensions=['extra'])
-                            st.session_state.summary = html_summary
-                            st.session_state.title = title
-                            st.session_state.source_info = source_info
-                            st.session_state.generated = True
-                            st.session_state.quill_key += 1
-                            st.success("Synthesis complete! Switching to Result...")
-                            st.session_state.nav_selection = "📝 Result"
-                            st.rerun()
-                        except Exception as e:
-                            st.error(f"Error: {e}")
+                    if not query:
+                        st.error("Veuillez entrer un terme de recherche pour donner un contexte à la synthèse.")
+                    else:
+                        with st.spinner("Synthesizing..."):
+                            try:
+                                summary, title, source_info = workflow.synthesize_videos(selected_videos, query)
+                                # Clean markdown code blocks from LLM
+                                summary = clean_markdown_text(summary)
+                                # Convert to HTML for the editor
+                                html_summary = markdown.markdown(summary, extensions=['extra'])
+                                st.session_state.summary = html_summary
+                                st.session_state.title = title
+                                st.session_state.source_info = source_info
+                                st.session_state.generated = True
+                                st.session_state.quill_key += 1
+                                st.success("Synthesis complete! Switching to Result...")
+                                st.session_state.nav_selection = "📝 Result"
+                                st.rerun()
+                            except Exception as e:
+                                st.error(f"Error: {e}")
                 else:
                     st.warning("Please select at least one video.")
 

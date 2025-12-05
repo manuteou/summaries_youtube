@@ -36,7 +36,12 @@ class YouTubeAudioProcessor:
         non_shorts = [v for v in s.results if v not in s.shorts]
         return non_shorts
 
-    def get_search_object(self, subject: str, sort_by: str = "relevance", upload_date: str = None):
+    def get_search_object(self, subject: str, sort_by: str = "relevance", upload_date: str = None, exclude_terms: str = None):
+        if exclude_terms:
+            terms = exclude_terms.split()
+            for term in terms:
+                subject += f" -{term}"
+
         filters = Filter.create().type(Filter.Type.VIDEO)
         
         if sort_by == "date":

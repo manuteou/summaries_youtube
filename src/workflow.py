@@ -73,9 +73,9 @@ class WorkflowManager:
             return []
         return videos[:limit]
 
-    def init_search(self, query, sort_by="relevance", upload_date=None):
+    def init_search(self, query, sort_by="relevance", upload_date=None, exclude_terms=None):
         """Initializes a search session."""
-        search_obj = self.processor.get_search_object(query, sort_by, upload_date)
+        search_obj = self.processor.get_search_object(query, sort_by, upload_date, exclude_terms)
         # Initial fetch (pytubefix Search object fetches on init usually, or we access results)
         # We return the object to maintain state
         return search_obj
