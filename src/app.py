@@ -57,10 +57,21 @@ workflow = get_workflow(device, model, ollama_model, summary_type, version=3)
 st.title("📝 YouTube Video Summarizer")
 
 # Tabs
-tab_search, tab_manual, tab_local, tab_result = st.tabs(["🔍 Search", "✍️ Manual", "📁 Local File", "📝 Result"])
+# Navigation
+if "nav_selection" not in st.session_state:
+    st.session_state.nav_selection = "🔍 Search"
 
-# --- Tab 2: Search ---
-with tab_search:
+# Navigation Menu (replacing st.tabs)
+nav_options = ["🔍 Search", "✍️ Manual", "📁 Local File", "📝 Result"]
+nav_selection = st.radio("Navigation", nav_options, index=nav_options.index(st.session_state.nav_selection), horizontal=True, label_visibility="collapsed", key="nav_radio")
+
+# Sync session state if changed by user
+if nav_selection != st.session_state.nav_selection:
+    st.session_state.nav_selection = nav_selection
+    st.rerun()
+
+# --- Tab 1: Search ---
+if st.session_state.nav_selection == "🔍 Search":
     st.header("Search and Summarize")
     col_search, col_btn = st.columns([4, 1])
     with col_search:
@@ -191,7 +202,9 @@ with tab_search:
                             st.session_state.source_info = source_info
                             st.session_state.generated = True
                             st.session_state.quill_key += 1
-                            st.success("Synthesis complete! Go to the '📝 Résultat' tab to view it.")
+                            st.success("Synthesis complete! Switching to Result...")
+                            st.session_state.nav_selection = "📝 Result"
+                            st.rerun()
                         except Exception as e:
                             st.error(f"Error: {e}")
                 else:
@@ -221,8 +234,8 @@ with tab_search:
                         else:
                             st.info("Aucune nouvelle vidéo unique trouvée.")
 
-# --- Tab 3: Manual ---
-with tab_manual:
+# --- Tab 2: Manual ---
+if st.session_state.nav_selection == "✍️ Manual":
     col_man_input, col_man_list = st.columns([1, 1])
     
     with col_man_input:
@@ -291,7 +304,9 @@ with tab_manual:
                             st.session_state.source_info = source_info
                             st.session_state.generated = True
                             st.session_state.quill_key += 1
-                            st.success("Synthesis complete! Go to the '📝 Résultat' tab to view it.")
+                            st.success("Synthesis complete! Switching to Result...")
+                            st.session_state.nav_selection = "📝 Result"
+                            st.rerun()
                         except Exception as e:
                             st.error(f"Error: {e}")
             else:
@@ -299,8 +314,8 @@ with tab_manual:
         else:
             st.info("No videos added yet.")
 
-# --- Tab 4: Local File ---
-with tab_local:
+# --- Tab 3: Local File ---
+if st.session_state.nav_selection == "📁 Local File":
     st.header("Local MP4 File")
     file_path = st.text_input("Absolute Path to MP4 file")
     if st.button("Process File", key="btn_file"):
@@ -317,12 +332,15 @@ with tab_local:
                     st.session_state.source_info = source_info
                     st.session_state.generated = True
                     st.session_state.quill_key += 1
-                    st.success("Processing complete! Go to the '📝 Résultat' tab to view it.")
+                    st.session_state.quill_key += 1
+                    st.success("Processing complete! Switching to Result...")
+                    st.session_state.nav_selection = "📝 Result"
+                    st.rerun()
                 except Exception as e:
                     st.error(f"Error: {e}")
         else:
             st.error("File not found.")
-with tab_result:
+if st.session_state.nav_selection == "📝 Result":
     if st.session_state.generated:
         st.header("📝 Result (Editable)")
         
