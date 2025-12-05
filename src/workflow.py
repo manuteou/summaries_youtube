@@ -127,6 +127,10 @@ class WorkflowManager:
         summary = self.summarizer.enhance_markdown(summary)
         return summary, final_search_term, source_info
 
+    def refine_summary(self, current_summary, instructions):
+        """Refines the summary based on user instructions."""
+        return self.summarizer.refine_summary(current_summary, instructions)
+
     def process_video_path(self, video_path_str, type_summary="short"):
         """Processes a local video file."""
         video_path = Path(video_path_str)

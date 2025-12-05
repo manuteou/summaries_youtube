@@ -51,12 +51,12 @@ summary_type = st.sidebar.selectbox("Summary Type", ["short", "medium", "long"],
 def get_workflow(device, model, ollama_model, summary_type, version=1):
     return WorkflowManager(device=device, model=model, ollama_model=ollama_model, summary_type=summary_type)
 
-workflow = get_workflow(device, model, ollama_model, summary_type, version=2)
+workflow = get_workflow(device, model, ollama_model, summary_type, version=3)
 
 st.title("📝 YouTube Video Summarizer")
 
 # Tabs
-tab_search, tab_manual, tab_local, tab_result = st.tabs(["🔍 Search", "✍️ Manual", "📁 Local File", "📝 Résultat"])
+tab_search, tab_manual, tab_local, tab_result = st.tabs(["🔍 Search", "✍️ Manual", "📁 Local File", "📝 Result"])
 
 # --- Tab 2: Search ---
 with tab_search:
@@ -325,6 +325,7 @@ with tab_result:
                     [{"header": [1, 2, 3, False]}],
                     [{"list": "ordered"}, {"list": "bullet"}],
                     [{"indent": "-1"}, {"indent": "+1"}],
+                    [{"align": []}],
                     [{"color": []}, {"background": []}],
                     ["clean"]
                 ]
@@ -333,10 +334,91 @@ with tab_result:
             # Update session state if edited (Quill returns HTML)
             if content and content != st.session_state.summary:
                 st.session_state.summary = content
+            
+            # Refine / Regenerate Section
+            st.divider()
+            with st.expander("✨ Refine / Regenerate", expanded=False):
+                st.write("Modify the summary with AI.")
+                
+                st.write("Modify the summary with AI using these options:")
+                
+                c_size, c_tone = st.columns(2)
+                c_fmt, c_lang = st.columns(2)
+                
+                with c_size:
+                    opt_size = st.selectbox("Taille", ["(Maintener)", "Plus court", "Plus long"])
+                with c_tone:
+                    opt_tone = st.selectbox("Ton", ["(Maintener)", "Professionnel", "Formel", "Familier"])
+                with c_fmt:
+                    opt_fmt = st.selectbox("Format", ["(Maintener)", "Rapport Structuré", "Dissertation", "Article de Blog", "Liste à puces"])
+                with c_lang:
+                    opt_lang = st.selectbox("Langue", ["(Maintener)", "Anglais", "Espagnol", "Allemand", "Italien"])
+                
+                custom_instr = st.text_input("Instructions supplémentaires (Optionnel)", placeholder="Ex: Insiste sur les chiffres...")
+
+                # Construct composite instruction
+                instructions_list = []
+                
+                # Size mapping
+                if opt_size == "Plus court": instructions_list.append("Rédige une version plus courte et concise.")
+                elif opt_size == "Plus long": instructions_list.append("Développe davantage le texte avec plus de détails.")
+                
+                # Tone mapping
+                if opt_tone == "Professionnel": instructions_list.append("Adopte un ton strictement professionnel et objectif.")
+                elif opt_tone == "Formel": instructions_list.append("Utilise un style très formel et académique.")
+                elif opt_tone == "Familier": instructions_list.append("Utilise un ton décontracté et accessible (vulgarisation).")
+                
+                # Format mapping
+                if opt_fmt == "Rapport Structuré": instructions_list.append("Structure le texte comme un rapport professionnel (Intro, Analyse, Conclusion).")
+                elif opt_fmt == "Dissertation": instructions_list.append("Adopte une structure de dissertation (Thèse, Antithèse, Synthèse).")
+                elif opt_fmt == "Article de Blog": instructions_list.append("Transforme le texte en article de blog engageant (Titre accrocheur, paragraphes courts).")
+                elif opt_fmt == "Liste à puces": instructions_list.append("Reformate le contenu principal sous forme de liste à puces.")
+                
+                # Lang mapping
+                if opt_lang != "(Maintener)": instructions_list.append(f"Traduis le résultat final en {opt_lang}.")
+                
+                if custom_instr:
+                    instructions_list.append(f"Consigne spécifique : {custom_instr}")
+                
+                refine_instructions = " ".join(instructions_list)
+                
+                if refine_instructions:
+                    st.info(f"Consignes combinées : {refine_instructions}")
+
+                if st.button("Refine Summary", key="btn_refine"):
+                    if refine_instructions:
+                        with st.spinner("Refining summary..."):
+                            try:
+                                # Convert current HTML back to text for the LLM context if needed, 
+                                # but using the raw summary might be safer if we stored it separately.
+                                # Here we use the current session state content (which is HTML from Quill)
+                                # So we convert it to MD first for the LLM
+                                current_md = md(st.session_state.summary, heading_style="ATX")
+                                
+                                new_summary_md = workflow.refine_summary(current_md, refine_instructions)
+                                
+                                # Clean and convert back to HTML for editor
+                                new_summary_md = clean_markdown_text(new_summary_md)
+                                new_summary_html = markdown.markdown(new_summary_md, extensions=['extra'])
+                                
+                                st.session_state.summary = new_summary_html
+                                st.session_state.quill_key += 1
+                                st.success("Summary refined!")
+                                st.rerun()
+                            except Exception as e:
+                                st.error(f"Error refining: {e}")
+                    else:
+                        st.warning("Please enter instructions.")
 
         with col_res_side:
             st.subheader("Actions")
-            st.info(f"**Title:**\n{st.session_state.title}")
+            
+            # Editable Title
+            new_title = st.text_input("Document Title", value=st.session_state.title)
+            if new_title != st.session_state.title:
+                st.session_state.title = new_title
+            
+            st.divider()
             
             st.warning("⚠️ Editor content is HTML.")
             
@@ -352,5 +434,11 @@ with tab_result:
                     st.success(f"Saved to: {saved_path}")
                 except Exception as e:
                     st.error(f"Error saving: {e}")
+            
+            # Copy Code Section
+            st.divider()
+            with st.expander("📋 Copy Raw Markdown"):
+                raw_md = md(st.session_state.summary, heading_style="ATX")
+                st.code(raw_md, language="markdown")
     else:
         st.info("No summary generated yet. Please use one of the other tabs to generate a summary.")

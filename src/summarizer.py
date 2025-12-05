@@ -402,3 +402,28 @@ STRUCTURE OBLIGATOIRE :
             seg=f"{author}_{formatted_time}"
             )
         return text
+
+    def refine_summary(self, current_summary: str, instructions: str) -> str:
+        prompt = f"""
+        Tu es un assistant de rédaction expert.
+        
+        Texte actuel :
+        {current_summary}
+        
+        Consigne de réécriture / modification :
+        {instructions}
+        
+        Ta tâche :
+        Réécris ou modifie le texte actuel pour respecter la consigne donnée.
+        
+        🎯 Objectifs :
+        - Conserver le sens et les informations clés (sauf si la consigne demande de raccourcir drastiquement).
+        - Appliquer scrupuleusement la demande de modification.
+        - Garder un ton professionnel et une mise en page Markdown propre.
+        
+        ⛔ CONTRAINTES STRICTES :
+        - PAS de méta-commentaires ("Voici le texte modifié", "J'ai appliqué...").
+        - SORTIE PURE : Uniquement le nouveau texte.
+        """
+        response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}], options={"num_ctx": 8192, "num_predict":-1})
+        return response["message"]["content"]
