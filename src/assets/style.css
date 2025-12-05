@@ -67,7 +67,17 @@ h3:before {
 
 p {
     margin-bottom: 10px;
-    text-align: justify;
+    text-align: left;
+    /* Changed from justify to avoid spacing issues */
+    line-height: 1.6;
+}
+
+blockquote {
+    border-left: 4px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    color: #666;
+    background-color: #f9f9f9;
 }
 
 ul,
@@ -80,6 +90,25 @@ li {
     margin-bottom: 5px;
 }
 
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Code Blocks */
+pre {
+    background-color: #f0f0f0;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    /* Fix for PDF: wrap text instead of scroll */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 10pt;
+}
+
 code {
     font-family: 'Courier New', Courier, monospace;
     background-color: #f0f0f0;
@@ -87,13 +116,24 @@ code {
     font-size: 0.9em;
 }
 
-pre {
-    background-color: #f0f0f0;
-    padding: 10px;
-    overflow-x: auto;
-    font-family: 'Courier New', Courier, monospace;
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
     margin-bottom: 15px;
+}
+
+th,
+td {
     border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    font-size: 10pt;
+}
+
+th {
+    background-color: #f5f5f5;
+    font-weight: bold;
 }
 
 /* TOC Styles */

@@ -69,3 +69,14 @@ def clean_files(list_path: List[str]):
         if os.path.exists(path):
             shutil.rmtree(path)
         os.makedirs(path, exist_ok=True)    
+
+def clean_markdown_text(text: str) -> str:
+    """Removes markdown code block markers."""
+    text = text.strip()
+    if text.startswith("```markdown"):
+        text = text.replace("```markdown", "", 1)
+    if text.startswith("```"):
+        text = text.replace("```", "", 1)
+    if text.endswith("```"):
+        text = text[:-3]
+    return text

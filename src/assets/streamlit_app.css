@@ -37,6 +37,12 @@
     color: #D3D3D3;
     line-height: 1.4;
     margin-bottom: 1rem;
+    height: 120px;
+    overflow-y: auto;
+    padding-right: 5px;
+    /* Custom scrollbar for webkit */
+    scrollbar-width: thin;
+    scrollbar-color: #555 #262730;
 }
 
 /* Button Styling Override */

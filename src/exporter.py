@@ -1,19 +1,56 @@
 import os
 from datetime import datetime
-from utils import slugify
-import markdown
 import html
+import markdown
 from xhtml2pdf import pisa
+from markdownify import markdownify as md
+from utils import slugify, clean_markdown_text
 
 class Exporter:
     def __init__(self, output_dir: str):
         self.output_dir = output_dir
         os.makedirs(self.output_dir, exist_ok=True)
+        self.css_content = self._load_css()
+        
+    def _load_css(self):
+        css_path = os.path.join(os.path.dirname(__file__), "assets", "style.css")
+        if os.path.exists(css_path):
+            with open(css_path, "r", encoding="utf-8") as f:
+                return f.read()
+        return ""
 
-    def _format_sources(self, source_info):
+    def _is_html(self, text: str) -> bool:
+        """Detects if text is likely HTML."""
+        text = text.strip()
+        return (
+            text.startswith("<") or 
+            "<p>" in text or 
+            "<div>" in text or 
+            "<h1>" in text or 
+            "<span" in text
+        )
+
+    def _to_html(self, content: str) -> str:
+        """Converts content to HTML."""
+        if self._is_html(content):
+            return content
+        else:
+            return markdown.markdown(clean_markdown_text(content), extensions=['extra', 'codehilite'])
+
+    def _to_markdown(self, content: str) -> str:
+        """Converts content to Markdown."""
+        if self._is_html(content):
+            return md(content, heading_style="ATX")
+        else:
+            return clean_markdown_text(content)
+            
+    def _to_text(self, content: str) -> str:
+        """Converts content to Plain Text."""
+        return self._to_markdown(content)
+
+    def _format_sources_md(self, source_info):
         if not source_info:
             return ""
-        
         sources_text = "\n\n## Sources\n"
         for source in source_info:
             title = source.get("title", "Inconnu")
@@ -25,120 +62,99 @@ class Exporter:
                 sources_text += f"- [{title}]({url})\n"
         return sources_text
 
+    def _format_sources_html(self, source_info):
+        if not source_info:
+            return ""
+        html_str = "<hr><h2>Sources</h2><ul>"
+        for source in source_info:
+            title = source.get("title", "Inconnu")
+            url = source.get("url", "#")
+            date = source.get("date")
+            date_str = f" ({date})" if date else ""
+            html_str += f'<li><a href="{url}">{title}{date_str}</a></li>'
+        html_str += "</ul>"
+        return html_str
+
     def save_md(self, summary: str, output_file: str, source_info=None):
-        content = summary + self._format_sources(source_info)
+        content = self._to_markdown(summary)
+        content += self._format_sources_md(source_info)
         with open(output_file, "w", encoding="utf-8") as f:
             f.write(content)
 
     def save_txt(self, summary: str, output_file: str, source_info=None):
-        content = summary + self._format_sources(source_info)
-        plain_text = content.replace("**", "").replace("#", "").replace("-", "")
+        content = self._to_text(summary)
+        content += self._format_sources_md(source_info)
+        # Optional: strip markdown syntax if strictly required, but usually readable enough
         with open(output_file, "w", encoding="utf-8") as f:
-            f.write(plain_text.strip())
+            f.write(content)
 
-    def save_html(self, summary: str, output_file: str, title: str, source_info=None):
-        # Load CSS
-        css_path = os.path.join(os.path.dirname(__file__), "assets", "style.css")
-        css_content = ""
-        if os.path.exists(css_path):
-            with open(css_path, "r", encoding="utf-8") as f:
-                css_content = f.read()
-
-        sources_html = ""
-        if source_info:
-            sources_html = "<h2>Sources</h2><ul>"
-            for source in source_info:
-                title_src = source.get("title", "Inconnu")
-                url = source.get("url", "#")
-                date = source.get("date")
-                date_str = f" ({date})" if date else ""
-                sources_html += f'<li><a href="{url}">{title_src}{date_str}</a></li>'
-            sources_html += "</ul>"
-
-        full_html = f"""
-        <html>
-        <head>
-            <meta charset="utf-8">
-            <title>{title}</title>
-            <style>
-            {css_content}
-            body {{ max-width: 800px; margin: 0 auto; padding: 20px; }}
-            </style>
-        </head>
-        <body>
-            <h1 class="doc-title">{title}</h1>
-            {summary}
-            {sources_html}
-        </body>
-        </html>
-        """
-        with open(output_file, "w", encoding="utf-8") as f:
-            f.write(full_html)
-
-    def save_pdf(self, summary: str, output_file: str, title: str, source_info=None):
-        # Check if input is likely HTML (starts with <)
-        is_html = summary.strip().startswith("<")
+    def _wrap_html(self, html_body: str, title: str, source_info=None, for_pdf=False) -> str:
+        sources_html = self._format_sources_html(source_info)
         
-        if is_html:
-            html_content = summary
-        else:
-            # Clean up potential markdown code blocks from LLM output
-            clean_summary = summary.strip()
-            if clean_summary.startswith("```markdown"):
-                clean_summary = clean_summary.replace("```markdown", "", 1)
-            if clean_summary.startswith("```"):
-                clean_summary = clean_summary.replace("```", "", 1)
-            if clean_summary.endswith("```"):
-                clean_summary = clean_summary[:-3]
-            
-            # Convert Markdown to HTML
-            html_content = markdown.markdown(clean_summary, extensions=['extra', 'codehilite'])
-        
-        # Load CSS
-        css_path = os.path.join(os.path.dirname(__file__), "assets", "style.css")
-        css_content = ""
-        if os.path.exists(css_path):
-            with open(css_path, "r", encoding="utf-8") as f:
-                css_content = f.read()
-        
-        # Wrap HTML with style
-        full_html = f"""
-        <html>
-        <head>
-            <style>
-            @page title_template {{
-                margin: 2cm;
-            }}
-            @page toc_template {{
-                margin: 2cm;
-            }}
-            @page content_template {{
-                margin: 2cm;
-            }}
-            
-            {css_content}
-            </style>
-        </head>
-        <body>
-            <p class="doc-title">{title}</p>
-            
-            <pdf:nexttemplate name="toc_template" />
-            <pdf:nextpage />
-            
+        # PDF Header includes page numbers
+        footer_div = ""
+        toc_div = ""
+        if for_pdf:
+            footer_div = """
+            <div id="footerContent">
+                Page <pdf:pagenumber /> / <pdf:pagecount />
+            </div>
+            """
+            toc_div = """
             <div id="toc-container">
                 <h1>Sommaire</h1>
                 <pdf:toc />
             </div>
-            
-            <pdf:nexttemplate name="content_template" />
             <pdf:nextpage />
+            """
             
-            {html_content}
+        return f"""
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <style>
+            @page {{
+                size: A4;
+                margin: 2cm;
+                @frame footer_frame {{
+                    -pdf-frame-content: footerContent;
+                    bottom: 1cm;
+                    margin-left: 2cm;
+                    margin-right: 2cm;
+                    height: 1cm;
+                }}
+            }}
+            
+            {self.css_content}
+            </style>
+        </head>
+        <body>
+            <div class="doc-title">{title}</div>
+            
+            {toc_div}
+            
+            <div class="content">
+                {html_body}
+            </div>
+            
+            <div id="sources">
+                {sources_html}
+            </div>
+            
+            {footer_div}
         </body>
         </html>
         """
 
-        # Generate PDF
+    def save_html(self, summary: str, output_file: str, title: str, source_info=None):
+        html_body = self._to_html(summary)
+        full_html = self._wrap_html(html_body, title, source_info, for_pdf=False)
+        with open(output_file, "w", encoding="utf-8") as f:
+            f.write(full_html)
+
+    def save_pdf(self, summary: str, output_file: str, title: str, source_info=None):
+        html_body = self._to_html(summary)
+        full_html = self._wrap_html(html_body, title, source_info, for_pdf=True)
         with open(output_file, "wb") as f:
             pisa.CreatePDF(full_html, dest=f)
 

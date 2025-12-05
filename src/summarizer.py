@@ -216,48 +216,40 @@ STRUCTURE OBLIGATOIRE :
 Texte à traiter :
 {text}
 
-Tu es un moteur d'extraction d'information et de rédaction haute qualité. Ta tâche est de traiter une SECTION d'un document plus large.
+Tu es un moteur d'extraction d'information haute fidélité. Ta tâche est de traiter une SECTION d'un document pour en extraire TOUTE la substance.
 
 🎯 Objectifs :
-- **Synthèse longue avec le maximum d'info et de qualités**.
-- **Ne rien omettre** : Capturer tous les détails, chiffres, noms et nuances de cette section.
-- **Qualité rédactionnelle supérieure** : Utiliser un vocabulaire riche, précis et un style soutenu.
+-   **Densité maximale** : Ne résume pas. Reformule de manière dense mais conserve 100% des informations factuelles (chiffres, noms, dates, arguments).
+-   **Structure** : Utilise des sous-titres (H3) pour organiser les idées au sein de ce bloc.
+-   **Style** : Académique, précis, exhaustif.
 
-CONSIGNES DE RÉDACTION :
-1.  **Contexte** : Tu traites une partie d'un tout. NE METS PAS de titre principal (H1) comme "Compte-Rendu". Utilise des H2 ou H3 pour structurer le contenu de cette section.
-2.  **Exhaustivité** : Tout doit y être. Mieux vaut trop long que trop court.
-3.  **Fidélité** : Reste strictement fidèle au texte source.
-
-CONTRAINTES STRICTES (A RESPECTER IMPÉRATIVEMENT) :
--   **PAS DE TITRE DE DOCUMENT** : Ne commence pas par "Introduction" ou "Compte-Rendu". Rentre directement dans le vif du sujet de cette section.
--   **NE JAMAIS** inventer de dates, de lieux, de noms ou de faits.
--   **NE PAS** utiliser l'expression "Compte-Rendu Exhaustif".
--   **PAS DE MÉTA-COMMENTAIRE**.
--   **SORTIE PURE**.
+⛔ CONTRAINTES :
+-   Ne supprime aucun détail technique.
+-   Pas de "titre de document" (c'est juste un fragment).
+-   Pas de méta-commentaires.
 """
             elif context == "full_text":
                 return f"""
 Texte à traiter :
 {text}
 
-Tu es un moteur de documentation technique et de rédaction avancée. Ta tâche est de produire un document de référence complet à partir du texte ci-dessus.
+Tu es un rédacteur technique chargé de produire la DOCUMENTATION DE RÉFÉRENCE définitive de ce contenu.
 
-🎯 Objectifs :
-- **Synthèse longue avec le maximum d'info et de qualités**.
-- **Exhaustivité Totale** : Détailler minutieusement toutes les décisions, annonces et débats.
-- **Qualité rédactionnelle supérieure** : Style fluide, vocabulaire précis, structure impeccable.
+🎯 OBJECTIFS PRIORITAIRES :
+1.  **Exhaustivité Totale** : Le lecteur ne doit plus jamais avoir besoin de consulter l'original. Tout doit être là.
+2.  **Volume** : Produis un texte long (minimum 1500 mots si le contenu le permet), dense et fouillé.
+3.  **Clarté Structurelle** : Utilise abondamment les titres (H2) et sous-titres (H3) pour organiser cette masse d'informations.
 
 CONSIGNES DE RÉDACTION :
-1.  **Profondeur** : Ne pas résumer pour raccourcir, mais pour structurer. Garder toute la substance.
-2.  **Structure** : Utilise une hiérarchie claire (H1, H2, H3).
-3.  **Contexte** : Liste toutes les actions avec leur contexte complet.
+-   **Introduction** : Pose le cadre complet (qui, quoi, où, quand, pourquoi).
+-   **Développement** : Suis le déroulé logique. Chaque argument doit être développé dans sa propre sous-section.
+-   **Détails Techniques** : Conserve tous les chiffres, dates, noms propres et terminologies spécifiques.
 
-CONTRAINTES STRICTES (A RESPECTER IMPÉRATIVEMENT) :
--   **NE JAMAIS** inventer de dates, de lieux, de noms ou de faits. Les titres doivent être basés uniquement sur le contenu réel.
--   **NE PAS** utiliser l'expression "Compte-Rendu Exhaustif" (ni dans le titre, ni dans le texte).
--   **PAS DE MÉTA-COMMENTAIRE** : Ne dis pas "Voici le document", "Note : Ce compte-rendu...".
--   **PAS DE BARATIN** : Pas de phrases de remplissage. Chaque phrase doit apporter une information.
--   **SORTIE PURE** : Ton output doit contenir UNIQUEMENT le document structuré.
+⛔ INTERDITS :
+-   Pas de "résumé" ou de "synthèse rapide".
+-   Pas de phrases génériques.
+-   Pas d'hallucinations.
+-   L'expression "Compte-Rendu" est interdite.
 """
             elif context == "multi":
                 return f"""
@@ -266,18 +258,26 @@ Sources :
 
 Sujet : {text['search']}
 
-Tu es un moteur de synthèse analytique. Ta tâche est de réaliser un dossier complet sur le sujet demandé en utilisant les sources fournies.
+Tu es un expert en rédaction de dossiers documentaires approfondis. Ta mission est de produire un DOSSIER COMPLET et EXHAUSTIF sur le sujet.
 
-CONSIGNES DE RÉDACTION :
-1.  **Analyse** : Analyse en profondeur chaque aspect du sujet.
-2.  **Confrontation** : Confronte les points de vue des différentes sources.
-3.  **Fusion** : Rédige un texte unique et cohérent (ne dis pas "La source 1 dit...").
+🎯 OBJECTIFS PRIORITAIRES :
+1.  **Densité Informationnelle MAXIMALE** : Ne laisse AUCUN détail de côté. Croise les sources mais conserve la richesse de chacune.
+2.  **Longueur conséquente** : Vise un document de référence de 1500 à 2500 mots. Il est interdit de faire court.
+3.  **Structure Granulaire** : Descends dans le détail (H2 > H3 > Listes détaillées).
 
-CONTRAINTES STRICTES (A RESPECTER IMPÉRATIVEMENT) :
--   **NE JAMAIS** inventer de dates, de lieux ou de faits non présents dans les sources.
--   **NE PAS** utiliser l'expression "Compte-Rendu Exhaustif".
--   **PAS DE MÉTA-COMMENTAIRE** : Ne dis pas "Voici la synthèse", "Parfait", "Note...".
--   **SORTIE PURE** : Ton output doit contenir UNIQUEMENT le dossier complet.
+STRUCTURE OBLIGATOIRE :
+-   **Introduction Détaillée** : Contexte, définitions, enjeux.
+-   **Développement Thématique** (Plusieurs sections H2) :
+    -   Pour chaque thème, développe plusieurs sous-parties (H3).
+    -   Intègre les chiffres et faits précis des vidéos.
+-   **Analyse Comparative** : Si les sources divergent, explique précisément en quoi.
+-   **Conclusion Synthétique**.
+
+⛔ CONTRAINTES STRICTES :
+-   **INTERDICTION DE RÉSUMER** : Tu ne dois pas "synthétiser" pour raccourcir, mais "compiler" pour tout garder.
+-   **Ton** : Encyclopédique, neutre, précis.
+-   **Pas de méta-commentaires** ("Dans ce dossier...", "Nous allons voir...").
+-   **NE JAMAIS INVENTER** : Base-toi uniquement sur les sources fournies.
 """
         return ""
 

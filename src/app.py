@@ -4,6 +4,7 @@ from workflow import WorkflowManager
 from streamlit_quill import st_quill
 import markdown
 from markdownify import markdownify as md
+from utils import clean_markdown_text
 
 # Page config
 st.set_page_config(page_title="YouTube Summarizer", page_icon="📝", layout="wide")
@@ -159,8 +160,8 @@ with tab_search:
                         desc = "No description available."
                     
                     if not desc: desc = "No description available."
-                    short_desc = (desc[:100] + '...') if len(desc) > 100 else desc
-                    st.markdown(f'<div class="video-desc">{short_desc}</div>', unsafe_allow_html=True)
+                    # No truncation here, strictly CSS handling
+                    st.markdown(f'<div class="video-desc">{desc}</div>', unsafe_allow_html=True)
                     
                     if st.checkbox(f"Select", key=v.watch_url):
                         selected_videos.append(v)
@@ -173,6 +174,8 @@ with tab_search:
                     with st.spinner("Synthesizing..."):
                         try:
                             summary, title, source_info = workflow.synthesize_videos(selected_videos, query)
+                            # Clean markdown code blocks from LLM
+                            summary = clean_markdown_text(summary)
                             # Convert to HTML for the editor
                             html_summary = markdown.markdown(summary, extensions=['extra'])
                             st.session_state.summary = html_summary
@@ -225,11 +228,58 @@ with tab_manual:
     with col_man_list:
         st.subheader("Selected Videos")
         if st.session_state.manual_videos:
-            for i, v in enumerate(st.session_state.manual_videos):
-                st.markdown(f"**{i+1}. {v.title}** ({v.author})")
+            # Create a copy to iterate safely if modifying
+            videos_to_remove = []
             
-            st.divider()
-            manual_title = st.text_input("Title for the Synthesis", value="Synthèse Manuelle")
+            for i, v in enumerate(st.session_state.manual_videos):
+                c1, c2 = st.columns([5, 1])
+                with c1:
+                    st.markdown(f"**{i+1}. {v.title}**")
+                    st.caption(f"{v.author}")
+                with c2:
+                    if st.button("🗑️", key=f"rm_v_{i}"):
+                        videos_to_remove.append(i)
+            
+            # Process removal
+            if videos_to_remove:
+                # Remove in reverse order to maintain indices
+                for idx in sorted(videos_to_remove, reverse=True):
+                    st.session_state.manual_videos.pop(idx)
+                st.rerun()
+            
+            if st.session_state.manual_videos:
+                st.divider()
+                if st.button("Clear List", key="btn_clear_manual", type="secondary"):
+                    st.session_state.manual_videos = []
+                    st.rerun()
+                
+                manual_title = st.text_input("Title for the Synthesis", value="Synthèse Manuelle")
+                
+                if st.button("Synthesize Manual List", key="btn_synth_manual", type="primary"):
+                    with st.spinner("Synthesizing..."):
+                        try:
+                            # Construct a fake search object context if needed or just pass list
+                            # reusing logic from search tab but for manual list
+                            # We create a combined prompt for all videos
+                            
+                            # Note: The original code didn't actually have the synthesis button logic implemented 
+                            # in this tab in the snippet provided! It just had the title input.
+                            # I will implementing the call to workflow.synthesize_videos here.
+                            
+                            summary, title, source_info = workflow.synthesize_videos(st.session_state.manual_videos, manual_title)
+                            
+                            summary = clean_markdown_text(summary)
+                            html_summary = markdown.markdown(summary, extensions=['extra'])
+                            st.session_state.summary = html_summary
+                            st.session_state.title = title
+                            st.session_state.source_info = source_info
+                            st.session_state.generated = True
+                            st.session_state.quill_key += 1
+                            st.success("Synthesis complete! Go to the '📝 Résultat' tab to view it.")
+                        except Exception as e:
+                            st.error(f"Error: {e}")
+            else:
+                 st.info("List is empty.")
         else:
             st.info("No videos added yet.")
 
@@ -242,6 +292,8 @@ with tab_local:
             with st.spinner("Processing file..."):
                 try:
                     summary, title, source_info = workflow.process_video_path(file_path, summary_type)
+                    # Clean markdown code blocks from LLM
+                    summary = clean_markdown_text(summary)
                     # Convert to HTML for the editor
                     html_summary = markdown.markdown(summary, extensions=['extra'])
                     st.session_state.summary = html_summary
