@@ -245,9 +245,10 @@ CONSIGNES DE RÉDACTION :
 -   **Développement** : Suis le déroulé logique. Chaque argument doit être développé dans sa propre sous-section.
 -   **Détails Techniques** : Conserve tous les chiffres, dates, noms propres et terminologies spécifiques.
 
-⛔ INTERDITS :
+⛔ INTERDITS ABSOLUS :
+-   **PAS DE TEXTE D'INTRODUCTION** (ex: "Voici le code...", "Voici le document..."). Commence DIRECTEMENT par le Titre du document.
+-   **PAS DE LISTES VIDES** : Si tu crées une puce ou une section, tu DOIS mettre du contenu factuel dedans.
 -   Pas de "résumé" ou de "synthèse rapide".
--   Pas de phrases génériques.
 -   Pas d'hallucinations.
 -   L'expression "Compte-Rendu" est interdite.
 """
@@ -274,10 +275,12 @@ STRUCTURE OBLIGATOIRE :
 -   **Conclusion Synthétique**.
 
 ⛔ CONTRAINTES STRICTES :
+-   **INTERDICTION DE TEXTE D'INTRODUCTION OU DE FIN** (ex: "J'espère que ceci vous aide", "Voici le code markdown").
+-   **COMMENCE DIRECTEMENT** par le titre principal (H1).
 -   **INTERDICTION DE RÉSUMER** : Tu ne dois pas "synthétiser" pour raccourcir, mais "compiler" pour tout garder.
--   **Ton** : Encyclopédique, neutre, précis.
--   **Pas de méta-commentaires** ("Dans ce dossier...", "Nous allons voir...").
--   **NE JAMAIS INVENTER** : Base-toi uniquement sur les sources fournies.
+-   **PAS DE SECTIONS VIDES** : Chaque titre doit être suivi d'au moins un paragraphe de texte dense.
+-   Ton : Encyclopédique, neutre, précis.
+-   NE JAMAIS INVENTER : Base-toi uniquement sur les sources fournies.
 """
         return ""
 

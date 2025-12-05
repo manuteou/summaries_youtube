@@ -71,12 +71,20 @@ def clean_files(list_path: List[str]):
         os.makedirs(path, exist_ok=True)    
 
 def clean_markdown_text(text: str) -> str:
-    """Removes markdown code block markers."""
+    """Removes markdown code block markers and conversational preambles."""
+    # Pattern to find content inside ```markdown ... ``` or ``` ... ```
+    # re.DOTALL makes . match newlines
+    pattern = r"```(?:markdown)?\s*(.*?)\s*```"
+    match = re.search(pattern, text, re.DOTALL)
+    if match:
+        return match.group(1).strip()
+    
+    # Fallback cleanup for simple fences if no full block found (e.g. unclosed)
     text = text.strip()
     if text.startswith("```markdown"):
         text = text.replace("```markdown", "", 1)
-    if text.startswith("```"):
-        text = text.replace("```", "", 1)
+    elif text.startswith("```"):
+        text = text[3:]
     if text.endswith("```"):
         text = text[:-3]
-    return text
+    return text.strip()
