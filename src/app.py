@@ -5,6 +5,8 @@ from streamlit_quill import st_quill
 import markdown
 from markdownify import markdownify as md
 from utils import clean_markdown_text, time_since
+import html
+import textwrap
 
 
 # Page config
@@ -45,7 +47,7 @@ device = st.sidebar.selectbox("Device", ["cpu", "cuda"], index=0 if os.getenv("D
 model = st.sidebar.selectbox("Whisper Model", ["tiny", "base", "small", "medium", "large"], index=3) # Default medium
 ollama_model = st.sidebar.text_input("Ollama Model", value=os.getenv("OLLAMA_MODEL", "mistral"))
 
-summary_type = st.sidebar.selectbox("Summary Type", ["short", "medium", "long"], index=0)
+summary_type = st.sidebar.selectbox("Summary Type", ["short", "medium", "long", "news"], index=0)
 
 # Initialize Workflow Manager
 @st.cache_resource
@@ -77,28 +79,53 @@ if st.session_state.nav_selection == "🔍 Search":
     with col_search:
         query = st.text_input("Search Query", label_visibility="collapsed", placeholder="Search for videos...")
     
+    # --- Filters Session State Logic ---
+    if "filter_sort" not in st.session_state:
+        st.session_state.filter_sort = "Relevance"
+    if "filter_date" not in st.session_state:
+        st.session_state.filter_date = "Any"
+    if "filter_dur" not in st.session_state:
+        st.session_state.filter_dur = "Any"
+
+    # Quick Filters (Actu Semaine / Actu Mois)
+    st.markdown("##### ⚡ Filtres Rapides")
+    col_q1, col_q2 = st.columns(2)
+    with col_q1:
+        if st.button("📅 Actu Semaine", help="Trie par date et filtre sur cette semaine"):
+            st.session_state.filter_sort = "Date"
+            st.session_state.filter_date = "Week"
+            st.rerun()
+    with col_q2:
+        if st.button("📅 Actu Mois", help="Trie par date et filtre sur ce mois"):
+            st.session_state.filter_sort = "Date"
+            st.session_state.filter_date = "Month"
+            st.rerun()
+
     # Advanced Filters
-    with st.expander("🛠️ Advanced Filters"):
+    with st.expander("🛠️ Advanced Filters", expanded=True):
         col_f1, col_f2, col_f3, col_f4 = st.columns(4)
         with col_f1:
-            sort_option = st.selectbox("Sort By", ["Relevance", "Date", "Views"], index=0)
+            sort_option = st.selectbox("Sort By", ["Relevance", "Date", "Views"], key="filter_sort")
         with col_f2:
-            date_option = st.selectbox("Upload Date", ["Any", "Today", "Week", "Month", "Year"], index=0)
+            date_option = st.selectbox("Upload Date", ["Any", "Today", "Week", "Month", "Year"], key="filter_date")
         with col_f3:
-            dur_option = st.selectbox("Duration", ["Any", "Short (<5m)", "Medium (5-20m)", "Long (>20m)"], index=0)
+            dur_option = st.selectbox("Duration", ["Any", "Short (<5m)", "Medium (5-20m)", "Long (>20m)"], key="filter_dur")
         with col_f4:
-            type_options = st.multiselect("Type", ["Documentary", "Tutorial", "Conference", "Review"])
+            type_options = st.multiselect("Type", ["Documentary", "Tutorial", "Conference", "Review", "News", "Tech"])
         
         exclude_terms = st.text_input("Mots à exclure (séparés par des espaces)", placeholder="Ex: shorts gaming")
+        
+        use_trusted_boost = st.checkbox("⭐ Prioriser les sources fiables (Arte, TED...)", value=True, help="Si coché, remonte les vidéos des chaînes de confiance en haut de la liste.")
 
     # Mapping for backend
     sort_map = {"Relevance": "relevance", "Date": "date", "Views": "views"}
     date_map = {"Any": None, "Today": "today", "Week": "week", "Month": "month", "Year": "year"}
     dur_map = {"Any": "any", "Short (<5m)": "short", "Medium (5-20m)": "medium", "Long (>20m)": "long"}
     
-    final_sort = sort_map[sort_option]
-    final_date = date_map[date_option]
-    final_dur = dur_map[dur_option]
+    final_sort = sort_map[st.session_state.filter_sort]
+    final_date = date_map[st.session_state.filter_date]
+    final_dur = dur_map[st.session_state.filter_dur]
+
 
     # Advisory Note
     st.info("💡 **Conseil :** Sélectionnez le nombre de vidéos en fonction du type de résumé souhaité :\n"
@@ -134,8 +161,10 @@ if st.session_state.nav_selection == "🔍 Search":
                 st.session_state.search_object = workflow.init_search(final_query, sort_by=final_sort, upload_date=final_date, exclude_terms=exclude_terms)
                 # Store duration preference in session state to use during load more
                 st.session_state.filter_duration = final_dur
+                st.session_state.active_categories = type_options
+                st.session_state.use_boost = use_trusted_boost
                 
-                st.session_state.search_results = workflow.get_search_results(st.session_state.search_object, duration_mode=final_dur)
+                st.session_state.search_results = workflow.get_search_results(st.session_state.search_object, duration_mode=final_dur, active_categories=type_options, enable_boost=use_trusted_boost)
                 st.session_state.visible_count = 9
                 # Reset selection on new search
                 st.session_state.selected_video_urls = set()
@@ -173,36 +202,66 @@ if st.session_state.nav_selection == "🔍 Search":
             with col:
                 # Card Container
                 with st.container():
-                    # Calculate relative time
-                    rel_time = time_since(v.publish_date)
-                    
-                    # Format duration
-                    duration_min = v.length // 60
-                    duration_sec = v.length % 60
-                    duration_str = f"{duration_min}:{duration_sec:02d}"
-
-                    # Description handling
                     try:
-                        desc = v.description
-                    except Exception:
-                        desc = "No description available."
-                    
-                    if not desc: desc = "No description available."
+                        # Data extraction
+                        # Ensure we handle missing attributes gracefully
+                        title = getattr(v, 'title', 'Unknown Title')
+                        author = getattr(v, 'author', 'Unknown Author')
+                        desc = getattr(v, 'description', '')
+                        if not desc: desc = "No description available."
+                        
+                        thumb_url = getattr(v, 'thumbnail_url', '')
+                        if not thumb_url: thumb_url = "https://via.placeholder.com/320x180?text=No+Image"
+                        
+                        pub_date = getattr(v, 'publish_date', None)
+                        length = getattr(v, 'length', 0)
+                        
+                        # Formatting
+                        rel_time = time_since(pub_date) if pub_date else "Unknown date"
+                        
+                        minutes = length // 60
+                        seconds = length % 60
+                        duration_str = f"{minutes}:{seconds:02d}"
 
-                    st.markdown(f"""
-                    <div class="video-card">
-                        <div class="thumbnail-container">
-                            <img src="{v.thumbnail_url}">
-                            <span class="duration-badge">{duration_str}</span>
-                        </div>
-                        <div class="video-title">{v.title}</div>
-                        <div class="video-meta">
-                            Author: {v.author}<br>
-                            <span style="color: #888; font-size: 0.9em;">{rel_time}</span>
-                        </div>
-                        <div class="video-desc">{desc}</div>
-                    </div>
-                    """, unsafe_allow_html=True)
+                        # HTML Safety
+                        safe_title = html.escape(str(title))
+                        safe_author = html.escape(str(author))
+                        safe_desc = html.escape(str(desc))
+                        
+                        # Badge
+                        badge_html = ""
+                        if getattr(v, 'is_boosted', False):
+                            badge_html = (
+                                '<div style="position: absolute; top: 8px; right: 8px; '
+                                'background-color: #FFD700; color: #000000; padding: 4px 8px; '
+                                'border-radius: 4px; font-weight: bold; font-size: 0.75rem; '
+                                'z-index: 10; box-shadow: 0 2px 4px rgba(0,0,0,0.3);">'
+                                '⭐ Recommandé</div>'
+                            )
+
+                        # Render - Use one single line or properly concatenated strings to avoid any indentation ambiguity
+                        card_html = (
+                            f'<div class="video-card" style="position: relative; border: 1px solid #444; border-radius: 8px; '
+                            f'padding: 0; overflow: hidden; margin-bottom: 10px; background: #262730;">'
+                            f'<div class="thumbnail-container" style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%;">'
+                            f'{badge_html}'
+                            f'<img src="{thumb_url}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" alt="{safe_title}">'
+                            f'<span style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.8); color: white; '
+                            f'padding: 2px 6px; border-radius: 4px; font-size: 0.75rem;">{duration_str}</span>'
+                            f'</div>'
+                            f'<div style="padding: 10px;">'
+                            f'<div style="font-weight: 600; font-size: 1rem; margin-bottom: 4px; line-height: 1.2; height: 1.2em; '
+                            f'overflow: hidden; white-space: nowrap; text-overflow: ellipsis;" title="{safe_title}">{safe_title}</div>'
+                            f'<div style="font-size: 0.8rem; color: #aaa; margin-bottom: 8px;">{safe_author} • {rel_time}</div>'
+                            f'<div style="font-size: 0.85rem; color: #ddd; height: 3em; overflow: hidden; line-height: 1.5; '
+                            f'display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{safe_desc}</div>'
+                            f'</div></div>'
+                        )
+                        st.markdown(card_html, unsafe_allow_html=True)
+                        
+                    except Exception as e:
+                        st.error(f"Error render card: {e}")
+
                     
                     # Checkbox logic
                     is_selected = v.watch_url in st.session_state.selected_video_urls
@@ -247,7 +306,9 @@ if st.session_state.nav_selection == "🔍 Search":
                 with st.spinner("Récupération depuis YouTube..."):
                     # Use stored duration filter
                     dur_mode = st.session_state.get("filter_duration", "any")
-                    new_results = workflow.load_more_videos(st.session_state.search_object, duration_mode=dur_mode)
+                    act_cats = st.session_state.get("active_categories", [])
+                    use_boost = st.session_state.get("use_boost", True)
+                    new_results = workflow.load_more_videos(st.session_state.search_object, duration_mode=dur_mode, active_categories=act_cats, enable_boost=use_boost)
                     
                     if not new_results:
                         st.warning("Plus aucun résultat trouvé.")

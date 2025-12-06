@@ -28,6 +28,8 @@ if FFMPEG_DIR:
 
 warnings.filterwarnings("ignore")
 
+from config import PREFERRED_CHANNELS
+
 class WorkflowManager:
     def __init__(self, output_dir=OUTPUT_DIR, model=MODEL, device=DEVICE, ollama_model=OLLAMA_MODEL, summary_type="short"):
         self.output_dir = output_dir
@@ -80,15 +82,60 @@ class WorkflowManager:
         # We return the object to maintain state
         return search_obj
 
-    def get_search_results(self, search_obj, duration_mode="any"):
-        """Returns filtered results from a search object."""
-        raw_results = [v for v in search_obj.results if v not in search_obj.shorts]
-        return self.processor.filter_videos(raw_results, duration_mode)
+    def _is_channel_preferred(self, channel_name, active_categories):
+        """Checks if a channel is in the preferred list for the active categories."""
+        if not channel_name or not active_categories:
+            return False
+            
+        for category in active_categories:
+            if category in PREFERRED_CHANNELS:
+                for preferred in PREFERRED_CHANNELS[category]:
+                    if preferred.lower() in channel_name.lower():
+                        return True
+        return False
 
-    def load_more_videos(self, search_obj, duration_mode="any"):
+    def get_search_results(self, search_obj, duration_mode="any", active_categories=None, enable_boost=True):
+        """Returns filtered results from a search object, with optional channel boosting."""
+        raw_results = [v for v in search_obj.results if v not in search_obj.shorts]
+        filtered = self.processor.filter_videos(raw_results, duration_mode)
+        
+        # Boost preferred channels
+        if active_categories and enable_boost:
+            boosted = []
+            regular = []
+            for v in filtered:
+                # Add a dynamic property 'is_boosted' to the object for UI usage
+                # Note: pytube objects might not like new attributes, stick to re-ordering first
+                # We can wrap or just re-order. To pass to UI, we might need to set it.
+                is_fav = self._is_channel_preferred(v.author, active_categories)
+                v.is_boosted = is_fav # Monkey-patching for UI
+                
+                if is_fav:
+                    boosted.append(v)
+                else:
+                    regular.append(v)
+            return boosted + regular
+            
+        return filtered
+
+    def load_more_videos(self, search_obj, duration_mode="any", active_categories=None, enable_boost=True):
         """Fetches more videos for an existing search session."""
         new_videos = self.processor.fetch_next(search_obj)
-        return self.processor.filter_videos(new_videos, duration_mode)
+        filtered = self.processor.filter_videos(new_videos, duration_mode)
+        
+        if active_categories and enable_boost:
+            boosted = []
+            regular = []
+            for v in filtered:
+                is_fav = self._is_channel_preferred(v.author, active_categories)
+                v.is_boosted = is_fav
+                if is_fav:
+                    boosted.append(v)
+                else:
+                    regular.append(v)
+            return boosted + regular
+            
+        return filtered
 
     def get_video_info(self, url):
         """Wrapper for processor.get_video_info"""
@@ -99,7 +146,25 @@ class WorkflowManager:
         texts = []
         source_info = []
         
-        for video in selected_videos:
+        # Prepare processing order
+        processing_list = selected_videos
+        
+        # If News mode, prioritizing RECENT videos is crucial.
+        # We sort them by date descending (newest first).
+        if self.summary_type == "news":
+            # Assuming publish_date is datetime or comparable. If strings, ensure ISO format.
+            # pytubefix dates are datetime objects usually.
+            try:
+                processing_list = sorted(
+                    selected_videos, 
+                    key=lambda v: v.publish_date if v.publish_date else datetime.min, 
+                    reverse=True
+                )
+            except Exception as e:
+                # If sorting fails, stick to selection order but warn
+                print(f"Warning: Could not sort by date for News mode: {e}")
+
+        for video in processing_list:
             text, title, author, date, method = self.get_video_text(video.watch_url)
             # Summarize each video individually first (long text summary)
             video_summary = self.summarizer.summarize_long_text(text, author)
