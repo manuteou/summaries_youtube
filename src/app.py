@@ -38,16 +38,18 @@ if "search_results" not in st.session_state:
     st.session_state.search_results = []
 if "visible_count" not in st.session_state:
     st.session_state.visible_count = 9
-if "quill_key" not in st.session_state:
     st.session_state.quill_key = 0
+if "last_saved_path" not in st.session_state:
+    st.session_state.last_saved_path = None
+
 
 # Sidebar Configuration
 st.sidebar.title("Configuration")
-device = st.sidebar.selectbox("Device", ["cpu", "cuda"], index=0 if os.getenv("DEVICE") == "cpu" else 1)
-model = st.sidebar.selectbox("Whisper Model", ["tiny", "base", "small", "medium", "large"], index=3) # Default medium
-ollama_model = st.sidebar.text_input("Ollama Model", value=os.getenv("OLLAMA_MODEL", "mistral"))
+device = st.sidebar.selectbox("Device", ["cpu", "cuda"], index=0)
+model = st.sidebar.selectbox("Whisper Model", ["tiny", "base", "small", "medium", "large"], index=0)
+ollama_model = st.sidebar.text_input("Ollama Model")
 
-summary_type = st.sidebar.selectbox("Summary Type", ["short", "medium", "long", "news"], index=0)
+summary_type = st.sidebar.selectbox("Summary Type", ["short", "medium", "long", "news"], index=2)
 
 # Initialize Workflow Manager
 @st.cache_resource
@@ -295,6 +297,7 @@ if st.session_state.nav_selection == "🔍 Search":
                                 st.session_state.quill_key += 1
                                 st.success("Synthesis complete! Switching to Result...")
                                 st.session_state.nav_selection = "📝 Result"
+                                st.session_state.nav_radio = "📝 Result"
                                 st.rerun()
                             except Exception as e:
                                 st.error(f"Error: {e}")
@@ -443,6 +446,7 @@ if st.session_state.nav_selection == "✍️ Manual":
                             st.session_state.quill_key += 1
                             st.success("Synthesis complete! Switching to Result...")
                             st.session_state.nav_selection = "📝 Result"
+                            st.session_state.nav_radio = "📝 Result"
                             st.rerun()
                         except Exception as e:
                             st.error(f"Error: {e}")
@@ -470,6 +474,7 @@ if st.session_state.nav_selection == "📁 Local File":
                     st.session_state.quill_key += 1
                     st.success("Processing complete! Switching to Result...")
                     st.session_state.nav_selection = "📝 Result"
+                    st.session_state.nav_radio = "📝 Result"
                     st.rerun()
                 except Exception as e:
                     st.error(f"Error: {e}")
@@ -612,9 +617,35 @@ if st.session_state.nav_selection == "📝 Result":
                         content_to_save = md(content_to_save, heading_style="ATX")
                     
                     saved_path = workflow.save_summary(content_to_save, st.session_state.title, output_format, st.session_state.source_info)
+                    st.session_state.last_saved_path = saved_path
                     st.success(f"Saved to: {saved_path}")
                 except Exception as e:
                     st.error(f"Error saving: {e}")
+
+            # Show download button if a file has been saved
+            if "last_saved_path" in st.session_state and st.session_state.last_saved_path:
+                if os.path.exists(st.session_state.last_saved_path):
+                    try:
+                        with open(st.session_state.last_saved_path, "rb") as f:
+                            file_bytes = f.read()
+                        
+                        file_ext = st.session_state.last_saved_path.split('.')[-1].lower()
+                        mime_types = {
+                            "md": "text/markdown",
+                            "txt": "text/plain",
+                            "html": "text/html", 
+                            "pdf": "application/pdf"
+                        }
+                        
+                        st.download_button(
+                            label=f"⬇️ Télécharger {os.path.basename(st.session_state.last_saved_path)}",
+                            data=file_bytes,
+                            file_name=os.path.basename(st.session_state.last_saved_path),
+                            mime=mime_types.get(file_ext, "application/octet-stream")
+                        )
+                    except Exception as e:
+                        st.error(f"Error preparing download: {e}")
+
             
             # Copy Code Section
             st.divider()
