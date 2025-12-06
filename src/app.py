@@ -137,14 +137,34 @@ if st.session_state.nav_selection == "🔍 Search":
                 
                 st.session_state.search_results = workflow.get_search_results(st.session_state.search_object, duration_mode=final_dur)
                 st.session_state.visible_count = 9
+                # Reset selection on new search
+                st.session_state.selected_video_urls = set()
         else:
             st.warning("Please enter a query.")
 
     if st.session_state.search_results:
         # Show all loaded results directly
-        st.write(f"Résultats trouvés : {len(st.session_state.search_results)}")
-        selected_videos = []
         
+        # Action Bar
+        col_count, col_actions = st.columns([2, 3])
+        with col_count:
+             st.write(f"Résultats trouvés : {len(st.session_state.search_results)}")
+        
+        # Initialize selection state if not present
+        if "selected_video_urls" not in st.session_state:
+            st.session_state.selected_video_urls = set()
+
+        with col_actions:
+            c_sel_all, c_desel_all = st.columns(2)
+            with c_sel_all:
+                if st.button("Tout sélectionner"):
+                    st.session_state.selected_video_urls = {v.watch_url for v in st.session_state.search_results}
+                    st.rerun()
+            with c_desel_all:
+                if st.button("Tout désélectionner"):
+                    st.session_state.selected_video_urls = set()
+                    st.rerun()
+
         # Display videos in a grid
         cols = st.columns(3) # 3 cards per row
         
@@ -184,10 +204,17 @@ if st.session_state.nav_selection == "🔍 Search":
                     </div>
                     """, unsafe_allow_html=True)
                     
-                    if st.checkbox(f"Select", key=v.watch_url):
-                        selected_videos.append(v)
+                    # Checkbox logic
+                    is_selected = v.watch_url in st.session_state.selected_video_urls
+                    if st.checkbox(f"Select", key=v.watch_url, value=is_selected):
+                        st.session_state.selected_video_urls.add(v.watch_url)
+                    else:
+                        st.session_state.selected_video_urls.discard(v.watch_url)
         
         col_synth, col_load = st.columns([1, 1])
+        
+        # Collect selected video objects
+        selected_videos = [v for v in st.session_state.search_results if v.watch_url in st.session_state.selected_video_urls]
         
         with col_synth:
             if st.button(f"Synthesize Selected Videos ({len(selected_videos)})", key="btn_synth_search"):
@@ -241,67 +268,111 @@ if st.session_state.nav_selection == "🔍 Search":
 
 # --- Tab 2: Manual ---
 if st.session_state.nav_selection == "✍️ Manual":
-    col_man_input, col_man_list = st.columns([1, 1])
+    st.header("Mode Manuel")
     
-    with col_man_input:
-        st.subheader("Add Video")
-        manual_url = st.text_input("YouTube URL", placeholder="https://youtube.com/...")
-        if st.button("Add to List", key="btn_add_manual"):
-            if manual_url:
-                with st.spinner("Fetching info..."):
-                    try:
-                        video = workflow.get_video_info(manual_url)
-                        if video:
-                            st.session_state.manual_videos.append(video)
-                            st.success(f"Added: {video.title}")
-                        else:
-                            st.error("Could not fetch video info.")
-                    except Exception as e:
-                        st.error(f"Error: {e}")
+    tab_add, tab_list = st.tabs(["Ajouter des vidéos", "Liste de sélection"])
+    
+    with tab_add:
+        st.subheader("Import")
+        col_single, col_bulk = st.columns(2)
+        
+        with col_single:
+            st.markdown("#### URL Unique")
+            manual_url = st.text_input("YouTube URL", placeholder="https://youtube.com/...")
+            if st.button("Ajouter", key="btn_add_manual"):
+                if manual_url:
+                    with st.spinner("Fetching info..."):
+                        try:
+                            video = workflow.get_video_info(manual_url)
+                            if video:
+                                st.session_state.manual_videos.append(video)
+                                st.success(f"Added: {video.title}")
+                            else:
+                                st.error("Could not fetch video info.")
+                        except Exception as e:
+                            st.error(f"Error: {e}")
 
-    with col_man_list:
-        st.subheader("Selected Videos")
+        with col_bulk:
+            st.markdown("#### Import en masse")
+            bulk_urls = st.text_area("URLs (une par ligne)", height=100, placeholder="https://...\nhttps://...")
+            if st.button("Importer Tout", key="btn_bulk_manual"):
+                if bulk_urls:
+                    urls = [u.strip() for u in bulk_urls.split('\n') if u.strip()]
+                    count_ok = 0
+                    with st.status("Importing videos...") as status:
+                        for u in urls:
+                            status.write(f"Fetching {u}...")
+                            try:
+                                video = workflow.get_video_info(u)
+                                if video:
+                                    st.session_state.manual_videos.append(video)
+                                    count_ok += 1
+                            except:
+                                status.write(f"Failed: {u}")
+                        status.update(label=f"Import finished! {count_ok}/{len(urls)} videos added.", state="complete")
+                    if count_ok > 0:
+                        st.success(f"{count_ok} videos added!")
+
+    with tab_list:
+        st.subheader(f"Vidéos Sélectionnées ({len(st.session_state.manual_videos)})")
+        
         if st.session_state.manual_videos:
-            # Create a copy to iterate safely if modifying
-            videos_to_remove = []
-            
-            for i, v in enumerate(st.session_state.manual_videos):
-                c1, c2 = st.columns([5, 1])
-                with c1:
-                    st.markdown(f"**{i+1}. {v.title}**")
-                    st.caption(f"{v.author}")
-                with c2:
-                    if st.button("🗑️", key=f"rm_v_{i}"):
-                        videos_to_remove.append(i)
-            
-            # Process removal
-            if videos_to_remove:
-                # Remove in reverse order to maintain indices
-                for idx in sorted(videos_to_remove, reverse=True):
-                    st.session_state.manual_videos.pop(idx)
-                st.rerun()
-            
-            if st.session_state.manual_videos:
-                st.divider()
-                if st.button("Clear List", key="btn_clear_manual", type="secondary"):
+             # Actions
+            c_clear, c_title = st.columns([1, 3])
+            with c_clear:
+                 if st.button("🗑️ Tout effacer", key="btn_clear_manual", type="secondary"):
                     st.session_state.manual_videos = []
                     st.rerun()
+            with c_title:
+                manual_title = st.text_input("Titre de la synthèse", value="Synthèse Manuelle")
+
+            st.divider()
+
+            # Display as Cards (Grid)
+            if st.session_state.manual_videos:
+                cols_m = st.columns(3)
+                videos_to_remove = []
                 
-                manual_title = st.text_input("Title for the Synthesis", value="Synthèse Manuelle")
-                
-                if st.button("Synthesize Manual List", key="btn_synth_manual", type="primary"):
+                for idx, v in enumerate(st.session_state.manual_videos):
+                    col = cols_m[idx % 3]
+                    with col:
+                         # Card Container
+                        with st.container():
+                            # Calculate relative time
+                            rel_time = time_since(v.publish_date)
+                            
+                            # Format duration
+                            duration_min = v.length // 60
+                            duration_sec = v.length % 60
+                            duration_str = f"{duration_min}:{duration_sec:02d}"
+
+                            st.markdown(f"""
+                            <div class="video-card">
+                                <div class="thumbnail-container">
+                                    <img src="{v.thumbnail_url}">
+                                    <span class="duration-badge">{duration_str}</span>
+                                </div>
+                                <div class="video-title">{v.title}</div>
+                                <div class="video-meta">
+                                    Author: {v.author}<br>
+                                    <span style="color: #888; font-size: 0.9em;">{rel_time}</span>
+                                </div>
+                            </div>
+                            """, unsafe_allow_html=True)
+                            
+                            if st.button("Retirer", key=f"rm_m_{idx}"):
+                                videos_to_remove.append(idx)
+
+                if videos_to_remove:
+                    for idx in sorted(videos_to_remove, reverse=True):
+                        st.session_state.manual_videos.pop(idx)
+                    st.rerun()
+
+                st.divider()
+                if st.button("Lancer la Synthèse", key="btn_synth_manual_main", type="primary"):
                     with st.spinner("Synthesizing..."):
                         try:
-                            # Construct a fake search object context if needed or just pass list
-                            # reusing logic from search tab but for manual list
-                            # We create a combined prompt for all videos
-                            
-                            # Note: The original code didn't actually have the synthesis button logic implemented 
-                            # in this tab in the snippet provided! It just had the title input.
-                            # I will implementing the call to workflow.synthesize_videos here.
-                            
                             summary, title, source_info = workflow.synthesize_videos(st.session_state.manual_videos, manual_title)
-                            
                             summary = clean_markdown_text(summary)
                             html_summary = markdown.markdown(summary, extensions=['extra'])
                             st.session_state.summary = html_summary
@@ -314,10 +385,8 @@ if st.session_state.nav_selection == "✍️ Manual":
                             st.rerun()
                         except Exception as e:
                             st.error(f"Error: {e}")
-            else:
-                 st.info("List is empty.")
         else:
-            st.info("No videos added yet.")
+            st.info("Aucune vidéo dans la liste. Ajoutez-en depuis l'onglet 'Ajouter des vidéos'.")
 
 # --- Tab 3: Local File ---
 if st.session_state.nav_selection == "📁 Local File":
@@ -352,28 +421,6 @@ if st.session_state.nav_selection == "📝 Result":
         col_res_main, col_res_side = st.columns([3, 1])
         
         with col_res_main:
-            st.subheader("Edit Summary")
-            # Quill Editor
-            content = st_quill(
-                value=st.session_state.summary,
-                placeholder="Write your summary here...",
-                html=True,
-                key=f"quill_editor_{st.session_state.quill_key}",
-                toolbar=[
-                    ["bold", "italic", "underline", "strike"],
-                    [{"header": [1, 2, 3, False]}],
-                    [{"list": "ordered"}, {"list": "bullet"}],
-                    [{"indent": "-1"}, {"indent": "+1"}],
-                    [{"align": []}],
-                    [{"color": []}, {"background": []}],
-                    ["clean"]
-                ]
-            )
-            
-            # Update session state if edited (Quill returns HTML)
-            if content and content != st.session_state.summary:
-                st.session_state.summary = content
-            
             # Refine / Regenerate Section
             st.divider()
             with st.expander("✨ Refine / Regenerate", expanded=False):
@@ -448,6 +495,38 @@ if st.session_state.nav_selection == "📝 Result":
                                 st.error(f"Error refining: {e}")
                     else:
                         st.warning("Please enter instructions.")
+
+        with col_res_main:
+            st.divider()
+            
+            # Preview / Editor Toggle
+            view_mode = st.radio("Vue", ["Éditeur", "Aperçu (Lecture Seule)"], horizontal=True)
+
+            if view_mode == "Éditeur":
+                st.subheader("Éditeur de Résumé")
+                # Quill Editor
+                content = st_quill(
+                    value=st.session_state.summary,
+                    placeholder="Write your summary here...",
+                    html=True,
+                    key=f"quill_editor_{st.session_state.quill_key}",
+                    toolbar=[
+                        ["bold", "italic", "underline", "strike"],
+                        [{"header": [1, 2, 3, False]}],
+                        [{"list": "ordered"}, {"list": "bullet"}],
+                        [{"indent": "-1"}, {"indent": "+1"}],
+                        [{"align": []}],
+                        [{"color": []}, {"background": []}],
+                        ["clean"]
+                    ]
+                )
+                
+                # Update session state if edited (Quill returns HTML)
+                if content and content != st.session_state.summary:
+                    st.session_state.summary = content
+            else:
+                 st.subheader("Aperçu du Résumé")
+                 st.markdown(st.session_state.summary, unsafe_allow_html=True)
 
         with col_res_side:
             st.subheader("Actions")
