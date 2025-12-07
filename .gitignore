@@ -13,6 +13,7 @@ wheels/
 audio.webm
 uv.lock
 src/summaries/*
+summaries/
 .env
 .python-version
 ffmpeg/
