@@ -20,7 +20,7 @@ MODEL = os.getenv("MODEL", "medium")
 OUTPUT_DIR = os.getenv("OUTPUT_DIR", "./summaries")
 FORMAT = os.getenv("FORMAT", "md")
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
-OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "mistral")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "gemma3:4b")
 FFMPEG_DIR = os.getenv("FFMPEG")
 
 if FFMPEG_DIR:
@@ -94,10 +94,10 @@ class WorkflowManager:
                         return True
         return False
 
-    def get_search_results(self, search_obj, duration_mode="any", active_categories=None, enable_boost=True):
+    def get_search_results(self, search_obj, duration_mode="any", active_categories=None, enable_boost=True, days_limit=None):
         """Returns filtered results from a search object, with optional channel boosting."""
         raw_results = [v for v in search_obj.results if v not in search_obj.shorts]
-        filtered = self.processor.filter_videos(raw_results, duration_mode)
+        filtered = self.processor.filter_videos(raw_results, duration_mode, days_limit=days_limit)
         
         # Boost preferred channels
         if active_categories and enable_boost:
@@ -118,10 +118,10 @@ class WorkflowManager:
             
         return filtered
 
-    def load_more_videos(self, search_obj, duration_mode="any", active_categories=None, enable_boost=True):
+    def load_more_videos(self, search_obj, duration_mode="any", active_categories=None, enable_boost=True, days_limit=None):
         """Fetches more videos for an existing search session."""
         new_videos = self.processor.fetch_next(search_obj)
-        filtered = self.processor.filter_videos(new_videos, duration_mode)
+        filtered = self.processor.filter_videos(new_videos, duration_mode, days_limit=days_limit)
         
         if active_categories and enable_boost:
             boosted = []
@@ -220,6 +220,10 @@ class WorkflowManager:
     def save_summary(self, summary, title, fmt, source_info):
         """Saves the summary using the exporter."""
         return self.exporter.save_summary(summary, title, fmt, source_info)
+
+    def get_pdf_bytes(self, summary, title, source_info):
+        """Generates PDF bytes for download."""
+        return self.exporter.generate_pdf_bytes(summary, title, source_info)
 
     def cleanup(self):
         """Cleans up temporary files."""

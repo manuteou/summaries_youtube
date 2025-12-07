@@ -1,4 +1,5 @@
 import os
+import io
 from datetime import datetime
 import html
 import markdown
@@ -95,6 +96,12 @@ class Exporter:
         footer_div = ""
         toc_div = ""
         if for_pdf:
+            # Vertical centering for PDF
+            title_html = (
+                f'<div style="position: absolute; top: 45%; left: 0; width: 100%; text-align: center;">'
+                f'<div class="doc-title" style="margin: 0 auto;">{title}</div>'
+                f'</div>'
+            )
             footer_div = """
             <div id="footerContent">
                 Page <pdf:pagenumber /> / <pdf:pagecount />
@@ -107,6 +114,8 @@ class Exporter:
             </div>
             <pdf:nextpage />
             """
+        else:
+            title_html = f'<div class="doc-title">{title}</div>'
             
         return f"""
         <html>
@@ -129,7 +138,7 @@ class Exporter:
             </style>
         </head>
         <body>
-            <div class="doc-title">{title}</div>
+            {title_html}
             <pdf:nextpage />
             
             {toc_div}
@@ -153,11 +162,18 @@ class Exporter:
         with open(output_file, "w", encoding="utf-8") as f:
             f.write(full_html)
 
-    def save_pdf(self, summary: str, output_file: str, title: str, source_info=None):
+    def generate_pdf_bytes(self, summary: str, title: str, source_info=None) -> bytes:
         html_body = self._to_html(summary)
         full_html = self._wrap_html(html_body, title, source_info, for_pdf=True)
+        
+        pdf_file = io.BytesIO()
+        pisa.CreatePDF(full_html, dest=pdf_file)
+        return pdf_file.getvalue()
+
+    def save_pdf(self, summary: str, output_file: str, title: str, source_info=None):
+        pdf_bytes = self.generate_pdf_bytes(summary, title, source_info)
         with open(output_file, "wb") as f:
-            pisa.CreatePDF(full_html, dest=f)
+            f.write(pdf_bytes)
 
     def save_summary(self, summary: str, title: str, fmt: str, source_info=None):
         slug = slugify(title)

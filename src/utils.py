@@ -45,6 +45,23 @@ def slugify(value: str) -> str:
     value = re.sub(r"\s+", "_", value)
     return value.strip("_")
 
+def format_views(views):
+    """Formats a view count number into a human-readable string (e.g., 1.2M, 500k)."""
+    if not views:
+        return "N/A"
+    try:
+        views = int(views)
+    except:
+        return str(views)
+        
+    if views >= 1_000_000:
+        return f"{views / 1_000_000:.1f}M"
+    elif views >= 1_000:
+        return f"{views / 1_000:.1f}k"
+    else:
+        return str(views)
+
+
 
 def write_data(output_dir, data, seg):
     output_dir = Path(output_dir)       

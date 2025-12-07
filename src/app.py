@@ -1,10 +1,11 @@
 import streamlit as st
 import os
+from datetime import datetime
 from workflow import WorkflowManager
 from streamlit_quill import st_quill
 import markdown
 from markdownify import markdownify as md
-from utils import clean_markdown_text, time_since
+from utils import clean_markdown_text, time_since, format_views
 import html
 import textwrap
 
@@ -47,7 +48,7 @@ if "last_saved_path" not in st.session_state:
 st.sidebar.title("Configuration")
 device = st.sidebar.selectbox("Device", ["cpu", "cuda"], index=0)
 model = st.sidebar.selectbox("Whisper Model", ["tiny", "base", "small", "medium", "large"], index=0)
-ollama_model = st.sidebar.text_input("Ollama Model")
+ollama_model = st.sidebar.text_input("Ollama Model", value="gemma3:4b")
 
 summary_type = st.sidebar.selectbox("Summary Type", ["short", "medium", "long", "news"], index=2)
 
@@ -56,7 +57,7 @@ summary_type = st.sidebar.selectbox("Summary Type", ["short", "medium", "long", 
 def get_workflow(device, model, ollama_model, summary_type, version=1):
     return WorkflowManager(device=device, model=model, ollama_model=ollama_model, summary_type=summary_type)
 
-workflow = get_workflow(device, model, ollama_model, summary_type, version=4)
+workflow = get_workflow(device, model, ollama_model, summary_type, version=5)
 
 st.title("📝 YouTube Video Summarizer")
 
@@ -77,9 +78,26 @@ if nav_selection != st.session_state.nav_selection:
 # --- Tab 1: Search ---
 if st.session_state.nav_selection == "🔍 Search":
     st.header("Search and Summarize")
-    col_search, col_btn = st.columns([4, 1])
-    with col_search:
-        query = st.text_input("Search Query", label_visibility="collapsed", placeholder="Search for videos...")
+    # Wrap search input and button
+    col_search_inner, col_btn_inner = st.columns([4, 1])
+    
+    # Callback for Enter key
+    def submit_search():
+        st.session_state.trigger_search = True
+
+    with col_search_inner:
+        query = st.text_input("Search Query", label_visibility="collapsed", placeholder="Search for videos...", on_change=submit_search, key="search_query_input")
+    with col_btn_inner:
+        if st.button("Search", type="primary"):
+            st.session_state.trigger_search = True
+            
+    # Check trigger
+    do_search = st.session_state.get("trigger_search", False)
+    if do_search:
+        # Reset immediately to avoid loops, but we need the query first
+        # We'll handle the search execution later in the logic
+        pass
+
     
     # --- Filters Session State Logic ---
     if "filter_sort" not in st.session_state:
@@ -96,11 +114,13 @@ if st.session_state.nav_selection == "🔍 Search":
         if st.button("📅 Actu Semaine", help="Trie par date et filtre sur cette semaine"):
             st.session_state.filter_sort = "Date"
             st.session_state.filter_date = "Week"
+            st.session_state.trigger_search = True
             st.rerun()
     with col_q2:
         if st.button("📅 Actu Mois", help="Trie par date et filtre sur ce mois"):
             st.session_state.filter_sort = "Date"
             st.session_state.filter_date = "Month"
+            st.session_state.trigger_search = True
             st.rerun()
 
     # Advanced Filters
@@ -119,11 +139,13 @@ if st.session_state.nav_selection == "🔍 Search":
         
         use_trusted_boost = st.checkbox("⭐ Prioriser les sources fiables (Arte, TED...)", value=True, help="Si coché, remonte les vidéos des chaînes de confiance en haut de la liste.")
 
-    # Mapping for backend
+    # Sort mapping must be done before we might need it for local sort
     sort_map = {"Relevance": "relevance", "Date": "date", "Views": "views"}
     date_map = {"Any": None, "Today": "today", "Week": "week", "Month": "month", "Year": "year"}
     dur_map = {"Any": "any", "Short (<5m)": "short", "Medium (5-20m)": "medium", "Long (>20m)": "long"}
     
+    days_map = {"Any": None, "Today": 1, "Week": 7, "Month": 30, "Year": 365}
+    days_limit = days_map[st.session_state.filter_date]
     final_sort = sort_map[st.session_state.filter_sort]
     final_date = date_map[st.session_state.filter_date]
     final_dur = dur_map[st.session_state.filter_dur]
@@ -139,19 +161,13 @@ if st.session_state.nav_selection == "🔍 Search":
         st.session_state.search_object = None
     if "search_results" not in st.session_state:
         st.session_state.search_results = []
-    if "visible_count" not in st.session_state:
-        st.session_state.visible_count = 9
-
-    if st.session_state.visible_count not in st.session_state:
-        st.session_state.visible_count = 9
-
-    # Search Button Logic
-    do_search = False
-    with col_btn:
-        if st.button("Search", key="btn_search", type="primary"):
-            do_search = True
-
+    # I can put the form *around* the columns? No, `st.columns` inside `st.form` is fine.
+    # So I should start the form before line 80.
+    
+    pass
     if do_search:
+        st.session_state.trigger_search = False
+
         if query:
             with st.spinner("Searching..."):
                 # Append keywords to query
@@ -165,8 +181,9 @@ if st.session_state.nav_selection == "🔍 Search":
                 st.session_state.filter_duration = final_dur
                 st.session_state.active_categories = type_options
                 st.session_state.use_boost = use_trusted_boost
+                st.session_state.days_limit = days_limit
                 
-                st.session_state.search_results = workflow.get_search_results(st.session_state.search_object, duration_mode=final_dur, active_categories=type_options, enable_boost=use_trusted_boost)
+                st.session_state.search_results = workflow.get_search_results(st.session_state.search_object, duration_mode=final_dur, active_categories=type_options, enable_boost=use_trusted_boost, days_limit=days_limit)
                 st.session_state.visible_count = 9
                 # Reset selection on new search
                 st.session_state.selected_video_urls = set()
@@ -176,23 +193,48 @@ if st.session_state.nav_selection == "🔍 Search":
     if st.session_state.search_results:
         # Show all loaded results directly
         
-        # Action Bar
-        col_count, col_actions = st.columns([2, 3])
+        # Action Bar & Local Sort & Filters
+        col_count, col_sort, col_actions = st.columns([2, 2, 4])
+        
         with col_count:
-             st.write(f"Résultats trouvés : {len(st.session_state.search_results)}")
+             st.write(f"Résultats : {len(st.session_state.search_results)}")
+             
+        with col_sort:
+            # Local sorting
+            local_sort = st.selectbox("Trier par:", ["(Défaut)", "Date (Récent)", "Vues (Top)", "Durée (Long)"], label_visibility="collapsed")
+            if local_sort == "Date (Récent)":
+                st.session_state.search_results.sort(key=lambda x: x.publish_date or datetime.min, reverse=True)
+            elif local_sort == "Vues (Top)":
+                st.session_state.search_results.sort(key=lambda x: x.views if hasattr(x, 'views') else 0, reverse=True)
+            elif local_sort == "Durée (Long)":
+                st.session_state.search_results.sort(key=lambda x: x.length, reverse=True)
         
         # Initialize selection state if not present
         if "selected_video_urls" not in st.session_state:
             st.session_state.selected_video_urls = set()
 
         with col_actions:
-            c_sel_all, c_desel_all = st.columns(2)
+            # Quick Select Buttons using columns for compact layout
+            c_sel_3, c_sel_5, c_sel_all, c_desel_all = st.columns([1, 1, 1, 1])
+            
+            def select_top(n):
+                top_n = st.session_state.search_results[:n]
+                st.session_state.selected_video_urls.update(v.watch_url for v in top_n)
+            
+            with c_sel_3:
+                if st.button("Top 3"):
+                    select_top(3)
+                    st.rerun()
+            with c_sel_5:
+                if st.button("Top 5"):
+                    select_top(5)
+                    st.rerun()
             with c_sel_all:
-                if st.button("Tout sélectionner"):
+                if st.button("Tout"):
                     st.session_state.selected_video_urls = {v.watch_url for v in st.session_state.search_results}
                     st.rerun()
             with c_desel_all:
-                if st.button("Tout désélectionner"):
+                if st.button("Aucun"):
                     st.session_state.selected_video_urls = set()
                     st.rerun()
 
@@ -204,26 +246,49 @@ if st.session_state.nav_selection == "🔍 Search":
             with col:
                 # Card Container
                 with st.container():
+                    # Data extraction with safe defaults
                     try:
-                        # Data extraction
-                        # Ensure we handle missing attributes gracefully
-                        title = getattr(v, 'title', 'Unknown Title')
-                        author = getattr(v, 'author', 'Unknown Author')
+                        # 1. Basic Info
+                        title = getattr(v, 'title', 'Titre Inconnu') or 'Titre Inconnu'
+                        author = getattr(v, 'author', 'Chaîne Inconnue') or 'Chaîne Inconnue'
+                        
+                        # 2. Description
                         desc = getattr(v, 'description', '')
-                        if not desc: desc = "No description available."
+                        if not desc: 
+                            desc = "Pas de description disponible."
                         
+                        # 3. Thumbnail
                         thumb_url = getattr(v, 'thumbnail_url', '')
-                        if not thumb_url: thumb_url = "https://via.placeholder.com/320x180?text=No+Image"
+                        if not thumb_url:
+                            thumb_url = "https://via.placeholder.com/320x180?text=Pas+d'image"
                         
-                        pub_date = getattr(v, 'publish_date', None)
+                        # 4. Metrics & Date
+                        # OPTIMIZATION: Use _publish_date instead of publish_date to avoid blocking network call
+                        # on every single video card.
+                        pub_date = getattr(v, '_publish_date', None)
+                        views = getattr(v, 'views', 0)
                         length = getattr(v, 'length', 0)
                         
-                        # Formatting
-                        rel_time = time_since(pub_date) if pub_date else "Unknown date"
+                        # Safe Formatting
+                        try:
+                            rel_time = time_since(pub_date) if pub_date else "Date inconnue"
+                        except Exception:
+                            rel_time = "Date inconnue"
+                            
+                        try:
+                            views_str = format_views(views)
+                        except Exception:
+                            views_str = "N/A"
                         
-                        minutes = length // 60
-                        seconds = length % 60
-                        duration_str = f"{minutes}:{seconds:02d}"
+                        try:
+                            if length and isinstance(length, (int, float)):
+                                minutes = int(length // 60)
+                                seconds = int(length % 60)
+                                duration_str = f"{minutes}:{seconds:02d}"
+                            else:
+                                duration_str = "??:??"
+                        except Exception:
+                            duration_str = "??:??"
 
                         # HTML Safety
                         safe_title = html.escape(str(title))
@@ -241,28 +306,31 @@ if st.session_state.nav_selection == "🔍 Search":
                                 '⭐ Recommandé</div>'
                             )
 
-                        # Render - Use one single line or properly concatenated strings to avoid any indentation ambiguity
+                        # Render Card
                         card_html = (
                             f'<div class="video-card" style="position: relative; border: 1px solid #444; border-radius: 8px; '
                             f'padding: 0; overflow: hidden; margin-bottom: 10px; background: #262730;">'
-                            f'<div class="thumbnail-container" style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%;">'
+                            f'<div class="thumbnail-container" style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; background-color: #000;">'
                             f'{badge_html}'
-                            f'<img src="{thumb_url}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" alt="{safe_title}">'
+                            f'<a href="{v.watch_url}" target="_blank" style="text-decoration:none;">'
+                            f'<img src="{thumb_url}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s;" alt="{safe_title}" title="Regarder sur YouTube" onerror="this.onerror=null; this.src=\'https://via.placeholder.com/320x180?text=Erreur+Image\';">'
+                            f'</a>'
                             f'<span style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.8); color: white; '
                             f'padding: 2px 6px; border-radius: 4px; font-size: 0.75rem;">{duration_str}</span>'
                             f'</div>'
                             f'<div style="padding: 10px;">'
                             f'<div style="font-weight: 600; font-size: 1rem; margin-bottom: 4px; line-height: 1.2; height: 1.2em; '
-                            f'overflow: hidden; white-space: nowrap; text-overflow: ellipsis;" title="{safe_title}">{safe_title}</div>'
-                            f'<div style="font-size: 0.8rem; color: #aaa; margin-bottom: 8px;">{safe_author} • {rel_time}</div>'
+                            f'overflow: hidden; white-space: nowrap; text-overflow: ellipsis;" title="{safe_title}">'
+                            f'<a href="{v.watch_url}" target="_blank" style="text-decoration:none; color: inherit;">{safe_title}</a></div>'
+                            f'<div style="font-size: 0.8rem; color: #aaa; margin-bottom: 8px;">{safe_author} • {rel_time} • {views_str} vues</div>'
                             f'<div style="font-size: 0.85rem; color: #ddd; height: 3em; overflow: hidden; line-height: 1.5; '
                             f'display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{safe_desc}</div>'
                             f'</div></div>'
                         )
                         st.markdown(card_html, unsafe_allow_html=True)
                         
-                    except Exception as e:
-                        st.error(f"Error render card: {e}")
+                    except Exception:
+                        continue
 
                     
                     # Checkbox logic
@@ -311,7 +379,8 @@ if st.session_state.nav_selection == "🔍 Search":
                     dur_mode = st.session_state.get("filter_duration", "any")
                     act_cats = st.session_state.get("active_categories", [])
                     use_boost = st.session_state.get("use_boost", True)
-                    new_results = workflow.load_more_videos(st.session_state.search_object, duration_mode=dur_mode, active_categories=act_cats, enable_boost=use_boost)
+                    days_limit = st.session_state.get("days_limit", None)
+                    new_results = workflow.load_more_videos(st.session_state.search_object, duration_mode=dur_mode, active_categories=act_cats, enable_boost=use_boost, days_limit=days_limit)
                     
                     if not new_results:
                         st.warning("Plus aucun résultat trouvé.")
@@ -647,6 +716,27 @@ if st.session_state.nav_selection == "📝 Result":
                         st.error(f"Error preparing download: {e}")
 
             
+            # Direct PDF Download
+            st.divider()
+            if st.button("📥 Télécharger PDF Directement"):
+                try:
+                    pdf_bytes = workflow.get_pdf_bytes(st.session_state.summary, st.session_state.title, st.session_state.source_info)
+                    
+                    # Prepare file name
+                    from utils import slugify
+                    slug = slugify(st.session_state.title)
+                    date_str = datetime.now().strftime("%Y-%m-%d")
+                    filename = f"{slug}_{date_str}.pdf"
+                    
+                    st.download_button(
+                        label="Cliquez pour sauvegarder le PDF",
+                        data=pdf_bytes,
+                        file_name=filename,
+                        mime="application/pdf"
+                    )
+                except Exception as e:
+                    st.error(f"Error generating PDF: {e}")
+
             # Copy Code Section
             st.divider()
             with st.expander("📋 Copy Raw Markdown"):
