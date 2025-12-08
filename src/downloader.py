@@ -44,7 +44,7 @@ class YouTubeAudioProcessor:
         filters = Filter.create().type(Filter.Type.VIDEO).sort_by(Filter.SortBy.UPLOAD_DATE)
         s = Search(subject, filters=filters)
         # raw_results = [v for v in s.results if v not in s.shorts] # Shorts filter is already good
-        # But we delegate everything to filter_videos now
+      
         return self.filter_videos(s.results, duration_mode="any")
 
     def get_search_object(self, subject: str, sort_by: str = "relevance", upload_date: str = None, exclude_terms: str = None):
@@ -75,45 +75,66 @@ class YouTubeAudioProcessor:
 
     def filter_videos(self, videos, duration_mode, days_limit=None):
         # We always filter out shorts (less than 120s typically, or strictly shorts)
-        # Here we apply the GLOBAL rule: nothing under 120s
-        
         filtered = []
         now = datetime.datetime.now(datetime.timezone.utc)
         
-        for v in videos:
+        # Helper function for parallel processing
+        def get_meta(v):
             try:
-                # 1. Global Safety Check
-                # Accessing length might fail for some live videos
-                length = v.length
-                if length < 120:
-                    continue
-                
-                # 2. Date Check (Client-side fallback)
-                if days_limit:
-                    pub_date = v.publish_date
-                    if pub_date:
-                        # Ensure pub_date is aware or naive consistently. pytube usually returns aware.
-                        # We convert strict comparison
-                        if pub_date.tzinfo is None:
-                             # Assume UTC if naive (rare)
-                             pub_date = pub_date.replace(tzinfo=datetime.timezone.utc)
-                        
-                        age = now - pub_date
-                        if age.days > days_limit:
-                            continue
-                
-                # 3. Duration Mode Logic
-                if not duration_mode or duration_mode == "any":
-                    filtered.append(v)
-                elif duration_mode == "short" and length < 300: # < 5 min
-                    filtered.append(v)
-                elif duration_mode == "medium" and 300 <= length <= 1200: # 5-20 min
-                    filtered.append(v)
-                elif duration_mode == "long" and length > 1200: # > 20 min
-                    filtered.append(v)
+                # This access triggers network IO
+                return {
+                    "video": v,
+                    "title": v.title,
+                    "length": v.length,
+                    "publish_date": v.publish_date,
+                    "views": v.views,
+                    "success": True
+                }
             except Exception:
-                # If length unknown, skip to be safe (per user request context)
+                return {"success": False}
+
+        # 1. Extraction des métadonnées en parallèle
+        import concurrent.futures
+        videos_metadata = []
+        
+        # Use ThreadPoolExecutor to fetch metadata in parallel
+        # max_workers=10 or 20 is reasonable for IO bound
+        with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
+            future_to_video = {executor.submit(get_meta, v): v for v in videos}
+            for future in concurrent.futures.as_completed(future_to_video):
+                res = future.result()
+                if res["success"]:
+                    videos_metadata.append(res)
+        
+        # 2. Filtrage via le dictionnaire
+        for item in videos_metadata:
+            v = item["video"]
+            length = item["length"]
+            pub_date = item["publish_date"]
+
+            # Global Safety Check (> 120s)
+            if length < 120:
                 continue
+            
+            # Date Check
+            if days_limit and pub_date:
+                if pub_date.tzinfo is None:
+                    # Assume UTC if naive
+                    pub_date = pub_date.replace(tzinfo=datetime.timezone.utc)
+                
+                age = now - pub_date
+                if age.days > days_limit:
+                    continue
+
+            # Duration Mode Logic
+            if not duration_mode or duration_mode == "any":
+                filtered.append(v)
+            elif duration_mode == "short" and length < 300: # < 5 min
+                filtered.append(v)
+            elif duration_mode == "medium" and 300 <= length <= 1200: # 5-20 min
+                filtered.append(v)
+            elif duration_mode == "long" and length > 1200: # > 20 min
+                filtered.append(v)
                 
         return filtered
 

@@ -84,10 +84,13 @@ class WorkflowManager:
 
     def _is_channel_preferred(self, channel_name, active_categories):
         """Checks if a channel is in the preferred list for the active categories."""
-        if not channel_name or not active_categories:
+        if not channel_name:
             return False
             
-        for category in active_categories:
+        # If no categories are active, check ALL preferred channels
+        categories_to_check = active_categories if active_categories else PREFERRED_CHANNELS.keys()
+            
+        for category in categories_to_check:
             if category in PREFERRED_CHANNELS:
                 for preferred in PREFERRED_CHANNELS[category]:
                     if preferred.lower() in channel_name.lower():
@@ -100,7 +103,7 @@ class WorkflowManager:
         filtered = self.processor.filter_videos(raw_results, duration_mode, days_limit=days_limit)
         
         # Boost preferred channels
-        if active_categories and enable_boost:
+        if enable_boost:
             boosted = []
             regular = []
             for v in filtered:
@@ -123,7 +126,7 @@ class WorkflowManager:
         new_videos = self.processor.fetch_next(search_obj)
         filtered = self.processor.filter_videos(new_videos, duration_mode, days_limit=days_limit)
         
-        if active_categories and enable_boost:
+        if enable_boost:
             boosted = []
             regular = []
             for v in filtered:

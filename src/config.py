@@ -50,7 +50,8 @@ PREFERRED_CHANNELS = {
         "BBC News", 
         "Al Jazeera",
         "Brut",
-        "Arte Journal"
+        "Arte Journal",
+        "France 24"
     ],
     "Tech": [
         "Underscore_", 
@@ -61,6 +62,7 @@ PREFERRED_CHANNELS = {
         "Veritasium", 
         "ColdFusion", 
         "Computerphile",
-        "Two Minute Papers"
+        "Two Minute Papers",
+        "France 24"
     ]
 }
