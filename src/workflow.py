@@ -82,7 +82,7 @@ class WorkflowManager:
         # We return the object to maintain state
         return search_obj
 
-    def _is_channel_preferred(self, channel_name, active_categories):
+    def is_channel_preferred(self, channel_name, active_categories):
         """Checks if a channel is in the preferred list for the active categories."""
         if not channel_name:
             return False
@@ -100,8 +100,57 @@ class WorkflowManager:
     def get_search_results(self, search_obj, duration_mode="any", active_categories=None, enable_boost=True, days_limit=None):
         """Returns filtered results from a search object, with optional channel boosting."""
         raw_results = [v for v in search_obj.results if v not in search_obj.shorts]
+        # Initial filter
         filtered = self.processor.filter_videos(raw_results, duration_mode, days_limit=days_limit)
         
+        # Helper to count boosted in current list
+        def count_boosted(videos):
+            return sum(1 for v in videos if self.is_channel_preferred(v.author, active_categories))
+
+        # Smart Retrieval Loop: If we don't have enough results after filtering, fetch more pages
+        # Goal: Try to get at least 5 results, OR if boost is on, at least 2 trusted sources
+        attempts = 0
+        max_attempts = 3
+        
+        # Initial check
+        boosted_count = count_boosted(filtered) if enable_boost else 0
+
+        while attempts < max_attempts:
+            # Conditions to continue fetching:
+            # 1. Not enough total results (< 5)
+            # 2. Boost enabled AND not enough trusted sources (< 2)
+            need_more_total = len(filtered) < 5
+            need_more_boosted = enable_boost and boosted_count < 2
+            
+            if not (need_more_total or need_more_boosted):
+                break
+
+            print(f"DEBUG: Fetching more... Total: {len(filtered)}, Boosted: {boosted_count} (Attempt {attempts+1}/{max_attempts})")
+            try:
+                # Fetch next batch
+                new_videos = self.processor.fetch_next(search_obj)
+                if not new_videos:
+                    break
+                    
+                # Filter new batch
+                new_filtered = self.processor.filter_videos(new_videos, duration_mode, days_limit=days_limit)
+                
+                # Add unique new videos
+                current_urls = {v.watch_url for v in filtered}
+                for v in new_filtered:
+                    if v.watch_url not in current_urls:
+                        filtered.append(v)
+                
+                # Re-check counts
+                if enable_boost:
+                    boosted_count = count_boosted(filtered)
+
+            except Exception as e:
+                print(f"Warning: Error fetching more videos: {e}")
+                break
+            
+            attempts += 1
+            
         # Boost preferred channels
         if enable_boost:
             boosted = []
@@ -110,7 +159,7 @@ class WorkflowManager:
                 # Add a dynamic property 'is_boosted' to the object for UI usage
                 # Note: pytube objects might not like new attributes, stick to re-ordering first
                 # We can wrap or just re-order. To pass to UI, we might need to set it.
-                is_fav = self._is_channel_preferred(v.author, active_categories)
+                is_fav = self.is_channel_preferred(v.author, active_categories)
                 v.is_boosted = is_fav # Monkey-patching for UI
                 
                 if is_fav:
@@ -130,7 +179,7 @@ class WorkflowManager:
             boosted = []
             regular = []
             for v in filtered:
-                is_fav = self._is_channel_preferred(v.author, active_categories)
+                is_fav = self.is_channel_preferred(v.author, active_categories)
                 v.is_boosted = is_fav
                 if is_fav:
                     boosted.append(v)

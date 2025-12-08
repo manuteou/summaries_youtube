@@ -297,7 +297,12 @@ if st.session_state.nav_selection == "🔍 Search":
                         
                         # Badge
                         badge_html = ""
-                        if getattr(v, 'is_boosted', False):
+                        # Robust check: use attribute OR re-verify with workflow (handles persistence issues)
+                        is_boosted_attr = getattr(v, 'is_boosted', False)
+                        is_boosted_check = workflow.is_channel_preferred(author, st.session_state.get("active_categories", []))
+                        
+                        if is_boosted_attr or (is_boosted_check and st.session_state.get("use_boost", True)):
+
                             badge_html = (
                                 '<div style="position: absolute; top: 8px; right: 8px; '
                                 'background-color: #FFD700; color: #000000; padding: 4px 8px; '
