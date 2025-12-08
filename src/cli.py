@@ -17,8 +17,8 @@ from downloader import  YouTubeAudioProcessor
 from transcriber import WhisperTranscriber
 from summarizer import Summarizer
 from exporter import Exporter
-from exporter import Exporter
 from utils import clean_files, time_since
+from prompts import PromptManager
 
 console = Console()
 load_dotenv()
@@ -238,7 +238,8 @@ def main():
         transcribe = WhisperTranscriber(model_size=args.model, device=args.device)
         processor = YouTubeAudioProcessor(output_dir="./audio_segments", source=args.limit)
         client = Client(host=OLLAMA_HOST)
-        summarizer = Summarizer(client, OLLAMA_MODEL, summary_type=args.type)
+        prompt_manager = PromptManager()
+        summarizer = Summarizer(client, OLLAMA_MODEL, prompt_manager=prompt_manager, summary_type=args.type)
         exporter = Exporter(args.output_dir)
         
         if args.url:
@@ -251,6 +252,7 @@ def main():
             process_manual_videos(args, summarizer, transcribe, processor, exporter)
         else:
             console.print("[red]Erreur : vous devez fournir --url, --search, --video-path ou --manual[/red]")
+
 
     except Exception as e:
         console.print(f"[red]Erreur : {e}[/red]")

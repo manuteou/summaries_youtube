@@ -53,11 +53,33 @@ ollama_model = st.sidebar.text_input("Ollama Model", value="gemma3:4b")
 summary_type = st.sidebar.selectbox("Summary Type", ["short", "medium", "long", "news"], index=2)
 
 # Initialize Workflow Manager
+# Initialize Workflow Manager
 @st.cache_resource
 def get_workflow(device, model, ollama_model, summary_type, version=1):
-    return WorkflowManager(device=device, model=model, ollama_model=ollama_model, summary_type=summary_type)
+    from downloader import YouTubeAudioProcessor
+    from transcriber import WhisperTranscriber
+    from summarizer import Summarizer
+    from exporter import Exporter
+    from prompts import PromptManager
+    from ollama import Client
+    
+    # OUTPUT_DIR is defined in constants at top of file or we can default it
+    output_dir = "./summaries" 
+    
+    # 1. Initialize Dependencies
+    processor = YouTubeAudioProcessor(output_dir="./audio_segments")
+    transcriber = WhisperTranscriber(model_size=model, device=device)
+    
+    client = Client(host=os.getenv("OLLAMA_HOST", "http://localhost:11434"))
+    prompt_manager = PromptManager()
+    summarizer = Summarizer(client=client, model=ollama_model, prompt_manager=prompt_manager, summary_type=summary_type)
+    
+    exporter = Exporter(output_dir=output_dir)
+    
+    # 2. Inject into WorkflowManager
+    return WorkflowManager(processor, transcriber, summarizer, exporter)
 
-workflow = get_workflow(device, model, ollama_model, summary_type, version=5)
+workflow = get_workflow(device, model, ollama_model, summary_type, version=6)
 
 st.title("📝 YouTube Video Summarizer")
 

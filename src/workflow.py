@@ -10,6 +10,7 @@ from transcriber import WhisperTranscriber
 from summarizer import Summarizer
 from exporter import Exporter
 from utils import clean_files, time_since
+from prompts import PromptManager
 
 # Load environment variables
 load_dotenv()
@@ -31,31 +32,23 @@ warnings.filterwarnings("ignore")
 from config import PREFERRED_CHANNELS
 
 class WorkflowManager:
-    def __init__(self, output_dir=OUTPUT_DIR, model=MODEL, device=DEVICE, ollama_model=OLLAMA_MODEL, summary_type="short"):
-        self.output_dir = output_dir
-        self.model = model
-        self.device = device
-        self.ollama_model = ollama_model
-        self.summary_type = summary_type
-        
-        # Initialize components
-        self.transcribe = WhisperTranscriber(model_size=self.model, device=self.device)
-        self.processor = YouTubeAudioProcessor(output_dir="./audio_segments", source=3) # Default limit, can be adjusted
-        from ollama import Client
-        self.client = Client(host=OLLAMA_HOST)
-        self.summarizer = Summarizer(self.client, self.ollama_model, summary_type=self.summary_type)
-        self.exporter = Exporter(self.output_dir)
+    def __init__(self, processor, transcriber, summarizer, exporter):
+        # Dependencies injected
+        self.processor = processor
+        self.transcriber = transcriber
+        self.summarizer = summarizer
+        self.exporter = exporter
 
     def get_video_text(self, url):
         """Extracts text from a video (subtitles or audio transcription)."""
         code = self.processor.check_subtitles(url)
         if code:
             subtitles_file, title, author, date = self.processor.get_subtitles(url, code)
-            result = self.transcribe.extract_subtitles(subtitles_file)
+            result = self.transcriber.extract_subtitles(subtitles_file)
             method = "subtitles"
         else:
             audio_file, title, author, date = self.processor.download_audio(url)
-            result = self.transcribe.transcribe_audio(audio_file)
+            result = self.transcriber.transcribe_audio(audio_file)
             method = "audio"
         
         return result, title, author, date, method
@@ -203,7 +196,7 @@ class WorkflowManager:
         
         # If News mode, prioritizing RECENT videos is crucial.
         # We sort them by date descending (newest first).
-        if self.summary_type == "news":
+        if self.summarizer.summary_type == "news":
             # Assuming publish_date is datetime or comparable. If strings, ensure ISO format.
             # pytubefix dates are datetime objects usually.
             try:
@@ -214,7 +207,7 @@ class WorkflowManager:
                 )
             except Exception as e:
                 # If sorting fails, stick to selection order but warn
-                print(f"Warning: Could not sort by date for News mode: {e}")
+                print(f"Warning: Could not sort by date for News mode: {e}") 
 
         for video in processing_list:
             text, title, author, date, method = self.get_video_text(video.watch_url)
@@ -252,7 +245,7 @@ class WorkflowManager:
         """Processes a local video file."""
         video_path = Path(video_path_str)
         segments = self.processor.extract_audio_from_mp4(video_path)
-        summary_segments = self.transcribe.transcribe_segments(segments)
+        summary_segments = self.transcriber.transcribe_segments(segments)
         title = video_path.stem
         full_text = "\n\n".join(summary_segments)
         
