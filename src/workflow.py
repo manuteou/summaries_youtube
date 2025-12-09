@@ -1,4 +1,5 @@
 import os
+import datetime
 import warnings
 from pathlib import Path
 from rich.console import Console
@@ -41,6 +42,25 @@ class WorkflowManager:
 
     def get_video_text(self, url):
         """Extracts text from a video (subtitles or audio transcription)."""
+        # Check if it's a local file
+        if os.path.exists(url):
+            try:
+                video_path = Path(url)
+                # Use processor to extract audio/split
+                segments = self.processor.extract_audio_from_mp4(video_path)
+                # Transcribe segments
+                texts = self.transcriber.transcribe_segments(segments)
+                result = "\n".join(texts)
+                
+                title = video_path.stem
+                author = "Fichier Local"
+                date = datetime.datetime.now().strftime("%Y-%m-%d")
+                method = "local_mp4"
+                return result, title, author, date, method
+            except Exception as e:
+                print(f"Error processing local file: {e}")
+                # Fallback to default (might retry as URL or fail)
+
         code = self.processor.check_subtitles(url)
         if code:
             subtitles_file, title, author, date = self.processor.get_subtitles(url, code)

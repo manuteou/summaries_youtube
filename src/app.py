@@ -150,28 +150,45 @@ if st.session_state.nav_selection == "🔍 Sourcing":
                                     st.error(f"Erreur : {e}")
         
         with tab_local:
-            local_path = st.text_input("Chemin absolu du fichier MP4/MP3")
-            if st.button("Ajouter Fichier", key="btn_add_local"):
-                    if local_path and os.path.exists(local_path):
-                    # Create a dummy video object for local file
-                    # We need a structure compatible with the rest
-                        class LocalVideo:
-                            def __init__(self, path):
-                                self.title = os.path.basename(path)
-                                self.author = "Local File"
-                                self.watch_url = path # Use path as ID
-                                self.thumbnail_url = "https://via.placeholder.com/320x180?text=Fichier+Local"
-                                self.publish_date = datetime.now()
-                                self.views = 0
-                                self.length = 0
-                                self.description = f"Fichier local : {path}"
-                        
-                        v = LocalVideo(local_path)
+            uploaded_file = st.file_uploader("Choisir un fichier vidéo (MP4, MP3, M4A)", type=["mp4", "mp3", "m4a", "mov", "avi"])
+            
+            if uploaded_file is not None:
+                # Button to confirm adding to basket
+                if st.button("Ajouter ce fichier", key="btn_add_local_upload"):
+                    # Save file to temp dir
+                    temp_dir = "./temp_videos"
+                    os.makedirs(temp_dir, exist_ok=True)
+                    
+                    file_path = os.path.join(temp_dir, uploaded_file.name)
+                    with open(file_path, "wb") as f:
+                        f.write(uploaded_file.getbuffer())
+                    
+                    # Create LocalVideo object
+                    class LocalVideo:
+                        def __init__(self, path, filename):
+                            self.title = filename
+                            self.author = "Fichier Local"
+                            self.watch_url = os.path.abspath(path) # Use absolute path as ID/URL
+                            self.thumbnail_url = "https://via.placeholder.com/320x180.png/333333/cccccc?text=Fichier+Local"
+                            self.publish_date = datetime.now()
+                            self.views = 0
+                            self.length = 0
+                            self.description = f"Fichier importé : {path}"
+                            # UI attributes
+                            self.title_attr = self.title
+                            self.author_attr = self.author
+                            self.thumb_attr = self.thumbnail_url
+                            self.description_attr = self.description
+                    
+                    v = LocalVideo(file_path, uploaded_file.name)
+                    
+                    # Check if already in basket
+                    if any(existing.watch_url == v.watch_url for existing in st.session_state.selection_basket):
+                         st.warning("Ce fichier est déjà dans votre panier.")
+                    else:
                         st.session_state.selection_basket.append(v)
                         st.success(f"Fichier ajouté : {v.title}")
-                        st.rerun() # Rerun to update basket count
-                    else:
-                        st.error("Fichier introuvable.")
+                        st.rerun()
 
     st.divider()
 
