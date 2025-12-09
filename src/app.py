@@ -417,17 +417,24 @@ if st.session_state.nav_selection == "⚙️ Synthèse":
             # List videos
             videos_to_remove = []
             for idx, v in enumerate(st.session_state.selection_basket):
-                with st.container():
-                     c_thumb, c_info, c_del = st.columns([1, 3, 0.5])
-                     with c_thumb:
-                         st.image(v.thumbnail_url, use_column_width=True)
-                     with c_info:
-                         st.markdown(f"**{v.title}**")
-                         st.caption(f"{v.author} • {time_since(v.publish_date)}")
-                     with c_del:
-                         if st.button("❌", key=f"del_bsk_{idx}_{v.watch_url}"):
-                             videos_to_remove.append(idx)
-                st.divider()
+                c_thumb, c_info, c_del = st.columns([1, 3, 0.5])
+                with c_thumb:
+                    st.image(v.thumbnail_url, use_container_width=True)
+                with c_info:
+                    st.markdown(f"**{v.title}**")
+                    st.caption(f"{v.author} • {time_since(v.publish_date)}")
+                    
+                    description = getattr(v, 'description_attr', None) or getattr(v, 'description', '')
+                    safe_desc = html.escape(str(description))
+                    st.markdown(f"""
+                    <div style="font-size: 0.95em; color: #ddd; max-height: 160px; overflow-y: auto; background: rgba(0,0,0,0.2); padding: 4px; border-radius: 4px; margin-top: 5px;">
+                        {safe_desc}
+                    </div>
+                    """, unsafe_allow_html=True)
+                with c_del:
+                    if st.button("❌", key=f"del_bsk_{idx}_{v.watch_url}"):
+                        videos_to_remove.append(idx)
+                st.markdown("<div style='margin-bottom: 20px;'></div>", unsafe_allow_html=True)
              
             if videos_to_remove:
                 for idx in sorted(videos_to_remove, reverse=True):
