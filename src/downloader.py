@@ -4,6 +4,7 @@ import time
 from pytubefix import YouTube
 from pytubefix.cli import on_progress
 from pytubefix.contrib.search import Search, Filter
+from pytubefix.exceptions import RegexMatchError
 import subprocess
 from pydub import AudioSegment
 from utils import slugify
@@ -36,6 +37,9 @@ class YouTubeAudioProcessor:
         try:
             yt = YouTube(url)
             return yt
+        except RegexMatchError:
+             print(f"Erreur : URL YouTube invalide ou vidéo non trouvée ('{url}')")
+             return None
         except Exception as e:
             print(f"Erreur lors de la récupération des infos : {e}")
             return None
@@ -81,16 +85,22 @@ class YouTubeAudioProcessor:
         # Helper function for parallel processing
         def get_meta(v):
             try:
-                # This access triggers network IO
+                # Pre-fetch all attributes to ensure they are cached in the object
+                # and to validate they exist.
                 return {
                     "video": v,
                     "title": v.title,
                     "length": v.length,
                     "publish_date": v.publish_date,
                     "views": v.views,
+                    "author": v.author,
+                    "thumbnail_url": v.thumbnail_url,
+                    "description": v.description,
                     "success": True
                 }
-            except Exception:
+            except Exception as e:
+                # Optional: print error for debugging
+                # print(f"Meta fetch error for {v}: {e}")
                 return {"success": False}
 
         # 1. Extraction des métadonnées en parallèle
@@ -111,6 +121,15 @@ class YouTubeAudioProcessor:
             v = item["video"]
             length = item["length"]
             pub_date = item["publish_date"]
+            
+            # Explicitly attach metadata for UI persistence
+            v.title_attr = item["title"]
+            v.author_attr = item["author"]
+            v.thumb_attr = item["thumbnail_url"]
+            v.views_attr = item["views"]
+            v.length_attr = item["length"]
+            v.publish_date_attr = item["publish_date"]
+            v.description_attr = item["description"]
 
             # Global Safety Check (> 120s)
             if length < 120:

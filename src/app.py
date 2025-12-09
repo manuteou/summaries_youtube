@@ -9,7 +9,6 @@ from utils import clean_markdown_text, time_since, format_views
 import html
 import textwrap
 
-
 # Page config
 st.set_page_config(page_title="YouTube Summarizer", page_icon="📝", layout="wide")
 
@@ -42,6 +41,10 @@ if "visible_count" not in st.session_state:
     st.session_state.quill_key = 0
 if "last_saved_path" not in st.session_state:
     st.session_state.last_saved_path = None
+# Unified selection basket
+if "selection_basket" not in st.session_state:
+    # storing Video objects
+    st.session_state.selection_basket = []
 
 
 # Sidebar Configuration
@@ -52,7 +55,6 @@ ollama_model = st.sidebar.text_input("Ollama Model", value="gemma3:4b")
 
 summary_type = st.sidebar.selectbox("Summary Type", ["short", "medium", "long", "news"], index=2)
 
-# Initialize Workflow Manager
 # Initialize Workflow Manager
 @st.cache_resource
 def get_workflow(device, model, ollama_model, summary_type, version=1):
@@ -86,10 +88,14 @@ st.title("📝 YouTube Video Summarizer")
 # Tabs
 # Navigation
 if "nav_selection" not in st.session_state:
-    st.session_state.nav_selection = "🔍 Search"
+    st.session_state.nav_selection = "🔍 Sourcing"
 
-# Navigation Menu (replacing st.tabs)
-nav_options = ["🔍 Search", "✍️ Manual", "📁 Local File", "📝 Result"]
+# Navigation Menu
+nav_options = ["🔍 Sourcing", "⚙️ Synthèse", "📝 Résultat"]
+# Handle simple migration if user was on old tab name
+if st.session_state.nav_selection not in nav_options:
+    st.session_state.nav_selection = "🔍 Sourcing"
+
 nav_selection = st.radio("Navigation", nav_options, index=nav_options.index(st.session_state.nav_selection), horizontal=True, label_visibility="collapsed", key="nav_radio")
 
 # Sync session state if changed by user
@@ -97,9 +103,77 @@ if nav_selection != st.session_state.nav_selection:
     st.session_state.nav_selection = nav_selection
     st.rerun()
 
-# --- Tab 1: Search ---
-if st.session_state.nav_selection == "🔍 Search":
-    st.header("Search and Summarize")
+# --- Tab 1: Sourcing (Search + Manual) ---
+if st.session_state.nav_selection == "🔍 Sourcing":
+    st.header("Sourcing Vidéos")
+    
+    # --- Top Section: Manual Input & Basket Preview ---
+    col_manual, col_basket_info = st.columns([2, 1])
+    
+    with col_manual:
+        with st.expander("➕ Ajouter via URL (Youtube / Local)", expanded=False):
+            tab_yt, tab_local = st.tabs(["YouTube URL", "Fichier Local"])
+            
+            with tab_yt:
+                c_url, c_btn = st.columns([4, 1])
+                with c_url:
+                    manual_url = st.text_input("YouTube URL", placeholder="https://youtube.com/...", label_visibility="collapsed")
+                with c_btn:
+                    if st.button("Ajouter", key="btn_add_manual"):
+                        if manual_url:
+                            # Check if already in basket
+                            existing_urls = {v.watch_url for v in st.session_state.selection_basket}
+                            if manual_url in existing_urls:
+                                st.warning("Cette vidéo est déjà dans votre sélection.")
+                            else:
+                                with st.spinner("Récupération des infos..."):
+                                    try:
+                                        video = workflow.get_video_info(manual_url)
+                                        if video:
+                                            st.session_state.selection_basket.append(video)
+                                            st.success(f"Ajouté : {video.title}")
+                                        else:
+                                            st.error("Impossible de récupérer les infos.")
+                                    except Exception as e:
+                                        st.error(f"Erreur : {e}")
+            
+            with tab_local:
+                local_path = st.text_input("Chemin absolu du fichier MP4/MP3")
+                if st.button("Ajouter Fichier", key="btn_add_local"):
+                     if local_path and os.path.exists(local_path):
+                        # Create a dummy video object for local file
+                        # We need a structure compatible with the rest
+                        class LocalVideo:
+                            def __init__(self, path):
+                                self.title = os.path.basename(path)
+                                self.author = "Local File"
+                                self.watch_url = path # Use path as ID
+                                self.thumbnail_url = "https://via.placeholder.com/320x180?text=Fichier+Local"
+                                self.publish_date = datetime.now()
+                                self.views = 0
+                                self.length = 0
+                                self.description = f"Fichier local : {path}"
+                        
+                        v = LocalVideo(local_path)
+                        st.session_state.selection_basket.append(v)
+                        st.success(f"Fichier ajouté : {v.title}")
+                     else:
+                        st.error("Fichier introuvable.")
+
+    with col_basket_info:
+        # Mini basket recap
+        n_items = len(st.session_state.selection_basket)
+        st.info(f"💾 **Mon Panier : {n_items} vidéos**")
+        if n_items > 0:
+            if st.button("Aller à la Synthèse 👉"):
+                st.session_state.nav_selection = "⚙️ Synthèse"
+                st.rerun()
+
+    st.divider()
+
+    # --- Search Section ---
+    st.subheader("🔍 Rechercher")
+    
     # Wrap search input and button
     col_search_inner, col_btn_inner = st.columns([4, 1])
     
@@ -108,18 +182,13 @@ if st.session_state.nav_selection == "🔍 Search":
         st.session_state.trigger_search = True
 
     with col_search_inner:
-        query = st.text_input("Search Query", label_visibility="collapsed", placeholder="Search for videos...", on_change=submit_search, key="search_query_input")
+        query = st.text_input("Search Query", label_visibility="collapsed", placeholder="Sujet, mots-clés...", on_change=submit_search, key="search_query_input")
     with col_btn_inner:
-        if st.button("Search", type="primary"):
+        if st.button("Rechercher", type="primary"):
             st.session_state.trigger_search = True
             
     # Check trigger
     do_search = st.session_state.get("trigger_search", False)
-    if do_search:
-        # Reset immediately to avoid loops, but we need the query first
-        # We'll handle the search execution later in the logic
-        pass
-
     
     # --- Filters Session State Logic ---
     if "filter_sort" not in st.session_state:
@@ -161,7 +230,7 @@ if st.session_state.nav_selection == "🔍 Search":
         
         use_trusted_boost = st.checkbox("⭐ Prioriser les sources fiables (Arte, TED...)", value=True, help="Si coché, remonte les vidéos des chaînes de confiance en haut de la liste.")
 
-    # Sort mapping must be done before we might need it for local sort
+    # Sort mapping
     sort_map = {"Relevance": "relevance", "Date": "date", "Views": "views"}
     date_map = {"Any": None, "Today": "today", "Week": "week", "Month": "month", "Year": "year"}
     dur_map = {"Any": "any", "Short (<5m)": "short", "Medium (5-20m)": "medium", "Long (>20m)": "long"}
@@ -172,34 +241,24 @@ if st.session_state.nav_selection == "🔍 Search":
     final_date = date_map[st.session_state.filter_date]
     final_dur = dur_map[st.session_state.filter_dur]
 
-
     # Advisory Note
-    st.info("💡 **Conseil :** Sélectionnez le nombre de vidéos en fonction du type de résumé souhaité :\n"
-            "- **Short** : articles court 7 à 10 vidéos\n"
-            "- **Medium** : articles moyen 4 à 6 vidéos\n"
-            "- **Long** : articles long 1 à 3 vidéos (Attention, le traitement sera plus long)")
+    st.caption("Conseil : Sélectionnez des vidéos pour les ajouter à votre panier de synthèse.")
 
     if "search_object" not in st.session_state:
         st.session_state.search_object = None
     if "search_results" not in st.session_state:
         st.session_state.search_results = []
-    # I can put the form *around* the columns? No, `st.columns` inside `st.form` is fine.
-    # So I should start the form before line 80.
     
-    pass
     if do_search:
         st.session_state.trigger_search = False
 
         if query:
             with st.spinner("Searching..."):
-                # Append keywords to query
                 final_query = query
                 if type_options:
                     final_query += " " + " ".join(type_options)
                 
-                # Init search session
                 st.session_state.search_object = workflow.init_search(final_query, sort_by=final_sort, upload_date=final_date, exclude_terms=exclude_terms)
-                # Store duration preference in session state to use during load more
                 st.session_state.filter_duration = final_dur
                 st.session_state.active_categories = type_options
                 st.session_state.use_boost = use_trusted_boost
@@ -207,22 +266,18 @@ if st.session_state.nav_selection == "🔍 Search":
                 
                 st.session_state.search_results = workflow.get_search_results(st.session_state.search_object, duration_mode=final_dur, active_categories=type_options, enable_boost=use_trusted_boost, days_limit=days_limit)
                 st.session_state.visible_count = 9
-                # Reset selection on new search
-                st.session_state.selected_video_urls = set()
+                
         else:
             st.warning("Please enter a query.")
 
     if st.session_state.search_results:
-        # Show all loaded results directly
-        
-        # Action Bar & Local Sort & Filters
-        col_count, col_sort, col_actions = st.columns([2, 2, 4])
+        # Action Bar & Local Sort
+        col_count, col_sort = st.columns([2, 2])
         
         with col_count:
-             st.write(f"Résultats : {len(st.session_state.search_results)}")
+             st.write(f"Résultats trouvés : {len(st.session_state.search_results)}")
              
         with col_sort:
-            # Local sorting
             local_sort = st.selectbox("Trier par:", ["(Défaut)", "Date (Récent)", "Vues (Top)", "Durée (Long)"], label_visibility="collapsed")
             if local_sort == "Date (Récent)":
                 st.session_state.search_results.sort(key=lambda x: x.publish_date or datetime.min, reverse=True)
@@ -231,352 +286,209 @@ if st.session_state.nav_selection == "🔍 Search":
             elif local_sort == "Durée (Long)":
                 st.session_state.search_results.sort(key=lambda x: x.length, reverse=True)
         
-        # Initialize selection state if not present
-        if "selected_video_urls" not in st.session_state:
-            st.session_state.selected_video_urls = set()
-
-        with col_actions:
-            # Quick Select Buttons using columns for compact layout
-            c_sel_3, c_sel_5, c_sel_all, c_desel_all = st.columns([1, 1, 1, 1])
-            
-            def select_top(n):
-                top_n = st.session_state.search_results[:n]
-                st.session_state.selected_video_urls.update(v.watch_url for v in top_n)
-            
-            with c_sel_3:
-                if st.button("Top 3"):
-                    select_top(3)
-                    st.rerun()
-            with c_sel_5:
-                if st.button("Top 5"):
-                    select_top(5)
-                    st.rerun()
-            with c_sel_all:
-                if st.button("Tout"):
-                    st.session_state.selected_video_urls = {v.watch_url for v in st.session_state.search_results}
-                    st.rerun()
-            with c_desel_all:
-                if st.button("Aucun"):
-                    st.session_state.selected_video_urls = set()
-                    st.rerun()
-
         # Display videos in a grid
-        cols = st.columns(3) # 3 cards per row
+        cols = st.columns(3) 
+        
+        # Identify what's already in basket for UI feedback
+        basket_ids = {v.watch_url for v in st.session_state.selection_basket}
         
         for idx, v in enumerate(st.session_state.search_results):
             col = cols[idx % 3]
             with col:
-                # Card Container
                 with st.container():
-                    # Data extraction with safe defaults
+                    # --- Card Rendering (Simplified reuse) ---
                     try:
-                        # 1. Basic Info
-                        title = getattr(v, 'title', 'Titre Inconnu') or 'Titre Inconnu'
-                        author = getattr(v, 'author', 'Chaîne Inconnue') or 'Chaîne Inconnue'
+                        # Prioritize explicit attributes (pre-fetched), fall back to properties (might trigger lazy load)
+                        title = getattr(v, 'title_attr', None) or getattr(v, 'title', 'Titre Inconnu')
+                        author = getattr(v, 'author_attr', None) or getattr(v, 'author', 'Chaîne Inconnue')
+                        thumb_url = getattr(v, 'thumb_attr', None) or getattr(v, 'thumbnail_url', '') or "https://via.placeholder.com/320x180?text=No+Image"
+                        pub_date = getattr(v, 'publish_date_attr', None) or getattr(v, 'publish_date', None)
+                        views = getattr(v, 'views_attr', None) or getattr(v, 'views', 0)
+                        length = getattr(v, 'length_attr', None) or getattr(v, 'length', 0)
                         
-                        # 2. Description
-                        desc = getattr(v, 'description', '')
-                        if not desc: 
-                            desc = "Pas de description disponible."
-                        
-                        # 3. Thumbnail
-                        thumb_url = getattr(v, 'thumbnail_url', '')
-                        if not thumb_url:
-                            thumb_url = "https://via.placeholder.com/320x180?text=Pas+d'image"
-                        
-                        # 4. Metrics & Date
-                        # OPTIMIZATION: Use _publish_date instead of publish_date to avoid blocking network call
-                        # on every single video card.
-                        pub_date = getattr(v, '_publish_date', None)
-                        views = getattr(v, 'views', 0)
-                        length = getattr(v, 'length', 0)
-                        
-                        # Safe Formatting
-                        try:
-                            rel_time = time_since(pub_date) if pub_date else "Date inconnue"
-                        except Exception:
-                            rel_time = "Date inconnue"
-                            
-                        try:
-                            views_str = format_views(views)
-                        except Exception:
-                            views_str = "N/A"
-                        
+                        try: rel_time = time_since(pub_date) if pub_date else "Date inconnue"
+                        except: rel_time = "Date inconnue"
+                        try: views_str = format_views(views)
+                        except: views_str = "N/A"
                         try:
                             if length and isinstance(length, (int, float)):
-                                minutes = int(length // 60)
-                                seconds = int(length % 60)
-                                duration_str = f"{minutes}:{seconds:02d}"
-                            else:
-                                duration_str = "??:??"
-                        except Exception:
-                            duration_str = "??:??"
+                                duration_str = f"{int(length // 60)}:{int(length % 60):02d}"
+                            else: duration_str = "??:??"
+                        except: duration_str = "??:??"
 
-                        # HTML Safety
                         safe_title = html.escape(str(title))
                         safe_author = html.escape(str(author))
-                        safe_desc = html.escape(str(desc))
+                        safe_thumb = html.escape(str(thumb_url))
+                        safe_url = html.escape(str(v.watch_url))
                         
-                        # Badge
+                        # Badge logic
                         badge_html = ""
-                        # Robust check: use attribute OR re-verify with workflow (handles persistence issues)
+                        # Check persistent boosted status
                         is_boosted_attr = getattr(v, 'is_boosted', False)
+                        # Re-check preference if needed (redundant but safe)
                         is_boosted_check = workflow.is_channel_preferred(author, st.session_state.get("active_categories", []))
                         
                         if is_boosted_attr or (is_boosted_check and st.session_state.get("use_boost", True)):
+                            badge_html = '<div style="position: absolute; top: 8px; right: 8px; background-color: #FFD700; color: black; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 0.7em; z-index: 10;">Recommandé</div>'
 
-                            badge_html = (
-                                '<div style="position: absolute; top: 8px; right: 8px; '
-                                'background-color: #FFD700; color: #000000; padding: 4px 8px; '
-                                'border-radius: 4px; font-weight: bold; font-size: 0.75rem; '
-                                'z-index: 10; box-shadow: 0 2px 4px rgba(0,0,0,0.3);">'
-                                '⭐ Recommandé</div>'
-                            )
-
-                        # Render Card
-                        card_html = (
-                            f'<div class="video-card" style="position: relative; border: 1px solid #444; border-radius: 8px; '
-                            f'padding: 0; overflow: hidden; margin-bottom: 10px; background: #262730;">'
-                            f'<div class="thumbnail-container" style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; background-color: #000;">'
-                            f'{badge_html}'
-                            f'<a href="{v.watch_url}" target="_blank" style="text-decoration:none;">'
-                            f'<img src="{thumb_url}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s;" alt="{safe_title}" title="Regarder sur YouTube" onerror="this.onerror=null; this.src=\'https://via.placeholder.com/320x180?text=Erreur+Image\';">'
-                            f'</a>'
-                            f'<span style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.8); color: white; '
-                            f'padding: 2px 6px; border-radius: 4px; font-size: 0.75rem;">{duration_str}</span>'
-                            f'</div>'
-                            f'<div style="padding: 10px;">'
-                            f'<div style="font-weight: 600; font-size: 1rem; margin-bottom: 4px; line-height: 1.2; height: 1.2em; '
-                            f'overflow: hidden; white-space: nowrap; text-overflow: ellipsis;" title="{safe_title}">'
-                            f'<a href="{v.watch_url}" target="_blank" style="text-decoration:none; color: inherit;">{safe_title}</a></div>'
-                            f'<div style="font-size: 0.8rem; color: #aaa; margin-bottom: 8px;">{safe_author} • {rel_time} • {views_str} vues</div>'
-                            f'<div style="font-size: 0.85rem; color: #ddd; height: 3em; overflow: hidden; line-height: 1.5; '
-                            f'display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{safe_desc}</div>'
-                            f'</div></div>'
-                        )
+                        # Render Card HTML
+                        # Using distinct class for debugging if needed
+                        card_html = f"""
+                        <div style="background: #262730; border-radius: 8px; overflow: hidden; margin-bottom: 20px; border: 1px solid #444; display: flex; flex-direction: column; height: 100%;">
+                            <div style="position: relative; width: 100%; padding-top: 56.25%;">
+                                {badge_html}
+                                <a href="{safe_url}" target="_blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: block;">
+                                    <img src="{safe_thumb}" style="width: 100%; height: 100%; object-fit: cover; border: none;" alt="{safe_title}" />
+                                </a>
+                                <span style="position: absolute; bottom: 5px; right: 5px; background: rgba(0,0,0,0.8); color: white; padding: 2px 4px; border-radius: 4px; font-size: 0.75em; pointer-events: none;">{duration_str}</span>
+                            </div>
+                            <div style="padding: 12px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                                <div style="margin-bottom: 8px;">
+                                    <a href="{safe_url}" target="_blank" style="text-decoration:none; color: inherit; font-weight: 600; font-size: 1em; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                                        {safe_title}
+                                    </a>
+                                </div>
+                                <div style="font-size: 0.85em; color: #b0b0b0;">
+                                    <div>{safe_author}</div>
+                                    <div>{views_str} • {rel_time}</div>
+                                </div>
+                            </div>
+                        </div>
+                        """
                         st.markdown(card_html, unsafe_allow_html=True)
                         
-                    except Exception:
+                    except Exception as e:
+                        st.error(f"Render error: {e}")
                         continue
 
+                    # Action Button
+                    is_in_basket = v.watch_url in basket_ids
                     
-                    # Checkbox logic
-                    is_selected = v.watch_url in st.session_state.selected_video_urls
-                    if st.checkbox(f"Select", key=v.watch_url, value=is_selected):
-                        st.session_state.selected_video_urls.add(v.watch_url)
+                    if is_in_basket:
+                        st.button("✅ Ajouté", key=f"btn_added_{v.watch_url}_{idx}", disabled=True)
                     else:
-                        st.session_state.selected_video_urls.discard(v.watch_url)
-        
-        col_synth, col_load = st.columns([1, 1])
-        
-        # Collect selected video objects
-        selected_videos = [v for v in st.session_state.search_results if v.watch_url in st.session_state.selected_video_urls]
-        
-        with col_synth:
-            if st.button(f"Synthesize Selected Videos ({len(selected_videos)})", key="btn_synth_search"):
-                if selected_videos:
-                    if not query:
-                        st.error("Veuillez entrer un terme de recherche pour donner un contexte à la synthèse.")
-                    else:
-                        with st.spinner("Synthesizing..."):
-                            try:
-                                summary, title, source_info = workflow.synthesize_videos(selected_videos, query)
-                                # Clean markdown code blocks from LLM
-                                summary = clean_markdown_text(summary)
-                                # Convert to HTML for the editor
-                                html_summary = markdown.markdown(summary, extensions=['extra'])
-                                st.session_state.summary = html_summary
-                                st.session_state.title = title
-                                st.session_state.source_info = source_info
-                                st.session_state.generated = True
-                                st.session_state.quill_key += 1
-                                st.success("Synthesis complete! Switching to Result...")
-                                st.session_state.nav_selection = "📝 Result"
-                                st.session_state.nav_radio = "📝 Result"
-                                st.rerun()
-                            except Exception as e:
-                                st.error(f"Error: {e}")
-                else:
-                    st.warning("Please select at least one video.")
+                        if st.button("Ajouter au panier", key=f"btn_add_{v.watch_url}_{idx}"):
+                            st.session_state.selection_basket.append(v)
+                            st.rerun()
 
-        with col_load:
-            if st.session_state.search_object and st.button("Charger plus de résultats (+20)", key="btn_load_more"):
-                with st.spinner("Récupération depuis YouTube..."):
-                    # Use stored duration filter
+        # Load More
+        col_load_more, _ = st.columns([1, 2])
+        with col_load_more:
+            if st.session_state.search_object and st.button("Charger plus (+20)", key="btn_load_more"):
+                with st.spinner("Récupération..."):
                     dur_mode = st.session_state.get("filter_duration", "any")
                     act_cats = st.session_state.get("active_categories", [])
                     use_boost = st.session_state.get("use_boost", True)
                     days_limit = st.session_state.get("days_limit", None)
                     new_results = workflow.load_more_videos(st.session_state.search_object, duration_mode=dur_mode, active_categories=act_cats, enable_boost=use_boost, days_limit=days_limit)
                     
-                    if not new_results:
-                        st.warning("Plus aucun résultat trouvé.")
+                    if new_results:
+                         current_urls = {v.watch_url for v in st.session_state.search_results}
+                         for v in new_results:
+                             if v.watch_url not in current_urls:
+                                 st.session_state.search_results.append(v)
+                         st.rerun()
                     else:
-                        # Append new results avoiding duplicates
-                        current_urls = {v.watch_url for v in st.session_state.search_results}
-                        count_added = 0
-                        for v in new_results:
-                            if v.watch_url not in current_urls:
-                                st.session_state.search_results.append(v)
-                                count_added += 1
-                        
-                        if count_added > 0:
-                            st.success(f"{count_added} nouvelles vidéos chargées !")
-                            st.rerun()
-                        else:
-                            st.info("Aucune nouvelle vidéo unique trouvée.")
+                        st.warning("Plus de résultats.")
 
-# --- Tab 2: Manual ---
-if st.session_state.nav_selection == "✍️ Manual":
-    st.header("Mode Manuel")
+# --- Tab 2: Synthèse (Review) ---
+if st.session_state.nav_selection == "⚙️ Synthèse":
+    st.header("⚙️ Synthèse et Enrichissement")
     
-    tab_add, tab_list = st.tabs(["Ajouter des vidéos", "Liste de sélection"])
+    n_basket = len(st.session_state.selection_basket)
     
-    with tab_add:
-        st.subheader("Import")
-        col_single, col_bulk = st.columns(2)
-        
-        with col_single:
-            st.markdown("#### URL Unique")
-            manual_url = st.text_input("YouTube URL", placeholder="https://youtube.com/...")
-            if st.button("Ajouter", key="btn_add_manual"):
-                if manual_url:
-                    with st.spinner("Fetching info..."):
-                        try:
-                            video = workflow.get_video_info(manual_url)
-                            if video:
-                                st.session_state.manual_videos.append(video)
-                                st.success(f"Added: {video.title}")
-                            else:
-                                st.error("Could not fetch video info.")
-                        except Exception as e:
-                            st.error(f"Error: {e}")
-
-        with col_bulk:
-            st.markdown("#### Import en masse")
-            bulk_urls = st.text_area("URLs (une par ligne)", height=100, placeholder="https://...\nhttps://...")
-            if st.button("Importer Tout", key="btn_bulk_manual"):
-                if bulk_urls:
-                    urls = [u.strip() for u in bulk_urls.split('\n') if u.strip()]
-                    count_ok = 0
-                    with st.status("Importing videos...") as status:
-                        for u in urls:
-                            status.write(f"Fetching {u}...")
-                            try:
-                                video = workflow.get_video_info(u)
-                                if video:
-                                    st.session_state.manual_videos.append(video)
-                                    count_ok += 1
-                            except:
-                                status.write(f"Failed: {u}")
-                        status.update(label=f"Import finished! {count_ok}/{len(urls)} videos added.", state="complete")
-                    if count_ok > 0:
-                        st.success(f"{count_ok} videos added!")
-
-    with tab_list:
-        st.subheader(f"Vidéos Sélectionnées ({len(st.session_state.manual_videos)})")
-        
-        if st.session_state.manual_videos:
-             # Actions
-            c_clear, c_title = st.columns([1, 3])
-            with c_clear:
-                 if st.button("🗑️ Tout effacer", key="btn_clear_manual", type="secondary"):
-                    st.session_state.manual_videos = []
-                    st.rerun()
-            with c_title:
-                manual_title = st.text_input("Titre de la synthèse", value="Synthèse Manuelle")
-
-            st.divider()
-
-            # Display as Cards (Grid)
-            if st.session_state.manual_videos:
-                cols_m = st.columns(3)
-                videos_to_remove = []
-                
-                for idx, v in enumerate(st.session_state.manual_videos):
-                    col = cols_m[idx % 3]
-                    with col:
-                         # Card Container
-                        with st.container():
-                            # Calculate relative time
-                            rel_time = time_since(v.publish_date)
-                            
-                            # Format duration
-                            duration_min = v.length // 60
-                            duration_sec = v.length % 60
-                            duration_str = f"{duration_min}:{duration_sec:02d}"
-
-                            st.markdown(f"""
-                            <div class="video-card">
-                                <div class="thumbnail-container">
-                                    <img src="{v.thumbnail_url}">
-                                    <span class="duration-badge">{duration_str}</span>
-                                </div>
-                                <div class="video-title">{v.title}</div>
-                                <div class="video-meta">
-                                    Author: {v.author}<br>
-                                    <span style="color: #888; font-size: 0.9em;">{rel_time}</span>
-                                </div>
-                            </div>
-                            """, unsafe_allow_html=True)
-                            
-                            if st.button("Retirer", key=f"rm_m_{idx}"):
-                                videos_to_remove.append(idx)
-
-                if videos_to_remove:
-                    for idx in sorted(videos_to_remove, reverse=True):
-                        st.session_state.manual_videos.pop(idx)
-                    st.rerun()
-
+    col_list, col_ctx = st.columns([2, 1])
+    
+    with col_list:
+        st.subheader(f"Vidéos sélectionnées ({n_basket})")
+        if n_basket > 0:
+            # Action de suppression globale
+            if st.button("Tout vider", key="btn_clear_basket", type="secondary"):
+                st.session_state.selection_basket = []
+                st.rerun()
+            
+            # List videos
+            videos_to_remove = []
+            for idx, v in enumerate(st.session_state.selection_basket):
+                with st.container():
+                     c_thumb, c_info, c_del = st.columns([1, 3, 0.5])
+                     with c_thumb:
+                         st.image(v.thumbnail_url, use_column_width=True)
+                     with c_info:
+                         st.markdown(f"**{v.title}**")
+                         st.caption(f"{v.author} • {time_since(v.publish_date)}")
+                     with c_del:
+                         if st.button("❌", key=f"del_bsk_{idx}_{v.watch_url}"):
+                             videos_to_remove.append(idx)
                 st.divider()
-                if st.button("Lancer la Synthèse", key="btn_synth_manual_main", type="primary"):
-                    with st.spinner("Synthesizing..."):
+             
+            if videos_to_remove:
+                for idx in sorted(videos_to_remove, reverse=True):
+                    st.session_state.selection_basket.pop(idx)
+                st.rerun()
+        else:
+            st.info("Votre panier est vide. Allez dans l'onglet 'Sourcing' pour ajouter des vidéos.")
+            if st.button("Aller au Sourcing"):
+                st.session_state.nav_selection = "🔍 Sourcing"
+                st.rerun()
+
+    with col_ctx:
+        st.subheader("Configuration de la Synthèse")
+        
+        with st.form("form_synthesis"):
+            st.markdown("#### 1. Contexte")
+            context_input = st.text_area(
+                "Sujet ou Angle de synthèse",
+                placeholder="Ex: Fais une synthèse focalisée sur les impacts économiques de cette technologie...",
+                height=150,
+                help="Donnez une direction au modèle pour la synthèse."
+            )
+            
+            st.markdown("#### 2. Options")
+            custom_title = st.text_input("Titre du document final", value="Synthèse Vidéo")
+            
+            submitted = st.form_submit_button("🚀 Lancer la Synthèse", type="primary")
+            
+            if submitted:
+                if n_basket == 0:
+                    st.error("Veuillez sélectionner au moins une vidéo.")
+                elif not context_input.strip():
+                    st.error("Veuillez définir un sujet ou un contexte pour guider la synthèse.")
+                else:
+                    with st.spinner("Génération de la synthèse en cours..."):
                         try:
-                            summary, title, source_info = workflow.synthesize_videos(st.session_state.manual_videos, manual_title)
+                            # Use the unified synthesize_videos method
+                            # It expects (videos, subject_or_title)
+                            # But here we have both a Subject (context) AND a Title.
+                            # The current `synthesize_videos` implementation takes `search_query` as the second arg if it's from search, 
+                            # or `manual_title` if from manual.
+                            # We should probably pass the context as the 'query' so the LLM knows what to focus on.
+                            # And we set the title explicitly afterwards.
+                            
+                            summary, title, source_info = workflow.synthesize_videos(
+                                st.session_state.selection_basket, 
+                                context_input 
+                            )
+                            
+                            # Post-process
                             summary = clean_markdown_text(summary)
                             html_summary = markdown.markdown(summary, extensions=['extra'])
+                            
+                            # Update State
                             st.session_state.summary = html_summary
-                            st.session_state.title = title
+                            st.session_state.title = custom_title if custom_title else title
                             st.session_state.source_info = source_info
                             st.session_state.generated = True
                             st.session_state.quill_key += 1
-                            st.success("Synthesis complete! Switching to Result...")
-                            st.session_state.nav_selection = "📝 Result"
-                            st.session_state.nav_radio = "📝 Result"
+                            
+                            st.success("Synthèse terminée !")
+                            st.session_state.nav_selection = "📝 Résultat"
                             st.rerun()
+                            
                         except Exception as e:
-                            st.error(f"Error: {e}")
-        else:
-            st.info("Aucune vidéo dans la liste. Ajoutez-en depuis l'onglet 'Ajouter des vidéos'.")
+                            st.error(f"Une erreur est survenue : {e}")
 
-# --- Tab 3: Local File ---
-if st.session_state.nav_selection == "📁 Local File":
-    st.header("Local MP4 File")
-    file_path = st.text_input("Absolute Path to MP4 file")
-    if st.button("Process File", key="btn_file"):
-        if file_path and os.path.exists(file_path):
-            with st.spinner("Processing file..."):
-                try:
-                    summary, title, source_info = workflow.process_video_path(file_path, summary_type)
-                    # Clean markdown code blocks from LLM
-                    summary = clean_markdown_text(summary)
-                    # Convert to HTML for the editor
-                    html_summary = markdown.markdown(summary, extensions=['extra'])
-                    st.session_state.summary = html_summary
-                    st.session_state.title = title
-                    st.session_state.source_info = source_info
-                    st.session_state.generated = True
-                    st.session_state.quill_key += 1
-                    st.session_state.quill_key += 1
-                    st.success("Processing complete! Switching to Result...")
-                    st.session_state.nav_selection = "📝 Result"
-                    st.session_state.nav_radio = "📝 Result"
-                    st.rerun()
-                except Exception as e:
-                    st.error(f"Error: {e}")
-        else:
-            st.error("File not found.")
-if st.session_state.nav_selection == "📝 Result":
+if st.session_state.nav_selection == "📝 Résultat" or st.session_state.nav_selection == "📝 Result":
     if st.session_state.generated:
         st.header("📝 Result (Editable)")
         
@@ -586,8 +498,6 @@ if st.session_state.nav_selection == "📝 Result":
             # Refine / Regenerate Section
             st.divider()
             with st.expander("✨ Refine / Regenerate", expanded=False):
-                st.write("Modify the summary with AI.")
-                
                 st.write("Modify the summary with AI using these options:")
                 
                 c_size, c_tone = st.columns(2)
