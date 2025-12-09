@@ -97,6 +97,22 @@ div.stButton>button:hover {
     transform: scale(1.02);
 }
 
+/* Primary Button Override (Green) */
+div.stButton>button[kind="primary"] {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+    color: white !important;
+}
+
+div.stButton>button[kind="primary"]:hover {
+    background-color: #218838 !important;
+    border-color: #1e7e34 !important;
+}
+
+div.stButton>button[kind="primary"]:focus {
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5) !important;
+}
+
 /* Tab Styling */
 .stTabs [data-baseweb="tab-list"] {
     gap: 24px;

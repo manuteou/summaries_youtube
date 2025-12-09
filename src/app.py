@@ -105,44 +105,56 @@ if nav_selection != st.session_state.nav_selection:
 
 # --- Tab 1: Sourcing (Search + Manual) ---
 if st.session_state.nav_selection == "🔍 Sourcing":
+    # --- Top Section: Basket Preview ---
+    n_items = len(st.session_state.selection_basket)
+    
+    col_basket_text, col_basket_btn = st.columns([3, 1])
+    with col_basket_text:
+        st.info(f"💾 **Mon Panier : {n_items} vidéos**")
+    with col_basket_btn:
+        if n_items > 0:
+            def _go_synth():
+                st.session_state.nav_selection = "⚙️ Synthèse"
+                st.session_state["nav_radio"] = "⚙️ Synthèse"
+
+            st.button("Aller à la Synthèse 👉", on_click=_go_synth, type="primary")
+
     st.header("Sourcing Vidéos")
     
-    # --- Top Section: Manual Input & Basket Preview ---
-    col_manual, col_basket_info = st.columns([2, 1])
-    
-    with col_manual:
-        with st.expander("➕ Ajouter via URL (Youtube / Local)", expanded=False):
-            tab_yt, tab_local = st.tabs(["YouTube URL", "Fichier Local"])
-            
-            with tab_yt:
-                c_url, c_btn = st.columns([4, 1])
-                with c_url:
-                    manual_url = st.text_input("YouTube URL", placeholder="https://youtube.com/...", label_visibility="collapsed")
-                with c_btn:
-                    if st.button("Ajouter", key="btn_add_manual"):
-                        if manual_url:
-                            # Check if already in basket
-                            existing_urls = {v.watch_url for v in st.session_state.selection_basket}
-                            if manual_url in existing_urls:
-                                st.warning("Cette vidéo est déjà dans votre sélection.")
-                            else:
-                                with st.spinner("Récupération des infos..."):
-                                    try:
-                                        video = workflow.get_video_info(manual_url)
-                                        if video:
-                                            st.session_state.selection_basket.append(video)
-                                            st.success(f"Ajouté : {video.title}")
-                                        else:
-                                            st.error("Impossible de récupérer les infos.")
-                                    except Exception as e:
-                                        st.error(f"Erreur : {e}")
-            
-            with tab_local:
-                local_path = st.text_input("Chemin absolu du fichier MP4/MP3")
-                if st.button("Ajouter Fichier", key="btn_add_local"):
-                     if local_path and os.path.exists(local_path):
-                        # Create a dummy video object for local file
-                        # We need a structure compatible with the rest
+    # --- Manual Input ---
+    with st.expander("➕ Ajouter via URL (Youtube / Local)", expanded=False):
+        tab_yt, tab_local = st.tabs(["YouTube URL", "Fichier Local"])
+        
+        with tab_yt:
+            c_url, c_btn = st.columns([4, 1])
+            with c_url:
+                manual_url = st.text_input("YouTube URL", placeholder="https://youtube.com/...", label_visibility="collapsed")
+            with c_btn:
+                if st.button("Ajouter", key="btn_add_manual"):
+                    if manual_url:
+                        # Check if already in basket
+                        existing_urls = {v.watch_url for v in st.session_state.selection_basket}
+                        if manual_url in existing_urls:
+                            st.warning("Cette vidéo est déjà dans votre sélection.")
+                        else:
+                            with st.spinner("Récupération des infos..."):
+                                try:
+                                    video = workflow.get_video_info(manual_url)
+                                    if video:
+                                        st.session_state.selection_basket.append(video)
+                                        st.success(f"Ajouté : {video.title}")
+                                        st.rerun() # Rerun to update basket count at top
+                                    else:
+                                        st.error("Impossible de récupérer les infos.")
+                                except Exception as e:
+                                    st.error(f"Erreur : {e}")
+        
+        with tab_local:
+            local_path = st.text_input("Chemin absolu du fichier MP4/MP3")
+            if st.button("Ajouter Fichier", key="btn_add_local"):
+                    if local_path and os.path.exists(local_path):
+                    # Create a dummy video object for local file
+                    # We need a structure compatible with the rest
                         class LocalVideo:
                             def __init__(self, path):
                                 self.title = os.path.basename(path)
@@ -157,17 +169,9 @@ if st.session_state.nav_selection == "🔍 Sourcing":
                         v = LocalVideo(local_path)
                         st.session_state.selection_basket.append(v)
                         st.success(f"Fichier ajouté : {v.title}")
-                     else:
+                        st.rerun() # Rerun to update basket count
+                    else:
                         st.error("Fichier introuvable.")
-
-    with col_basket_info:
-        # Mini basket recap
-        n_items = len(st.session_state.selection_basket)
-        st.info(f"💾 **Mon Panier : {n_items} vidéos**")
-        if n_items > 0:
-            if st.button("Aller à la Synthèse 👉"):
-                st.session_state.nav_selection = "⚙️ Synthèse"
-                st.rerun()
 
     st.divider()
 
@@ -305,6 +309,7 @@ if st.session_state.nav_selection == "🔍 Sourcing":
                         pub_date = getattr(v, 'publish_date_attr', None) or getattr(v, 'publish_date', None)
                         views = getattr(v, 'views_attr', None) or getattr(v, 'views', 0)
                         length = getattr(v, 'length_attr', None) or getattr(v, 'length', 0)
+                        description = getattr(v, 'description_attr', None) or getattr(v, 'description', '')
                         
                         try: rel_time = time_since(pub_date) if pub_date else "Date inconnue"
                         except: rel_time = "Date inconnue"
@@ -320,6 +325,7 @@ if st.session_state.nav_selection == "🔍 Sourcing":
                         safe_author = html.escape(str(author))
                         safe_thumb = html.escape(str(thumb_url))
                         safe_url = html.escape(str(v.watch_url))
+                        safe_desc = html.escape(str(description))
                         
                         # Badge logic
                         badge_html = ""
@@ -333,28 +339,29 @@ if st.session_state.nav_selection == "🔍 Sourcing":
 
                         # Render Card HTML
                         # Using distinct class for debugging if needed
-                        card_html = f"""
-                        <div style="background: #262730; border-radius: 8px; overflow: hidden; margin-bottom: 20px; border: 1px solid #444; display: flex; flex-direction: column; height: 100%;">
-                            <div style="position: relative; width: 100%; padding-top: 56.25%;">
-                                {badge_html}
-                                <a href="{safe_url}" target="_blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: block;">
-                                    <img src="{safe_thumb}" style="width: 100%; height: 100%; object-fit: cover; border: none;" alt="{safe_title}" />
-                                </a>
-                                <span style="position: absolute; bottom: 5px; right: 5px; background: rgba(0,0,0,0.8); color: white; padding: 2px 4px; border-radius: 4px; font-size: 0.75em; pointer-events: none;">{duration_str}</span>
-                            </div>
-                            <div style="padding: 12px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
-                                <div style="margin-bottom: 8px;">
-                                    <a href="{safe_url}" target="_blank" style="text-decoration:none; color: inherit; font-weight: 600; font-size: 1em; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
-                                        {safe_title}
-                                    </a>
-                                </div>
-                                <div style="font-size: 0.85em; color: #b0b0b0;">
-                                    <div>{safe_author}</div>
-                                    <div>{views_str} • {rel_time}</div>
-                                </div>
-                            </div>
-                        </div>
-                        """
+                        card_html = f"""<div style="background: #262730; border-radius: 8px; overflow: hidden; margin-bottom: 20px; border: 1px solid #444; display: flex; flex-direction: column; height: 100%;">
+<div style="position: relative; width: 100%; padding-top: 56.25%;">
+{badge_html}
+<a href="{safe_url}" target="_blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: block;">
+<img src="{safe_thumb}" style="width: 100%; height: 100%; object-fit: cover; border: none;" alt="{safe_title}" />
+</a>
+<span style="position: absolute; bottom: 5px; right: 5px; background: rgba(0,0,0,0.8); color: white; padding: 2px 4px; border-radius: 4px; font-size: 0.75em; pointer-events: none;">{duration_str}</span>
+</div>
+<div style="padding: 12px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+<div style="margin-bottom: 8px;">
+<a href="{safe_url}" target="_blank" style="text-decoration:none; color: inherit; font-weight: 600; font-size: 1em; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+{safe_title}
+</a>
+</div>
+<div style="font-size: 0.85em; color: #b0b0b0;">
+<div>{safe_author}</div>
+<div>{views_str} • {rel_time}</div>
+<div style="margin-top: 8px; font-size: 0.95em; color: #ddd; max-height: 80px; overflow-y: auto; background: rgba(0,0,0,0.2); padding: 4px; border-radius: 4px;">
+{safe_desc}
+</div>
+</div>
+</div>
+</div>"""
                         st.markdown(card_html, unsafe_allow_html=True)
                         
                     except Exception as e:
