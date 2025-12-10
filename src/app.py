@@ -10,7 +10,7 @@ import html
 import textwrap
 
 # Page config
-st.set_page_config(page_title="YouTube Summarizer", page_icon="📝", layout="wide")
+st.set_page_config(page_title="SynthetIA", page_icon="📝", layout="wide")
 
 # Load Custom CSS
 def load_css(file_name):
@@ -83,7 +83,13 @@ def get_workflow(device, model, ollama_model, summary_type, version=1):
 
 workflow = get_workflow(device, model, ollama_model, summary_type, version=6)
 
-st.title("📝 YouTube Video Summarizer")
+# Branding
+st.markdown("""
+<div style="text-align: center; margin-bottom: 30px;">
+    <h1 style="font-size: 4rem; background: linear-gradient(90deg, #FF4B4B, #FF914D); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; font-weight: 800; display: inline-block; margin-bottom: 0; text-shadow: none;">SynthetIA</h1>
+    <p style="font-size: 1.2rem; color: #A3A8B8; margin-top: 0px;">L'essentiel de vos vidéos, synthétisé.</p>
+</div>
+""", unsafe_allow_html=True)
 
 # Tabs
 # Navigation
@@ -356,26 +362,26 @@ if st.session_state.nav_selection == "🔍 Sourcing":
 
                         # Render Card HTML
                         # Using distinct class for debugging if needed
-                        card_html = f"""<div style="background: #262730; border-radius: 8px; overflow: hidden; margin-bottom: 20px; border: 1px solid #444; display: flex; flex-direction: column; height: 100%;">
-<div style="position: relative; width: 100%; padding-top: 56.25%;">
+                        # Render Card HTML (Premium Design)
+                        # Render Card HTML (Premium Design)
+                        card_html = f"""
+<div class="video-card">
+<div style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden;">
 {badge_html}
-<a href="{safe_url}" target="_blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: block;">
-<img src="{safe_thumb}" style="width: 100%; height: 100%; object-fit: cover; border: none;" alt="{safe_title}" />
+<a href="{safe_url}" target="_blank">
+<img src="{safe_thumb}" alt="{safe_title}" />
 </a>
-<span style="position: absolute; bottom: 5px; right: 5px; background: rgba(0,0,0,0.8); color: white; padding: 2px 4px; border-radius: 4px; font-size: 0.75em; pointer-events: none;">{duration_str}</span>
+<span style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.8); color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.75em; font-weight: 600;">{duration_str}</span>
 </div>
-<div style="padding: 12px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
-<div style="margin-bottom: 8px;">
-<a href="{safe_url}" target="_blank" style="text-decoration:none; color: inherit; font-weight: 600; font-size: 1em; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+<div class="card-content">
+<a href="{safe_url}" target="_blank" class="card-title">
 {safe_title}
 </a>
+<div style="font-size: 0.85em; color: #A3A8B8; margin-bottom: 8px;">
+<span style="color: #FF914D; font-weight: 500;">{safe_author}</span> • {views_str} • {rel_time}
 </div>
-<div style="font-size: 0.85em; color: #b0b0b0;">
-<div>{safe_author}</div>
-<div>{views_str} • {rel_time}</div>
-<div style="margin-top: 8px; font-size: 0.95em; color: #ddd; max-height: 80px; overflow-y: auto; background: rgba(0,0,0,0.2); padding: 4px; border-radius: 4px;">
-{safe_desc}
-</div>
+<div style="font-size: 0.9em; color: #D3D3D3; line-height: 1.4; overflow-y: auto; flex-grow: 1; mask-image: linear-gradient(to bottom, black 80%, transparent 100%);">
+{safe_desc[:120]}...
 </div>
 </div>
 </div>"""
@@ -444,7 +450,7 @@ if st.session_state.nav_selection == "⚙️ Synthèse":
                     description = getattr(v, 'description_attr', None) or getattr(v, 'description', '')
                     safe_desc = html.escape(str(description))
                     st.markdown(f"""
-                    <div style="font-size: 0.95em; color: #ddd; max-height: 160px; overflow-y: auto; background: rgba(0,0,0,0.2); padding: 4px; border-radius: 4px; margin-top: 5px;">
+                    <div style="font-size: 0.9em; color: #D3D3D3; max-height: 120px; overflow-y: auto; background: rgba(255,255,255,0.05); padding: 8px; border-radius: 6px; margin-top: 8px; border: 1px solid rgba(255,255,255,0.1);">
                         {safe_desc}
                     </div>
                     """, unsafe_allow_html=True)
