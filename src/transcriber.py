@@ -15,9 +15,35 @@ class WhisperTranscriber:
 
     @staticmethod
     def extract_subtitles(srt_content: str) -> str:
-        lignes = [ligne.strip() for ligne in srt_content.splitlines() if ligne.strip()]
-        text_ligne = [ligne for i, ligne in enumerate(lignes, start=1) if i % 3 == 0]
-        return " ".join(text_ligne)
+        """
+        Extrait le texte d'un fichier SRT en supprimant les index et les timestamps.
+        Gère correctement les sous-titres multi-lignes.
+        """
+        import re
+        
+        lines = srt_content.splitlines()
+        clean_text = []
+        
+        # Regex pour identifier les timestamps (ex: 00:00:01,000 --> 00:00:04,000)
+        timestamp_pattern = re.compile(r'\d{2}:\d{2}:\d{2}[,.]\d{3}\s*-->\s*\d{2}:\d{2}:\d{2}[,.]\d{3}')
+        
+        for line in lines:
+            line = line.strip()
+            # Ignorer les lignes vides
+            if not line:
+                continue
+            # Ignorer les lignes qui sont juste des nombres (index de sous-titre)
+            if line.isdigit():
+                continue
+            # Ignorer les lignes de timestamps
+            if timestamp_pattern.match(line):
+                continue
+            # Ignorer les balises HTML potentielles comme <i>, <b>, <font>
+            line = re.sub(r'<[^>]+>', '', line)
+                
+            clean_text.append(line)
+            
+        return " ".join(clean_text)
 
     def transcribe_segments(self, segments: list[str]) -> list[str]:
         text_results = []

@@ -73,13 +73,7 @@ def write_data(output_dir, data, seg):
 
 
 
-def load_text(paths):
-    text = []
-    for path in paths:
-        path = Path(path)  
-        with path.open("r", encoding="utf-8") as f:
-            text.append(f.read())
-    return text
+
 
 def clean_files(list_path: List[str]):
     for path in list_path:

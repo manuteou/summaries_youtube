@@ -1,7 +1,7 @@
 import os
 import io
 from datetime import datetime
-import html
+
 import markdown
 from xhtml2pdf import pisa
 from markdownify import markdownify as md

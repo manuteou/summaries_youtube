@@ -5,7 +5,10 @@ from workflow import WorkflowManager
 from streamlit_quill import st_quill
 import markdown
 from markdownify import markdownify as md
+
 from utils import clean_markdown_text, time_since, format_views
+from models import LocalVideo
+from components import render_video_card
 import html
 import textwrap
 
@@ -169,24 +172,8 @@ if st.session_state.nav_selection == "🔍 Sourcing":
                     with open(file_path, "wb") as f:
                         f.write(uploaded_file.getbuffer())
                     
-                    # Create LocalVideo object
-                    class LocalVideo:
-                        def __init__(self, path, filename):
-                            self.title = filename
-                            self.author = "Fichier Local"
-                            self.watch_url = os.path.abspath(path) # Use absolute path as ID/URL
-                            self.thumbnail_url = "https://via.placeholder.com/320x180.png/333333/cccccc?text=Fichier+Local"
-                            self.publish_date = datetime.now()
-                            self.views = 0
-                            self.length = 0
-                            self.description = f"Fichier importé : {path}"
-                            # UI attributes
-                            self.title_attr = self.title
-                            self.author_attr = self.author
-                            self.thumb_attr = self.thumbnail_url
-                            self.description_attr = self.description
-                    
                     v = LocalVideo(file_path, uploaded_file.name)
+
                     
                     # Check if already in basket
                     # Enforce strict limit of 1 for local files (replace existing)
@@ -322,83 +309,15 @@ if st.session_state.nav_selection == "🔍 Sourcing":
             col = cols[idx % 3]
             with col:
                 with st.container():
-                    # --- Card Rendering (Simplified reuse) ---
                     try:
-                        # Prioritize explicit attributes (pre-fetched), fall back to properties (might trigger lazy load)
-                        title = getattr(v, 'title_attr', None) or getattr(v, 'title', 'Titre Inconnu')
-                        author = getattr(v, 'author_attr', None) or getattr(v, 'author', 'Chaîne Inconnue')
-                        thumb_url = getattr(v, 'thumb_attr', None) or getattr(v, 'thumbnail_url', '') or "https://via.placeholder.com/320x180?text=No+Image"
-                        pub_date = getattr(v, 'publish_date_attr', None) or getattr(v, 'publish_date', None)
-                        views = getattr(v, 'views_attr', None) or getattr(v, 'views', 0)
-                        length = getattr(v, 'length_attr', None) or getattr(v, 'length', 0)
-                        description = getattr(v, 'description_attr', None) or getattr(v, 'description', '')
-                        
-                        try: rel_time = time_since(pub_date) if pub_date else "Date inconnue"
-                        except: rel_time = "Date inconnue"
-                        try: views_str = format_views(views)
-                        except: views_str = "N/A"
-                        try:
-                            if length and isinstance(length, (int, float)):
-                                duration_str = f"{int(length // 60)}:{int(length % 60):02d}"
-                            else: duration_str = "??:??"
-                        except: duration_str = "??:??"
-
-                        safe_title = html.escape(str(title))
-                        safe_author = html.escape(str(author))
-                        safe_thumb = html.escape(str(thumb_url))
-                        safe_url = html.escape(str(v.watch_url))
-                        safe_desc = html.escape(str(description))
-                        
-                        # Badge logic
-                        badge_html = ""
-                        # Check persistent boosted status
-                        is_boosted_attr = getattr(v, 'is_boosted', False)
-                        # Re-check preference if needed (redundant but safe)
-                        is_boosted_check = workflow.is_channel_preferred(author, st.session_state.get("active_categories", []))
-                        
-                        if is_boosted_attr or (is_boosted_check and st.session_state.get("use_boost", True)):
-                            badge_html = '<div style="position: absolute; top: 8px; right: 8px; background-color: #FFD700; color: black; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 0.7em; z-index: 10;">Recommandé</div>'
-
-                        # Render Card HTML
-                        # Using distinct class for debugging if needed
-                        # Render Card HTML (Premium Design)
-                        # Render Card HTML (Premium Design)
-                        card_html = f"""
-<div class="video-card">
-<div style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden;">
-{badge_html}
-<a href="{safe_url}" target="_blank">
-<img src="{safe_thumb}" alt="{safe_title}" />
-</a>
-<span style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.8); color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.75em; font-weight: 600;">{duration_str}</span>
-</div>
-<div class="card-content">
-<a href="{safe_url}" target="_blank" class="card-title">
-{safe_title}
-</a>
-<div style="font-size: 0.85em; color: #A3A8B8; margin-bottom: 8px;">
-<span style="color: #FF914D; font-weight: 500;">{safe_author}</span> • {views_str} • {rel_time}
-</div>
-<div style="font-size: 0.9em; color: #D3D3D3; line-height: 1.4; overflow-y: auto; flex-grow: 1; mask-image: linear-gradient(to bottom, black 80%, transparent 100%);">
-{safe_desc[:120]}...
-</div>
-</div>
-</div>"""
-                        st.markdown(card_html, unsafe_allow_html=True)
-                        
+                        render_video_card(v, idx, basket_ids, st.session_state)
                     except Exception as e:
                         st.error(f"Render error: {e}")
                         continue
 
-                    # Action Button
-                    is_in_basket = v.watch_url in basket_ids
-                    
-                    if is_in_basket:
-                        st.button("✅ Ajouté", key=f"btn_added_{v.watch_url}_{idx}", disabled=True)
-                    else:
-                        if st.button("Ajouter au panier", key=f"btn_add_{v.watch_url}_{idx}"):
-                            st.session_state.selection_basket.append(v)
-                            st.rerun()
+
+
+
 
         # Load More
         col_load_more, _ = st.columns([1, 2])
@@ -570,30 +489,8 @@ if st.session_state.nav_selection == "📝 Résultat" or st.session_state.nav_se
                 custom_instr = st.text_input("Instructions supplémentaires (Optionnel)", placeholder="Ex: Insiste sur les chiffres...")
 
                 # Construct composite instruction
-                instructions_list = []
-                
-                # Size mapping
-                if opt_size == "Plus court": instructions_list.append("Rédige une version plus courte et concise.")
-                elif opt_size == "Plus long": instructions_list.append("Développe davantage le texte avec plus de détails.")
-                
-                # Tone mapping
-                if opt_tone == "Professionnel": instructions_list.append("Adopte un ton strictement professionnel et objectif.")
-                elif opt_tone == "Formel": instructions_list.append("Utilise un style très formel et académique.")
-                elif opt_tone == "Familier": instructions_list.append("Utilise un ton décontracté et accessible (vulgarisation).")
-                
-                # Format mapping
-                if opt_fmt == "Rapport Structuré": instructions_list.append("Structure le texte comme un rapport professionnel (Intro, Analyse, Conclusion).")
-                elif opt_fmt == "Dissertation": instructions_list.append("Adopte une structure de dissertation (Thèse, Antithèse, Synthèse).")
-                elif opt_fmt == "Article de Blog": instructions_list.append("Transforme le texte en article de blog engageant (Titre accrocheur, paragraphes courts).")
-                elif opt_fmt == "Liste à puces": instructions_list.append("Reformate le contenu principal sous forme de liste à puces.")
-                
-                # Lang mapping
-                if opt_lang != "(Maintener)": instructions_list.append(f"Traduis le résultat final en {opt_lang}.")
-                
-                if custom_instr:
-                    instructions_list.append(f"Consigne spécifique : {custom_instr}")
-                
-                refine_instructions = " ".join(instructions_list)
+                refine_instructions = workflow.get_refinement_instruction(opt_size, opt_tone, opt_fmt, opt_lang, custom_instr)
+
                 
                 if refine_instructions:
                     st.info(f"Consignes combinées : {refine_instructions}")

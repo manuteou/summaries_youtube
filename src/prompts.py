@@ -391,3 +391,29 @@ STRUCTURE SUGGÉRÉE :
 -   **SYNTHÈSE FINALE** (Ouverture)
 """
         return ""
+
+    def get_refinement_instruction(self, size_opt, tone_opt, fmt_opt, lang_opt, custom_instr):
+        instructions_list = []
+        
+        # Size mapping
+        if size_opt == "Plus court": instructions_list.append("Rédige une version plus courte et concise.")
+        elif size_opt == "Plus long": instructions_list.append("Développe davantage le texte avec plus de détails.")
+        
+        # Tone mapping
+        if tone_opt == "Professionnel": instructions_list.append("Adopte un ton strictement professionnel et objectif.")
+        elif tone_opt == "Formel": instructions_list.append("Utilise un style très formel et académique.")
+        elif tone_opt == "Familier": instructions_list.append("Utilise un ton décontracté et accessible (vulgarisation).")
+        
+        # Format mapping
+        if fmt_opt == "Rapport Structuré": instructions_list.append("Structure le texte comme un rapport professionnel (Intro, Analyse, Conclusion).")
+        elif fmt_opt == "Dissertation": instructions_list.append("Adopte une structure de dissertation (Thèse, Antithèse, Synthèse).")
+        elif fmt_opt == "Article de Blog": instructions_list.append("Transforme le texte en article de blog engageant (Titre accrocheur, paragraphes courts).")
+        elif fmt_opt == "Liste à puces": instructions_list.append("Reformate le contenu principal sous forme de liste à puces.")
+        
+        # Lang mapping
+        if lang_opt != "(Maintener)": instructions_list.append(f"Traduis le résultat final en {lang_opt}.")
+        
+        if custom_instr:
+            instructions_list.append(f"Consigne spécifique : {custom_instr}")
+            
+        return " ".join(instructions_list)
