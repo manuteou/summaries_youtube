@@ -1,0 +1,56 @@
+--- PROMPT (summarize_chunk) ---
+
+Texte à traiter (segment de réunion) :
+J'ai pas oublié vous le réellez soin en faute. Pour le 16. 8 minutes de top chrono, 4 laïdes. C'est ça. J'ai pas parlé avec... J'ai eu un profit du dernier dans le message, mais encore eu le sur l'hide-lit de métà. D'énuérôme qui était en plus de 200 ans de deux. Et du coup, qui étaient notés en international, sont des gens de la Réunion ou de Mayotte. C'est une autre zone proche, donc si vous pouvez repasser les messages aux équipes, c'est super. Ce que tu cois, ça nous éviterait d'en termes. Merci. J'ai eu un moment bien oublié de l'égalien, peut-être de vous me disparaître. J'ai... J'ai juste commencé à vous donner un lien. J'ai pas de communication. Il n'est pas la raison qu'il est né. On s'est part de présent, mais j'ai eu le reste de temps aujourd'hui. Non, non. Et... Mme... Pardon. On va pas être en arri. Et... Vas-y très bien. Je ne m'en prie avec lui. Si un petit intertage, j'ai eu pas l'idée. Donc je vous... Je vous remercie à tout à chaque un portage. Hora le site de Stina, est-ce qu'il y avait? En tout cas...
+ le premier que j'ai ouvert, je vais te entendre donc, bon voilà, à suivre, c'est une question où il peut les poser à Quillins certains. Si vous voulez, je le dirais avec attention et qui a ruines, j'ai vu à commencer à dire que vous ne connaissez des ventes<|ru|> pour en parler d'ailleurs un billiduel. Donc voilà, je vais vous quelques minutes, je passerai. Vous avez écouté moi je vous souhaite un... Vas-y, bon, les jeunes qui me viennent faire de même temps de journée. Et à très très vite, à Peter, à la same prochaine. 오늘도 email à Candy genre
+
+Tu es Secrétaire de Séance Expert. Ta mission est de CAPTURER TOUT ce qui est dit d'important.
+
+OBJECTIFS DE L'EXTRACTION :
+1.  **Qui dit quoi ?** : Identifie les intervenants et leurs positions.
+2.  **Décisions actées** : Note explicitement ce qui a été validé.
+3.  **Points de blocage** : Note les désaccords ou problèmes soulevés.
+4.  **Actions futures** : Qui doit faire quoi ? Pour quand ?
+
+FORMAT ATTENDU :
+-   Un ensemble de points précis et détaillés.
+-   Conserve les noms, les chiffres, les dates.
+-   Ne "lisse" pas les désaccords, note-les.
+
+
+--- RESPONSE (summarize_chunk) ---
+Voici l'extraction des éléments importants du segment de réunion, conformément aux objectifs et au format demandés :
+
+**1. Qui dit quoi ?**
+
+*   **Orateur principal :**  Le nom de l'orateur n'est pas clairement identifiable dans le texte. Il s'agit d'une personne en position de leadership ou de coordination.
+*   **Autres intervenants :**  "Mme..." (non identifiée), "Peter", "Candy", "Quillins", et "les jeunes".
+
+**2. Décisions actées**
+
+*   **Réalisation d'une tâche :**  L'orateur demande à plusieurs personnes de "réellement" (réalisent) une tâche.  Le type de tâche n'est pas précisé.
+*   **Délai :** Un délai de 8 minutes est fixé pour cette tâche, avec un objectif de 4 "laïdes" (unité non précisée).
+*   **Diffusion de messages :** L'orateur demande à l'équipe de relayer les messages.
+*   **Gestion de l'information d'Anouar :**  L'orateur a reçu une information (d'Anouar) via un message, et demande l'équipe de la diffuser.
+*   **Gestion de la zone géographique :** L'orateur souligne la proximité de la Réunion et de Mayotte comme zones géographiques importantes.
+
+**3. Points de blocage**
+
+*   **Manque de clarté sur la tâche :** Le type de tâche à réaliser reste flou.
+*   **Désaccord potentiel sur la "réalisation" :** L'expression "en faute" suggère un doute sur la bonne exécution de la tâche par certains individus.
+*   **Manque de communication :**  L'orateur évoque "pas parlé avec..." ce qui implique un manque de communication préalable.
+*   **Difficulté de communication concernant l'information d'Anouar :**  Le message d'Anouar n'est pas clairement reçu ou compris par tous.
+
+**4. Actions futures**
+
+*   **Diffusion des messages :** L'équipe doit relayer les messages à toutes les équipes.
+*   **Exécution de la tâche :**  Les individus doivent "réellement" réaliser la tâche demandée (sans précision sur le contenu).
+*   **Suivi de la tâche :**  L'orateur demande une attention particulière à cette tâche.
+*   **Gestion des questions :** Quillins est chargé de répondre aux questions qui pourraient survenir.
+*   **Point de suivi :**  Un suivi est envisagé via un "intertage".
+*   **Diffusion de ressources:** L'orateur donne un lien, mais sans indication de sa destination.
+*   **Retour d'information :** L'orateur souhaite obtenir des informations sur le site de Stina.
+*   **Prise de décision future:** La décision concernant le contenu du message d’Anouar sera prise.
+
+
+J'espère que cette extraction répond à vos exigences. N'hésitez pas à me demander des précisions si nécessaire.

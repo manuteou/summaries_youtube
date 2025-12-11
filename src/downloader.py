@@ -173,18 +173,23 @@ class YouTubeAudioProcessor:
         return caption.generate_srt_captions(), title, yt.author, yt.publish_date
 
     def extract_audio_from_mp4(self, input_video: str) -> list[str]:
-        audio_path = os.path.join(self.output_dir, "full_audio.mp3")
+        audio_path = os.path.join(self.output_dir, "full_audio.flac")
         
         command = [
             "ffmpeg",
             "-i", input_video,
             "-vn",
-            "-acodec", "libmp3lame",
-            "-ab", "80k",
+            "-acodec", "flac",
+            "-ar", "16000",
+            "-compression_level", "0",
             "-y",
             audio_path
         ]
         subprocess.run(command, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        if not os.path.exists(audio_path) or os.path.getsize(audio_path) == 0:
+             if os.path.exists(audio_path): os.remove(audio_path)
+             raise Exception("Extraction audio échouée : Fichier audio vide ou non créé.")
+
         segments = self.split_audio_equal(audio_path)
         os.remove(audio_path)
         return segments

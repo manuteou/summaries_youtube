@@ -1,0 +1,57 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ## Analyse du Texte : Extraction d'Informations Dense
+
+Le texte présente un discours fragmenté et difficilement intelligible, semblant être une transcription d'une intervention orale. L'analyse révèle un ensemble de phrases apparemment désordonnées, mais avec la possibilité d'en extraire des éléments factuels.
+
+### Contenu Principal et Arguments
+
+*   **Reconnaissance d'une Personne:** L'orateur affirme connaître une personne spécifique ("Je le connais").
+*   **Proposition d'Action Initiale:** Il annonce qu'il va "ouvrir" quelque chose ("Je vais te faire le premier"). Ce "premier" est une action à initier.
+*   **Questionnement Externe:** Il rapporte que d'autres individus ("vous les posez à qui") posent des questions.
+*   **Appel à l'Attention et la Patience:**  L'orateur insiste sur la nécessité d'une attention particulière ("réjellez, avec attention et qui a ruined"). Il suggère également une approche patiente ("vous placer des ventes patiens").
+*   **Référence à un Délivré:** Il fait référence à un "délivré," suggérant une communication ou une présentation à venir.
+*   **Identification de Questions:** La présence de questions posées par d'autres individus est confirmée, impliquant un échange d'informations.
+*   **Absence de Clarté Contextuelle:** Il est crucial de noter que l'interprétation précise de ces éléments est fortement compromise par le caractère fragmentaire et le style parlé du texte. La signification exacte de "ouvrir," "délivré," et les questions posées demeure floue.
+
+### Analyse du Style et de la Structure
+
+Le texte est caractérisé par:
+
+*   **Fragmentation:** Les phrases sont souvent incomplètes et juxtaposées de manière non linéaire, rendant la compréhension directe difficile.
+*   **Style Oratoire:** Le vocabulaire et la syntaxe suggèrent une intervention orale, probablement un discours ou une présentation.
+*   **Utilisation de Phrases Intermédiaires:** L'utilisation de phrases comme "Et qu'il n'y avait deux temps" et "Je me laisse croire" indique une tentative de modulation de l'argumentation.
+*   **Absence de Délimitation:**  L'absence de points de pause ou de transition standard dans un texte écrit rend l'interprétation plus complexe.
+
+### Conclusions et Perspectives
+
+Sans contexte supplémentaire, il est impossible d'établir une interprétation définitive de ce texte. Néanmoins, l'analyse révèle la présence d'éléments factuels tels que la reconnaissance d'une personne, l'annonce d'une action initiée, et la référence à un échange d'information via des questions.  Une investigation plus approfondie, incluant le contexte de la transcription et la source originale, serait nécessaire pour reconstituer le sens complet de ce fragment.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+## Analyse du Texte : Extraction d'Informations Dense
+
+Le texte présente un discours fragmenté et difficilement intelligible, semblant être une transcription d’une intervention orale. L’analyse révèle un ensemble de phrases apparemment désordonnées, mais avec la possibilité d’en extraire des éléments factuels.
+
+### Contenu Principal et Arguments
+
+L’orateur affirme connaître une personne spécifique. Il déclare : "Je le connais." Il annonce qu’il va "ouvrir" quelque chose. Ce "premier" est une action à initier. Il rapporte que d’autres individus "vous les posez à qui" posent des questions. Il insiste sur la nécessité d’une attention particulière, suggérant : "réjellez, avec attention et qui a ruined." Il invite également à une approche patiente, proposant : "vous placer des ventes patiens." Il fait référence à un "délivré," suggérant une communication ou une présentation à venir. La présence de questions posées par d’autres individus est confirmée, impliquant un échange d’informations.
+
+Il est crucial de noter que l’interprétation précise de ces éléments est fortement compromise par le caractère fragmentaire et le style parlé du texte. La signification exacte de "ouvrir," "délivré," et les questions posées demeure floue.
+
+### Analyse du Style et de la Structure
+
+Le texte est caractérisé par la fragmentation. Les phrases sont souvent incomplètes et juxtaposées de manière non linéaire, rendant la compréhension directe difficile. Le style oratoire est suggéré par le vocabulaire et la syntaxe. L’utilisation de phrases comme "Et qu'il n'y avait deux temps" et "Je me laisse croire" indique une tentative de modulation de l’argumentation. L’absence de points de pause ou de transition standard dans un texte écrit rend l’interprétation plus complexe.

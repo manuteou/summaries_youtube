@@ -1,0 +1,94 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici une transcription détaillée de la réunion, capturant les points clés comme demandé :
+
+**I. Participants et Positions**
+
+*   **Secrétaire de Séance (vous)** : Responsable de la transcription et de la capture des informations.
+*   Intervenants non identifiés (plusieurs) :  Représentants de différents campus, probablement de la communication et du marketing.
+
+**II. Points Clés et Décisions Actées**
+
+1.  **Wall of Fame et Réussites :**
+    *   Le concept du "Wall of Fame" pour célébrer les réalisations des étudiants est validé.  Il est reconnu comme un moyen de valoriser les réussites, qu'elles soient des stages, des projets ou des participations à des événements.
+    *   La distinction entre les réussites "Wall of Fame" (projets académiques, présentations à la ville) et les réussites "fil de l'eau" (médiatisation, engagement en ligne) est définie.
+    *   L'utilisation de métadonnées (données de campus) pour suivre les étudiants est confirmée.
+
+2.  **Système de Bâtteurs (Lead Generation) :**
+    *   Un système de "bâtteurs" (lead generation) est mis en place pour automatiser la collecte des étudiants intéressés par les opportunités (stages, web academy, etc.).
+    *   Il existe 17 différents "bâtteurs", chacun ciblant une catégorie spécifique.
+    *   Ces bâtteurs envoie des candidats vers les opportunités.
+    *   Une action manuelle est nécessaire pour gérer les données des candidats (un "pause" dans le processus).
+
+3.  **Web Academy et Stages de Seconde :**
+    *   Une campagne de stages de seconde est lancée, utilisant des vidéos et des extraits de programmes.  La campagne est déployée via TikTok et Instagram.
+    *   Une "web academy" est également mise en place, avec un processus de candidature automatisé.
+
+4. **Campagnes Digitales :**
+    *   Les campagnes digitales sont mesurées en termes de nombre de demandes de dog, qui permet de suivre l'efficacité des campagnes.
+    *   Il y a une forte demande pour "dog" en ce moment, ce qui est dû à la période spécifique.
+
+**III. Points de Blocage / Actions Futures**
+
+*   **Action Manuelle:** Un "pause" dans le processus de gestion des données des candidats nécessite une action manuelle.  Cela est en cours d'investigation et est inclus dans les tâches du Secrétaire de Séance.
+*   **Priorité :** L'optimisation du système de "bâtteurs" pour réduire la nécessité d'actions manuelles est une priorité.
+*   **Suivi :** Le Secrétaire de Séance doit suivre l'avancement du projet, notamment l'amélioration de l'efficacité des bâtteurs et la résolution du problème lié à l'action manuelle.
+* **Caroline**: Caroline a lancé les tests pour les campigness de stage de seconde.
+
+**IV. Questions Ouvertes / Commentaires**
+
+*   L'intervenant exprime une inquiétude concernant les données et le suivi des étudiants.
+*   Il y a une volonté de mieux comprendre l'impact des différentes campagnes marketing.
+
+---
+
+**Remarques:**
+
+*   Cette transcription est basée sur le texte fourni.  Il est essentiel de clarifier les noms des intervenants et les détails spécifiques des processus et outils mentionnés lors d'interactions directes.
+*   Il est important de planifier des entretiens de suivi avec les participants pour compléter cette transcription et valider les informations.
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+Voici une transcription détaillée de la réunion, capturant les points clés comme demandé :
+
+**I. Participants et Positions**
+
+Le Secrétaire de Séance est responsable de la transcription et de la capture des informations. La réunion a réuni plusieurs intervenants, représentant probablement les campus, notamment dans les domaines de la communication et du marketing.
+
+**II. Points Clés et Décisions Actées**
+
+1.  **Wall of Fame et Réussites :**
+    Le concept du "Wall of Fame" pour célébrer les réalisations des étudiants a été validé. Il est reconnu comme un moyen de valoriser les réussites, qu'elles soient des stages, des projets ou des participations à des événements. Une distinction a été définie entre les réussites "Wall of Fame" (projets académiques, présentations à la ville) et les réussites "fil de l'eau" (médiatisation, engagement en ligne). L’utilisation de métadonnées (données de campus) pour suivre les étudiants a été confirmée.
+
+2.  **Système de Bâtteurs (Lead Generation) :**
+    Un système de "bâtteurs" (lead generation) est mis en place pour automatiser la collecte des étudiants intéressés par les opportunités (stages, web academy, etc.). Il existe 17 différents "bâtteurs", chacun ciblant une catégorie spécifique. Ces bâtteurs envoient des candidats vers les opportunités. Un action manuelle est nécessaire pour gérer les données des candidats, ce qui a été identifié comme un "pause" dans le processus.
+
+3.  **Web Academy et Stages de Seconde :**
+    Une campagne de stages de seconde est lancée, utilisant des vidéos et des extraits de programmes. La campagne est déployée via TikTok et Instagram. Une "web academy" est également mise en place, avec un processus de candidature automatisé.
+
+4. **Campagnes Digitales :**
+    Les campagnes digitales sont mesurées en termes de nombre de demandes de "dog", qui permet de suivre l’efficacité des campagnes. Il y a une forte demande pour "dog" en ce moment, ce qui est dû à la période spécifique.
+
+**III. Points de Blocage / Actions Futures**
+
+*   Un "pause" dans le processus de gestion des données des candidats nécessite une action manuelle. Cela est en cours d'investigation et est inclus dans les tâches du Secrétaire de Séance.
+*   L’optimisation du système de "bâtteurs" pour réduire la nécessité d’actions manuelles est une priorité.
+*   Le Secrétaire de Séance doit suivre l’avancement du projet, notamment l’amélioration de l’efficacité des bâtteurs et la résolution du problème lié à l’action manuelle.
+*  Caroline a lancé les tests pour les campigness de stage de seconde.
+
+**IV. Questions Ouvertes / Commentaires**
+
+*   L’intervenant exprime une inquiétude concernant les données et le suivi des étudiants.
+*   Il y a une volonté de mieux comprendre l’impact des différentes campagnes marketing.

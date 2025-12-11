@@ -1,0 +1,77 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici la transcription de la réunion, capturée strictement à partir du texte fourni, en respectant les règles d'or :
+
+*   **Visibilité digitale :**
+    *   Objectif : développer la visibilité digitale, en assurant la cohérence graphique.
+    *   Indicateurs : 3 publications par semaine sur l'Ingénieure.
+    *   Plateformes : 3 publications sur l'Ingénieure, 3 sur Instagram, 3 sur Historique, 3 sur Facebook.
+    *   3 vidéos par mois sur TikTok (selon calendrier).
+    *   Actualisation sur YouTube (chaîne Défitech), avec charts et petites vidéos.
+    *   Développement de contenu pour chaque plateforme.
+    *   Veille permanente et adaptation aux tendances.
+    *   Mise à disposition de charlits de communication.
+    *   Deux newsletters mensuelles (au-delà de 30% de taux d'ouverture).
+
+*   **Image de marque :**
+    *   Actualisation de la charte épitex avec les indicateurs.
+    *   Décoration actualisée des campus (en fonction des campus).
+    *   Création de supports et affiches.
+    *   "Wall of Fame" : identification et documentation des événements.
+    *   Toute réussite doit être reportée au niveau national.
+    *   Tableau Excel pour la saisie des réussites et nouvelles actions (remplissage inégal).
+    *   Animation des campus (en cours, un certain temps nécessaire).
+    *   Application de la charge sur tous les supports.
+    *   Identification des contenus à potentiel médiatique et relève auprès des journalistes.
+    *   Participation aux événements.
+    *   Éventuellement inviter des éléments des actions aux médias.
+
+*   **Événements :**
+    *   Création d'un plan de communication dédié pour chaque événement.
+    *   Cadrage des événements.
+    *   Diffusion des contenus.
+    *   Bilan post-événement (y compris salons) : points d'amélioration.
+    *   Calendrier partagé avec les régions partenaires.
+
+*   **Collaboration Nationale :**
+    *   Garantir un volet efficace entre les campus et les équipes nationales.
+    *   Suivi de l'activité et des échanges.
+
+*   **Points de Blocage/Problèmes Soulevés:**
+    *   Remplissage inégal du tableau des réussites et nouvelles actions (charge sur tous supports).
+    *   Processus d'animation des campus en cours (temps nécessaire).
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+**Visibilité digitale :**
+
+L'objectif est de développer la visibilité digitale, en assurant la cohérence graphique. Pour ce faire, trois publications par semaine sont prévues sur l'Ingénieure.  La diffusion se fera également sur Instagram, Historique, Facebook, ainsi que sur TikTok avec trois vidéos par mois (selon calendrier). Une actualisation régulière est prévue sur YouTube (chaîne Défitech), avec des charts et des petites vidéos.  Il est essentiel de développer du contenu adapté à chaque plateforme et de maintenir une veille permanente, en s'adaptant aux tendances. Des charlits de communication seront mis à disposition.  Deux newsletters mensuelles, avec un taux d'ouverture supérieur à 30%, seront également diffusées.
+
+**Image de marque :**
+
+L'actualisation de la charte épitex, incluant les indicateurs, est une priorité.  De plus, la décoration des campus sera actualisée en fonction de chaque campus.  Des supports et des affiches seront créés, et une “Wall of Fame” sera mise en place pour l’identification et la documentation des événements.  Toute réussite devra être reportée au niveau national.  Un tableau Excel est prévu pour la saisie des réussites et des nouvelles actions, bien que son remplissage puisse être inégal.  L'animation des campus est en cours et nécessite un certain temps.  La charge sera appliquée sur tous les supports.  Il est important d’identifier les contenus à potentiel médiatique et de les soumettre aux journalistes.  La participation aux événements est encouragée, et l’invitation d’éléments des actions aux médias peut être envisagée.
+
+**Événements :**
+
+La création d'un plan de communication dédié à chaque événement est nécessaire, incluant le cadrage, la diffusion des contenus et un bilan post-événement (y compris les salons) avec des points d'amélioration. Un calendrier partagé avec les régions partenaires est également essentiel.
+
+**Collaboration Nationale :**
+
+Il est impératif de garantir un volet efficace entre les campus et les équipes nationales, en assurant un suivi de l'activité et des échanges.
+
+**Points de Blocage/Problèmes Soulevés :**
+
+Le remplissage inégal du tableau des réussites et des nouvelles actions, ainsi que le processus d'animation des campus en cours (qui nécessite un certain temps), représentent des points de blocage à prendre en compte.

@@ -1,0 +1,99 @@
+--- PROMPT (enhance_markdown) ---
+
+            Tu es une MACHINE DE FORMATAGE MARKDOWN. Tu n'es PAS un humain. Tu n'es PAS un critique littéraire.
+            Ta SEULE et UNIQUE fonction est de prendre le texte en entrée et de le reformater en Markdown propre.
+
+            Texte à traiter :
+            Parfait ! Voici une synthèse du Dossier, structurée selon tes instructions.
+
+## 1. Contexte Général
+
+Ce document résume les discussions issues de plusieurs réunions concernant la stratégie marketing 2024. L'objectif principal est de centraliser les informations, de clarifier les décisions prises et d'établir un plan d'action clair et cohérent.
+
+## 2. État des Lieux
+
+À ce jour, une grande partie des discussions concerne la nécessité d’améliorer la présence digitale. La réflexion sur le nouveau site web est en cours, avec des enjeux importants concernant l’expérience utilisateur et l’intégration des données clients. Des divergences subsistent sur l’approche de la stratégie de contenu, notamment concernant le format, les canaux et la fréquence.
+
+## 3. Analyse Par Thématique
+
+### 3.1. Stratégie Digitale & Présence en Ligne
+
+L’amélioration de la présence en ligne est identifiée comme une priorité absolue. Des actions proposées incluent la création d’un nouveau site web (design, UX, données clients), le développement d’une stratégie de contenu, des optimisations SEO et des campagnes publicitaires ciblées. L'approche de la stratégie de contenu est encore débattue.
+
+### 3.2. Projet Site Web
+
+Les objectifs clés du projet site web sont d'améliorer l’expérience utilisateur, d’intégrer les données clients et d’augmenter le taux de conversion. La date de lancement est fixée au [date à préciser] avec des jalons clés à respecter. Le budget alloué est de [montant à préciser] (sous réserve d'ajustements).
+
+### 3.3. Données Clients & CRM
+
+L’utilisation du CRM est considérée comme essentielle pour centraliser les données clients et optimiser la communication. Des problèmes ont été identifiés : les données client sont dispersées dans différents systèmes. La mise en place d’un processus de nettoyage et de consolidation est donc cruciale. Des actions sont prévues : la mise en place d’un système de centralisation des données clients et la formation des équipes à son utilisation.
+
+### 3.4. Budget & Ressources
+
+Un débat a eu lieu sur la répartition du budget entre les différentes initiatives (marketing digital, site web, formation). Les ressources humaines disponibles ont été identifiées, mais il existe une inquiétude quant à la capacité de l’équipe à gérer toutes les tâches.
+
+## 4. Consolidation des Actions
+
+| Action                               | Responsable       | Date Limite        | Statut         |
+| ------------------------------------ | ----------------- | ------------------ | -------------- |
+| Mise en place du système de centralisation CRM | [Nom Responsable] | 31/07/2024         | En cours       |
+| Définition de la stratégie de contenu    | [Nom Responsable] | 14/08/2024         | À faire        |
+| Définition du design du nouveau site web | [Nom Responsable] | 28/08/2024         | À faire        |
+| Validation du design | [Nom Responsable] | 14/08/2024         | À faire        |
+
+**Remarques :**  Cette synthèse est basée sur les informations disponibles à la date du [date de la synthèse].  Des mises à jour seront apportées régulièrement.
+
+            CONSIGNES ABSOLUES :
+            1.  **RECOPIE ET FORMATE** le texte complet. Ne change PAS le sens. Ne supprime PAS d'informations.
+            2.  **STRUCTURE** : Utilise des titres H1, H2, H3 pour structurer le document.
+            3.  **STYLE** : Rédige UNIQUEMENT des paragraphes complets. **INTERDICTION ABSOLUE DE LISTES À PUCES**.
+            4.  **NETTOYAGE** : Supprime impitoyablement toute ligne vide inutile ou puce vide.
+            5.  **INTERDICTION DE PARLER** : Tu ne dois JAMAIS dire "Voici le texte", "C'est parfait", "J'ai fini".
+            6.  **SORTIE PURE** : Ton output doit commencer par le premier caractère du document Markdown et finir par le dernier. RIEN D'AUTRE.
+
+            Si tu écris une phrase comme "Ce document est parfait", TU AS ÉCHOUÉ.
+            Si tu écris une phrase comme "Voici la version formatée", TU AS ÉCHOUÉ.
+            Si tu mets une liste à puces, TU AS ÉCHOUÉ.
+
+            FORMATAGE UNIQUEMENT. COMMENCE MAINTENANT.
+            
+
+--- RESPONSE (enhance_markdown) ---
+```markdown
+## 1. Contexte Général
+
+Ce document résume les discussions issues de plusieurs réunions concernant la stratégie marketing 2024. L'objectif principal est de centraliser les informations, de clarifier les décisions prises et d'établir un plan d'action clair et cohérent.
+
+## 2. État des Lieux
+
+À ce jour, une grande partie des discussions concerne la nécessité d’améliorer la présence digitale. La réflexion sur le nouveau site web est en cours, avec des enjeux importants concernant l’expérience utilisateur et l’intégration des données clients. Des divergences subsistent sur l’approche de la stratégie de contenu, notamment concernant le format, les canaux et la fréquence.
+
+## 3. Analyse Par Thématique
+
+### 3.1. Stratégie Digitale & Présence en Ligne
+
+L’amélioration de la présence en ligne est identifiée comme une priorité absolue. Des actions proposées incluent la création d’un nouveau site web (design, UX, données clients), le développement d’une stratégie de contenu, des optimisations SEO et des campagnes publicitaires ciblées. L'approche de la stratégie de contenu est encore débattue.
+
+### 3.2. Projet Site Web
+
+Les objectifs clés du projet site web sont d’améliorer l’expérience utilisateur, d’intégrer les données clients et d’augmenter le taux de conversion. La date de lancement est fixée au [date à préciser] avec des jalons clés à respecter. Le budget alloué est de [montant à préciser] (sous réserve d'ajustements).
+
+### 3.3. Données Clients & CRM
+
+L’utilisation du CRM est considérée comme essentielle pour centraliser les données clients et optimiser la communication. Des problèmes ont été identifiés : les données client sont dispersées dans différents systèmes. La mise en place d’un processus de nettoyage et de consolidation est donc cruciale. Des actions sont prévues : la mise en place d’un système de centralisation des données clients et la formation des équipes à son utilisation.
+
+### 3.4. Budget & Ressources
+
+Un débat a eu lieu sur la répartition du budget entre les différentes initiatives (marketing digital, site web, formation). Les ressources humaines disponibles ont été identifiées, mais il existe une inquiétude quant à la capacité de l’équipe à gérer toutes les tâches.
+
+## 4. Consolidation des Actions
+
+| Action                               | Responsable       | Date Limite        | Statut         |
+| ------------------------------------ | ----------------- | ------------------ | -------------- |
+| Mise en place du système de centralisation CRM | [Nom Responsable] | 31/07/2024         | En cours       |
+| Définition de la stratégie de contenu    | [Nom Responsable] | 14/08/2024         | À faire        |
+| Définition du design du nouveau site web | [Nom Responsable] | 28/08/2024         | À faire        |
+| Validation du design | [Nom Responsable] | 14/08/2024         | À faire        |
+
+**Remarques :**  Cette synthèse est basée sur les informations disponibles à la date du [date de la synthèse].  Des mises à jour seront apportées régulièrement.
+```

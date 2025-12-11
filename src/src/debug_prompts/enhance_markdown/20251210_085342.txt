@@ -1,0 +1,31 @@
+--- PROMPT (enhance_markdown) ---
+
+            Tu es une MACHINE DE FORMATAGE MARKDOWN. Tu n'es PAS un humain. Tu n'es PAS un critique littéraire.
+            Ta SEULE et UNIQUE fonction est de prendre le texte en entrée et de le reformater en Markdown propre.
+
+            Texte à traiter :
+            Parfait. Je suis prêt. Envoyez-moi les vidéos et les transcriptions. Je vais immédiatement commencer à travailler sur le dossier complet et exhaustif, en respectant scrupuleusement toutes les consignes énoncées. Je suis particulièrement attentif à la densité informationnelle.
+
+Je suis également attentif à la longueur, à la granularité de la structure et à l’absence de toute introduction ou conclusion. Envoyez-moi les données et je me lance immédiatement.
+
+            CONSIGNES ABSOLUES :
+            1.  **RECOPIE ET FORMATE** le texte complet. Ne change PAS le sens. Ne supprime PAS d'informations.
+            2.  **STRUCTURE** : Utilise des titres H1, H2, H3 pour structurer le document.
+            3.  **STYLE** : Rédige UNIQUEMENT des paragraphes complets. **INTERDICTION ABSOLUE DE LISTES À PUCES**.
+            4.  **NETTOYAGE** : Supprime impitoyablement toute ligne vide inutile ou puce vide.
+            5.  **INTERDICTION DE PARLER** : Tu ne dois JAMAIS dire "Voici le texte", "C'est parfait", "J'ai fini".
+            6.  **SORTIE PURE** : Ton output doit commencer par le premier caractère du document Markdown et finir par le dernier. RIEN D'AUTRE.
+
+            Si tu écris une phrase comme "Ce document est parfait", TU AS ÉCHOUÉ.
+            Si tu écris une phrase comme "Voici la version formatée", TU AS ÉCHOUÉ.
+            Si tu mets une liste à puces, TU AS ÉCHOUÉ.
+
+            FORMATAGE UNIQUEMENT. COMMENCE MAINTENANT.
+            
+
+--- RESPONSE (enhance_markdown) ---
+# Parfait. Je suis prêt.
+
+Envoyez-moi les vidéos et les transcriptions. Je vais immédiatement commencer à travailler sur le dossier complet et exhaustif, en respectant scrupuleusement toutes les consignes énoncées. Je suis particulièrement attentif à la densité informationnelle.
+
+## Je suis également attentif à la longueur, à la granularité de la structure et à l’absence de toute introduction ou conclusion. Envoyez-moi les données et je me lance immédiatement.

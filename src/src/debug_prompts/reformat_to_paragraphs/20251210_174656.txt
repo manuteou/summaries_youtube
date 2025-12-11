@@ -1,0 +1,76 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici une capture des points clés de la réunion, organisée selon les critères demandés :
+
+**I. INTERVENANTS & POSITIONS**
+
+*   **Joanne (Présentatrice)** : Responsable de la définition des objectifs de fidélisation des étudiants, de la mise en place des critères de calcul et de la coordination des équipes. Son point de vue est orienté vers la performance et le suivi des indicateurs. Elle insiste sur la clarté des règles et la rigueur de leur application.
+*   **Récia (Implicite)** : Représente probablement la direction qui a demandé l'extraction et l'analyse de ces données. Son rôle est de valider les propositions de Joanne et de s'assurer de leur faisabilité.
+*   **Équipe pédagogique (Ensemble)** : Sont chargés de mettre en œuvre les objectifs de fidélisation. Leur rôle est crucial pour la collecte des données et l'application des critères.  La discussion souligne la nécessité de la flexibilité et de l'adaptation des équipes en fonction des besoins spécifiques des étudiants.
+
+**II. DÉCISIONS ACTÉES**
+
+*   **Formalisation des critères de fidélisation :** Joanne a défini les critères de calcul pour la fidélisation des étudiants.
+    *   **Étendue des critères :** Les critères concernent la fidélisation des étudiants à travers les formations initiales et professionnelles.
+    *   **Indices de fidélisation :**
+        *   **Formation initiale :**  Réinscription à la semaine 45 (point de référence de 45%), réinscription au 1er octobre (point de référence de 100%), taux de réussite aux années supérieures (85%, 95%).
+        *   **Formation professionnelle :**  Mise à l’emploi (60% pour les bac +3, 75% pour les bac +2, 80% pour les bac +1).
+*   **Flexibilité des critères de calcul :**  L’équipe pédagogique (directeurs de campus) aura l’autorité de définir comment ces critères seront appliqués dans leurs contextes spécifiques.
+*   **Considérations pour les retards de paiement des frais d’hospitaller :** Des étudiants avec des frais d'hospitaller impayés sont tenus d'être réintégrés dans le calcul de la fidélisation (c'est un "plan B"  et non l'objectif principal).
+*   **Répartition des responsabilités :**  Une répartition des responsabilités entre les différentes équipes pédagogiques (en particulier,  des chefs de promo, des directeurs de campus) est souhaitée.
+
+**III. POINTS DE BLOQUE / DÉSAACCORD**
+
+*   **Définition des rôles du Directeur de Campus :** La question de l'autonomie des Directeurs de Campus dans l'application des critères est soulevée. Il y a une crainte de dérive et la nécessité de garantir une application uniforme des règles.
+*   **Mesure de la mise à l’emploi :** Il n'y a pas d'accord sur la méthode de calcul exacte de la "mise à l’emploi" pour les formations professionnelles. L'objectif est de ne pas se baser uniquement sur le score, mais de considérer le nombre d'étudiants placés sur le marché du travail.
+*   **Risques liés à la notation :**  Joanne met en garde contre les risques de notations trop basses, pour éviter de démotiver les étudiants.
+*   **Manque de précision sur la "prime" :** On n’a pas encore défini comment la prime sera calculée.
+
+**IV. ACTIONS FUTURES**
+
+*   **Joanne :**
+    *   Formaliser le calcul précis de la "mise à l’emploi".
+    *   Définir les modalités de calcul de la "prime".
+    *   Rédiger un guide explicite des procédures pour l’équipe pédagogique.
+*   **Équipe Pédagogique (Directeurs de Campus) :**
+    *   Définir précisément comment les critères de calcul seront appliqués dans leur contexte spécifique.
+    *   Collecter les données nécessaires pour l’évaluation.
+    *   Identifier les étudiants à risque de démission.
+*   **Récia :** Validation des actions et des procédures.
+
+**PRIORITÉS:** Définir la "prime", préciser la méthode de calcul de la "mise à l’emploi" et établir un guide explicite pour l'équipe pédagogique.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+        Voici une capture des points clés de la réunion, organisée selon les critères demandés :
+
+**I. INTERVENANTS & POSITIONS**
+
+Joanne, Présentatrice, est responsable de la définition des objectifs de fidélisation des étudiants, de la mise en place des critères de calcul et de la coordination des équipes. Son point de vue est orienté vers la performance et le suivi des indicateurs. Elle insiste sur la clarté des règles et la rigueur de leur application. Récia, Implicite, représente probablement la direction qui a demandé l'extraction et l'analyse de ces données. Son rôle est de valider les propositions de Joanne et de s'assurer de leur faisabilité. L'équipe pédagogique (Ensemble) sont chargés de mettre en œuvre les objectifs de fidélisation. Leur rôle est crucial pour la collecte des données et l'application des critères. La discussion souligne la nécessité de la flexibilité et de l'adaptation des équipes en fonction des besoins spécifiques des étudiants.
+
+**II. DÉCISIONS ACTÉES**
+
+Les critères de fidélisation ont été formalisés par Joanne, définissant les modalités de calcul pour la fidélisation des étudiants à travers les formations initiales et professionnelles. L'étendue de ces critères concerne la fidélisation des étudiants à travers les formations initiales et professionnelles. Les indices de fidélisation concernent la fidélisation des étudiants à travers les formations initiales et professionnelles : en formation initiale, la réinscription à la semaine 45 constitue un point de référence de 45%, la réinscription au 1er octobre constitue un point de référence de 100%, et le taux de réussite aux années supérieures est évalué à 85% et 95%. En formation professionnelle, la mise à l’emploi est évaluée à 60% pour les bac +3, 75% pour les bac +2 et 80% pour les bac +1. L’équipe pédagogique (Directeurs de campus) aura l’autorité de définir comment ces critères seront appliqués dans leurs contextes spécifiques. En cas de retards de paiement des frais d’hospitaller, des étudiants concernés sont tenus d’être réintégrés dans le calcul de la fidélisation (c'est un "plan B" et non l'objectif principal). Une répartition des responsabilités entre les différentes équipes pédagogiques (en particulier, des chefs de promo, des directeurs de campus) est souhaitée.
+
+**III. POINTS DE BLOQUE / DÉSAACCORD**
+
+La définition des rôles du Directeur de Campus dans l'application des critères est une question soulevée. Il y a une crainte de dérive et la nécessité de garantir une application uniforme des règles. Il n'y a pas d'accord sur la méthode de calcul exacte de la "mise à l’emploi" pour les formations professionnelles. L'objectif est de ne pas se baser uniquement sur le score, mais de considérer le nombre d'étudiants placés sur le marché du travail. Joanne met en garde contre les risques de notations trop basses, pour éviter de démotiver les étudiants. On n’a pas encore défini comment la "prime" sera calculée.
+
+**IV. ACTIONS FUTURES**
+
+Joanne doit formaliser le calcul précis de la "mise à l’emploi", définir les modalités de calcul de la "prime" et rédiger un guide explicite des procédures pour l’équipe pédagogique. L’équipe pédagogique (Directeurs de Campus) doit définir précisément comment les critères de calcul seront appliqués dans leur contexte spécifique, collecter les données nécessaires pour l’évaluation et identifier les étudiants à risque de démission. Récia doit valider les actions et les procédures.
+
+**PRIORITÉS:** Définir la "prime", préciser la méthode de calcul de la "mise à l’emploi" et établir un guide explicite pour l'équipe pédagogique.

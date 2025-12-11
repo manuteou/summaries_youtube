@@ -1,0 +1,88 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Analyse des Exigences de Participation et de Performance Pédagogique
+
+Le document traite de plusieurs axes d'amélioration et de suivi au sein de l'institution. L'objectif principal est d'atteindre un taux de participation étudiant supérieur à 60% dans les sondages, avec une attention particulière à la qualité des données recueillies. 
+
+### Nécessité d'une Représentation Étudiante Significative
+
+Il est crucial d'atteindre un taux de participation étudiant supérieur à 60% dans les sondages. Un taux inférieur à 60% est considéré comme non représentatif et invalide, car il est perçu comme une indication de désengagement. L'évaluation des données est basée sur un ratio de passage, et un taux de passage inférieur à 90% ne sera pas retenu, l'institution se basant sur la moyenne nationale avec une marge de tolérance légèrement inférieure.
+
+### Évaluation des Performances Académiques et Affectation des Étudiants aux Groupes
+
+La réussite académique est un critère central. L'attribution des étudiants aux groupes est basée sur le taux de passage, avec un objectif de 90% par rapport à la moyenne nationale. L'objectif est d'éviter l'affectation des étudiants de manière arbitraire et de garantir une évaluation juste de leurs performances.
+
+### Suivi Pédagogique et Qualité des Commentaires
+
+Il est attendu que les étudiants soient suivis régulièrement dans le cadre du suivi pédagogique, avec une procédure transmise par le service PG. Il est impératif que les suivis et les évaluations pédagogiques soient qualitatifs et exhaustifs, permettant aux étudiants d'identifier les axes d'amélioration. Le document souligne un problème de manque de pertinence des commentaires, et une action est lancée pour produire des notes définissant les critères d'explotabilité et d'explotabilité des commentaires.
+
+### Valorisation des Contributions des Collaborateurs et Participation à l'Amélioration Continue
+
+La valorisation des contributions des collaborateurs est un objectif majeur. L'institution souhaite que les participants aux ateliers et aux projets de groupes soient reconnus pour leur engagement. Il est attendu que les participants puissent soumettre des propositions de corrections pour les systèmes automatisés et d'autres améliorations. La structure existe déjà pour la mise en œuvre de ces suggestions.
+
+### Participation à des Initiatives et Compétitions
+
+Il est encouragé la participation à des concours et des challenges, tels que Robocard, le KIP et le national. Il est important que ces initiatives soient accessibles et disponibles pour les étudiants.
+
+###  Relations Internationales et Valorisation des Échanges
+
+Il est souhaitable que les pédagogues participent à des échanges internationaux avec d'autres universités partenaires.
+
+###  Valorisation des Initiatives en Matière de Innovation Pédagogique
+
+Il est attendu que les pédagogues sortent du cadre pédagogique traditionnel et qu'ils contribuent à l'innovation. Il est également souhaitable que les équipes pédagogiques participent à des contributions en tonources, même en leur nom propre.
+
+###  Collecte de Données et Croisement des Observations
+
+L'institution souhaite collecter des données sur les activités et les réalisations des équipes pédagogiques et de les croiser avec les observations de la direction.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Analyse des Exigences de Participation et de Performance Pédagogique
+
+Le document traite de plusieurs axes d’amélioration et de suivi au sein de l’institution, visant à optimiser l’engagement étudiant et la qualité des données. L’objectif principal est d’atteindre un taux de participation étudiant supérieur à 60% dans les sondages, avec une attention particulière à la qualité des données recueillies.
+
+### Nécessité d’une Représentation Étudiante Significative
+
+Il est crucial d’atteindre un taux de participation étudiant supérieur à 60% dans les sondages. Un taux inférieur à 60% est considéré comme non représentatif et invalide, car il est perçu comme une indication de désengagement. L’évaluation des données est basée sur un ratio de passage, et un taux de passage inférieur à 90% ne sera pas retenu, l’institution se basant sur la moyenne nationale avec une marge de tolérance légèrement inférieure.
+
+### Évaluation des Performances Académiques et Affectation des Étudiants aux Groupes
+
+La réussite académique est un critère central. L’attribution des étudiants aux groupes est basée sur le taux de passage, avec un objectif de 90% par rapport à la moyenne nationale. L’objectif est d’éviter l’affectation des étudiants de manière arbitraire et de garantir une évaluation juste de leurs performances.
+
+### Suivi Pédagogique et Qualité des Commentaires
+
+Il est attendu que les étudiants soient suivis régulièrement dans le cadre du suivi pédagogique, avec une procédure transmise par le service PG. Il est impératif que les suivis et les évaluations pédagogiques soient qualitatifs et exhaustifs, permettant aux étudiants d’identifier les axes d’amélioration. Le document souligne un problème de manque de pertinence des commentaires, et une action est lancée pour produire des notes définissant les critères d’explotabilité et d’explotabilité des commentaires.
+
+### Valorisation des Contributions des Collaborateurs et Participation à l’Amélioration Continue
+
+La valorisation des contributions des collaborateurs est un objectif majeur. L’institution souhaite que les participants aux ateliers et aux projets de groupes soient reconnus pour leur engagement. Il est attendu que les participants puissent soumettre des propositions de corrections pour les systèmes automatisés et d’autres améliorations. La structure existe déjà pour la mise en œuvre de ces suggestions.
+
+### Participation à des Initiatives et Compétitions
+
+Il est encouragé la participation à des concours et des challenges, tels que Robocard, le KIP et le national. Il est important que ces initiatives soient accessibles et disponibles pour les étudiants.
+
+### Relations Internationales et Valorisation des Échanges
+
+Il est souhaitable que les pédagogues participent à des échanges internationaux avec d’autres universités partenaires.
+
+### Valorisation des Initiatives en Matière de Innovation Pédagogique
+
+Il est attendu que les pédagogues sortent du cadre pédagogique traditionnel et qu’ils contribuent à l’innovation. Il est également souhaitable que les équipes pédagogiques participent à des contributions en tonources, même en leur nom propre.
+
+### Collecte de Données et Croisement des Observations
+
+L’institution souhaite collecter des données sur les activités et les réalisations des équipes pédagogiques et de les croiser avec les observations de la direction.

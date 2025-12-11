@@ -1,0 +1,65 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Organisation des Actions de Communication et de Valorisation des Initiatives
+
+Le document traite de l'organisation et de l'exécution de plusieurs actions de communication et de valorisation, centrées autour du partage de bonnes pratiques et de l'implication des équipes. L'objectif principal est de maximiser l'impact des efforts déployés par les équipes et les professionnels, notamment via les salons et les événements.
+
+### Participation aux Salons et Création de Contenu
+
+Plusieurs actions sont mises en œuvre :
+
+*   **Salons Annuels :**  La participation à au moins un salon par an est une obligation, considérant la durée que cela représente.
+*   **Création de Contenu :**  Plusieurs types de contenu sont produits et partagés :
+    *   **Contenu Personnel :** Les collaborateurs sont encouragés à publier sur leurs propres réseaux sociaux (Instagram), notamment des témoignages et des expériences.
+    *   **Contenu d'Équipe :** Des vidéos peuvent être réalisées par les équipes, présentant leurs activités et leur contribution.
+    *   **Rôles des Professionnels :** La création de vidéos expliquant les rôles des professionnels est encouragée, comme un “maverge” qui expose son travail.
+*   **Utilisation des GPOs:**  Les Groupes de Projets (GPOs) sont utilisés pour organiser et animer des événements et des sessions, souvent avec un budget spécifique (GPO "avec fonds de mercredi").
+
+### Stratégies et Objectifs Spécifiques
+
+*   **Diffusion de la Connaissance :** La communication ne se limite pas à un simple partage de bonnes pratiques ; elle vise l’extraction et la diffusion d’informations, y compris à l’échelle nationale.
+*   **Implication des Établissements Extérieurs :**  La participation à des forums et à des événements est encouragée pour élargir la portée de la communication.
+*   **Collecte de Données et de Feedback:**  L'objectif est d'améliorer les actions en recueillant des données et des retours d'expérience, par exemple des cas spécifiques ou des “motivateurs” (personnes qui peuvent aider à la communication).
+*   **Gestion des Ressources:** L'organisation des salons nécessite une allocation spécifique des ressources.
+
+### Points Importants et Remarques
+
+*   **Collaboration et Partage :**  La collaboration et le partage de connaissances sont au cœur de cette stratégie.
+*   **Adaptation et Flexibilité :** Il y a une reconnaissance de la nécessité d'adapter les actions aux circonstances (par exemple, la création de vidéos peut être un choix rapide).
+*   **Gestion des Besoins:** La gestion des besoins des participants aux événements (salons, GPOs) est essentielle.
+*   **Dépassement des attentes :** Il s'agit d'atteindre au moins les objectifs fixés, et d'éventuellement dépasser ces objectifs.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Organisation des Actions de Communication et de Valorisation des Initiatives
+
+Le document traite de l'organisation et de l'exécution de plusieurs actions de communication et de valorisation, centrées autour du partage de bonnes pratiques et de l'implication des équipes. L'objectif principal est de maximiser l'impact des efforts déployés par les équipes et les professionnels, notamment via les salons et les événements.
+
+### Participation aux Salons et Création de Contenu
+
+La participation à au moins un salon par an est une obligation, considérant la durée que cela représente. De plus, plusieurs types de contenu sont produits et partagés. Les collaborateurs sont encouragés à publier sur leurs propres réseaux sociaux (Instagram), notamment des témoignages et des expériences. Des vidéos peuvent être réalisées par les équipes, présentant leurs activités et leur contribution. La création de vidéos expliquant les rôles des professionnels est également encouragée, comme un “maverge” qui expose son travail.
+
+### Utilisation des GPOs
+
+Les Groupes de Projets (GPOs) sont utilisés pour organiser et animer des événements et des sessions, souvent avec un budget spécifique (GPO "avec fonds de mercredi").
+
+### Stratégies et Objectifs Spécifiques
+
+La communication ne se limite pas à un simple partage de bonnes pratiques ; elle vise l'extraction et la diffusion d'informations, y compris à l'échelle nationale. Il est également encouragé la participation à des forums et à des événements afin d'élargir la portée de la communication. L'objectif est de recueillir des données et des retours d'expérience, par exemple des cas spécifiques ou des “motivateurs” (personnes qui peuvent aider à la communication). La gestion des ressources est essentielle pour l'organisation des salons.
+
+### Points Importants et Remarques
+
+La collaboration et le partage de connaissances sont au cœur de cette stratégie. Il y a une reconnaissance de la nécessité d'adapter les actions aux circonstances (par exemple, la création de vidéos peut être un choix rapide).  Il s'agit d'atteindre au moins les objectifs fixés, et d'éventuellement dépasser ces objectifs. La gestion des besoins des participants aux événements (salons, GPOs) est également essentielle.

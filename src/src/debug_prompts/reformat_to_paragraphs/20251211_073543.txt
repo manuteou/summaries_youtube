@@ -1,0 +1,58 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici une capture factuelle de la réunion, basée sur le texte fourni :
+
+**Décisions Actées / Points Confirmés:**
+
+*   **Objectifs pour nouveaux arrivants :** Les objectifs pour les nouveaux arrivants ne seront pas définis immédiatement.
+*   **Période d'adaptation :**  Une période d’adaptation de 6 mois est prévue pour les nouveaux collaborateurs, durant laquelle ils se familiariseront avec leur poste.
+*   **Système de primes :** Le système de primes sera adapté en fonction du métier (un an pour certains, avec possibilité de primes rétroactives pour les départs).
+*   **Objectif bas initial :** L'objectif bas initial a été fixé.
+*   **25% :** Un objectif de 25% est défini.
+*   **1% - 35%:** Un spectre d'objectifs de 1% à 35% est mentionné.
+
+**Points de Blocage / Questions Orphelines:**
+
+*   **Post-DAC :** La gestion du "post-DAC" est un sujet de discussion, mais il n'y a pas de décision prise concernant son application.
+*   **Primes pour départs :**  Il n'y a pas de décision claire sur la manière dont les primes seront gérées pour les employés qui partent (primes rétroactives, etc.).
+*   **Système punitif précédent :** Il y a une référence à un système d'avant considéré comme trop punitif (taux de 0.80% sans impact, 250% d’attente au-delà de 90%).
+*   **Manque de données sur l'impact des objectifs :** Il y a une question sur l'interprétation des données des objectifs et sur l'impact réel des objectifs fixés.
+*   **Évaluation des avis (4 vs 5 étoiles) :**  L'équipe s'interroge sur le nombre d'avis et leur impact sur l'évaluation des produits/services.
+*   **Primes des campus :** Le sujet des primes sur les campus est mentionné.
+
+**Actions Futures / Qui fait quoi ?**
+
+*   **Définition des objectifs:** La question de la définition des objectifs pour les nouveaux arrivants sera ouverte et sera débattue.
+*   **Suivi des avis :** Une surveillance des avis sera mise en place pour tenter d'améliorer leur qualité.
+*   **Réévaluation du système de primes :**  Un travail sur le système de primes est nécessaire.
+*   **Prise en compte des retours d'expérience :** Il faut prendre en compte l'expérience des équipes.
+*   **Mise en place d'un point de suivi** : Établir un suivi avec les collaborateur qui sont en cours d'affectation.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+Voici une capture factuelle de la réunion, basée sur le texte fourni :
+
+**Décisions Actées / Points Confirmés:**
+
+La réunion a permis de confirmer plusieurs points cruciaux concernant la stratégie de l'entreprise. Tout d'abord, il a été convenu qu’une période d’adaptation de six mois serait prévue pour les nouveaux collaborateurs, leur offrant ainsi le temps nécessaire pour se familiariser pleinement avec les exigences de leur poste. De plus, il a été décidé de mettre en place un système de primes adapté à chaque métier, avec une période d'application d'un an. Ce système permettra d'intégrer des primes rétroactives en cas de départ. Un objectif bas initial a été fixé, se traduisant par un objectif de 25%, tandis qu'un spectre d'objectifs s'étend de 1% à 35%.
+
+**Points de Blocage / Questions Orphelines:**
+
+Plusieurs sujets nécessitent encore d'être approfondis. La gestion du "post-DAC" reste un sujet de discussion sans décision concrète. De même, les modalités précises de gestion des primes pour les employés qui partent (primes rétroactives, etc.) n’ont pas été définies. La réunion a également soulevé des inquiétudes concernant un système d’avant considéré comme trop punitif, avec des taux de 0.80% sans impact et un seuil de 250% d'attente au-delà de 90%.  De plus, il existe un manque de données claires concernant l'impact réel des objectifs fixés, ainsi qu'une question ouverte sur l'interprétation des données. Enfin, l'équipe s'interroge sur l'impact du nombre d'avis (4 vs 5 étoiles) sur l'évaluation des produits et services, et le sujet des primes sur les campus a été mentionné.
+
+**Actions Futures / Qui fait quoi ?**
+
+Pour assurer la bonne exécution de la stratégie, plusieurs actions doivent être entreprises. Il est impératif d’ouvrir la question de la définition des objectifs pour les nouveaux arrivants et de les débattre. Une surveillance des avis (4 vs 5 étoiles) sera mise en place pour tenter d'améliorer leur qualité. Un travail sur le système de primes est nécessaire, ainsi que la prise en compte des retours d'expérience des équipes. Enfin, il est essentiel de mettre en place un point de suivi avec les collaborateurs en cours d’affectation.

@@ -1,0 +1,66 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ## Analyse du Texte : Extraction d'Informations Détaillées
+
+Le texte présente un échange verbal fragmentaire, caractérisé par des interruptions et des phrases incomplètes. L'analyse se concentre sur l'extraction de toutes les informations factuelles, sans interprétation ni synthèse, et structurée selon les directives fournies.
+
+### 1. Propositions et Intentions
+
+*   L'orateur déclare intentionnellement effectuer une action ("Je vais le faire").
+*   Il annonce qu'il suivra cette action ("Donc voilà, à suivre").
+*   Il propose de poser des questions ("C'est une question").
+*   Il suggère de confier des tâches à une entité nommée "Quillings".
+*   Il déclare qu'il abordera le sujet avec "attention".
+*   Il prévoit d'organiser des "ventes".
+
+### 2. Interactions et Questions
+
+*   L'orateur est confronté à des questions, bien que leur contenu précis ne soit pas divulgué.
+*   Il mentionne des individus qui lui rendent visite "les mêmes jours" (leur identité est inconnue).
+*   Il adresse des salutations répétées ("Bonjour, bonjour").
+
+### 3.  Éléments Techniques et Projets
+
+*   L'orateur évoque une organisation de "ventes".
+*   Il fait référence à une entité spécifique, "Quillings", à laquelle il envisage de déléguer des tâches.
+*   Il est en train de planifier une action continue (à suivre) et prépare une discussion (ventes) avec une référence colorée ("violets").
+
+### 4.  Interruptions et Fluidité
+
+*   Le texte est caractérisé par des interruptions et des phrases incomlètes, suggérant un échange spontané et non structuré.  La phrase "Je sais pas si" indique une hésitation ou une interruption.
+*   L'expression "vas-y" suggère une encouragement ou une direction donnée à quelqu'un.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+## Analyse du Texte : Extraction d'Informations Détaillées
+
+Le texte présente un échange verbal fragmentaire, caractérisé par des interruptions et des phrases incomplètes. L’analyse se concentre sur l’extraction de toutes les informations factuelles, sans interprétation ni synthèse, et structurée selon les directives fournies.
+
+### 1. Propositions et Intentions
+
+L’orateur déclare intentionnellement effectuer une action. Il annonce qu’il suivra cette action. Il propose de poser des questions. Il suggère de confier des tâches à une entité nommée “Quillings”. Il déclare qu’il abordera le sujet avec “attention”. Il prévoit d’organiser des “ventes”.
+
+### 2. Interactions et Questions
+
+L’orateur est confronté à des questions, bien que leur contenu précis ne soit pas divulgué. Il mentionne des individus qui lui rendent visite “les mêmes jours” (leur identité est inconnue). Il adresse des salutations répétées “Bonjour, bonjour”.
+
+### 3. Éléments Techniques et Projets
+
+L’orateur évoque une organisation de “ventes”. Il fait référence à une entité spécifique, “Quillings”, à laquelle il envisage de déléguer des tâches. Il est en train de planifier une action continue (à suivre) et prépare une discussion (ventes) avec une référence colorée (“violets”).
+
+### 4. Interruptions et Fluidité
+
+Le texte est caractérisé par des interruptions et des phrases incomlètes, suggérant un échange spontané et non structuré. La phrase “Je sais pas si” indique une hésitation ou une interruption. L’expression “vas-y” suggère une encouragement ou une direction donnée à quelqu’un.

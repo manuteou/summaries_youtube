@@ -1,0 +1,36 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici l'extraction des informations du segment de réunion :
+
+*   "Je vais vous prendre une l'ouverture, je suis très contente." – (Orateur initial)
+*   "monsieur Thomas Tession, je voulais poser à qui il est une certaine idée." – (Orateur initial)
+*   "Carouille, j'ai vu à commencer à dire que vous planifiez des entretiens pour en parler d'ailleurs individuel." – (Orateur initial)
+*   "Je vous souhaite un... Ben, c'est bon, mais je l'ai une belle saison de journée et à très très vite, putain, c'est une prochaine." – (Orateur initial)
+*   "Merci, merci. Merci, au revoir. Merci, au revoir. Merci, au revoir." – (Orateur initial)
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+Voici l'extraction des informations du segment de réunion :
+
+Je vais vous prendre une l'ouverture, je suis très contente.
+
+Monsieur Thomas Tession, je voulais poser à qui il est une certaine idée.
+
+Carouille, j'ai vu à commencer à dire que vous planifiez des entretiens pour en parler d'ailleurs individuel.
+
+Je vous souhaite un... Ben, c'est bon, mais je l'ai une belle saison de journée et à très très vite, putain, c'est une prochaine.
+
+Merci, merci. Merci, au revoir. Merci, au revoir. Merci, au revoir.

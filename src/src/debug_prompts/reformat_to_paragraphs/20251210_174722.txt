@@ -1,0 +1,75 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici une transcription détaillée de la réunion, structurée selon les objectifs définis :
+
+**I. Qui dit quoi ?**
+
+*   **Responsable de la réunion (Inconnu - désigné par "Je")**:  Pilote la réunion, présente les initiatives liées à l'incitation des équipes pédagogiques, les mobilités, les primes et la prise en compte des remontées. Il exprime une frustration face au manque de prise en compte des contributions des équipes pédagogiques.
+*   **Équipe pédagogique (représentés par des frustrations)**: Exprime une frustration due au manque de prise en compte de leurs remarques et suggestions, notamment en ce qui concerne les missions et l'intégration des remontées dans les décisions. Ils soulignent l'impact négatif sur leur motivation.
+*   **Laura (Responsable des primes et rémunérations)**: Participe à la discussion concernant les primes, reconnaît le problème de la communication et propose une solution symbolique pour maintenir le moral, malgré les contraintes budgétaires.
+*   **Équipe de la communication (Inconnu)**: Représentés par les interventions sur le site de contribution, les actions à mettre en œuvre.
+*   **Responsable RH (Inconnu)**: Participent à la discussion sur les primes, et évoquent la nécessité d'examiner les conditions de fidélisation des collaborateurs.
+*   **Membre de l'équipe pédagogique (Inconnu)** : Questionne la politique de prise en compte des données.
+
+**II. Décisions Actées**
+
+*   **Priorité à la prise en compte des remontées pédagogiques:** Le responsable de la réunion s'engage à améliorer la communication et la prise en compte des contributions des équipes pédagogiques dans les processus décisionnels.
+*   **Proposition de prime symbolique:** Laura propose l'établissement d'une prime symbolique (non définie quantitairement) pour maintenir le moral des équipes pédagogiques, compte tenu des contraintes budgétaires.
+*   **Analyse des conditions de fidélisation des collaborateurs:** La RH est chargée d'évaluer les conditions de fidélisation des collaborateurs.
+*   **Création d'un site de contribution:**  L'équipe de la communication doit mettre en place un site de contribution, qui est sujet à des critiques car il est souvent incomplet.
+*   **Création d'une note claire sur les mobilités** : le fait de créer une note plus claire sur les mobilités et sur les possibilités de mobilité.
+*   **Analyse des politiques d'incitation** : Analyse des politiques d'incitation pour que ces politiques se mettent au point.
+*   **Mise en place d'une démarche globale:** Réaliser une approche globale des situations de mobilité et de contribution.
+
+**III. Points de Blocage**
+
+*   **Manque de prise en compte des contributions pédagogiques:** C'est le principal point de blocage. Les équipes pédagogiques se sentent ignorées et leur travail n'est pas valorisé.
+*   **Contraintes budgétaires:** Le manque de moyens limite la possibilité d'offrir des primes et des incitations significatives.
+*   **Incomplétude du site de contribution:** Le site de contribution est insuffisant et ne permet pas une communication effective.
+*   **Communication inefficace:**  Il existe un manque de communication claire et régulière entre la direction et les équipes pédagogiques.
+*   **Difficulté d'ajustement des processus:**  Il y a des difficultés à intégrer des éléments nouveaux dans les processus existants.
+
+**IV. Actions Futures**
+
+*   **Responsable de la réunion (Je) :**  Suivi de la mise en place d'un processus clair de prise en compte des remontées pédagogiques.  Négociation d'un budget pour des incitations (prime symbolique ou autre).
+*   **Laura :**  Évaluation et proposition d'une prime symbolique.  Revoir les conditions de fidélisation des collaborateurs.
+*   **Équipe de la communication:** Amélioration et mise à jour du site de contribution, assurant une communication fluide.
+*   **RH:**  Analyser les politiques d'incitation et proposer des mesures pour améliorer la fidélisation des équipes pédagogiques.
+*   **Tous:**  Participer à un travail collaboratif pour revoir les processus et garantir que les contributions pédagogiques sont prises en compte.
+
+**Date et Heure de la réunion :** (Non spécifié dans le texte).
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+Voici une transcription détaillée de la réunion, structurée selon les objectifs définis :
+
+**I. Qui dit quoi ?**
+
+Le responsable de la réunion, dont l'identité est inconnue et désignée par "Je", pilote la réunion, présentant les initiatives liées à l'incitation des équipes pédagogiques, les mobilités, les primes et la prise en compte des remontées. Il exprime une frustration face au manque de prise en compte des contributions des équipes pédagogiques. L'équipe pédagogique, représentée par des frustrations, exprime une frustration due au manque de prise en compte de leurs remarques et suggestions, notamment en ce qui concerne les missions et l'intégration des remontées dans les décisions. Ils soulignent l'impact négatif sur leur motivation. Laura, Responsable des primes et rémunérations, participe à la discussion concernant les primes, reconnaît le problème de la communication et propose une solution symbolique pour maintenir le moral, malgré les contraintes budgétaires. L’équipe de la communication, dont l'identité est inconnue, est représentée par les interventions sur le site de contribution, les actions à mettre en œuvre. Le Responsable RH, dont l’identité est inconnue, participe à la discussion sur les primes, et évoque la nécessité d’examiner les conditions de fidélisation des collaborateurs. Un membre de l'équipe pédagogique, dont l'identité est inconnue, questionne la politique de prise en compte des données.
+
+**II. Décisions Actées**
+
+La priorité est à la prise en compte des remontées pédagogiques : le responsable de la réunion s'engage à améliorer la communication et la prise en compte des contributions des équipes pédagogiques dans les processus décisionnels. Une proposition de prime symbolique est faite par Laura, consistant à établir une prime symbolique (non définie quantitairement) pour maintenir le moral des équipes pédagogiques, compte tenu des contraintes budgétaires. La RH est chargée d’analyser les conditions de fidélisation des collaborateurs.  La création d’un site de contribution est proposée, bien que ce site soit sujet à des critiques car il est souvent incomplet. Il est également décidé de créer une note claire sur les mobilités et d’analyser les politiques d’incitation afin de les mettre au point.  La mise en place d’une démarche globale est envisagée pour traiter les situations de mobilité et de contribution.
+
+**III. Points de Blocage**
+
+Le principal point de blocage est le manque de prise en compte des contributions pédagogiques : les équipes pédagogiques se sentent ignorées et leur travail n’est pas valorisé. Les contraintes budgétaires limitent la possibilité d’offrir des primes et des incitations significatives. L’incomplétude du site de contribution constitue un obstacle à une communication effective. Une communication inefficace existe entre la direction et les équipes pédagogiques. Il y a des difficultés à intégrer des éléments nouveaux dans les processus existants.
+
+**IV. Actions Futures**
+
+Le responsable de la réunion ("Je") : suit la mise en place d'un processus clair de prise en compte des remontées pédagogiques et négocie un budget pour des incitations (prime symbolique ou autre). Laura : évalue et propose une prime symbolique. Elle relance la relecture des conditions de fidélisation des collaborateurs. L’équipe de la communication : améliore et met à jour le site de contribution, assurant une communication fluide. La RH : analyse les politiques d’incitation et propose des mesures pour améliorer la fidélisation des équipes pédagogiques. Tous : participent à un travail collaboratif pour revoir les processus et garantir que les contributions pédagogiques sont prises en compte.
+
+**Date et Heure de la réunion :** (Non spécifié dans le texte).

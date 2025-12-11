@@ -1,0 +1,70 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici l'extraction des éléments importants du segment de réunion, conformément aux objectifs et au format demandés :
+
+**1. Qui dit quoi ?**
+
+*   **Orateur principal :**  Le nom de l'orateur n'est pas clairement identifiable dans le texte. Il s'agit d'une personne en position de leadership ou de coordination.
+*   **Autres intervenants :**  "Mme..." (non identifiée), "Peter", "Candy", "Quillins", et "les jeunes".
+
+**2. Décisions actées**
+
+*   **Réalisation d'une tâche :**  L'orateur demande à plusieurs personnes de "réellement" (réalisent) une tâche.  Le type de tâche n'est pas précisé.
+*   **Délai :** Un délai de 8 minutes est fixé pour cette tâche, avec un objectif de 4 "laïdes" (unité non précisée).
+*   **Diffusion de messages :** L'orateur demande à l'équipe de relayer les messages.
+*   **Gestion de l'information d'Anouar :**  L'orateur a reçu une information (d'Anouar) via un message, et demande l'équipe de la diffuser.
+*   **Gestion de la zone géographique :** L'orateur souligne la proximité de la Réunion et de Mayotte comme zones géographiques importantes.
+
+**3. Points de blocage**
+
+*   **Manque de clarté sur la tâche :** Le type de tâche à réaliser reste flou.
+*   **Désaccord potentiel sur la "réalisation" :** L'expression "en faute" suggère un doute sur la bonne exécution de la tâche par certains individus.
+*   **Manque de communication :**  L'orateur évoque "pas parlé avec..." ce qui implique un manque de communication préalable.
+*   **Difficulté de communication concernant l'information d'Anouar :**  Le message d'Anouar n'est pas clairement reçu ou compris par tous.
+
+**4. Actions futures**
+
+*   **Diffusion des messages :** L'équipe doit relayer les messages à toutes les équipes.
+*   **Exécution de la tâche :**  Les individus doivent "réellement" réaliser la tâche demandée (sans précision sur le contenu).
+*   **Suivi de la tâche :**  L'orateur demande une attention particulière à cette tâche.
+*   **Gestion des questions :** Quillins est chargé de répondre aux questions qui pourraient survenir.
+*   **Point de suivi :**  Un suivi est envisagé via un "intertage".
+*   **Diffusion de ressources:** L'orateur donne un lien, mais sans indication de sa destination.
+*   **Retour d'information :** L'orateur souhaite obtenir des informations sur le site de Stina.
+*   **Prise de décision future:** La décision concernant le contenu du message d’Anouar sera prise.
+
+
+J'espère que cette extraction répond à vos exigences. N'hésitez pas à me demander des précisions si nécessaire.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+Voici l'extraction des éléments importants du segment de réunion, conformément aux objectifs et au format demandés :
+
+**1. Qui dit quoi ?**
+
+L’orateur principal est une personne en position de leadership ou de coordination. Il n’est pas clairement identifiable dans le texte. Les autres intervenants présents étaient Mme… (non identifiée), Peter, Candy, Quillins et “les jeunes”.
+
+**2. Décisions actées**
+
+L’orateur a demandé à plusieurs personnes de réaliser une tâche. Il a fixé un délai de 8 minutes pour cette tâche, avec un objectif de 4 “laïdes” (unité non précisée). Il a également demandé à l’équipe de relayer les messages et de gérer l’information reçue d’Anouar, demandant ainsi une diffusion par l’ensemble de l’équipe. L’orateur a souligné l’importance des zones géographiques de la Réunion et de Mayotte.
+
+**3. Points de blocage**
+
+Il existe un manque de clarté sur la nature de la tâche à réaliser. Un doute est exprimé sur la bonne exécution de la tâche par certains individus, suggéré par l'expression “en faute”. Il y a un manque de communication préalable, évoqué par la phrase “pas parlé avec…”. De plus, l’information reçue d’Anouar n’est pas clairement comprise ou reçue par tous.
+
+**4. Actions futures**
+
+L’équipe doit relayer les messages à toutes les équipes. Les individus doivent réaliser la tâche demandée, en réalisant "réellement" la tâche demandée. Un suivi de la tâche est prévu, avec un "intertage" envisagé. Quillins est chargé de répondre aux questions qui pourraient survenir. Une décision concernant le contenu du message d’Anouar sera prise à une date ultérieure. L'orateur souhaite obtenir des informations sur le site de Stina et une diffusion de ressources, sans indication précise de sa destination.

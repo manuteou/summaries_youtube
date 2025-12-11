@@ -1,0 +1,82 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici l'extraction des points clés de la réunion, structurée selon les objectifs définis :
+
+**1. Qui dit quoi ?**
+
+*   **Responsable principal de la réunion (identifié implicitement) :** Un responsable opérationnel (nom non précisé) – Il communique les évolutions sur les processus de prélèvement, les problèmes rencontrés (apprémets, données importées tardivement), et les actions à mettre en place.
+*   **Équipe de Payac:** Représentés par un interlocuteur général qui explique les nouvelles fonctionnalités, les contraintes d'importation des données, et la nécessité d'une formation.
+*   **Équipe des ADM (Administrateurs Dépositaires) :** Impliquée dans la correction des données, l'intégration des nouvelles fonctionnalités Payac, et la formation. Ils sont responsables de la finalisation du transfert des données.
+*   **Équipe de formation :** Responsable de la formation de l'équipe Payac et des ADM sur l'utilisation des nouveaux outils et fonctionnalités.
+*   **Équipe Bonneau-elle :** Responsable de la réunion avec les directeurs et les équipes.
+
+**2. Décisions actées**
+
+*   **Import des données financières:** Les données financières des MSE1 seront importées à partir du 1er septembre. (Ce point est confirmé comme une décision importante)
+*   **Scindage des échéances :** Les échéances de paiement (notamment celles liées aux "apprémets") seront divisées en plusieurs tranches, initialement pour les échéances de 2025, 2026 et 2027, puis intégrées progressivement à Payac.
+*   **Formation Payac & ADM:** Une formation est indispensable pour l’utilisation des nouveaux outils et fonctionnalités de Payac et des ADM.
+*   **Réunion à Bonneau-elle:** Organisation d’une réunion avec les directeurs et les équipes à Bonneau-elle pour la formation.
+*   **Import des données de l'ESSI :** Importation des données de l'ESSI est planifiée.
+*   **Révision des méthodes de prélèvement :** Nouvelle approche avec des montages différents.
+*   **Modification des mots de passe:** L'implémentation des nouveaux mots de passe est impossible car les modifications sont bloquées.
+*   **Import des données de la Train :** Importation des données de l'équipe de train, les données importées à des années des données sont à vérifier.
+*   **Utilisation de la suite de formation :** Utilisation de la suite de formation
+*   **Les options de changement :** Utilisation des options de changement.
+*   **Import des données de la Train :** Importation des données de l'équipe de train, les données importées à des années des données sont à vérifier.
+
+**3. Points de blocage**
+
+*   **Blocage des modifications de mots de passe:** L'équipe ne peut pas modifier les mots de passe existants, ce qui pose des problèmes de sécurité et de modification des données.
+*   **Données incomplètes :** Une grande partie des données financières n'ont pas encore été importées dans Payac (situation qui crée des tensions et complexifie le travail des ADM).
+*   **Dépendance des données de l'équipe Train :** La validation des données de l'équipe de train est un point d’incertitude.
+*   **Manque de clarté sur les échéances :** La complexité des tranches de paiement et des échéances risque d'engendrer des erreurs et des complications.
+*   **Communication continue:** La nécessité d'une communication constante et transparente entre toutes les équipes est soulignée comme un élément crucial pour le bon déroulement du projet.
+
+**4. Actions futures**
+
+*   **ADM :** Finaliser l'import des données et la correction des données existantes.
+*   **Payac & ADM :** Formation de l'équipe Payac et des ADM sur l'utilisation des nouveaux outils et fonctionnalités.
+*   **Formation :** Organisation de la formation à Bonneau-elle pour les directeurs et équipes.
+*   **Coordonnation :** Coordonner étroitement les efforts entre l'équipe Payac, les ADM et l'équipe formation.
+*   **Suivi :** Mettre en place un suivi régulier des données importées et des échéances de paiement.
+*   **Communication :** Continuer à communiquer de manière transparente et régulière entre toutes les parties prenantes.
+*   **Communication des nouveautés :** Informer les équipes des nouvelles fonctionnalités et de la mise à jour régulières.
+*   **Résolution des problèmes de mots de passe :** Trouver une solution pour pouvoir modifier les mots de passe et éviter les blocages.
+*   **Finalisation de l'import des données de l'ESSI :** Finaliser l'import des données de l'ESSI.
+*   **Clarification des procédures :** Définir des procédures claires pour la gestion des échéances et des paiements.
+*   **Organisation de la réunion à Bonneau-elle:** Organiser la réunion avec les directeurs et les équipes.
+
+J'espère que cette extraction détaillée répond à vos besoins.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+Voici l'extraction des points clés de la réunion, structurée selon les objectifs définis :
+
+**1. Qui dit quoi ?**
+
+Un responsable opérationnel, dont le nom n’est pas précisé, est le responsable principal de la réunion. Il communique les évolutions sur les processus de prélèvement, les problèmes rencontrés (apprémets, données importées tardivement), et les actions à mettre en place. L’équipe de Payac est représentée par un interlocuteur général qui explique les nouvelles fonctionnalités, les contraintes d’importation des données, et la nécessité d’une formation. Les Équipes des ADM (Administrateurs Dépositaires) sont impliquées dans la correction des données, l’intégration des nouvelles fonctionnalités Payac, et la formation. L’équipe de formation est responsable de la formation de l’équipe Payac et des ADM sur l’utilisation des nouveaux outils et fonctionnalités. Enfin, l’équipe Bonneau-elle est responsable de la réunion avec les directeurs et les équipes.
+
+**2. Décisions actées**
+
+Les données financières des MSE1 seront importées à partir du 1er septembre. Ce point est confirmé comme une décision importante. Les échéances de paiement (notamment celles liées aux “apprémets”) seront divisées en plusieurs tranches, initialement pour les échéances de 2025, 2026 et 2027, puis intégrées progressivement à Payac. Une formation est indispensable pour l’utilisation des nouveaux outils et fonctionnalités de Payac et des ADM. L’organisation d’une réunion à Bonneau-elle pour la formation est également décidée. L’importation des données de l’ESSI est planifiée. Une revue des méthodes de prélèvement avec des montages différents est envisagée. La modification des mots de passe est impossible car les modifications sont bloquées. L'importation des données de l’équipe de train est planifiée, les données importées à des années des données sont à vérifier. L'utilisation de la suite de formation et des options de changement est prévue. L’importation des données de l’équipe de train est planifiée, les données importées à des années des données sont à vérifier.
+
+**3. Points de blocage**
+
+L'équipe ne peut pas modifier les mots de passe existants, ce qui pose des problèmes de sécurité et de modification des données. Une grande partie des données financières n’ont pas encore été importées dans Payac (situation qui crée des tensions et complexifie le travail des ADM). La dépendance des données de l’équipe Train est un point d’incertitude. Il existe un manque de clarté sur les échéances, ce qui risque d’engendrer des erreurs et des complications. La nécessité d’une communication constante et transparente entre toutes les équipes est soulignée comme un élément crucial pour le bon déroulement du projet.
+
+**4. Actions futures**
+
+Les ADM doivent finaliser l’import des données et la correction des données existantes. Payac et les ADM doivent former l’équipe Payac et les ADM sur l’utilisation des nouveaux outils et fonctionnalités. La coordination étroite des efforts entre l’équipe Payac, les ADM et l’équipe formation est nécessaire. Un suivi régulier des données importées et des échéances de paiement doit être mis en place. La communication transparente et régulière entre toutes les parties prenantes est essentielle. L’information des équipes des nouvelles fonctionnalités et de la mise à jour régulière est prévue. Il est nécessaire de trouver une solution pour pouvoir modifier les mots de passe et éviter les blocages. La finalisation de l’import des données de l’ESSI est une action prioritaire. Des procédures claires pour la gestion des échéances et des paiements doivent être définies. L'organisation de la réunion à Bonneau-elle est également prévue.

@@ -1,0 +1,60 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Critères de Participation et Évaluation des Activités Associatives
+
+La discussion porte sur les critères de participation et d'évaluation des activités associatives, notamment concernant la participation des étudiants et des collaborateurs aux événements et initiatives. Plusieurs aspects sont abordés, notamment la nécessité de quantifier la participation, l'importance des événements et des interactions, et les méthodes d'évaluation associées.
+
+### Quantification de la Participation
+
+Plusieurs indicateurs sont examinés pour mesurer la participation. Il s'agit de :
+
+*   **Taux de participation aux événements :** Un taux d'au moins 60% de participation est visé pour les étudiants, et au moins 50% pour la promo.
+*   **Nombre d'interventions prises :** Chaque collaborateur est censé réaliser au moins trois interventions entreprises en partenariat et par an.
+*   **Nombre de "vers battins" :** Un objectif est de collecter au moins 20% de "vers battins" (des retours d'information spécifiques) annuellement.
+*   **Nombre de tâches exécutées :** Il s'agit d'un total de 20% de la fiche, ce qui représente les données.
+
+### Méthodes d'Évaluation et Collecte de Données
+
+La méthode privilégiée pour évaluer la participation est la collecte de "vers battins" (des retours d'information) et la réalisation d'enquêtes de satisfaction régulières (d'environ 4-5 questionnaires) à la fin de l'année. L'objectif est de recueillir un minimum de 20% de "vers battins" collectés et partagés.
+
+### Organisation et Partage des Informations
+
+Les données collectées doivent être partagées au niveau national. Pour simplifier la gestion, une collecte initiale est prévue. Les informations recueillies, comme les "vers battins" et les résultats des enquêtes de satisfaction, sont considérées comme des données à long terme.
+
+### Consolidation et Synthèse des Données
+
+L’objectif final est de constituer un tableau de données comprenant au moins 25 "vers battins" pour permettre d’identifier les actions à mettre en place, en tenant compte des retours d’expérience. L'utilisation de ces données permet de renforcer la communication entre les différents acteurs.
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Critères de Participation et Évaluation des Activités Associatives
+
+La discussion porte sur les critères de participation et d'évaluation des activités associatives, notamment concernant la participation des étudiants et des collaborateurs aux événements et initiatives. Plusieurs aspects sont abordés, notamment la nécessité de quantifier la participation, l'importance des événements et des interactions, et les méthodes d'évaluation associées.
+
+### Quantification de la Participation
+
+Plusieurs indicateurs sont examinés pour mesurer la participation. Le taux de participation aux événements vise un minimum de 60% pour les étudiants et 50% pour la promo. Chaque collaborateur est censé réaliser au moins trois interventions entreprises en partenariat et par an. Un objectif est de collecter au moins 20% de “vers battins” (des retours d’information spécifiques) annuellement.  Il s'agit d'un total de 20% de la fiche, ce qui représente les données.
+
+### Méthodes d’Évaluation et Collecte de Données
+
+La méthode privilégiée pour évaluer la participation est la collecte de “vers battins” (des retours d’information) et la réalisation d’enquêtes de satisfaction régulières (d’environ 4-5 questionnaires) à la fin de l’année. L’objectif est de recueillir un minimum de 20% de “vers battins” collectés et partagés.
+
+### Organisation et Partage des Informations
+
+Les données collectées doivent être partagées au niveau national. Pour simplifier la gestion, une collecte initiale est prévue. Les informations recueillies, comme les “vers battins” et les résultats des enquêtes de satisfaction, sont considérées comme des données à long terme.
+
+### Consolidation et Synthèse des Données
+
+L’objectif final est de constituer un tableau de données comprenant au moins 25 “vers battins” pour permettre d’identifier les actions à mettre en place, en tenant compte des retours d’expérience. L'utilisation de ces données permet de renforcer la communication entre les différents acteurs.

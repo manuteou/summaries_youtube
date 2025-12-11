@@ -1,0 +1,72 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Vue d'ensemble des défis et de la migration vers Payac
+
+La discussion porte sur la migration vers la plateforme Payac, un projet complexe impliquant plusieurs phases et visant à améliorer la fiabilité des processus d'enregistrement et de paiement des étudiants. Plusieurs défis sont identifiés, notamment des difficultés liées à l'importation des données financières et à la gestion des différents types de mises en paiement.
+
+### Les étapes de la migration vers Payac
+
+La migration vers Payac se déroule en plusieurs étapes distinctes :
+
+1.  **Importation des données :** L'importation des données financières a été initialement planifiée pour le 1er septembre, mais elle est en cours de réalisation et sera finalisée par les équipes ADM. Il est important de noter que cette importation n'est pas complète, car une partie importante des données n'a pas encore été importée.
+2.  **Enregistrements séparés :** L'enregistrement des étudiants est divisé en trois phases distinctes :
+    *   **Échanges de 2025 et 2026 :** Ces échanges ont été intégrés dans Payac et les paiements ont été effectués via GoCardless. Une preuve interne confirme le succès de ces paiements.
+    *   **Dé-deux (registrations) :**  Ce processus est divisé en deux phases :
+        *   **2027 et 2028 :** Les inscriptions seront importées dans Payac.
+        *   **2025 et 2026 :** Ces inscriptions initiales sont traitées séparément.
+3.  **Inscriptions prioritaires :** Les inscriptions de PG-4 sont prioritaires et nécessitent des spécificités, en particulier par rapport aux échanges.
+
+### Gestion des erreurs et des modifications
+
+Plusieurs problèmes ont été rencontrés lors de la migration, notamment :
+
+*   **Mots de passe :** Le choix du mot de passe initial est bloquant, car il ne peut pas être modifié.
+*   **Données manquantes :** Une partie importante des données financières n'a pas été importée, ce qui nécessite une surveillance continue et une gestion des anomalies.
+*   **Visualisation des données :**  Les utilisateurs (ADM) reçoivent des ensembles de boutons différents, ce qui peut être déroutant.
+*   **Données historiques :**  L'accès aux données historiques est limité et nécessite des exercices de 7 jours.
+
+### Processus de résolution des problèmes et reporting
+
+*   **Suivi des cas :** Un système de suivi des cas est en place pour gérer les anomalies et les demandes de modification.
+*   **Demandes d’approbation :**  Il n'y a plus de demandes d’approbation manuelles, ce qui simplifie les flux de travail.
+*   **Reporting et suivi :** Des rapports réguliers sont produits et partagés avec les équipes ADM.
+*   **Communication :** Une communication continue est assurée via des notifications et des réunions d'équipe.
+
+### Demande spécifique et suivi des actions
+
+Une demande spécifique a été faite par une équipe pour obtenir une vue d'ensemble des données avant une semaine (198010). Cette demande concerne l'accès aux données historiques pour préparer un exercice.  Les équipes ADM sont en train de finaliser cette tâche avant leur départ.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Vue d’ensemble des défis et de la migration vers Payac
+
+La discussion porte sur la migration vers la plateforme Payac, un projet complexe impliquant plusieurs phases et visant à améliorer la fiabilité des processus d’enregistrement et de paiement des étudiants. Plusieurs défis ont été identifiés, notamment des difficultés liées à l’importation des données financières et à la gestion des différents types de mises en paiement.
+
+### Les étapes de la migration vers Payac
+
+La migration vers Payac se déroule en plusieurs étapes distinctes. Tout d'abord, l'importation des données financières a été initialement planifiée pour le 1er septembre, mais elle est en cours de réalisation et sera finalisée par les équipes ADM. Il est important de noter que cette importation n'est pas complète, car une partie importante des données n'a pas encore été importée. Ensuite, l'enregistrement des étudiants est divisé en trois phases distinctes. Premièrement, les échanges concernant les étudiants de 2025 et 2026 ont été intégrés dans Payac et les paiements ont été effectués via GoCardless. Une preuve interne confirme le succès de ces paiements. Deuxièmement, le processus de “dé-deux” (registrations) est divisé en deux phases : les inscriptions de 2027 et 2028 verront les inscriptions importées dans Payac, tandis que les inscriptions initiales de 2025 et 2026 sont traitées séparément. Enfin, les inscriptions de PG-4 sont prioritaires et nécessitent des spécificités, en particulier par rapport aux échanges.
+
+### Gestion des erreurs et des modifications
+
+Plusieurs problèmes ont été rencontrés lors de la migration. Parmi ceux-ci, le choix du mot de passe initial est bloquant, car il ne peut pas être modifié. De plus, une partie importante des données financières n'a pas été importée, ce qui nécessite une surveillance continue et une gestion des anomalies. Les utilisateurs (ADM) reçoivent des ensembles de boutons différents, ce qui peut être déroutant.  L'accès aux données historiques est limité et nécessite des exercices de 7 jours.
+
+### Processus de résolution des problèmes et reporting
+
+Un système de suivi des cas est en place pour gérer les anomalies et les demandes de modification. Il n'y a plus de demandes d’approbation manuelles, ce qui simplifie les flux de travail. Des rapports réguliers sont produits et partagés avec les équipes ADM. Une communication continue est assurée via des notifications et des réunions d’équipe.
+
+### Demande spécifique et suivi des actions
+
+Une demande spécifique a été faite par une équipe pour obtenir une vue d’ensemble des données avant une semaine (198010). Cette demande concerne l’accès aux données historiques pour préparer un exercice. Les équipes ADM sont en train de finaliser cette tâche avant leur départ.

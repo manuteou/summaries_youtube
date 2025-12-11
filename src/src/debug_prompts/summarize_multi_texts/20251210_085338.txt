@@ -1,0 +1,372 @@
+--- PROMPT (summarize_multi_texts) ---
+
+Sources :
+Source : Réunion Pilotage Direction de campus-20251209_095246-Meeting Recording (Auteur : Fichier Local, Date: 2025-12-10)
+### Gestion des Prélevements et Migrations Vers Payat
+
+Le dialogue traite de la mise en place d’un nouveau système de gestion des prélevements, principalement via la plateforme Payat, et des défis liés à la migration des données.
+
+### Étapes de la Migration et des Prélevements
+
+La migration vers Payat est planifiée en plusieurs étapes. La première étape, déjà livrée, comprend l’importation des prélevements séparés, classés par années (2025, 2026). La deuxième étape consiste en l’importation des prélevements associés à un MSE1, en cours de finalisation d’ici la fin de l’année. Les données prélevées avant le 1er septembre n’ont pas été importées. La troisième étape concerne l’importation des prélevements signés, débutant fin février. Les inscriptions des PG-4 avec spécificités sont prioritaires, en raison de la nature intentionnelle de ces prélevements. À partir de la fin de la semaine, toutes les demandes de validation (boutons ou autres) seront supprimées, afin d’éviter les blocages.
+
+### Défis et Difficultés
+
+Plusieurs difficultés ont été rencontrées. La modification des motages est impossible, étant donné qu’ils sont gérés de manière sécurisée. Un motage sans pitié a été initialement attribué, et il est désormais impossible de le modifier. L’importation des données financières à partir du 1er septembre est en cours, mais une partie significative des données n’a pas été importée. L’absence d’import des données prélevées avant le 1er septembre nécessite des vérifications et une gestion manuelle. Une demande d’information sur une vue d’ensemble des dépenses annuelles est en cours de réalisation.
+
+### Actions et Suivi
+
+Des réunions d’équipe sont prévues pour assurer le suivi de la migration. Un mécanisme de feedback est mis en place pour recueillir les retours des utilisateurs. Un canal de support technique (NL ou maite) est disponible pour les questions techniques et les problèmes d’accès. L’équipe s’attache à valider les données importées. Un efforçs est mis en place pour donner des éléments avant la fin de la semaine.
+
+### Nouvelle Structure d'Incitation aux Objectifs de Vie Campus
+
+La nouvelle stratégie repose sur l'attribution de primes contractuelles de 20% aux équipes du campus, liées à la réalisation d'un ensemble de critères visant à impliquer les étudiants dans la vie du campus. Le système a pour objectif de réduire les silos et d'encourager une participation plus active.
+
+### Critères d'Éligibilité aux Primes
+
+Pour prétendre à la prime de 20%, les équipes doivent atteindre au moins 6 critères parmi les 8 suivants :
+
+La participation aux événements internes du campus, incluant la participation à la "raste du club", les "ateliers thématiques" et autres événements internes organisés par le campus, est un critère important.  De plus, les équipes qui contribuent à une idée d'événement annuel, où chaque membre de l'équipe propose au moins une idée d'événement pour l'année, sont également éligibles.  Le soutien à une société locale, via le parrainage d'une organisation à but non lucratif locale, constitue un autre critère.  L'accompagnement d'un étudiant, par un membre de l'équipe lors d'événements ou autres, est également pris en compte.  La mobilisation des équipes pour des actions spécifiques est également valorisée. La participation aux soirées étudiantes, même si l'équipe n'est pas directement impliquée, est également considérée. La participation à l'événement de la journée est un autre critère.
+
+### Niveau d'Éligibilité et Montant de la Prime
+
+*   **6 à 8 critères atteints :** L'équipe reçoit une prime de 20% de sa prime contractuelle.
+*   **8 critères atteints :** L'équipe reçoit une prime de 25% de sa prime contractuelle.
+*   **Moins de 6 critères :** L'équipe ne reçoit aucune prime de 20%.
+
+### Calendrier et Exécution du Système
+
+Le système est mis en place à partir du 31 octobre midi. Les objectifs sont fixés et suivis, et les primes sont versées en décembre midi.  Le système inclut également des mesures de suivi des événements, et les critères ne sont pas flexibles et ne peuvent pas être modifiés localement. La communication de la nouvelle stratégie est assurée par la première équipe comptable, et des objectifs sont envoyés à ce qui est rapidement en équipe des arrêts.
+
+### Évaluation et Suivi
+
+La performance des équipes est évaluée sur la base de ces critères, assurant une évaluation objective et standardisée. L'accent est mis sur le suivi des événements, l'importance des actions individuelles et la participation globale des équipes.
+
+### Analyse des Critères d'Engagement des Étudiants
+
+La discussion porte sur la définition et la mesure de l’engagement des étudiants, en particulier dans le contexte de l’activité associative et de la participation aux événements sur le campus. L’objectif est de formaliser des critères objectifs pour évaluer et valoriser cet engagement.
+
+### Les Deux Critères Clés
+
+Deux critères principaux sont identifiés pour évaluer l’engagement :
+
+La participation à la vie associative représente un taux de participation des étudiants aux diverses activités associatives, qui est fixé à 15%. Il est important de souligner que l’identification des étudiants participant à ces activités est essentielle.
+
+La participation aux activités à caractère général repose sur le nombre d’événements auxquels les étudiants participent. Il existe une cible de 50% de la promo qui doit participer à ces activités.
+
+### Méthodologie de Mesure et Collecte de Données
+
+La collecte de données se fait par le biais de questionnaires systématiquement envoyés en fin de chaque semestre depuis plusieurs années. Ces questionnaires visent à obtenir une moyenne globale. Il est important de souligner que l’objectif n’est pas d’établir un registre d’activité, mais de consolider les données.
+
+### Remarques Importantes et Clarifications
+
+La gestion des données consiste à regrouper les informations collectées pour obtenir un chiffre global. L’accent est mis sur la consolidation des informations plutôt que sur le suivi individuel des étudiants.
+
+L’objectif est de valoriser l’engagement des étudiants et de mieux comprendre leurs contributions.
+
+L’utilisation de questionnaires pour collecter des “vers battins” (petites actions) est envisagée, avec un objectif de 25 “vers battins” par année. Cela permettra d’enrichir les données et de mieux comprendre les actions concrètes menées par les étudiants.
+
+Les questionnaires devront inclure au moins trois questions supplémentaires sur les deux premiers critères.
+
+Il est crucial de déterminer si la participation à un événement compte deux fois pour la mesure de l’engagement.
+
+Il est également primordial de considérer que tous les événements, même ceux organisés par les étudiants, comptent pour la mesure de l’engagement.
+
+La recherche de partenaires externes est encouragée, à travers les “vers battins”.
+
+### Conclusion
+
+L’ensemble de ces éléments vise à mettre en place un système de suivi de l’engagement étudiant, basé sur des indicateurs objectifs et permettant de valoriser les différentes formes de participation. La collecte de données se fera par le biais de questionnaires systématiques, et l’objectif est de générer des informations pertinentes pour la gestion des ressources et la promotion de l’activité associative.
+
+## Objectifs de Contribution des Collaborateurs
+
+Le document traite de l’objectif de promouvoir la contribution active des collaborateurs à divers domaines, structurés autour de plusieurs axes de participation.
+
+### Actions de Communication Interne et Externe
+
+Chaque collaborateur doit produire ou partager au moins une contribution pédagogique, administrative, relationnelle (entre équipes ou prises), de communication, d’innovation, ou de nature interne. En plus de ces contributions internes, chaque collaborateur doit contribuer à au moins une action de communication externe, incluant la création de contenu (par exemple, sur une ligne Instagram) ou, à défaut, la participation à des salons. La participation à au moins un salon par an est exigée, en s'assurant qu'il y ait suffisamment de place pour tous les participants. L'organisation des salons est structurée en sessions d'une journée, avec un pédagogue par jour.
+
+### Actions de Participation Collective
+
+La participation à au moins une Groupe de Projection (GPO) par an est imposée. Le document vise à augmenter l’implication des équipes et des agences, qui ont pu participer moins jusqu’à présent. Certains cadres ont été contraints de participer à toutes les GPOs, probablement pour faciliter l'engagement.
+
+### Contributions Formelles
+
+La production d’articles de publication en puce est également requise. La création de charges de travail est également envisagée.
+
+### Aspects spécifiques du modèle de gestion :
+
+Il est important que chaque collaborateur ait la possibilité de mettre en scène ses contributions. Il est nécessaire d'identifier les rôles qui ne sont pas exercés, et d'assurer que chacun puisse jouer un rôle pertinent. La participation à des salons est une mesure de suivi pour évaluer l'implication des collaborateurs.
+
+### Stratégie d’évaluation des aides et des performances des campus
+
+Le projet consiste à mettre en place un système d’évaluation des aides et des performances des différents campus, avec pour objectif de valoriser les contributions et de faciliter la gestion des ressources. L’approche est basée sur une évaluation continue et nuancée, et non sur une notation globale et potentiellement simpliste.
+
+### Mise en Place du Système d’Évaluation
+
+Le système repose sur plusieurs étapes clés. Tout d’abord, il s’agit de collecter les données concernant les aides et les performances sur les différents campus. Cette démarche implique de suivre les différents indicateurs et critères d’évaluation, et de les enregistrer systématiquement lorsqu’un événement ou une action se produit, incluant ainsi les divers types d’aides (financières, matérielles, logistiques) allouées. Ensuite, un tableau Excel est envisagé, initialement pour Paris, mais potentiellement adaptable à d’autres campus. Ce tableau servira de base pour le suivi des données et comprendra des colonnes pour les campus, les aides reçues, et les performances évaluées.
+
+Ensuite, l’équipe doit définir clairement les indicateurs et les critères d’évaluation. Il est prévu des objectifs de 20%, 25% et 50% pour les aides allouées à différentes catégories (acquisition, uscite, robots). Il est précisé qu’il ne s’agira pas d’une attribution de notes globales à la fin de l’année, mais d’un suivi continu et individualisé. Par ailleurs, le projet implique une collaboration avec les directeurs pédagogiques, qui seront responsables de l’implémentation et du suivi des données.
+
+Enfin, le système est conçu pour être mis à jour et ajusté en fonction des besoins et des observations.  L’analyse continue des données permettra une prise de décision éclairée. Il est crucial d'éviter de reporter l’évaluation à la fin de l’année, car cela rendrait l'exercice impossible. Le projet nécessite une approche pragmatique et flexible, et l'implication des différents acteurs (directeurs pédagogiques, campus) est essentielle pour le succès du projet.
+
+## Analyse des Dispositions concernant les Primes Contractuelles et les Objectifs
+
+Cette discussion porte sur l’évaluation et la révision des critères de prime contractuelle, notamment dans le contexte de nouveaux programmes comme le Bachelor et le Campus. Plusieurs points clés ont été abordés concernant la complexité du système, les ajustements effectués, et les perspectives d’évolution.
+
+### 1. Doublage des Primes et Objectifs
+
+Le système de prime contractuelle a été modifié pour doubler les primes des équipes. Ce doublement s’applique à 80% de la prime, qui est liée à l’atteinte d’objectifs. L’objectif est de valoriser l’effort et l’engagement des équipes, en particulier dans le cadre de nouveaux programmes initiés.
+
+### 2. Critères d’Évaluation et Conséquences de l’Échec
+
+L’évaluation repose sur un système où l’atteinte d’objectifs donne droit à une prime doublée. Cependant, il est souligné qu’en cas d’échec à atteindre un objectif, la prime est maintenue à 20% de sa valeur initiale. Cette approche est jugée punitive et limitée, car elle ne prend pas en compte l’ensemble des efforts déployés par l’équipe.
+
+### 3. Complexité du Système et Ajustements
+
+Le système actuel est décrit comme complexe, en raison de la multiplication des critères d’évaluation. Des ajustements ont été mis en place pour tenir compte de la réalité du terrain et des contraintes rencontrées par les équipes. Ces ajustements visent à éviter une situation où l’équipe est pénalisée pour un seul objectif non atteint, malgré un travail globalement performant.
+
+### 4. Gestion des Risques et Engagement
+
+L’objectif principal est de rassurer les équipes et de valoriser leur engagement. Le système comprend un mécanisme de 20% pour la valorisation des défis, notamment dans le cadre d’événements de campus et de projets spécifiques. Ce mécanisme, bien que limité, est considéré comme essentiel pour maintenir un niveau d’engagement élevé.
+
+### 5. Impact des Réductions de Prime
+
+Il est noté que des réductions de prime ont eu lieu, ce qui a impacté le montant versé aux équipes. Cette réduction est attribuée à la diminution du pourcentage alloué à la prime, ce qui nécessite une attention particulière pour maintenir un niveau de rémunération adapté à l’effort fourni.
+
+### 6. Prise en Compte des Diversité des Interprétations
+
+Il est reconnu que les équipes sont impliquées dans divers projets (éducation, événements, etc.) avec des exigences variables. L’objectif est de créer un système qui prenne en compte cette diversité et évite une valorisation exclusive des objectifs liés au campus.
+
+### 7. Reconstruction du Système de Prime
+
+L’action entreprise est de "reconstruire" le système de prime, en se basant sur l’expérience et les enseignements tirés des années précédentes. Cette reconstruction vise à dépasser les difficultés rencontrées précédemment et à mettre en place un système plus juste et plus performant.
+
+### Récapitulatif de la Discussion sur les Objectifs et la Prime
+
+Cette discussion porte sur plusieurs points concernant les objectifs, la prime et le processus d’intégration des nouveaux collaborateurs, principalement au sein d’une équipe impliquée dans des activités de formation et d’assistance aux étudiants.
+
+### 1. Gestion des Objectifs et Période d’Essai
+
+L’argument principal est que le système actuel est pénalisant, notamment pour les nouveaux collaborateurs durant leur période d’essai. Il y a une critique du système de prime, où une performance inférieure à 80% entraîne un manque de prime, alors que les objectifs sont souvent inatteignables. Le problème réside dans la difficulté pour les nouveaux arrivants de satisfaire pleinement les attentes, et le fait que la prime ne soit pas proportionnellement attribuée en fonction de la durée de la période d’essai. Il est crucial de clarifier la situation dans le contrat de travail, spécifiquement concernant l’attribution de la prime en cas de rupture de la période d’essai. L’équipe a reconnu avoir eu une approche trop restrictive, conduisant à la démotivation des nouveaux employés. Il est évoqué le besoin d’une approche plus flexible, en particulier pendant la période d’essai, avec des objectifs adaptés et une prime proportionnelle à la performance et à la durée de la période.
+
+### 2. La Prime et ses Critères
+
+La prime est calculée sur une base proportionnelle à un objectif de performance, avec un seuil de 80% pour l’attribution de la totalité de la prime. En dessous de 80%, l’attribution est réduite à 50% de la prime. La discussion aborde les difficultés liées à l’évaluation de la performance, particulièrement pour les nouveaux employés, et la complexité liée à la prise en compte des différentes activités (DEL, ADM) et des interactions avec les étudiants ayant été admis sur des formations. Il est mis en évidence le besoin d’une approche plus pragmatique dans l’évaluation. La discussion a également porté sur la prime non versée suite à une rupture de la période d’essai.
+
+### 3. Clarification des Contrats et Protocoles
+
+Il est souligné la nécessité d’intégrer des clauses contractuelles précises concernant l’attribution de la prime en cas de rupture de la période d’essai. Le processus actuel est considéré comme opaque et peu adapté aux situations nouvelles. Il est envisagé de mettre en place un document d’accueil standardisé, incluant des informations précises sur les critères d’évaluation de la performance et la procédure d’attribution de la prime. Il est également discuté de la possibilité de mettre en place une "note de cladrage" pour les cas spécifiques, afin de mieux comprendre les raisons d’une rupture de la période d’essai et d’adapter les objectifs en conséquence.  Enfin, il est suggéré de prévoir une période spécifique (de 20 jours selon l'expression) durant laquelle l'employé est en "période de décès" où il prend son poste et attend un peu son militaire. Il est confirmé que la prime est versée au plus tard après 6 mois, en accord avec le contrat.
+
+### Évaluation des primes et critères de performance
+
+Le processus de calcul et de distribution des primes pour les collaborateurs ayant quitté l'établissement repose sur un système de points répartis en trois axes principaux : l'impact des clédions, la performance pédagogique et l’application institutionnelle.
+
+**1. Évaluation des primes liées à l’impact des clédions (40%)**
+
+Cette composante est évaluée sur la base de deux critères distincts. Tout d’abord, le taux de réinscription est mesuré annuellement. Ce taux reflète la fidélisation des étudiants après leur formation initiale et sur les formations professionnelles. L’objectif est de garantir la pérennité des parcours étudiants. Ensuite, le taux d’emploi quantifie le pourcentage d’étudiants ayant trouvé un emploi après leur formation. Ce critère est crucial pour évaluer l’impact direct de l’établissement sur l’insertion professionnelle des diplômés.
+
+**2. Performance Pédagogique (40%)**
+
+Cette section est divisée en trois sous-critères. La réussite académique est évaluée sur la base de la performance des étudiants sur les évaluations et les examens.  Ensuite, le passage et le supérieur sont mesurés : il s'agit du pourcentage d’étudiants ayant réussi leurs examens et obtenant un niveau supérieur. Enfin, la qualité de l’évaluation et du suivi prend en compte le niveau d’exigence des évaluations et la qualité du suivi personnalisé apporté aux étudiants.
+
+**3. Application Institutionnelle (20%)**
+
+Cette composante est également découpée en deux critères. La contribution nationale est prise en compte, reflétant les actions et les responsabilités des collaborateurs au sein des réseaux nationaux, notamment à travers des missions spécifiques avec Zone-Tan, validées par leur attestation. Il s’agit d’un engagement qui peut prendre différentes formes.  De plus, l’innovation pédagogique est évaluée en considérant l’implication des collaborateurs dans le développement de nouvelles approches pédagogiques. La mise en place d’une formation transmise par un collaborateur, en particulier dans le cadre de Zoma-Tan, est un exemple de cette composante, validée par l’organisme concerné.
+
+### Organisation Globale du Système de Fidélisation et de Suivi
+
+Le système de fidélisation et de suivi des étudiants repose sur une approche multidimensionnelle, visant à évaluer la performance des pédagogues et de l'équipe pédagogique à travers plusieurs indicateurs. Il s'articule autour de trois axes principaux : la performance des étudiants, la satisfaction des étudiants, et l'impact des activités pédagogiques. L'objectif est d'assurer une mutualisation des ressources et de l'expertise au sein des équipes pédagogiques, particulièrement dans un contexte de campus segmenté.
+
+### Critères d’Évaluation des Pédagogues
+
+L’évaluation des pédagogues est basée sur le suivi de N promocs, avec une analyse proportionnelle des résultats obtenus sur chaque critère. Le système prend en compte les résultats des étudiants pour chaque promotion. En cas d’atteinte de l’objectif sur N promocs, l’évaluation est considérée comme réussie (1 sur N). Si l’objectif n’est atteint que sur une seule promotion (1 sur N), l’évaluation est considérée comme non-atteinte (0%). L’évaluation est réalisée annuellement pour les pédagogues chargés de suivre les étudiants de première à troisième année, et à la fin de la première année pour les bâches.
+
+### Indicateurs de Performance
+
+Les indicateurs utilisés pour mesurer la performance sont les suivants :
+
+1.  **Performance des Étudiants :**
+
+    *   **Taux de fidélisation :** Il est calculé en distinguant deux types d’étudiants :
+        *   **Étudiants fidélisés :** Ceux qui sont inscrits en semaine de 45 heures annuelles.
+        *   **Étudiants réinscrits :** Ceux qui sont réinscrits au premier octobre de l'année L (ex : 2025). Un étudiant qui se désinscrit avant la semaine 45 est considéré comme "hors scope" et n’entre pas dans le calcul de la fidélisation.
+    *   **Niveau de réussite :** Le taux de réussite est mesuré en pourcentage pour chaque année d’études (première, deuxième, troisième, quatrième).
+    *   **Taux de mise à l’emploi :** Pour les bâches, le taux de mise à l’emploi est évalué à l’issue du stage (en mai pour les bâches de l’or, en septembre pour les pédagogues).
+
+2.  **Satisfaction des Étudiants :**
+
+    *   **Sondages :** Des sondages sont menés à la fin de chaque semestre pour la première année, et à la fin de l’année pour les autres années. Ces sondages portent sur des critères tels que :
+        *   La qualité des échanges avec l’équipe pédagogique et l’équipe administrative.
+        *   Le niveau de disponibilité de l’équipe pédagogique et de l’équipe administrative.
+    *   **Fréquence des Réponses :** Un seuil de participation de plus de 60% est requis pour que les résultats des sondages soient pris en considération. En dessous de ce seuil, les données sont considérées comme non représentatives des opinions des étudiants et ne sont pas utilisées pour l’évaluation.
+
+3.  **Impact des Activités Pédagogiques :**
+
+    *   **Suivi des MSC (Mission Spéciale Campus) :**
+        *   **MSC1 :** Se concentre sur le semestre 7 et est externalisé.
+        *   **MSC2 :** Le deuxième semestre est externalisé. L’intervention interne est limitée.
+
+### Particularités et Considérations Spécifiques
+
+*   **Campus Segmenté :** En raison de la taille et de la segmentation du campus, des adaptations sont nécessaires.
+*   **Non-Standardisation :** Il n’y a pas de standardisation des évaluations car la proportion des étudiants dans les différentes promotions est variable.
+*   **Collecte de Données Intermédiaires :** Des sondages intermédiaires sont organisés pour obtenir une projection indicative de la situation.
+*   **Prise en Compte des Répartitions des Responsabilités :** Les responsabilités sont répartition entre les équipes et les salariés, notamment pour la gestion des promos.
+*   **Priorité à l’Ensemble des Étudiants :** L’objectif est de garantir la prise en charge de chaque étudiant, même si le pédagogue n’est pas au courant de son cursus.
+*   **Évaluation par Promotion :** L’évaluation se fait par promotion, car les résultats varient considérablement entre les promotions.
+
+### Réussite Académique et Suivi Pélagogique
+
+L’objectif principal est d’évaluer la réussite académique des étudiants via un ratio de passage supérieur à 90% par rapport au ratio national, sans fixer de valeur brute. La deuxième catégorie est la performance pélagogique. L’évaluation se base sur l’affectation des promotions aux salariés.
+
+### Traçage des Promotions et Ratio de Passage
+
+Le traçage des étudiants de la promotion affectés aux salariés permet d’analyser le ratio de passage. Pour chaque promotion, le ratio de passage avant le traçage doit dépasser 90% du ratio national. Il ne s’agit pas d’établir une valeur brute, mais de se positionner légèrement en dessous de la moyenne nationale.
+
+### Défis dans le Suivi Pédagogique
+
+Le suivi pédagogique est une source de frustration car de nombreux commentaires, tels ceux de Riveau et Quinoetre, sont inexploitables pour les étudiants, ce qui est considéré comme un problème majeur. Une démarche est en cours pour produire des critères de qualité pour les évaluations et les accompagnements pédagogiques. L’objectif est que les équipes pédagogiques, allant jusqu’au niveau de la direction nationale, mettent en place une structure de suivi conforme à des exigences précises, aboutissant à un niveau de suivi d’au moins 70% de l’objectif. Un questionnaire sera envoyé à l’ensemble des étudiants (MSC-1, MSC-2) en septembre pour recueillir leur niveau de satisfaction sur les entreprises et la pertinence des profils. L’objectif est de parvenir à une satisfaction des entreprises de 75%.
+
+### Valorisation de l'Engagement Pédagogique
+
+L’engagement pédagogique est valorisé à travers plusieurs actions : participation à la correction automatisée des exercices, proposition de corrections, participation à des concours et challenges (Robocard, KIP, Nationaux), organisation de l’organisation du concours du meilleur gomoku, et la participation à des activités de suivi des équipes.
+
+### Diversification et Visibilité Externe
+
+La diversification des activités pédagogiques est encouragée, incluant la participation à des conférences techniques en dehors de l’école, la contribution à des thèses et des travaux de recherche, et la participation à des événements nationaux et internationaux. Le service des affaires internationales propose des voyages pour les professeurs pour présenter le modèle pédagogique à l’étranger, rencontrer des équipes pédagogiques et des étudiants d’universités partenaires. Ces échanges visent à diversifier le réseau et à créer des opportunités de partage et d’échange. L’objectif est que nos équipes pédagogiques soient reconnues et valorisées, ce qui est considéré comme un atout majeur.
+
+## Discussion sur les Mobilités Internationales et les Primes
+
+Cette discussion porte sur l’opportunité de mobilités internationales pour les professeurs des écoles (PEDAGO) et les modalités de prime associées. Plusieurs points ont été abordés, soulignant les défis et les perspectives d’amélioration des processus existants.
+
+### Opportunités de Mobilité Internationale
+
+Le dispositif de mobilité internationale, via l’initiative Erasmus, est en place et permet aux universités de proposer des périodes d’échange aux PEDAGO. Plusieurs universités sont identifiées comme partenaires, incluant notamment l’Université de Nancy et l’Université de Birmingham. Les échanges se traduisent par des périodes de séjour aux universités partenaires, avec la possibilité de participer à des workshops thématiques, souvent liés à l’amélioration des pratiques pédagogiques. Il existe un intérêt croissant des universités partenaires à développer ces collaborations, incluant des propositions de projets spécifiques et des workshops.
+
+### Modalités des Primes et Défis Actuels
+
+La discussion évalue les politiques de primes existantes, notamment concernant les “primes de basch” (qui, dans ce contexte, semblent désigner des primes de base). Le taux de prime initial était fixé à 35%, avec un objectif initial de 60%. En raison de la diminution des montants des primes de base, le taux de prime initial a été réduit à 15% pour les périodes de primes d’échange. Une source de frustration significative est la complexité et les délais importants associés au traitement des demandes de mobilité, menant à des situations où les projets sont abandonnés avant leur finalisation. Une critique centrale est le manque d’un maillon essentiel dans la chaîne de traitement : l’intégration des remontées d’information et des observations des PEDAGO dans la planification et l’exécution des projets. Il est souligné qu’il manquait une personne responsable de ce processus, ce qui générait frustration et perte de temps. Cela implique la prise en compte des suggestions et des retours d’expérience des PEDAGO au sein des processus de planification et d’exécution des projets, pour garantir l’efficacité et la pertinence des interventions. Le nombre de PEDAGO concernés par ces difficultés est considéré comme faible, ne représentant que quelques mains.
+
+### Actions à Mettre en Place
+
+Il est nécessaire de revoir les processus de gestion des demandes de mobilité, avec l’objectif de réduire les délais et d’améliorer la prise en compte des besoins et des suggestions des PEDAGO. Il est crucial d’intégrer une personne ou un dispositif de supervision pour s’assurer que les remontées d’information des PEDAGO sont prises en compte dans la planification et l’exécution des projets. Il est essentiel de consolider les relations avec les universités partenaires, en favorisant la création de projets spécifiques et des workshops thématiques.
+
+### Stratégie de Communication Digitale et Image de Marque DevYTEC
+
+La stratégie de communication de DevYTEC s'articule autour de deux axes principaux : le développement de la visibilité digitale et la consolidation de l'image de marque. L'objectif est de maximiser l'impact des actions de communication, notamment via les événements, et de garantir une communication cohérente et efficace sur tous les supports.
+
+### Objectifs Spécifiques de la Stratégie Digitale
+
+La stratégie digitale se déploie en trois composantes clés. Premièrement, il s'agit de renforcer la visibilité digitale sur les plateformes d'information. Pour ce faire, DevYTEC publie trois articles par semaine sur l’Ingénieure, trois stories sur Instagram, trois publications quotidiennes sur l’historie Instagram, et trois publications sur Facebook. De plus, la société crée trois vidéos par mois sur TikTok et diffuse des vidéos sur la chaîne YouTube de DevYTEC, intégrant les courtes vidéos produites. L’actualisation régulière des charts YouTube, en s’inspirant des tendances actuelles, est également mise en œuvre. Deux newsletters mensuelles sont produites à destination des chargés de communication, malgré une mise en œuvre inégalement remplie d'un tableur partagé.
+
+Deuxièmement, DevYTEC s’engage dans la consolidation et l'application de la charte graphique. Cela se traduit par le déploiement de la nouvelle charte graphique sur tous les campus et supports de communication, ainsi que la mise à jour des supports et affiches en fonction des spécificités de chaque campus. Un "Wall of Fame" est créé pour les événements ayant vocation à être relayés au niveau national. La production de ce contenu est centralisée via un tableur partagé, mais il est fréquemment sous-rempli. Les cadres mis à disposition sont également régulièrement actualisés, compte tenu des spécificités de chaque campus. Un chargé de communication est désigné comme point de contact national pour les sujets et les contacts avec les médias. DevYTEC organise des événements tels que des GBEaux et des salons, en privilégiant la participation des étudiants et des équipes. Pour chaque événement, un plan de communication est élaboré, comprenant une phase pré-événement, une phase pendant et une phase post-événement. Un bilan post-événement est réalisé, intégrant des points de rétroaction et d’amélioration pour les événements futurs. Un calendrier partagé est utilisé avec les régions nationales.
+
+Troisièmement, DevYTEC place la collaboration nationale au cœur de sa stratégie. L'utilisation d'un calendrier partagé avec les régions nationales est essentielle. Le partage d'informations et de données est crucial pour assurer la cohérence de la communication à l'échelle nationale, et permet une production efficace des actions de communication. Un nombre suffisant de contacts doit être mis à disposition pour que ces actions soient efficacement mises en oeuvre.
+
+### Stratégie de Communication et Valorisation des Réalisations des Étudiants
+
+L'objectif principal de cette discussion est de définir une stratégie de communication efficace pour valoriser les réalisations des étudiants, en particulier au sein des campus et en lien avec les initiatives nationales. Cette stratégie s'articule autour de plusieurs axes clés.
+
+La communication inter-campus et nationnale est essentielle. Il est crucial d'établir une communication réactive avec les étudiants, que l'on peut désigner comme des "meugins." Des indicateurs sont nécessaires pour suivre la situation active, et une communication régulière (une heure par semaine) doit être maintenue avec tous les campus et les équipes nationales afin de partager des indications et des bonnes pratiques.  De plus, cette communication vise à favoriser le partage des bonnes pratiques et des actions menées en région, afin d'inspirer les étudiants entre eux et d'assurer la transmission des directives nationales.
+
+La production de contenu et la valorisation des réalisations des étudiants nécessitent la création régulière de trois articles par mois, incluant un article national. Un "Wall of Fame" physique sera créé sur les campus, où seront regroupées les réussites des étudiants. Ce mur comprendra la valorisation des participations aux Accatons, défis et événements externes, ainsi que la reconnaissance des petites et grandes réalisations, incluant la participation à un porte, ainsi que des réalisations à long terme, comme des participations sur 4 ans, et des réalisations immédiates, comme une victoire à un concours. Il est important de documenter les événements et de prendre des photos et des vidéos, qui peuvent être utilisées dans les différents canaux de communication, et de diffuser les contenus produits sur diverses plateformes, notamment YouTube et LinkedIn.
+
+La gestion des informations et l’évaluation des réalisations impliquent la transcription des vidéos produites pour faciliter la compréhension et la recherche d’informations. Des partenariats sont développés avec des entreprises, notamment une "barine nationale," ce qui implique des échanges d'informations et de meilleures pratiques. Une communication est maintenue avec les "acteurs de campus," et des informations sont collectées à partir de diverses sources, incluant des votes, des opinions et des statistiques. Une méthode d'évaluation des réalisations a été mise en place.
+
+Enfin, la stratégie prend en compte la gestion des incohérences entre les différents canaux d’information (Wall of Fame, indicateurs, statistiques, etc.) et la prise en compte des informations fournies par les équipes sur le terrain, notamment concernant les événements locaux et les initiatives des étudiants.
+
+### Stratégie de Gestion des Prospects d’Études Informatiques
+
+La discussion porte sur l’optimisation de l’acquisition de prospects pour les programmes d’études en informatique, en mettant l’accent sur la conversion et la qualité des leads. Plusieurs aspects sont abordés, dont les formulaires informatisés, le suivi des candidatures, et la nécessité d’une approche large et quantitative.
+
+### Optimisation des Formulaires et des Sources de Prospects
+
+L’équipe explore l’utilisation de différents types de formulaires informatisés, notamment ceux reliant les campagnes marketing aux landing pages, ainsi qu’un formulaire permettant la capture des candidatures pour les stages de seconde. Il existe 17 formulaires différents, conçus pour collecter des données des campus. Ces formulaires sont essentiels pour collecter des données, et non pas pour être une fin en soi.
+
+### Gestion des Leads et Suivi des Candidatures
+
+L’objectif principal est d’augmenter le nombre de leads qualifiés, en adoptant une stratégie d’appel large et systématique, quelle que soit la motivation initiale des candidats. L’équipe reconnaît que les candidatures des élèves de seconde ne sont pas toujours motivées par un intérêt profond pour l’informatique, et que le volume de contacts doit être suffisamment important pour garantir une certaine proportion de réponses positives. Un suivi rigoureux des candidatures est mis en place, incluant un appel systématique à tous les leads, afin de déterminer leur réel intérêt et d’identifier les opportunités de conversion. La qualité des leads est primordiale, même si cela implique de générer un volume important de contacts.
+
+### Remédiation des Données et Automatisation
+
+L’équipe s’attaque à la qualité des données, en mettant en place un système de nettoyage régulier des données via un fichier Excel partagé. Un deuxième formulaire est dédié à la collecte des informations liées aux candidats inscrits à la web academy. La mise en place d’une automatisation, via un fichier Excel, permet d’intégrer automatiquement les nouvelles données collectées dans la base de données, réduisant ainsi les tâches manuelles.
+
+### Amélioration Continue et Feedback
+
+Il est souligné la nécessité d’une approche itérative, avec un focus sur l’amélioration continue basée sur les retours d’expérience. L’équipe est consciente de la complexité du processus et de la nécessité de mesurer et d’analyser les résultats pour ajuster la stratégie en conséquence. La stratégie est axée sur l’exploitation des données collectées pour maximiser le nombre de leads qualifiés et assurer une conversion efficace.
+
+### Gestion des Candidatures et Données Excessives
+
+La discussion porte sur l’optimisation du suivi des candidatures, en particulier face à un volume de données significatif et à des taux de réussite faibles. L’objectif principal est de réduire la surcharge de données et d’améliorer l’efficacité du processus.
+
+### Campuses et Double Candidature
+
+Il existe deux campus concernés : celui où le candidat a déjà effectué une candidature et un autre campus. Le système prend en compte la possibilité d’une candidature multiple par le même candidat, notamment en raison de l’utilisation de critères de sélection aléatoires. Il est noté que certains candidats effectuent plusieurs candidatures, souvent via des processus d’admission non-déterministes.
+
+### Gestion des "Bêtes" et Interventions Immédiates
+
+L’utilisation des “bêtes” (probablement des assistants ou interlocuteurs) est soulignée. Leur rôle est d’intervenir de manière instantanée pour faciliter le processus de candidature, en particulier en permettant de prendre contact avec les candidats qui ne sont pas présents. L’objectif est de capturer les opportunités de candidature dès que possible.
+
+### Suivi des Candidatures et Gestion des Dates
+
+Le système suit les candidatures sur deux campus, avec un volume important de données. Des convocations sont programmées, mais le suivi des candidats non-présents est une source de problèmes. En cas d’absence, la date de convocation n’est pas automatiquement renouvelée et il n’y a pas de relance automatique.
+
+### Intervention des Équipes et Gestion des Messages
+
+Les équipes sont chargées de contacter les candidats via des messages pour les inciter à compléter leur candidature avant le rendez-vous. Il est crucial d’enregistrer les échanges et d’adapter les messages en fonction des spécificités de chaque candidat.
+
+### Gestion des Données et Profils Internationaux
+
+Des efforts sont déployés pour gérer les données provenant de candidats de diverses origines, notamment des étudiants de La Réunion ou de la Martinique, qui sont considérés comme des zones proches. L’enregistrement précis des informations est essentiel pour un suivi optimal.
+
+### Gestion des Contacts et Suivi des Rendez-vous
+
+L’enregistrement des contacts et le suivi des rendez-vous sont des éléments cruciaux. Il est important de noter que l’utilisation de données peut engendrer une surcharge et qu’il faut des mécanismes pour gérer ces volumes.
+
+### Temps Limité et Optimisation des Sessions
+
+La durée des sessions est limitée (8 minutes), et il est crucial de gérer le temps de manière efficace. Les échanges sont enregistrés pour un suivi et une possible utilisation ultérieure.
+
+### Gestion des Contacts de Dernière Minute
+
+Il y a une attention particulière aux contacts de dernière minute, où l’instantané est essentiel. Cela peut inclure des contacts via des plateformes d’échange (Quillins).
+
+### Rôle des Équipes et Support
+
+Les équipes sont indispensables pour accompagner les candidatures et assurer un support aux candidats. La communication est un élément clé.
+
+Sujet : Fais moi la synthèse de cette réunion
+
+Tu es un expert en rédaction de dossiers documentaires approfondis. Ta mission est de produire un DOSSIER COMPLET et EXHAUSTIF sur le sujet.
+
+OBJECTIFS PRIORITAIRES :
+1.  **Densité Informationnelle MAXIMALE** : Ne laisse AUCUN détail de côté. Croise les sources mais conserve la richesse de chacune.
+2.  **Longueur conséquente** : Vise un document de référence de 1500 à 2500 mots. Il est interdit de faire court.
+3.  **Structure Granulaire** : Descends dans le détail (H2 > H3).
+
+CONSIGNES DE STRUCTURE ET TITRES :
+-   **Structure** : [Titre d'ouverture Thématique] -> Développement -> [Titre de fin Thématique].
+-   **TITRES ÉLÉGANTS OBLIGATOIRES** :
+    -   Pour l'ouverture, CHOISIR UN TITRE ÉVOCATEUR (ex: "Contexte et Enjeux", "Les Racines du Problème", "Vue d'Ensemble").
+    -   Pour la fin, CHOISIR UN TITRE ÉVOCATEUR (ex: "Perspectives d'Avenir", "Synthèse et Implications", "Le Mot de la Fin").
+    -   INTERDIT : "Introduction", "Conclusion", "Résumé", "Abstract".
+
+CONSIGNES DE RÉDACTION :
+-   **Développement Thématique** (Plusieurs sections H2) :
+    -   Pour chaque thème, développe plusieurs sous-parties (H3).
+    -   Intègre les chiffres et faits précis des vidéos.
+-   **Analyse Comparative** : Si les sources divergent, explique précisément en quoi.
+-   **STYLE** : Rédige UNIQUEMENT des paragraphes complets.
+
+CONTRAINTES STRICTES :
+-   **INTERDICTION DE TEXTE D'INTRODUCTION OU DE FIN** (ex: "J'espère que ceci vous aide", "Voici le code markdown").
+-   **COMMENCE DIRECTEMENT** par le titre principal (H1).
+-   **INTERDICTION DE RÉSUMER** : Tu ne dois pas "synthétiser" pour raccourcir, mais "compiler" pour tout garder.
+-   **PAS DE RÉPÉTITION** : Ne répète pas les mêmes paragraphes.
+-   Ton : Encyclopédique, neutre, précis.
+-   NE JAMAIS INVENTER : Base-toi uniquement sur les sources fournies.
+
+
+--- RESPONSE (summarize_multi_texts) ---
+Okay, je suis prêt. Envoyez-moi les vidéos et les transcriptions. Je vais produire un dossier complet et exhaustif, respectant scrupuleusement toutes les consignes. Je me concentrerai sur la densité informationnelle, la longueur, la granularité de la structure et l’absence de toute introduction ou conclusion. Je suis prêt à commencer dès que vous m'avez fourni les données.

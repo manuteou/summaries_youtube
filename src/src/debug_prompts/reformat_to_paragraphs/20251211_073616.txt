@@ -1,0 +1,56 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici l'extraction des points clés de la réunion, respectant les règles d'or :
+
+*   **Objectifs de la réunion** :  Partager des bonnes pratiques, partager des actions régionales, transition des directives nationales, production d'articles par mois (dont un potentiel national).
+*   **Actions concernant les vidéos** :
+    *   Création de vidéos courtes à partager sur LinkedIn et potentiellement TikTok/Instagram.
+    *   Utilisation d'extraits des reportages et des transports.
+    *   Lancer une campagne vidéo pour le stage de second (objectif : conversion et motorisation).
+*   **Wall of Fame** :
+    *   Intégration des participations aux événements extérieurs dans le Wall of Fame.
+    *   Utilisation des photos prises lors des événements.
+*   **Campagnes de partenariats** :
+    *   Mise en place de 17 bottes (un par campus et une nationale) pour capturer les opportunités.
+*   **Actions spécifiques** :
+    *   Caroline lance une campagne sur le stage de second la semaine prochaine.
+    *   Une équipe prendra en charge le côté digital de cette campagne.
+    *   Le but est de faire des conversions et de motiver les étudiants.
+*   **Problèmes/Désaccords:**
+    *   Confusion autour du Wall of Fame et des descriptions des réalisations.
+    *   Difficulté à gérer les contenus partagés sur les réseaux sociaux.
+*   **Suivi et Responsabilités** :
+    *   Non précisé dans ce segment de transcription.
+*   **Autres points** :
+    *   Collaboration avec des campus (ex : "données de l'eau", "Emmanuel", "Caroline").
+    *   Présentation de nouvelles initiatives (ex : partenariat avec la barine nationale).
+    *   Utilisation des "formilles" (accès à des données).
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+Voici l'extraction des points clés de la réunion, respectant les règles d'or :
+
+**Objectifs de la réunion** : La réunion avait pour objectif de partager des bonnes pratiques, de partager des actions régionales, de faciliter la transition des directives nationales et de produire des articles mensuels, incluant un potentiel article national.
+
+**Actions concernant les vidéos** : La stratégie vidéo visait à créer des vidéos courtes, destinées au partage sur LinkedIn et potentiellement TikTok et Instagram. L'utilisation d'extraits de reportages et de transports était prévue, ainsi qu'un lancement d'une campagne vidéo spécifique pour le stage de second, avec pour objectif la conversion et la motivation des étudiants.
+
+**Wall of Fame** : L'intégration des participations aux événements extérieurs dans le Wall of Fame était envisagée, en utilisant les photos prises lors de ces événements.
+
+**Campagnes de partenariats** : La mise en place de 17 bottes – un par campus et une nationale – était prévue pour capter les opportunités.
+
+**Actions spécifiques** : Caroline lançera une campagne sur le stage de second la semaine prochaine. Une équipe sera dédiée au côté digital de cette campagne, avec pour objectif principal de générer des conversions et de motiver les étudiants.
+
+**Problèmes/Désaccords** : La réunion a identifié une confusion autour du Wall of Fame et des descriptions des réalisations. De plus, il y avait des difficultés à gérer les contenus partagés sur les réseaux sociaux.

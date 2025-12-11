@@ -1,0 +1,61 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Stratégie de Communication Digitale et Image de Marque DevYTEC
+
+La stratégie de communication de DevYTEC s'articule autour de deux axes principaux : le développement de la visibilité digitale et la consolidation de l'image de marque. L'objectif est de maximiser l'impact des actions de communication, en particulier au travers des événements, et de garantir une communication cohérente et efficace sur tous les supports.
+
+### Objectifs Spécifiques de la Stratégie Digitale
+
+La stratégie digitale se déploie en trois composantes clés :
+
+1.  **Visibilité Digitale sur les Plateformes d’Information** :
+    *   Publication de 3 publications par semaine sur l'Ingénieure, un support principal.
+    *   Publication de 3 stories sur Instagram, 3 publications quotidiennes sur l’historie Instagram, et 3 publications sur Facebook.
+    *   Création de 3 vidéos par mois sur TikTok.
+    *   Diffusion de vidéos sur la chaîne YouTube de DevYTEC, intégrant les courtes vidéos produites.
+    *   Actualisation régulière des charts YouTube, en s'inspirant des tendances actuelles.
+    *   Mise en place d’un reporting social media centralisé, avec la production de deux newsletters mensuelles à destination des chargés de communication, malgré une mise en œuvre inégalement remplie d'un tableur partagé.
+
+2.  **Image de Marque : Consolidation et Application de la Charte Graphique** :
+    *   Déploiement de la nouvelle charte graphique sur tous les campus et supports de communication.
+    *   Mise à jour des supports et affiches en fonction des spécificités de chaque campus.
+    *   Création du "Wall of Fame" pour les événements ayant vocation à être relayés au niveau national.
+    *   La production de ce contenu est centralisée via un tableur partagé, mais il est fréquemment sous-rempli.
+    *   Actualisation régulière des cadres mis à disposition, compte tenu des spécificités de chaque campus.
+    *   Gestion des sujets et des contacts pour les médias, avec le chargé de communication comme point de contact national.
+    *   Organisation d'événements tels que des GBEaux et des salons, en privilégiant la participation des étudiants et des équipes.
+    *   Production d'un plan de communication dédié à chaque événement, incluant une phase pré-événement, une phase pendant et une phase post-événement.
+    *   Réalisation d'un bilan post-événement, intégrant des points de rétroaction et d’amélioration pour les événements futurs.
+    *   Utilisation d'un calendrier partagé avec les régions nationales.
+
+3.  **Collaboration Nationale : Coordination et Partage d’Informations** :
+    *   Utilisation d'un calendrier partagé avec les régions nationales.
+    *   La production et le partage d'informations sont essentiels pour assurer la cohérence de la communication à l'échelle nationale.
+    *   Ce dernier élément, le partage de données, est crucial pour la production des actions de communication.  Un nombre suffisant de contacts doit être mis à disposition pour que ces actions soient efficacement mises en oeuvre.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Stratégie de Communication Digitale et Image de Marque DevYTEC
+
+La stratégie de communication de DevYTEC s'articule autour de deux axes principaux : le développement de la visibilité digitale et la consolidation de l'image de marque. L'objectif est de maximiser l'impact des actions de communication, notamment via les événements, et de garantir une communication cohérente et efficace sur tous les supports.
+
+### Objectifs Spécifiques de la Stratégie Digitale
+
+La stratégie digitale se déploie en trois composantes clés. Premièrement, il s'agit de renforcer la visibilité digitale sur les plateformes d'information. Pour ce faire, DevYTEC publie trois articles par semaine sur l’Ingénieure, trois stories sur Instagram, trois publications quotidiennes sur l’historie Instagram, et trois publications sur Facebook. De plus, la société crée trois vidéos par mois sur TikTok et diffuse des vidéos sur la chaîne YouTube de DevYTEC, intégrant les courtes vidéos produites. L’actualisation régulière des charts YouTube, en s’inspirant des tendances actuelles, est également mise en œuvre. Deux newsletters mensuelles sont produites à destination des chargés de communication, malgré une mise en œuvre inégalement remplie d'un tableur partagé.
+
+Deuxièmement, DevYTEC s’engage dans la consolidation et l'application de la charte graphique. Cela se traduit par le déploiement de la nouvelle charte graphique sur tous les campus et supports de communication, ainsi que la mise à jour des supports et affiches en fonction des spécificités de chaque campus. Un "Wall of Fame" est créé pour les événements ayant vocation à être relayés au niveau national. La production de ce contenu est centralisée via un tableur partagé, mais il est fréquemment sous-rempli. Les cadres mis à disposition sont également régulièrement actualisés, compte tenu des spécificités de chaque campus. Un chargé de communication est désigné comme point de contact national pour les sujets et les contacts avec les médias. DevYTEC organise des événements tels que des GBEaux et des salons, en privilégiant la participation des étudiants et des équipes. Pour chaque événement, un plan de communication est élaboré, comprenant une phase pré-événement, une phase pendant et une phase post-événement. Un bilan post-événement est réalisé, intégrant des points de rétroaction et d’amélioration pour les événements futurs. Un calendrier partagé est utilisé avec les régions nationales.
+
+Troisièmement, DevYTEC place la collaboration nationale au cœur de sa stratégie. L'utilisation d'un calendrier partagé avec les régions nationales est essentielle. Le partage d'informations et de données est crucial pour assurer la cohérence de la communication à l'échelle nationale, et permet une production efficace des actions de communication. Un nombre suffisant de contacts doit être mis à disposition pour que ces actions soient efficacement mises en oeuvre.

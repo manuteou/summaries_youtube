@@ -32,7 +32,7 @@ def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     app_path = os.path.join(script_dir, "app.py")
     
-    cmd = [sys.executable, "-m", "streamlit", "run", app_path, "--server.address", "0.0.0.0"]
+    cmd = [sys.executable, "-m", "streamlit", "run", app_path, "--server.address", "0.0.0.0", "--server.maxUploadSize", "2000"]
     
     try:
         subprocess.run(cmd)

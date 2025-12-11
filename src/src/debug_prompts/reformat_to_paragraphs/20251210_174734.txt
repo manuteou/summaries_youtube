@@ -1,0 +1,89 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ## Compte Rendu de Réunion - [Nom de la Réunion] – 16/05/2024
+
+**Intervenants :** [L'intervenant principal est un responsable de communication. On entend également des références à des équipes régionales et nationales, sans identification claire des individus.]
+
+**1. Qui dit quoi ?**
+
+*   **Responsable de Communication (RC) :** Présente les objectifs du projet de communication, détaille les différentes composantes (visibilité digitale, image de marque, événements, collaboration nationale) et les indicateurs de performance. Insiste sur la nécessité de créer du contenu vidéo de qualité (YouTube, LinkedIn, etc.) pour alimenter les plateformes et répondre aux demandes d’information. Souligne l’importance d’une communication proactive et régulière.
+*   **Équipes Régionales & Nationales (sans identification précise) :** Soulignent la nécessité d'une coordination étroite,  d'une communication réactive et d'un partage des bonnes pratiques entre les campus et les équipes nationales.  Ils expriment un besoin de soutien pour la production et la diffusion des contenus. Certains expriment un certain blocage sur la quantité de travail et le temps alloué à la production.
+
+**2. Décisions actées**
+
+*   **Validation des objectifs de communication :** Les principaux objectifs (visibilité digitale, image de marque, événements, collaboration nationale) ont été validés comme priorité.
+*   **Création de Contenu Vidéo :**  Il est décidé que la création de contenu vidéo (YouTube, LinkedIn) est une priorité absolue, même si cela implique de créer des vidéos courtes et de faire appel à des services externes pour la transcription.
+*   **Calendrier de Publication :**  L'objectif est de publier trois articles par mois (dont un potentiel national).
+*   **Plan de Communication Événementielle :**  Création d'un plan de communication dédié pour chaque événement, avec une production de supports de communication.
+*   **Partage de Bonnes Pratiques :**  La collaboration nationale doit inclure un partage régulier d'informations et de bonnes pratiques entre les équipes régionales et nationales.
+*   **Utilisation du Calendrier Partagé :** Adoption d'un calendrier partagé entre les campus et les équipes nationales.
+
+**3. Points de blocage**
+
+*   **Charge de travail et temps alloué :** Plusieurs interlocuteurs expriment un sentiment de surcharge de travail et un manque de temps alloué à la production de contenu, notamment la création vidéo.
+*   **Manque de coordination :** Il existe un besoin accru de coordination entre les équipes régionales et nationales, notamment pour la gestion du calendrier de publication et la diffusion des contenus.
+*   **Délais de Mise en Œuvre :** Plusieurs points d'action ne sont pas clairement définis en termes de délais, ce qui risque de ralentir l'avancement du projet.
+*   **Inégalités dans la Production de Contenu :** Il existe des disparités dans la manière dont les campus produisent et partagent des contenus.
+*  **Besoin d'un outil de suivi clair :**  Il est souligné le besoin d'un suivi précis des actions et des projets.
+
+**4. Actions futures**
+
+*   **RC :**
+    *   Définir un plan de travail clair avec des échéances précises pour chaque composante du projet.
+    *   Mettre en place un système de suivi des actions et des projets.
+    *   Établir des protocoles de communication et de coordination entre les équipes régionales et nationales.
+    *   Identifier et mobiliser des ressources (personnel, budget, outils) pour la production de contenu vidéo.
+*   **Équipes Régionales & Nationales :**
+    *   Assurer une communication proactive et régulière avec l'équipe centrale de communication.
+    *   Partager leurs expériences et leurs bonnes pratiques.
+    *   Répondre rapidement aux demandes d’information.
+    *  Mettre en place des canaux de feedback pour identifier les points de blocage et proposer des solutions.
+
+**Fin du Compte Rendu.**
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+## Compte Rendu de Réunion – [Nom de la Réunion] – 16/05/2024
+
+**Intervenants :** Un responsable de communication est présent, ainsi que des représentants d’équipes régionales et nationales, bien que les individus spécifiques n’aient pas été clairement identifiés.
+
+**1. Qui dit quoi ?**
+
+Le responsable de communication a présenté les objectifs du projet de communication, détaillant les différentes composantes : la visibilité digitale, l'image de marque, les événements et la collaboration nationale. Il a également défini des indicateurs de performance et insisté sur la nécessité de créer du contenu vidéo de qualité pour alimenter les plateformes comme YouTube et LinkedIn, en réponse aux demandes d’information. Il a souligné l’importance d’une communication proactive et régulière.
+
+Les équipes régionales et nationales ont exprimé la nécessité d’une coordination étroite, d’une communication réactive et d’un partage des bonnes pratiques entre les campus et les équipes nationales. Ils ont également exprimé un besoin de soutien pour la production et la diffusion des contenus. Certains ont évoqué un sentiment de blocage lié à la quantité de travail et au temps alloué à la production.
+
+**2. Décisions actées**
+
+Les principaux objectifs (visibilité digitale, image de marque, événements, collaboration nationale) ont été validés comme priorité. Il a été décidé que la création de contenu vidéo (YouTube, LinkedIn) est une priorité absolue, même si cela implique de créer des vidéos courtes et de faire appel à des services externes pour la transcription.
+
+Il a été convenu d’établir un calendrier de publication visant à publier trois articles par mois, dont un potentiel national. Un plan de communication événementielle a été créé, prévoyant la production de supports de communication pour chaque événement.  La collaboration nationale doit inclure un partage régulier d’informations et de bonnes pratiques entre les équipes régionales et nationales.
+
+L’adoption d’un calendrier partagé entre les campus et les équipes nationales a été formalisée.
+
+**3. Points de blocage**
+
+Plusieurs interlocuteurs ont exprimé un sentiment de surcharge de travail et un manque de temps alloué à la production de contenu, notamment la création vidéo. Un besoin accru de coordination entre les équipes régionales et nationales a été identifié, notamment pour la gestion du calendrier de publication et la diffusion des contenus.
+
+Plusieurs points d’action ne sont pas clairement définis en termes de délais, ce qui risque de ralentir l’avancement du projet. Il existe des disparités dans la manière dont les campus produisent et partagent des contenus. Enfin, il est souligné le besoin d’un suivi précis des actions et des projets.
+
+**4. Actions futures**
+
+Le responsable de communication est chargé de définir un plan de travail clair avec des échéances précises pour chaque composante du projet. Il est également chargé de mettre en place un système de suivi des actions et des projets. Il devra établir des protocoles de communication et de coordination entre les équipes régionales et nationales, et identifier et mobiliser des ressources (personnel, budget, outils) pour la production de contenu vidéo.
+
+Les équipes régionales et nationales sont chargées d’assurer une communication proactive et régulière avec l’équipe centrale de communication. Elles doivent partager leurs expériences et leurs bonnes pratiques, et répondre rapidement aux demandes d’information.  Il est attendu d’eux qu’ils mettent en place des canaux de feedback pour identifier les points de blocage et proposer des solutions.
+
+**Fin du Compte Rendu.**

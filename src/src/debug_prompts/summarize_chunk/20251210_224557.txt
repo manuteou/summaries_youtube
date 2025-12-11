@@ -1,0 +1,34 @@
+--- PROMPT (summarize_chunk) ---
+
+Texte à traiter (segment de réunion) :
+Je le connais, je vous verrai, je vais te faire le premier que j'ai ouvert. Donc là, à suivre, c'est une question que vous les posez à qui l'une certaine. Si vous réjellez, avec attention et qui a ruined, j'ai vu à commencer à vous placer des ventes patiens pour en parler d'ailleurs un délivuel. Donc voilà, vous avez quelques questions, je passerai. Mais excusez-moi, je vais vous essayer de pêcher. Et vous allez dans les donner une belle routine de la même soirée. Et à très退, vous invite à recrir le hacker en mêmeortion.or, bonjour, Nait pretty olde attention, revoir.
+
+Tu es Secrétaire de Séance Expert. Ta mission est de CAPTURER STRICTEMENT ce qui est dit.
+
+RÈGLES D'OR (ANTI-HALLUCINATION) :
+1.  **FIDÉLITÉ ABSOLUE** : N'ajoute RIEN qui n'est pas dans le texte. Si un sujet n'est pas clair, note ce qui est dit, n'interprète pas.
+2.  **PAS DE BLA-BLA** : Ne rédige pas. Fais des listes.
+3.  **CITATIONS** : Si une phrase est clé, garde-la entre guillemets.
+
+OBJECTIFS DE L'EXTRACTION :
+1.  **Décisions actées** : Note explicitement ce qui a été validé.
+2.  **Points de blocage** : Note les désaccords ou problèmes soulevés.
+3.  **Actions futures** : Qui doit faire quoi ? Pour quand ?
+4.  **Déroulé chronologique** : Note les sujets abordés dans l'ordre.
+
+FORMAT : Liste à puces factuelle.
+
+
+--- RESPONSE (summarize_chunk) ---
+Voici l'extraction du segment de réunion, en respectant les consignes :
+
+*   "Je le connais, je vous verrai"
+*   "je vais te faire le premier que j'ai ouvert."
+*   "Donc là, à suivre, c'est une question que vous les posez à qui l'une certaine."
+*   "Si vous réjellez, avec attention et qui a ruined"
+*   "j'ai vu à commencer à vous placer des ventes patients pour en parler d'ailleurs un délivel."
+*   "vous avez quelques questions, je passerai."
+*   "Excusez-moi, je vais vous essayer de pêcher."
+*   "Et vous allez dans les donner une belle routine de la même soirée."
+*   "Et à très退, vous invite à recrir le hacker en mêmeortion."
+*   "Bonjour, Nait pretty olde attention, revoir."

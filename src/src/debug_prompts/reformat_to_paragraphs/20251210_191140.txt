@@ -1,0 +1,48 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici l'extraction du segment de réunion, respectant les règles :
+
+*   "Je le connais, je vous verrai"
+*   "je vais te faire le premier que j'ai ouvert."
+*   "Donc là, à suivre, c'est une question que vous les posez à qui l'une certaine."
+*   "Si vous réjellez, avec attention et qui a ruined, j'ai vu à commencer à vous placer des ventes patiens pour en parler d'ailleurs un délivuel."
+*   "Vous avez quelques questions, je passerai."
+*   "Vous avez été moi, je vous souhaite un..."
+*   "Vous avez besoin d'être donné, je vais me faire de même temps de journée."
+*   "À très très vite, va à Twitter, à la semaine prochaine."
+*   "Ben je vous en êtes au monde. Bonne journée. Bonjour. On va. On va. On le journée."
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+Voici l'extraction du segment de réunion, respectant les règles :
+
+"Je le connais, je vous verrai."
+
+"Je vais te faire le premier que j'ai ouvert."
+
+"Donc là, à suivre, c'est une question que vous les posez à qui l'une certaine."
+
+"Si vous réjellez, avec attention et qui a ruined, j'ai vu à commencer à vous placer des ventes patiens pour en parler d'ailleurs un délivel."
+
+"Vous avez quelques questions, je passerai."
+
+"Vous avez été moi, je vous souhaite un..."
+
+"Vous avez besoin d'être donné, je vais me faire de même temps de journée."
+
+"À très très vite, va à Twitter, à la semaine prochaine."
+
+"Ben je vous en êtes au monde. Bonne journée. Bonjour. On va. On va. On le journée."

@@ -1,0 +1,55 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ## Stratégie de Communication Interne et Participation aux Événements
+
+Cette section décrit une stratégie de communication interne axée sur l’engagement des collaborateurs à travers la participation à des événements, notamment des salons et forums. L'objectif est de promouvoir le partage de connaissances et d'expériences au sein de l'organisation.
+
+### Objectifs Clés
+
+*   **Participation Récurrente aux Événements:** Chaque collaborateur est encouragé à participer à au moins un événement par an, privilégiant les salons et forums.
+*   **Production de Contenus Multiples:** Chaque collaborateur doit produire au moins 9 créations de contenus, incluant des présentations (GPO), des articles, des vidéos et potentiellement des contributions à des supports de communication externes.
+*   **Engagement des Équipes et des Individus :**  La stratégie vise à inciter l'ensemble des collaborateurs, y compris les équipes et les individus qui participent actuellement moins aux événements.
+
+### Organisation des Initiatives
+
+*   **Groupes de Proximité :** La participation aux événements est encouragée au sein des équipes (GPO - Groupes de Proximité).
+*   **Rôles Spécifiques :** Des rôles ont été définis, notamment la création de vidéos explicatives par des collaborateurs, afin de documenter et de diffuser les connaissances acquises.
+*   **Support Technique et Logistique:** Des solutions techniques (GPS, forums) sont mises en place pour faciliter l’organisation des événements et le partage d’informations.
+
+### Contraintes et Défis
+
+*   **Charge de Travail :** La demande est de produire au moins 9 créations de contenu par an.
+*   **Participation Écartée :** Certains collaborateurs, notamment au sein des équipes, ont tendance à ne pas participer activement aux événements, malgré l'importance reconnue de ces moments.
+*   **Complexité Logistique :** L'organisation des événements, notamment les salons, présente des défis logistiques (préparation des supports, coordination des intervenants).
+*   **Mise en Place de l'Engagement:** Des solutions existent pour assurer le suivi des contributions à chaque événement (GPO, forums, etc.).
+*   **Création de Contenu :** La production de contenus (vidéos, articles, etc.) est une des actions les plus importantes.
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+## Stratégie de Communication Interne et Participation aux Événements
+
+Cette section décrit une stratégie de communication interne axée sur l’engagement des collaborateurs à travers la participation à des événements, notamment des salons et forums. L’objectif est de promouvoir le partage de connaissances et d’expériences au sein de l’organisation.
+
+### Objectifs Clés
+
+Chaque collaborateur est encouragé à participer à au moins un événement par an, privilégiant les salons et forums. De plus, chaque collaborateur doit produire au moins 9 créations de contenus, incluant des présentations (GPO), des articles, des vidéos et potentiellement des contributions à des supports de communication externes. La stratégie vise à inciter l’ensemble des collaborateurs, y compris les équipes et les individus qui participent actuellement moins aux événements.
+
+### Organisation des Initiatives
+
+La participation aux événements est encouragée au sein des équipes (GPO - Groupes de Proximité). Des rôles ont été définis, notamment la création de vidéos explicatives par des collaborateurs, afin de documenter et de diffuser les connaissances acquises. Des solutions techniques (GPS, forums) sont mises en place pour faciliter l’organisation des événements et le partage d’informations.
+
+### Contraintes et Défis
+
+La demande est de produire au moins 9 créations de contenu par an. Certains collaborateurs, notamment au sein des équipes, ont tendance à ne pas participer activement aux événements, malgré l’importance reconnue de ces moments. L’organisation des événements, notamment les salons, présente des défis logistiques (préparation des supports, coordination des intervenants). Des solutions existent pour assurer le suivi des contributions à chaque événement (GPO, forums, etc.). La production de contenus (vidéos, articles, etc.) est une des actions les plus importantes.

@@ -1,0 +1,43 @@
+--- PROMPT (summarize_multi_texts) ---
+
+Sources :
+Okay, je suis prêt. Envoyez-moi les vidéos et les transcriptions. Je vais produire un dossier complet et exhaustif, respectant scrupuleusement toutes les consignes.
+
+Je me concentrerai sur la densité informationnelle, la longueur, la granularité de la structure et l’absence de toute introduction ou conclusion.
+
+Je suis prêt à commencer dès que vous m'avez fourni les données.
+
+Sujet : Fais moi la synthèse de cette réunion
+
+Tu es un expert en rédaction de dossiers documentaires approfondis. Ta mission est de produire un DOSSIER COMPLET et EXHAUSTIF sur le sujet.
+
+OBJECTIFS PRIORITAIRES :
+1.  **Densité Informationnelle MAXIMALE** : Ne laisse AUCUN détail de côté. Croise les sources mais conserve la richesse de chacune.
+2.  **Longueur conséquente** : Vise un document de référence de 1500 à 2500 mots. Il est interdit de faire court.
+3.  **Structure Granulaire** : Descends dans le détail (H2 > H3).
+
+CONSIGNES DE STRUCTURE ET TITRES :
+-   **Structure** : [Titre d'ouverture Thématique] -> Développement -> [Titre de fin Thématique].
+-   **TITRES ÉLÉGANTS OBLIGATOIRES** :
+    -   Pour l'ouverture, CHOISIR UN TITRE ÉVOCATEUR (ex: "Contexte et Enjeux", "Les Racines du Problème", "Vue d'Ensemble").
+    -   Pour la fin, CHOISIR UN TITRE ÉVOCATEUR (ex: "Perspectives d'Avenir", "Synthèse et Implications", "Le Mot de la Fin").
+    -   INTERDIT : "Introduction", "Conclusion", "Résumé", "Abstract".
+
+CONSIGNES DE RÉDACTION :
+-   **Développement Thématique** (Plusieurs sections H2) :
+    -   Pour chaque thème, développe plusieurs sous-parties (H3).
+    -   Intègre les chiffres et faits précis des vidéos.
+-   **Analyse Comparative** : Si les sources divergent, explique précisément en quoi.
+-   **STYLE** : Rédige UNIQUEMENT des paragraphes complets.
+
+CONTRAINTES STRICTES :
+-   **INTERDICTION DE TEXTE D'INTRODUCTION OU DE FIN** (ex: "J'espère que ceci vous aide", "Voici le code markdown").
+-   **COMMENCE DIRECTEMENT** par le titre principal (H1).
+-   **INTERDICTION DE RÉSUMER** : Tu ne dois pas "synthétiser" pour raccourcir, mais "compiler" pour tout garder.
+-   **PAS DE RÉPÉTITION** : Ne répète pas les mêmes paragraphes.
+-   Ton : Encyclopédique, neutre, précis.
+-   NE JAMAIS INVENTER : Base-toi uniquement sur les sources fournies.
+
+
+--- RESPONSE (summarize_multi_texts) ---
+Parfait. Je suis prêt. Envoyez-moi les vidéos et les transcriptions. Je vais immédiatement commencer à travailler sur le dossier complet et exhaustif, en respectant scrupuleusement toutes les consignes énoncées. Je suis particulièrement attentif à la densité informationnelle, la longueur, la granularité de la structure et l'absence de toute introduction ou conclusion. Envoyez-moi les données et je me lance immédiatement.

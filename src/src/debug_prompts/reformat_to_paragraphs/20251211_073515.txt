@@ -1,0 +1,45 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici l'extraction des points clés de la réunion :
+
+*   **Nombre d'événements :**
+    *   Discussion sur la possibilité de limiter le nombre d'événements à 10 par an.
+    *   Contrainte liée à la localisation et au besoin de nuancer les types d'événements (internes vs. externes).
+*   **Objectifs de participation et d’animation :**
+    *   **Participation à des événements :**
+        *   Critère 1 : au moins 60% des étudiants doivent participer à des événements.
+        *   Critère 2 : au moins 50% des promotions doivent participer aux activités.
+    *   **Animation des étudiants :**
+        *   Définition d'un objectif de satisfaction des étudiants.
+        *   Encouragement à la participation à la vie de campus.
+*   **Sondages :**
+    *   Envoi systématique de sondages à la fin de chaque semestre (données de référence).
+    *   Résultats globalement stables sur les différents campus.
+*   **Répartition des tâches et des responsabilités :**
+    *   Le Secrétaire de Séance est responsable de la capture fidèle des informations.
+*   **Points de blocage/désaccords :**
+    *   Nécessité de clarifier le nombre maximal d'événements par an.
+*   **Actions futures :**
+    *   Le responsable doit clarifier le nombre maximal d'événements par an.
+    *   Le responsable continue de surveiller les sondages et les résultats.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+Voici l'extraction des points clés de la réunion :
+
+La discussion a porté sur la possibilité de limiter le nombre d'événements à 10 par an, une contrainte étant liée à la localisation et au besoin de nuancer les types d’événements (internes vs. externes).  Les objectifs de participation et d’animation se concentrent sur l’implication des étudiants.  Au moins 60% des étudiants et 50% des promotions doivent participer à des événements.  De plus, un objectif de satisfaction des étudiants est défini, et l’encouragement à la participation à la vie de campus est privilégié.  Des sondages sont systématiquement envoyés à la fin de chaque semestre, constituant des données de référence. Les résultats obtenus sont globalement stables sur les différents campus.  Le Secrétaire de Séance est responsable de la capture fidèle des informations.
+
+Un point de blocage majeur réside dans la nécessité de clarifier le nombre maximal d'événements par an.  Afin de poursuivre le suivi, le responsable devra clarifier cette question.  Le responsable continuera également de surveiller les sondages et les résultats.

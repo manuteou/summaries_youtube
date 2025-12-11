@@ -1,0 +1,65 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Objectifs de Communication - Építex
+
+L'objectif principal de cette communication concerne le développement de la visibilité digitale et de la cohérence graphique de l'organisation Építex, tout en assurant une communication événementielle performante et une gestion efficace des relations médias.
+
+### 1. Développement de la Visibilité Digitale et Cohérence Graphique
+
+*   **Publications sur l’Ingline:** Trois publications par semaine sur l’Ingline. Au-delà, jusqu’à six, mais pas plus.
+*   **Instagram & Stories:** Trois publications par jour sur Instagram, et trois sur les stories Instagram.
+*   **Facebook:** Trois publications par semaine.
+*   **TikTok:** Trois vidéos par mois.
+*   **Chaîne YouTube (Devidex):** Transmission de toutes les vidéos sur la chaîne YouTube de Devidex, incluant les charts et les petites vidéos courtes. Intégration des charts et des vidéos courtes dans les charts YouTube.
+*   **Gabarit Charté et Tendances:** Utilisation d'un gabarit charté, inspiré des formats et des tendances actuelles, pour chaque plateforme. La production vidéo utilise ce gabarit.
+*   **Veille Permanente:** Nécessité d'une veille permanente pour s'adapter aux évolutions des codes de chaque plateforme.
+*   **Newsilateurs:** Mise à disposition de deux newsilateurs mensuels, avec un taux d'ouverture supérieur à 30%. Ces newsilateurs contactent les chargés de communication.
+*   **Reporting Centralisé:**  Production d'un rapport centralisé au niveau national.
+*   **Diffusions Consolidées:**  Maintien des diffusions consolidées, malgré les difficultés liées à l'accès aux contacts.
+*   **Mise à Jour et Complément:** Mise à jour continue des données et des informations.
+
+### 2. Gestion des Avis et Relations Médias
+
+*   **Avis Google & Réseaux Sociaux:** Surveillance et réponse aux avis sur Google et sur les réseaux sociaux.
+*   **Identification des Contenus Média:** Identification des contenus à potentiel médiatique, incluant les sujets traités lors des réunions avec les journalistes et les médias.
+*   **Relations avec les Médias:**  [Nom de l'auteur] est le contact principal pour les médias régionaux. Les invitations aux événements sont proposées.
+*   **Participation aux Événements:**  [Nom de l'auteur] peut être invité lors des événements.
+
+### 3. Gestion des Événements
+
+*   **Plan de Communication Événementiel:** Élaboration d'un plan de communication dédié pour chaque événement.
+*   **Animation Pré- et Post-Événement:** Animation des événements pendant et après l’événement.
+*   **Diffusion des Contenus:** Diffusion des contenus générés par l’événement.
+*   **Évaluation Post-Événement:** Production d’un bilan post-événement, incluant les salons et forums.
+*   **Points d'amélioration:** Les points d'amélioration des événements sont notés et utilisés pour les futures organisations.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Objectifs de Communication – Építex
+
+L'objectif principal de cette communication concerne le développement de la visibilité digitale et de la cohérence graphique de l'organisation Építex, tout en assurant une communication événementielle performante et une gestion efficace des relations médias.
+
+### 1. Développement de la Visibilité Digitale et Cohérence Graphique
+
+La stratégie de communication digitale vise à maximiser la présence en ligne d'Építex, en garantissant une cohérence visuelle sur toutes les plateformes. Pour atteindre cet objectif, une publication régulière est prévue sur l’Ingline, avec trois publications par semaine. Instagram et Stories bénéficieront de trois publications quotidiennes sur Instagram, ainsi que trois publications sur les stories Instagram. Facebook nécessitera trois publications hebdomadaires. La production de vidéos pour TikTok sera limitée à trois vidéos par mois. La chaîne YouTube de Devidex accueillera toutes les vidéos, incluant les charts et les petites vidéos courtes, avec une intégration des charts et des vidéos courtes dans les charts YouTube. Un gabarit charté, inspiré des formats et des tendances actuelles, sera utilisé pour la production vidéo. La veille permanente est essentielle pour s'adapter aux évolutions des codes de chaque plateforme. Deux newsilateurs mensuels seront mis à disposition, avec un objectif de taux d'ouverture supérieur à 30%, et ils contacteront les chargés de communication. Un reporting centralisé est nécessaire pour assurer une vue d'ensemble. Les diffusions consolidées seront maintenues malgré les difficultés d'accès aux contacts.  La mise à jour continue des données et des informations est indispensable.
+
+### 2. Gestion des Avis et Relations Médias
+
+La gestion des avis et des relations avec les médias constitue un pilier de la communication d’Építex. Il est crucial de surveiller et de répondre aux avis sur Google et sur les réseaux sociaux. L'identification des contenus à potentiel médiatique est réalisée en suivant les sujets traités lors des réunions avec les journalistes et les médias.  [Nom de l’auteur] est le contact principal pour les médias régionaux et propose des invitations aux événements. La participation de [Nom de l’auteur] aux événements est possible.
+
+### 3. Gestion des Événements
+
+Pour chaque événement, un plan de communication dédié sera élaboré.  L'animation des événements, tant pendant que post-événement, est essentielle. La diffusion des contenus générés par l'événement est une priorité.  Un bilan post-événement sera produit, incluant les salons et forums, et les points d'amélioration seront notés et utilisés pour les futures organisations.

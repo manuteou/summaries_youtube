@@ -1,0 +1,59 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Stratégie de Fidélisation des Étudiants et Calcul des Performances Pedagogues
+
+Le système de fidélisation des étudiants, en cours d'établissement, est complexe et repose sur la mutualisation des efforts et la collecte de données quantitatives et qualitatives. L'objectif principal est d'assurer un suivi personnalisé des étudiants tout au long de leur parcours, en mesurant et en ajustant les performances des pedagogues et des équipes pédagogiques.
+
+### Critères de Mesure des Performances Pedagogues
+
+La mesure des performances des pedagogues repose sur trois critères principaux, appliqués à chaque promotion et mesurés à intervalles réguliers :
+
+1.  **Atteinte des Objectifs de Promotion :**  Chaque pedagogue est responsable de l'atteinte de critères prédéfinis pour un tiers de sa promotion. En cas d'atteinte de cet objectif pour l'ensemble des critères (sur N), le pedagogue est considéré comme "totalement atteint". L'objectif est de maintenir une proportion de 1 sur N d'atteintes totales.
+2.  **Satisfaction des Étudiants :** La satisfaction des étudiants est évaluée via des sondages réguliers. Des sondages intermédiaires sont menés à la fin de chaque semestre pour les étudiants de première année, et des sondages plus complets sont réalisés à la fin de chaque année scolaire. Les critères évalués incluent : la qualité des échanges avec l'équipe pédagogique et l'agogique, le niveau de disponibilité de l'équipe et de l'agogique.
+3.  **Satisfaction des Activités Pédagogiques et Aagogiques :** La satisfaction des étudiants concernant les activités pédagogiques et aagogiques est également évaluée par des sondages réguliers, en particulier à la fin de chaque semestre pour les étudiants de première année, et à la fin de chaque année scolaire.
+
+### Gestion des Données et Collecte d'Informations
+
+La collecte d'informations est organisée autour de plusieurs moments clés :
+
+*   **Sondages :** Des sondages sont menés à la fin de chaque année scolaire pour les pedagogues de deuxième, troisième et quatrième années. Des sondages intermédiaires sont réalisés à la fin de chaque semestre pour les étudiants de première année, et des sondages plus complets sont réalisés à la fin de chaque année scolaire.
+*   **Données Administratives :** L'analyse des données administratives, telles que les inscriptions, les démissions et les taux de réussite, est également essentielle pour le calcul des performances.
+*   **Gestion des Missions Externes (MSC-2) :** La gestion des missions externalisées (MSC-2) est également prise en compte, avec un suivi spécifique des interventions et des résultats.
+
+### Particularités de la Gestion des Promotions et des Groupes d'Étudiants
+
+*   **Segmentation des Promotions :** Il est reconnu qu'il existe des disparités significatives en termes d'activité et d'avis entre les différentes promotions.
+*   **Gestion des Groupes d'Étudiants :**  La gestion est individualisée, avec l'objectif de prendre en charge chaque étudiant et d'adapter le suivi en fonction de ses besoins spécifiques.
+*   **Importance de la Participation aux Sondages :** Un taux de participation à hauteur de 60% sur l'ensemble du campus est considéré comme un seuil minimal pour la représentativité des données.
+*   **Gestion des Missions Externes (MSC-2) :** La gestion des missions externalisées (MSC-2) est également prise en compte, avec un suivi spécifique des interventions et des résultats.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Stratégie de Fidélisation des Étudiants et Calcul des Performances Pedagogues
+
+Le système de fidélisation des étudiants, en cours d'établissement, est complexe et repose sur la mutualisation des efforts et la collecte de données quantitatives et qualitatives. L'objectif principal est d'assurer un suivi personnalisé des étudiants tout au long de leur parcours, en mesurant et en ajustant les performances des pedagogues et des équipes pédagogiques.
+
+### Critères de Mesure des Performances Pedagogues
+
+La mesure des performances des pedagogues repose sur trois critères principaux, appliqués à chaque promotion et mesurés à intervalles réguliers.  Premièrement, l’atteinte des objectifs de promotion est examinée : chaque pedagogue est responsable de l’atteinte de critères prédéfinis pour un tiers de sa promotion. En cas d’atteinte de cet objectif pour l’ensemble des critères (sur N), le pedagogue est considéré comme “totalement atteint”. L’objectif est de maintenir une proportion de 1 sur N d’atteintes totales. Deuxièmement, la satisfaction des étudiants est évaluée via des sondages réguliers. Des sondages intermédiaires sont menés à la fin de chaque semestre pour les étudiants de première année, et des sondages plus complets sont réalisés à la fin de chaque année scolaire. Les critères évalués incluent : la qualité des échanges avec l’équipe pédagogique et l’agogique, le niveau de disponibilité de l’équipe et de l’agogique. Troisièmement, la satisfaction des activités pédagogiques et aagogiques est également évaluée par des sondages réguliers, en particulier à la fin de chaque semestre pour les étudiants de première année, et à la fin de chaque année scolaire.
+
+### Gestion des Données et Collecte d'Informations
+
+La collecte d'informations est organisée autour de plusieurs moments clés.  Les sondages sont menés à la fin de chaque année scolaire pour les pedagogues de deuxième, troisième et quatrième années. Des sondages intermédiaires sont réalisés à la fin de chaque semestre pour les étudiants de première année, et des sondages plus complets sont réalisés à la fin de chaque année scolaire. L'analyse des données administratives, telles que les inscriptions, les démissions et les taux de réussite, est également essentielle pour le calcul des performances.  De plus, la gestion des missions externalisées (MSC-2) est prise en compte, avec un suivi spécifique des interventions et des résultats.
+
+### Particularités de la Gestion des Promotions et des Groupes d'Étudiants
+
+Il est reconnu qu'il existe des disparités significatives en termes d'activité et d'avis entre les différentes promotions. La gestion est individualisée, avec l'objectif de prendre en charge chaque étudiant et d'adapter le suivi en fonction de ses besoins spécifiques. Un taux de participation à hauteur de 60% sur l'ensemble du campus est considéré comme un seuil minimal pour la représentativité des données. De plus, la gestion des missions externalisées (MSC-2) est prise en compte, avec un suivi spécifique des interventions et des résultats.

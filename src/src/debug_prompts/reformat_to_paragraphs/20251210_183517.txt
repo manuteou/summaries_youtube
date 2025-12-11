@@ -1,0 +1,70 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ## Analyse du Dialogue : Gestion des Candidatures et Problématiques Systémiques
+
+Ce dialogue traite de la gestion des candidatures, notamment en identifiant des problèmes de données et des difficultés d'automatisation. Plusieurs aspects critiques sont soulignés.
+
+### 1. Problématiques des Données et Dupliques
+
+Le cœur du problème réside dans la surcharge de données et la présence de candidatures dupliquées, causant des erreurs et des complications dans le traitement.  Plusieurs types de données sont concernés :
+
+*   **Candidatures à deux campus :** Un candidat peut être enregistré sur deux campus distincts (ex : Paris et Nantes), ce qui crée une incoherence et rend le suivi plus complexe. Ceci est particulièrement problématique pour les candidatures réalisées par hasard ou via des surnoms.
+*   **Candidatures "internationales" :** Les candidatures de personnes originaires de régions proches (ex : Réunion, Mayotte) sont souvent mal catégorisées, générant des erreurs de zone géographique et rendant le filtrage difficile.
+*   **Données avec un nombre élevé de données :**  Certaines candidatures, par leur volume de données, sont particulièrement difficiles à gérer, impactant la performance des systèmes.
+
+### 2. Stratégies de Gestion Actuelles
+
+Plusieurs actions sont mises en place pour résoudre ces problèmes :
+
+*   **Nettoyage des données :** Un effort de nettoyage intensif des données est en cours, visant à corriger les enregistrements dupliqués et à standardiser les informations.
+*   **Suivi des candidatures à deux campus :** Un suivi précis est nécessaire pour éviter la création de nouveaux doublons.
+*   **Catégorisation des candidatures "internationales" :** Une attention particulière est portée à la catégorisation des candidatures issues de régions proches pour éviter les erreurs de géolocalisation.
+*   **Utilisation des Bots :** Un bot est utilisé pour automatiser la gestion des candidatures, en particulier pour les cas courants.  Le bot est conçu pour être instantané et  prendre des décisions automatisées.
+*   **Interventions manuelles :** Malgré l'automatisation, des interventions manuelles restent nécessaires, principalement pour les cas complexes ou les erreurs persistantes. Ces interventions sont limitées dans le temps.
+
+### 3.  Délais et Limitations
+
+*   **Temps de traitement :**  Les délais de traitement sont critiques, et le bot doit traiter rapidement les candidatures, en particulier celles proches de leur date limite. Les retards sont à éviter afin de ne pas impacter les chances du candidat.
+*   **Limitation de l’intervention humaine :**  L'intervention humaine est limitée dans le temps, en particulier pour les cas complexes.
+
+### 4.   Objectifs et Actions futures
+
+*   **Amélioration de l'automatisation :** L'objectif est d'améliorer la performance du bot pour une gestion plus efficace des candidatures.
+*   **Prise en compte des retours d'expérience:** La prise en compte des erreurs des intervenants est cruciale pour ajuster les règles du bot et les stratégies de gestion.
+*   **Réalisation de comptes rendus :**  La production de comptes rendus détaillés est une priorité, facilitant le suivi et l'identification des problèmes.
+
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+## Analyse du Dialogue : Gestion des Candidatures et Problématiques Systémiques
+
+Ce dialogue traite de la gestion des candidatures, en identifiant des problèmes de données et des difficultés d’automatisation. Plusieurs aspects critiques sont soulignés.
+
+### 1. Problématiques des Données et Dupliques
+
+Le cœur du problème réside dans la surcharge de données et la présence de candidatures dupliquées, causant des erreurs et des complications dans le traitement. Plusieurs types de données sont concernés. Les candidatures à deux campus posent problème : un candidat peut être enregistré sur deux campus distincts (ex : Paris et Nantes), ce qui crée une incoherence et rend le suivi plus complexe. Ceci est particulièrement problématique pour les candidatures réalisées par hasard ou via des surnoms. De plus, les candidatures “internationales” présentent des difficultés, car les candidatures de personnes originaires de régions proches (ex : Réunion, Mayotte) sont souvent mal catégorisées, générant des erreurs de zone géographique et rendant le filtrage difficile. Enfin, certaines candidatures, par leur volume de données, sont particulièrement difficiles à gérer, impactant la performance des systèmes.
+
+### 2. Stratégies de Gestion Actuelles
+
+Plusieurs actions sont mises en place pour résoudre ces problèmes. Un effort de nettoyage des données est en cours, visant à corriger les enregistrements dupliqués et à standardiser les informations. Un suivi précis est nécessaire pour éviter la création de nouveaux doublons, en particulier pour les candidatures à deux campus. Une attention particulière est portée à la catégorisation des candidatures “internationales” pour éviter les erreurs de géolocalisation. Un bot est utilisé pour automatiser la gestion des candidatures, en particulier pour les cas courants. Le bot est conçu pour être instantané et prendre des décisions automatisées. Malgré l'automatisation, des interventions manuelles restent nécessaires, principalement pour les cas complexes ou les erreurs persistantes. Ces interventions sont limitées dans le temps.
+
+### 3. Délais et Limitations
+
+Les délais de traitement sont critiques, et le bot doit traiter rapidement les candidatures, en particulier celles proches de leur date limite. Les retards sont à éviter afin de ne pas impacter les chances du candidat. L'intervention humaine est limitée dans le temps, en particulier pour les cas complexes.
+
+### 4. Objectifs et Actions futures
+
+L'objectif est d'améliorer la performance du bot pour une gestion plus efficace des candidatures. La prise en compte des erreurs des intervenants est cruciale pour ajuster les règles du bot et les stratégies de gestion. La production de comptes rendus détaillés est une priorité, facilitant le suivi et l'identification des problèmes.

@@ -1,0 +1,71 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Nouvelles Objectifs de Prune Contractuelle pour les Collaborateurs des Campus
+
+Le document décrit une nouvelle politique de prime contractuelle pour les collaborateurs des 15 campus, visant à améliorer la participation et l'engagement. Les objectifs principaux sont les suivants :
+
+**1. Structure de la Prune Contractuelle**
+
+*   **Pourcentage de Prune :** Les collaborateurs recevront une prime contractuelle de 20% de leur rémunération annuelle.
+*   **Critères d’Attainment :** Pour obtenir le 20%, il faut atteindre au moins 6 critères sur 8.
+*   **Réussite Totale :** Si les 8 critères sont atteints à 100%, le collaborateur recevra 25% de sa prime contractuelle.
+
+**2. Critères d’Attainment des Objectifs**
+
+Les 8 critères sur lesquels la prime est basée sont :
+
+*   **Participation à des Initiatives Campus :** Chaque collaborateur doit contribuer à au moins une idée annuelle, en participant activement à des initiatives à l'échelle du campus.
+*   **Participation à des Actions de Vie Sociale :**  Il doit participer à au moins une action de vie sociale par an (par exemple, participation à une société de spectacle ou à une association).
+*   **Participation à des Événements de Soirée :** Participer à au moins une soirée étudiante par an.
+*   **Participation à des Sessions de Formation :** Participer à au moins une session de formation sur la vie étudiante.
+*   **Participation à des Actions de Communication et de Promotion :** Chaque collaborateur doit s'investir dans la promotion des actions du campus.
+*   **Participation à des Actions de Soutien aux Étudiants :** Soutenir les étudiants en participant à des activités de mentorat ou d'accompagnement.
+*   **Participation à des Actions de Communication de l'Entreprise :** Participer à des actions de communication de l'entreprise.
+*   **Participation à des actions d'engagement :** Participer à des actions de soutien à la vie de campus.
+
+**3. Considations Spécifiques et Flexibilité**
+
+*   **Pas de Suppression Locale :** Aucun objectif ne peut être supprimé ou modifié au niveau local par un directeur de campus. Cependant, des objectifs complémentaires peuvent être ajoutés.
+*   **Pilotage Individuel :** La prime sera pilotée individuellement par les altars campus.
+*   **Objectifs pour les Équipes Campus :** La nouvelle politique est en plus des objectifs existants pour les équipes et les campus. 
+*   **Focus sur l'Engagement :** Le changement vise à favoriser une culture d'engagement actif et de participation des collaborateurs.
+
+**4. Remarques Additionnelles**
+
+*   **Versement :** Le versement de la prime est prévu en décembre, après une évaluation à la fin de l’exercice.
+*   **Calcul Individuel :** Le calcul du pourcentage est réalisé individuellement pour chaque collaborateur.
+*   **Durée de la Prime :** La prime est valable pendant un an.
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Nouvelles Objectifs de Prune Contractuelle pour les Collaborateurs des Campus
+
+Le document décrit une nouvelle politique de prime contractuelle pour les collaborateurs des 15 campus, visant à améliorer la participation et l'engagement. Les objectifs principaux sont les suivants :
+
+**1. Structure de la Prune Contractuelle**
+
+Les collaborateurs recevront une prime contractuelle de 20% de leur rémunération annuelle. Pour obtenir ce pourcentage, il faut atteindre au moins 6 critères sur 8. Si les 8 critères sont atteints à 100%, le collaborateur recevra 25% de sa prime contractuelle.
+
+**2. Critères d’Attainment des Objectifs**
+
+La prime est basée sur les critères suivants : chaque collaborateur doit contribuer à au moins une idée annuelle, en participant activement à des initiatives à l'échelle du campus. Il doit également participer à au moins une action de vie sociale par an (par exemple, participation à une société de spectacle ou à une association). Participer à au moins une soirée étudiante par an est également requis, ainsi que la participation à au moins une session de formation sur la vie étudiante. De plus, chaque collaborateur doit s'investir dans la promotion des actions du campus. La participation à des actions de soutien aux étudiants, par exemple des activités de mentorat ou d'accompagnement, est également un critère important.  La participation à des actions de communication et de promotion, ainsi que la participation à des actions de communication de l'entreprise, sont également requis. Enfin, la participation à des actions d’engagement est un critère essentiel.
+
+**3. Considérations Spécifiques et Flexibilité**
+
+Aucun objectif ne peut être supprimé ou modifié au niveau local par un directeur de campus. Cependant, des objectifs complémentaires peuvent être ajoutés. La prime sera pilotée individuellement par les altars campus. La nouvelle politique est en plus des objectifs existants pour les équipes et les campus. Le changement vise à favoriser une culture d'engagement actif et de participation des collaborateurs.
+
+**4. Remarques Additionnelles**
+
+Le versement de la prime est prévu en décembre, après une évaluation à la fin de l’exercice. Le calcul du pourcentage est réalisé individuellement pour chaque collaborateur. La prime est valable pendant un an.

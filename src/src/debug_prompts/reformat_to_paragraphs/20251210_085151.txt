@@ -1,0 +1,82 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Analyse des Critères d'Engagement des Étudiants
+
+La discussion porte sur la définition et la mesure de l'engagement des étudiants, en particulier dans le contexte de l'activité associative et de la participation aux événements sur le campus. L'objectif est de formaliser des critères objectifs pour évaluer et valoriser cet engagement.
+
+### Les Deux Critères Clés
+
+Deux critères principaux sont identifiés pour évaluer l'engagement :
+
+1.  **Participation à la Vie Associative :** Il s'agit du taux de participation des étudiants aux diverses activités associatives, qui est fixé à 15%.  Il est important de noter que l'identification des étudiants participant à ces activités est essentielle.
+
+2.  **Participation aux Activités à Caractère Général :** Cet indicateur repose sur le nombre d'événements auxquels les étudiants participent.  Il existe une cible de 50% de la promo qui doit participer à ces activités.
+
+### Méthodologie de Mesure et Collecte de Données
+
+La collecte de données se fait par le biais de questionnaires systématiquement envoyés en fin de chaque semestre depuis plusieurs années. Ces questionnaires visent à obtenir une moyenne globale. Il est important de souligner que l'objectif n'est pas d'établir un registre d'activité, mais de consolider les données.
+
+### Remarques Importantes et Clarifications
+
+*   **Gestion des Données :** Les données collectées sont regroupées pour obtenir un chiffre global. L'accent est mis sur la consolidation des informations plutôt que sur le suivi individuel des étudiants.
+*   **Valorisation de l'Engagement :** L'objectif est de valoriser l'engagement des étudiants et de mieux comprendre leurs contributions.
+*   **Collecte des "Vers Battins" :** L'utilisation de questionnaires pour collecter des "vers battins" (petites actions) est envisagée, avec un objectif de 25 "vers battins" par année. Cela permettra d'enrichir les données et de mieux comprendre les actions concrètes menées par les étudiants.
+*   **Types d'Informations Collectées :** Les questionnaires devront inclure au moins trois questions supplémentaires sur les deux premiers critères.
+*   **Considérations Spécifiques :**  L'un des points clés est de déterminer si la participation à un événement compte deux fois pour la mesure de l'engagement.
+*   **Prise en compte des Événements de la Vie Quotidienne :** Il est crucial de considérer que tous les événements, même ceux organisés par les étudiants, comptent pour la mesure de l'engagement.
+*   **Partenariats :** La recherche de partenaires externes est encouragée, à travers les "vers battins".
+
+### Conclusion
+
+L'ensemble de ces éléments vise à mettre en place un système de suivi de l'engagement étudiant, basé sur des indicateurs objectifs et permettant de valoriser les différentes formes de participation. La collecte de données se fera par le biais de questionnaires systématiques, et l'objectif est de générer des informations pertinentes pour la gestion des ressources et la promotion de l'activité associative.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Analyse des Critères d'Engagement des Étudiants
+
+La discussion porte sur la définition et la mesure de l’engagement des étudiants, en particulier dans le contexte de l’activité associative et de la participation aux événements sur le campus. L’objectif est de formaliser des critères objectifs pour évaluer et valoriser cet engagement.
+
+### Les Deux Critères Clés
+
+Deux critères principaux sont identifiés pour évaluer l’engagement :
+
+La participation à la vie associative représente un taux de participation des étudiants aux diverses activités associatives, qui est fixé à 15%. Il est important de souligner que l’identification des étudiants participant à ces activités est essentielle.
+
+La participation aux activités à caractère général repose sur le nombre d’événements auxquels les étudiants participent. Il existe une cible de 50% de la promo qui doit participer à ces activités.
+
+### Méthodologie de Mesure et Collecte de Données
+
+La collecte de données se fait par le biais de questionnaires systématiquement envoyés en fin de chaque semestre depuis plusieurs années. Ces questionnaires visent à obtenir une moyenne globale. Il est important de souligner que l’objectif n’est pas d’établir un registre d’activité, mais de consolider les données.
+
+### Remarques Importantes et Clarifications
+
+La gestion des données consiste à regrouper les informations collectées pour obtenir un chiffre global. L’accent est mis sur la consolidation des informations plutôt que sur le suivi individuel des étudiants.
+
+L’objectif est de valoriser l’engagement des étudiants et de mieux comprendre leurs contributions.
+
+L’utilisation de questionnaires pour collecter des “vers battins” (petites actions) est envisagée, avec un objectif de 25 “vers battins” par année. Cela permettra d’enrichir les données et de mieux comprendre les actions concrètes menées par les étudiants.
+
+Les questionnaires devront inclure au moins trois questions supplémentaires sur les deux premiers critères.
+
+Il est crucial de déterminer si la participation à un événement compte deux fois pour la mesure de l’engagement.
+
+Il est également primordial de considérer que tous les événements, même ceux organisés par les étudiants, comptent pour la mesure de l’engagement.
+
+La recherche de partenaires externes est encouragée, à travers les “vers battins”.
+
+### Conclusion
+
+L’ensemble de ces éléments vise à mettre en place un système de suivi de l’engagement étudiant, basé sur des indicateurs objectifs et permettant de valoriser les différentes formes de participation. La collecte de données se fera par le biais de questionnaires systématiques, et l’objectif est de générer des informations pertinentes pour la gestion des ressources et la promotion de l’activité associative.

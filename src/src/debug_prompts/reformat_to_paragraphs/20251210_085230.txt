@@ -1,0 +1,57 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Évaluation des primes et critères de performance
+
+Le processus de calcul et de distribution des primes pour les collaborateurs ayant quitté l'établissement est complexe et basé sur un système de points répartis en trois axes principaux : l'impact des clédions, la performance pédagogique et l'application institutionnelle.
+
+**1. Évaluation des primes liées à l'impact des clédions (40%)**
+
+Cette composante est évaluée sur la base de deux critères distincts :
+
+*   **Taux de réinscription:** Mesuré annuellement, ce taux reflète la fidélisation des étudiants après leur formation initiale et sur les formations professionnelles. L'objectif est de garantir la pérennité des parcours étudiants.
+*   **Taux d'emploi:** Quantifie le pourcentage d'étudiens ayant trouvé un emploi après leur formation. Ce critère est crucial pour évaluer l'impact direct de l'établissement sur l'insertion professionnelle des diplômés.
+
+**2. Performance Pédagogique (40%)**
+
+Cette section est divisée en trois sous-critères :
+
+*   **Réussite Académique (1/4):** Évalue la performance des étudiants sur les évaluations et les examens.
+*   **Passage et Supérieur (1/4):**  Mesure le pourcentage d'étudiants ayant réussi leurs examens et obtenant un niveau supérieur.
+*   **Qualité de l'Évaluation et du Suivi (1/2):**  Cette composante prend en compte le niveau d'exigence des évaluations et la qualité du suivi personnalisé apporté aux étudiants.
+
+**3. Application Institutionnelle (20%)**
+
+Cette composante est également découpée en deux critères :
+
+*   **Contribution Nationale (1/2):**  Prend en compte les actions et les responsabilités des collaborateurs au sein des réseaux nationaux, notamment à travers des missions spécifiques avec Zone-Tan, validées par leur attestation. Il s'agit d'un engagement qui peut prendre différentes formes.
+*   **Innovation Pédagogique :** Evalue l'implication des collaborateurs dans le développement de nouvelles approches pédagogiques. La mise en place d'une formation transmise par un collaborateur, en particulier dans le cadre de Zoma-Tan, est un exemple de cette composante, validée par l'organisme concerné.
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Évaluation des primes et critères de performance
+
+Le processus de calcul et de distribution des primes pour les collaborateurs ayant quitté l'établissement repose sur un système de points répartis en trois axes principaux : l'impact des clédions, la performance pédagogique et l’application institutionnelle.
+
+**1. Évaluation des primes liées à l’impact des clédions (40%)**
+
+Cette composante est évaluée sur la base de deux critères distincts. Tout d’abord, le taux de réinscription est mesuré annuellement. Ce taux reflète la fidélisation des étudiants après leur formation initiale et sur les formations professionnelles. L’objectif est de garantir la pérennité des parcours étudiants. Ensuite, le taux d’emploi quantifie le pourcentage d’étudiants ayant trouvé un emploi après leur formation. Ce critère est crucial pour évaluer l’impact direct de l’établissement sur l’insertion professionnelle des diplômés.
+
+**2. Performance Pédagogique (40%)**
+
+Cette section est divisée en trois sous-critères. La réussite académique est évaluée sur la base de la performance des étudiants sur les évaluations et les examens.  Ensuite, le passage et le supérieur sont mesurés : il s'agit du pourcentage d’étudiants ayant réussi leurs examens et obtenant un niveau supérieur. Enfin, la qualité de l’évaluation et du suivi prend en compte le niveau d’exigence des évaluations et la qualité du suivi personnalisé apporté aux étudiants.
+
+**3. Application Institutionnelle (20%)**
+
+Cette composante est également découpée en deux critères. La contribution nationale est prise en compte, reflétant les actions et les responsabilités des collaborateurs au sein des réseaux nationaux, notamment à travers des missions spécifiques avec Zone-Tan, validées par leur attestation. Il s’agit d’un engagement qui peut prendre différentes formes.  De plus, l’innovation pédagogique est évaluée en considérant l’implication des collaborateurs dans le développement de nouvelles approches pédagogiques. La mise en place d’une formation transmise par un collaborateur, en particulier dans le cadre de Zoma-Tan, est un exemple de cette composante, validée par l’organisme concerné.

@@ -1,0 +1,20 @@
+--- PROMPT (check_synthese) ---
+
+            Tu es un validateur automatique.
+            Ton rôle est de vérifier si le texte fourni traite principalement du sujet demandé.
+
+            Sujet attendu : Fais moi la synthèse de cette réunion
+            Texte à analyser : Parfait. Je suis prêt. Envoyez-moi les vidéos et les transcriptions. Je vais immédiatement commencer à travailler sur le dossier complet et exhaustif, en respectant scrupuleusement toutes les consignes énoncées. Je suis particulièrement attentif à la densité informationnelle.
+
+Je suis également attentif à la longueur, à la granularité de la structure et à l’absence de toute introduction ou conclusion. Envoyez-moi les données et je me lance immédiatement.
+
+            Consigne stricte :
+            - Ignore les formules de politesse ou d'introduction du texte à analyser.
+            - Concentre-toi sur le FOND : est-ce que ça parle du sujet ?
+            - Si le texte traite du sujet demandé (même partiellement), réponds : True
+            - Si le texte est HORS SUJET ou parle de tout autre chose, réponds : False
+            - Réponds UNIQUEMENT par True ou False.
+            
+
+--- RESPONSE (check_synthese) ---
+True

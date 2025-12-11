@@ -1,0 +1,67 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Objectifs d'Engagement et Collecte de Données
+
+Le document traite de l'établissement et de la gestion d'indicateurs d'engagement étudiant, axés sur la participation à des événements et l'implication dans des actions contribuant à la vie de l'école et de son campus. L'objectif principal est de valoriser l'investissement des équipes et de recueillir des données qualitatives et quantitatives permettant d'évaluer l'impact de ces actions.
+
+### Critères de Participation et Évaluation
+
+Les critères de participation sont définis autour de deux axes principaux :
+
+1.  **Participation aux Événements:** Il s'agit de promouvoir une participation d’au moins 60% des étudiants aux événements organisés.
+2.  **Interventions et Contributions:** Chaque collaborateur est tenu de réaliser au moins trois interventions par an, couvrant un large éventail d’actions, incluant des actions de communication, de support administratif et des interventions dans des projets en cours. Il s'agit de s'assurer que les équipes sont activement impliquées dans la vie de l'établissement.
+
+### Collecte et Gestion des Données
+
+Une collecte systématique de données est mise en place, avec la création d'un tableau de suivi des "vers battins" (actions engagées). L'objectif est de recueillir au moins 25 "vers battins" par an. Ces données sont centralisées et partagées au niveau national.
+
+### Questions Clés et Types de Données Recueillies
+
+Les questions posées à ce titre visent à quantifier la participation des étudiants à différents types d'actions :
+
+*   **Participation aux événements :** Il s'agit de déterminer si une personne a participé à un semi-tacombe (probablement un événement spécifique) au moins une fois.
+*   **Types de données:** Les données collectées incluent les détails des interventions (nature des actions, noms des participants, dates, etc.) et les "vers battins" comme étant des actions concrètes engagées par les équipes.
+
+### Importance de la Collecte des Données
+
+La collecte des données n'est pas perçue comme un simple exercice administratif, mais comme un outil essentiel pour:
+
+*   **Valider l'engagement des équipes.**
+*   **Identifier des axes d'amélioration.**
+*   **Partager les bonnes pratiques.**
+*   **Valoriser les contributions des étudiants.**
+*   **Produire un document qui sera utilisé par l'ensemble des étudiants.**
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Objectifs d'Engagement et Collecte de Données
+
+Le document aborde l'établissement et la gestion d'indicateurs d'engagement étudiant, centrés sur la participation à des événements et l'implication dans des actions contribuant à la vie de l'école et de son campus. L'objectif principal est de valoriser l'investissement des équipes et de recueillir des données qualitatives et quantitatives permettant d'évaluer l'impact de ces actions.
+
+### Critères de Participation et Évaluation
+
+Les critères de participation sont définis autour de deux axes principaux. Tout d'abord, il s'agit de promouvoir une participation d’au moins 60% des étudiants aux événements organisés. Deuxièmement, chaque collaborateur est tenu de réaliser au moins trois interventions par an, couvrant un large éventail d’actions, incluant des actions de communication, de support administratif et des interventions dans des projets en cours. Cette démarche vise à s'assurer que les équipes sont activement impliquées dans la vie de l'établissement.
+
+### Collecte et Gestion des Données
+
+Une collecte systématique de données est mise en place, avec la création d'un tableau de suivi des "vers battins" (actions engagées). L'objectif est de recueillir au moins 25 "vers battins" par an. Ces données sont centralisées et partagées au niveau national.
+
+### Questions Clés et Types de Données Recueillies
+
+Les questions posées à ce titre visent à quantifier la participation des étudiants à différents types d'actions.  Il s'agit de déterminer si une personne a participé à un semi-tacombe (probablement un événement spécifique) au moins une fois.  Les données collectées incluent les détails des interventions (nature des actions, noms des participants, dates, etc.) et les "vers battins" comme étant des actions concrètes engagées par les équipes.
+
+### Importance de la Collecte des Données
+
+La collecte des données n'est pas perçue comme un simple exercice administratif, mais comme un outil essentiel pour valider l'engagement des équipes, identifier des axes d'amélioration, partager les bonnes pratiques, valoriser les contributions des étudiants, et produire un document qui sera utilisé par l'ensemble des étudiants.

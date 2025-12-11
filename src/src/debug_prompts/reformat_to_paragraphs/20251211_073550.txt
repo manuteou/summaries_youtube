@@ -1,0 +1,69 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici l'extraction du texte de la réunion, respectant les règles de fidélité et les objectifs fixés :
+
+**Décisions Actées:**
+
+*   **Objectifs Globaux:**
+    *   20% d'objectifs communs (pour les métiers)
+    *   80% d'objectifs métiers
+*   **Répartition des Objectifs Métiers:**
+    *   Divisés en trois actes : impact des pudions, performance pédagogique, impact institutionnel.
+    *   L'impact institutionnel se divise en 40% et 20%
+*   **Calcul de la prime objective:**
+    *   Niveau de performance sous 60 : niveau insuffisant.
+    *   Niveau de performance entre 60 et 69: niveau attendu.
+*   **Répartition des critères de fidélisation :**
+    *   La fidélisation est définie par le Directeur de campus.
+    *   La fidélisation est appliquée au niveau des salariés de l'équipe pédagogique.
+    *   Définition des responsabilités : Certains pédagogues sont attribués à des programmes spécifiques (Pg1, Pg2, Pg3).
+* **Répartition des responsabilités entre les équipes pédagogiques et les salariés**
+
+**Points de Blocage / Problèmes Soulevés:**
+
+*   **Manque de clarté sur les objectifs métiers :** Nécessité de préciser les objectifs métiers.
+*   **Définition des critères de fidélisation à définir par le Directeur de campus.**
+*   **Prise en compte des cas spécifiques:** Nécessité de traiter les cas individuels.
+*   **Prise en compte des cas exceptionnels :** Nécessité de prendre en compte des situations particulières.
+*   **Clarification du rôle des directions pédagogiques :** Définition du périmètre de responsabilités des directions pédagogiques.
+*   **Prise en compte des cas spécifiques :** Nécessité de traiter les cas individuels.
+*   **Prise en compte des cas exceptionnels :** Nécessité de traiter les cas individuels.
+
+**Actions Futures:**
+
+*   **Définir les objectifs métiers.** (À faire : à déterminer)
+*   **Définir les critères de fidélisation** (à déterminer)
+*   **Déterminer les affectations des pédagogues aux programmes.** (à déterminer)
+*   **Suivi des cas individuels:**  Prise en compte des cas spécifiques.
+*   **Communication des informations à tous les acteurs concernés.** (Dès le début pour tous les cas)
+*   **La lettre de oblétat,** sera diffusée. (A envoyer en Octobre)
+*   **Planification des actions futures :**  Revoir les points.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+Voici l'extraction du texte de la réunion, respectant les règles de fidélité et les objectifs fixés :
+
+**Décisions Actées:**
+
+Les objectifs globaux se répartissent en 20% d'objectifs communs, destinés aux métiers, et 80% d'objectifs métiers spécifiques. La répartition des objectifs métiers est structurée en trois actes : l'impact des pudions, la performance pédagogique et l'impact institutionnel.  L'impact institutionnel est lui-même divisé en 40% et 20%. Le niveau de performance détermine le statut : un niveau insuffisant est attribué aux performances inférieures à 60, tandis qu'un niveau attendu est appliqué aux performances entre 60 et 69.  La fidélisation est définie par le Directeur de campus et s'applique aux salariés de l'équipe pédagogique, avec des responsabilités attribuées à certains pédagogues, affectés à des programmes spécifiques tels que Pg1, Pg2 et Pg3.
+
+**Points de Blocage / Problèmes Soulevés:**
+
+Il existe plusieurs points de blocage. La première concerne le manque de clarté sur les objectifs métiers, nécessitant une précision. Ensuite, la définition des critères de fidélisation doit être formalisée par le Directeur de campus.  Il est également nécessaire de prendre en compte des cas individuels spécifiques et des situations exceptionnelles. Enfin, il est primordial de clarifier le rôle et le périmètre de responsabilités des directions pédagogiques.
+
+**Actions Futures:**
+
+Les actions futures consistent à définir les objectifs métiers, à déterminer les critères de fidélisation, à assigner les pédagogues aux programmes spécifiques (Pg1, Pg2, Pg3), à assurer un suivi attentif des cas individuels, à communiquer les informations à tous les acteurs concernés dès le début pour tous les cas, à diffuser la lettre de oblétat en octobre, et à planifier une revue des points.

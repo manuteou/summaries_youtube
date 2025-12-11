@@ -1,9 +1,11 @@
 from typing import List
 import re
 import time
+import os
+from datetime import datetime
 from tqdm import tqdm
 
-from utils import write_data
+from utils import write_data, slugify
 
 class Summarizer:
     def __init__(self, client, model: str, prompt_manager, summary_type: str = "short"):
@@ -19,7 +21,40 @@ class Summarizer:
             return 20000
         elif self.summary_type == "news":
             return 15000
+        elif self.summary_type == "meeting":
+            return 12000
         return 6000
+
+    def _chat_and_log(self, prompt: str, context_name: str, options: dict) -> dict:
+        """
+        Helper method to chat with the model and log the interaction.
+        """
+        response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}], options=options)
+        
+        # Logging logic
+        try:
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            safe_context = slugify(context_name)
+            debug_dir = os.path.join("src", "debug_prompts", safe_context)
+            os.makedirs(debug_dir, exist_ok=True)
+            
+            filename = f"{timestamp}.txt"
+            file_path = os.path.join(debug_dir, filename)
+            
+            content_to_log = f"""
+--- PROMPT ({context_name}) ---
+{prompt}
+
+--- RESPONSE ({context_name}) ---
+{response.get('message', {}).get('content', '')}
+"""
+            with open(file_path, "w", encoding="utf-8") as f:
+                f.write(content_to_log.strip())
+                
+        except Exception as e:
+            print(f"Error logging debug info: {e}")
+            
+        return response
 
     def generate_global_analysis(self, text: str) -> str:
         prompt = f"""
@@ -38,24 +73,24 @@ class Summarizer:
         - Pas d'hallucinations.
         - Ne pas utiliser "Compte-Rendu Exhaustif".
         """
-        response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}], options={"num_ctx": 8192, "num_predict":-1})
+        response = self._chat_and_log(prompt=prompt, context_name="generate_global_analysis", options={"num_ctx": 8192, "num_predict":-1})
         return self._reformat_to_paragraphs(response["message"]["content"])
 
     def summarize_chunk(self, text: str) -> str:
         prompt = self.prompt_manager.get_prompt(self.summary_type, "chunk", text)
-        response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}], options={"num_ctx": 8192, "num_predict":-1})
+        response = self._chat_and_log(prompt=prompt, context_name="summarize_chunk", options={"num_ctx": 8192, "num_predict":-1})
         return self._reformat_to_paragraphs(response["message"]["content"])
 
 
     def summarize_text(self, text: str, author: str) -> str:
         prompt = self.prompt_manager.get_prompt(self.summary_type, "full_text", text)
-        response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}], options={"num_ctx": 8192, "num_predict":-1})
+        response = self._chat_and_log(prompt=prompt, context_name="summarize_text", options={"num_ctx": 8192, "num_predict":-1})
         return self._reformat_to_paragraphs(response["message"]["content"])
 
 
     def summarize_multi_texts(self, search: str, text: str) -> str:
         prompt = self.prompt_manager.get_prompt(self.summary_type, "multi", {'search': search, 'content': text})
-        response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}], options={"num_ctx": 8192, "num_predict":-1})
+        response = self._chat_and_log(prompt=prompt, context_name="summarize_multi_texts", options={"num_ctx": 8192, "num_predict":-1})
         return self._reformat_to_paragraphs(response["message"]["content"])
 
 
@@ -80,7 +115,7 @@ class Summarizer:
         """
         
         try:
-            response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}], options={"num_ctx": 8192, "num_predict":-1})
+            response = self._chat_and_log(prompt=prompt, context_name="reformat_to_paragraphs", options={"num_ctx": 8192, "num_predict":-1})
             return response["message"]["content"].strip()
         except Exception as e:
             print(f"Error in LLM reformat: {e}")
@@ -108,7 +143,7 @@ class Summarizer:
 
             FORMATAGE UNIQUEMENT. COMMENCE MAINTENANT.
             """
-        response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}], options={"num_ctx": 8192, "num_predict":-1})
+        response = self._chat_and_log(prompt=prompt, context_name="enhance_markdown", options={"num_ctx": 8192, "num_predict":-1})
         return self._reformat_to_paragraphs(response["message"]["content"])
 
 
@@ -127,7 +162,7 @@ class Summarizer:
             - Si le texte est HORS SUJET ou parle de tout autre chose, réponds : False
             - Réponds UNIQUEMENT par True ou False.
             """
-        response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}], options={"num_ctx": 8192, "num_predict":-1})
+        response = self._chat_and_log(prompt=prompt, context_name="check_synthese", options={"num_ctx": 8192, "num_predict":-1})
         return response["message"]["content"]
 
 
@@ -148,6 +183,18 @@ class Summarizer:
     def sumarize_part_chunk(self, text):
         chunks = self.chunk_text(text)
         partial_summaries = []
+        
+        # Log chunks for debug
+        try:
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            chunks_dir = os.path.join("src", "debug_prompts", "raw_chunks", timestamp)
+            os.makedirs(chunks_dir, exist_ok=True)
+            for i, c in enumerate(chunks):
+                with open(os.path.join(chunks_dir, f"chunk_{i+1}.txt"), "w", encoding="utf-8") as f:
+                    f.write(c)
+        except Exception as e:
+            print(f"Error logging chunks: {e}")
+
         for chunk in tqdm(chunks, desc="Analyse des chunks", unit="chunk"):
             summary = self.summarize_chunk(chunk)
             partial_summaries.append(summary)
@@ -188,5 +235,5 @@ class Summarizer:
         - PAS de méta-commentaires ("Voici le texte modifié", "J'ai appliqué...").
         - SORTIE PURE : Uniquement le nouveau texte.
         """
-        response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}], options={"num_ctx": 8192, "num_predict":-1})
+        response = self._chat_and_log(prompt=prompt, context_name="refine_summary", options={"num_ctx": 8192, "num_predict":-1})
         return self._reformat_to_paragraphs(response["message"]["content"])

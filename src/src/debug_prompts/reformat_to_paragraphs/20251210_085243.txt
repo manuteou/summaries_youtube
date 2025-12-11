@@ -1,0 +1,95 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Organisation Globale du Système de Fidélisation et de Suivi
+
+Le système de fidélisation et de suivi des étudiants repose sur une approche multidimensionnelle, visant à évaluer la performance des pédagogues et de l'équipe pédagogique à travers plusieurs indicateurs. Il s'articule autour de trois axes principaux : la performance des étudiants, la satisfaction des étudiants, et l'impact des activités pédagogiques. L'objectif est d'assurer une mutualisation des ressources et de l'expertise au sein des équipes pédagogiques, particulièrement dans un contexte de campus segmenté.
+
+### Critères d'Évaluation des Pédagogues
+
+L'évaluation des pédagogues est basée sur le suivi de N promocs, avec une analyse proportionnelle des résultats obtenus sur chaque critère. Le système prend en compte les résultats des étudiants pour chaque promotion. En cas d'atteinte de l'objectif sur N promocs, l'évaluation est considérée comme réussie (1 sur N). Si l'objectif n'est atteint que sur une seule promotion (1 sur N), l'évaluation est considérée comme non-atteinte (0%). L'évaluation est réalisée annuellement pour les pédagogues chargés de suivre les étudiants de première à troisième année, et à la fin de la première année pour les bâches.
+
+### Indicateurs de Performance
+
+Les indicateurs utilisés pour mesurer la performance sont les suivants :
+
+1.  **Performance des Étudiants :**
+    *   **Taux de fidélisation :** Il est calculé en distinguant deux types d'étudiants :
+        *   **Étudiants fidélisés :** Ceux qui sont inscrits en semaine de 45 heures annuelles.
+        *   **Étudiants réinscrits :** Ceux qui sont réinscrits au premier octobre de l'année L (ex: 2025). Un étudiant qui se déscrit avant la semaine 45 est considéré comme "hors scope" et n'entre pas dans le calcul de la fidélisation.
+    *   **Niveau de réussite :** Le taux de réussite est mesuré en pourcentage pour chaque année d'études (première, deuxième, troisième, quatrième).
+    *   **Taux de mise à l'emploi :** Pour les bâches, le taux de mise à l'emploi est évalué à l'issue du stage (en mai pour les bâches de l'or, en septembre pour les pédagogues).
+2.  **Satisfaction des Étudiants :**
+    *   **Sondages :** Des sondages sont menés à la fin de chaque semestre pour la première année, et à la fin de l'année pour les autres années. Ces sondages portent sur des critères tels que :
+        *   La qualité des échanges avec l'équipe pédagogique et l'équipe administrative.
+        *   Le niveau de disponibilité de l'équipe pédagogique et de l'équipe administrative.
+    *   **Fréquence des Réponses :**  Un seuil de participation de plus de 60% est requis pour que les résultats des sondages soient pris en considération. En dessous de ce seuil, les données sont considérées comme non représentatives des opinions des étudiants et ne sont pas utilisées pour l'évaluation.
+3.  **Impact des Activités Pédagogiques :**
+    *   **Suivi des MSC (Mission Spéciale Campus):**
+        *   **MSC1:**  Se concentre sur le semestre 7 et est externalisé.
+        *   **MSC2:**  Le deuxième semestre est externalisé.  L'intervention interne est limitée.
+
+### Particularités et Considérations Spécifiques
+
+*   **Campus Segmenté:** En raison de la taille et de la segmentation du campus, des adaptations sont nécessaires.
+*   **Non-Standardisation :**  Il n'y a pas de standardisation des évaluations car la proportion des étudiants dans les différentes promotions est variable.
+*   **Collecte de Données Intermédiaires :** Des sondages intermédiaires sont organisés pour obtenir une projection indicative de la situation.
+*   **Prise en Compte des Réparties des Responsabilités :** Les responsabilités sont répartition entre les équipes et les salariés, notamment pour la gestion des promos.
+*   **Priorité à l'Ensemble des Étudiants:** L'objectif est de garantir la prise en charge de chaque étudiant, même si le pédagogue n'est pas au courant de son cursus.
+*   **Évaluation par Promotion :** L'évaluation se fait par promotion, car les résultats varient considérablement entre les promotions.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Organisation Globale du Système de Fidélisation et de Suivi
+
+Le système de fidélisation et de suivi des étudiants repose sur une approche multidimensionnelle, visant à évaluer la performance des pédagogues et de l'équipe pédagogique à travers plusieurs indicateurs. Il s'articule autour de trois axes principaux : la performance des étudiants, la satisfaction des étudiants, et l'impact des activités pédagogiques. L'objectif est d'assurer une mutualisation des ressources et de l'expertise au sein des équipes pédagogiques, particulièrement dans un contexte de campus segmenté.
+
+### Critères d’Évaluation des Pédagogues
+
+L’évaluation des pédagogues est basée sur le suivi de N promocs, avec une analyse proportionnelle des résultats obtenus sur chaque critère. Le système prend en compte les résultats des étudiants pour chaque promotion. En cas d’atteinte de l’objectif sur N promocs, l’évaluation est considérée comme réussie (1 sur N). Si l’objectif n’est atteint que sur une seule promotion (1 sur N), l’évaluation est considérée comme non-atteinte (0%). L’évaluation est réalisée annuellement pour les pédagogues chargés de suivre les étudiants de première à troisième année, et à la fin de la première année pour les bâches.
+
+### Indicateurs de Performance
+
+Les indicateurs utilisés pour mesurer la performance sont les suivants :
+
+1.  **Performance des Étudiants :**
+
+    *   **Taux de fidélisation :** Il est calculé en distinguant deux types d’étudiants :
+        *   **Étudiants fidélisés :** Ceux qui sont inscrits en semaine de 45 heures annuelles.
+        *   **Étudiants réinscrits :** Ceux qui sont réinscrits au premier octobre de l'année L (ex : 2025). Un étudiant qui se désinscrit avant la semaine 45 est considéré comme "hors scope" et n’entre pas dans le calcul de la fidélisation.
+    *   **Niveau de réussite :** Le taux de réussite est mesuré en pourcentage pour chaque année d’études (première, deuxième, troisième, quatrième).
+    *   **Taux de mise à l’emploi :** Pour les bâches, le taux de mise à l’emploi est évalué à l’issue du stage (en mai pour les bâches de l’or, en septembre pour les pédagogues).
+
+2.  **Satisfaction des Étudiants :**
+
+    *   **Sondages :** Des sondages sont menés à la fin de chaque semestre pour la première année, et à la fin de l’année pour les autres années. Ces sondages portent sur des critères tels que :
+        *   La qualité des échanges avec l’équipe pédagogique et l’équipe administrative.
+        *   Le niveau de disponibilité de l’équipe pédagogique et de l’équipe administrative.
+    *   **Fréquence des Réponses :** Un seuil de participation de plus de 60% est requis pour que les résultats des sondages soient pris en considération. En dessous de ce seuil, les données sont considérées comme non représentatives des opinions des étudiants et ne sont pas utilisées pour l’évaluation.
+
+3.  **Impact des Activités Pédagogiques :**
+
+    *   **Suivi des MSC (Mission Spéciale Campus) :**
+        *   **MSC1 :** Se concentre sur le semestre 7 et est externalisé.
+        *   **MSC2 :** Le deuxième semestre est externalisé. L’intervention interne est limitée.
+
+### Particularités et Considérations Spécifiques
+
+*   **Campus Segmenté :** En raison de la taille et de la segmentation du campus, des adaptations sont nécessaires.
+*   **Non-Standardisation :** Il n’y a pas de standardisation des évaluations car la proportion des étudiants dans les différentes promotions est variable.
+*   **Collecte de Données Intermédiaires :** Des sondages intermédiaires sont organisés pour obtenir une projection indicative de la situation.
+*   **Prise en Compte des Répartitions des Responsabilités :** Les responsabilités sont répartition entre les équipes et les salariés, notamment pour la gestion des promos.
+*   **Priorité à l’Ensemble des Étudiants :** L’objectif est de garantir la prise en charge de chaque étudiant, même si le pédagogue n’est pas au courant de son cursus.
+*   **Évaluation par Promotion :** L’évaluation se fait par promotion, car les résultats varient considérablement entre les promotions.

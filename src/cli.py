@@ -231,7 +231,7 @@ def main():
     parser.add_argument("--manual", action="store_true", help="Mode saisie manuelle de vidéos")
     args = parser.parse_args()
 
-    list_path = ["./audio_segments", "./chunk_data", "./segments_text"]
+    list_path = ["./audio_segments", "./chunk_data"]
     clean_files(list_path)
 
     try:

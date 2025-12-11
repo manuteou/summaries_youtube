@@ -1,0 +1,67 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Stratégie Globale de Recrutement des Candidats en Stage de Seconde
+
+L'objectif principal est d'optimiser le processus de recrutement des candidats en stage de seconde, en particulier en termes de volume de contacts et de qualité des prospects. Cette stratégie repose sur plusieurs axes d'action pour maximiser l'efficacité du processus.
+
+### Optimisation des Contacts et du CRM
+
+*   **Volume de Contacts Massif:** Une approche de contact à grande échelle est privilégiée, impliquant le contact de tous les candidats, sans exception. L'objectif est de constituer un volume conséquent de prospects.
+*   **Suivi Rigoureux dans le CRM:** Tous les candidats sont intégrés au CRM. Le suivi des interactions est primordial, notamment l'enregistrement de l'état de chaque contact (appelé, suivi, etc.).
+*   **Indicateur Clé : Nombre de Prospects Intégrés au CRM :** La mesure la plus importante est le nombre de prospects intégrés au CRM. Il est considéré comme l'indicateur clé de succès.
+
+### Analyse des Objectifs des Stages
+
+*   **Évaluation de la Qualité des Prospects :** Une évaluation approfondie est réalisée pour déterminer la qualité des prospects, au-delà du simple nombre de contacts. Les critères incluent l'intérêt pour l'informatique, le niveau de motivation et le potentiel d'orientation.
+*   **Objectifs Spécifiques des Stages :** Des objectifs spécifiques sont définis pour chaque stage, incluant des mesures quantitatives (taux de fréquentation des salons, nombre de candidatures reçues) et qualitatives (évaluation de l'engagement des étudiants).
+*   **Identification des "Gros" Objectifs:** L'objectif principal est d'identifier les "gros" prospects, ceux qui correspondent aux critères de qualité et qui présentent un fort potentiel.
+
+### Actions Pratiques et Opérations
+
+*   **Création d'un Fichier Excel Partagé :** Un fichier Excel est créé et partagé pour centraliser les informations relatives aux candidats et aux stages. Ce fichier est régulièrement mis à jour.
+*   **Automatisation de la Saisie de Données :** Un processus d'automatisation est mis en place pour la saisie des données dans le fichier Excel. Cela inclut la création de règles pour l'enregistrement automatique des informations.
+*   **Suivi Manuel des Appels :** Bien que la saisie des données soit automatisée, le suivi manuel des appels est essentiel pour enregistrer les conversations et les décisions prises.
+*   **Utilisation du Fichier Excel pour le Suivi des Candidats:** Le fichier Excel est utilisé pour suivre l'état de chaque candidat et pour identifier les prospects potentiels.
+*   **"Cheats" :** L'utilisation de "cheats" (notes, astuces) est mentionnée, suggérant des stratégies spécifiques pour le suivi des candidats et l'optimisation des conversations.
+*   **Attente des Résultats:** Il y a une attention particulière portée aux résultats, notamment en attendant la "date décisive" et en surveillant l'évolution des données.
+
+### Précautions et Contraintes
+
+*   **Gestion des Données :** Une attention particulière est accordée à la gestion des données, notamment à la validation et à la mise à jour des informations.
+*   **Communication Claire et Précise :** Il est essentiel de communiquer de manière claire et précise pour éviter les malentendus et les erreurs.
+*   **Prise en Compte des Contraintes :** Il est reconnu qu'il existe des contraintes dans le processus, notamment l'absence de contrôle direct sur les résultats des candidats.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Stratégie Globale de Recrutement des Candidats en Stage de Seconde
+
+L'objectif principal est d'optimiser le processus de recrutement des candidats en stage de seconde, en particulier en termes de volume de contacts et de qualité des prospects. Cette stratégie repose sur plusieurs axes d'action pour maximiser l'efficacité du processus.
+
+### Optimisation des Contacts et du CRM
+
+Une approche de contact à grande échelle est privilégiée, impliquant le contact de tous les candidats, sans exception. L'objectif est de constituer un volume conséquent de prospects. Tous les candidats sont intégrés au CRM. Le suivi des interactions est primordial, notamment l'enregistrement de l'état de chaque contact (appelé, suivi, etc.). L'indicateur clé est le nombre de prospects intégrés au CRM, considéré comme un repère de succès.
+
+### Analyse des Objectifs des Stages
+
+Une évaluation approfondie est réalisée pour déterminer la qualité des prospects, au-delà du simple nombre de contacts. Les critères incluent l'intérêt pour l'informatique, le niveau de motivation et le potentiel d'orientation. Des objectifs spécifiques sont définis pour chaque stage, incluant des mesures quantitatives (taux de fréquentation des salons, nombre de candidatures reçues) et qualitatives (évaluation de l'engagement des étudiants). L'objectif principal est d'identifier les "gros" prospects, ceux qui correspondent aux critères de qualité et qui présentent un fort potentiel.
+
+### Actions Pratiques et Opérations
+
+Un fichier Excel est créé et partagé pour centraliser les informations relatives aux candidats et aux stages. Ce fichier est régulièrement mis à jour. Un processus d'automatisation est mis en place pour la saisie des données dans le fichier Excel, incluant la création de règles pour l'enregistrement automatique des informations. Bien que la saisie des données soit automatisée, le suivi manuel des appels est essentiel pour enregistrer les conversations et les décisions prises. Le fichier Excel est utilisé pour suivre l'état de chaque candidat et pour identifier les prospects potentiels. L'utilisation de "cheats" (notes, astuces) est mentionnée, suggérant des stratégies spécifiques pour le suivi des candidats et l'optimisation des conversations. Il y a une attention particulière portée aux résultats, notamment en attendant la "date décisive" et en surveillant l'évolution des données.
+
+### Précautions et Contraintes
+
+Une attention particulière est accordée à la gestion des données, notamment à la validation et à la mise à jour des informations. Il est essentiel de communiquer de manière claire et précise pour éviter les malentendus et les erreurs. Il est reconnu qu'il existe des contraintes dans le processus, notamment l'absence de contrôle direct sur les résultats des candidats.

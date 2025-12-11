@@ -1,0 +1,56 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Gestion des arrivées de nouveaux collaborateurs et objectifs
+
+La discussion porte sur l’organisation de la gestion des arrivées de nouveaux collaborateurs au sein d’une équipe, en particulier en ce qui concerne l’attribution et le suivi des objectifs. Plusieurs points clés sont soulevés.
+
+### Délais d’intégration et attribution d’objectifs
+
+Il est souligné que l’attribution d’objectifs à un nouveau collaborateur qui rejoint l’équipe en milieu d’année (par exemple, en avril) est problématique. Le nouveau membre de l’équipe n’a pas bénéficié d’un temps d’adaptation initial, ni d’un “période d’essai” dans le sens traditionnel. L'objectif est de tenir compte du fait que la personne est en train de se familiariser avec l'environnement, les procédures et les membres de l’équipe. L’attribution d’objectifs est donc mise en pause jusqu’à ce que la personne ait eu le temps de s’intégrer pleinement. La période de transition s’étend typiquement jusqu’à novembre, ce qui permet au collaborateur de se familiariser avec les tâches et d’être en mesure de contribuer aux objectifs de l’équipe.
+
+### Prise en compte de la période d’essai et des objectifs initiaux
+
+Il est insisté sur le fait que la gestion des arrivées doit tenir compte de la période d’essai. Le contrat du collaborateur doit clairement définir la durée de cette période et les attentes initiales. L'objectif est d'éviter de se concentrer uniquement sur le nouveau collaborateur, mais aussi sur ce qu'il doit accomplir, ce qui peut créer une pression excessive au démarrage. Il faut donc, de façon précise, en tenir compte.
+
+### Gestion des collaborations et des objectifs spécifiques
+
+L'équipe a identifié un défi spécifique : l’intégration d’un nouveau collaborateur qui a rejoint l’équipe après seulement trois mois. Cette situation a nécessité une ré-évaluation des objectifs et un nouveau “cadre de travail” pour le collaborateur. L’objectif est de s'assurer que le nouveau collaborateur possède un niveau de compétence adéquat, en particulier dans les domaines de l’ADM (Administration des Manuels) et du DEL (Délégation des Logements).  L'équipe a utilisé l’expertise du collaborateur à ses débuts de carrière pour l'aider à atteindre ses objectifs.
+
+### Clarification des contrats et des responsabilités
+
+Il est également souligné la nécessité d'une documentation claire et précise au sein des contrats. Cette documentation doit inclure les attentes concernant la période d’essai, les objectifs initiaux et la manière dont les objectifs seront évalués. Cette clarification permet d’éviter les ambiguïtés et de garantir que les deux parties comprennent leurs responsabilités respectives.  Il est important de se référer au contrat pour se confirmer qu'il y a une base documentaire.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Gestion des arrivées de nouveaux collaborateurs et objectifs
+
+La discussion porte sur l’organisation de la gestion des arrivées de nouveaux collaborateurs au sein d’une équipe, en particulier en ce qui concerne l’attribution et le suivi des objectifs. Plusieurs points clés sont soulevés.
+
+### Délais d’intégration et attribution d’objectifs
+
+Il est souligné que l’attribution d’objectifs à un nouveau collaborateur qui rejoint l’équipe en milieu d’année (par exemple, en avril) est problématique. Le nouveau membre de l’équipe n’a pas bénéficié d’un temps d’adaptation initial, ni d’une période d’essai dans le sens traditionnel. L’objectif est de tenir compte du fait que la personne est en train de se familiariser avec l’environnement, les procédures et les membres de l’équipe. L’attribution d’objectifs est donc mise en pause jusqu’à ce que la personne ait eu le temps de s’intégrer pleinement. Cette période de transition s’étend typiquement jusqu’à novembre, ce qui permet au collaborateur de se familiariser avec les tâches et d’être en mesure de contribuer aux objectifs de l’équipe.
+
+### Prise en compte de la période d’essai et des objectifs initiaux
+
+Il est insisté sur le fait que la gestion des arrivées doit tenir compte de la période d’essai. Le contrat du collaborateur doit clairement définir la durée de cette période et les attentes initiales. L’objectif est d’éviter de se concentrer uniquement sur le nouveau collaborateur, mais aussi sur ce qu’il doit accomplir, ce qui peut créer une pression excessive au démarrage. Il faut donc, de façon précise, en tenir compte.
+
+### Gestion des collaborations et des objectifs spécifiques
+
+L’équipe a identifié un défi spécifique : l’intégration d’un nouveau collaborateur qui a rejoint l’équipe après seulement trois mois. Cette situation a nécessité une ré-évaluation des objectifs et un nouveau “cadre de travail” pour le collaborateur. L’objectif est de s’assurer que le nouveau collaborateur possède un niveau de compétence adéquat, en particulier dans les domaines de l’ADM (Administration des Manuels) et du DEL (Délégation des Logements). L’équipe a utilisé l’expertise du collaborateur à ses débuts de carrière pour l’aider à atteindre ses objectifs.
+
+### Clarification des contrats et des responsabilités
+
+Il est également souligné la nécessité d’une documentation claire et précise au sein des contrats. Cette documentation doit inclure les attentes concernant la période d’essai, les objectifs initiaux et la manière dont les objectifs seront évalués. Cette clarification permet d’éviter les ambiguïtés et de garantir que les deux parties comprennent leurs responsabilités respectives. Il est important de se référer au contrat pour se confirmer qu'il y a une base documentaire.

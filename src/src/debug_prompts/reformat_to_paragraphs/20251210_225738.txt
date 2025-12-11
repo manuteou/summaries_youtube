@@ -1,0 +1,56 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ## Analyse du Discours : Extraction d'Informations et Substance
+
+Le texte est un monologue fragmenté et hésitant, marqué par des interruptions et des répétitions. L'analyse vise à condenser avec une densité maximale, en reproduisant fidèlement toutes les informations contenues, sans interprétation ni simplification.
+
+### Contenu Principal et Argumentation
+
+Le locuteur se présente comme une personne familière avec une interlocution (implique une discussion ou un échange). Il exprime son intention de partager une information importante, qu'il décrit comme "le premier que j'ai ouvert." Cette phrase est centrale et semble indiquer l'origine ou la révélation d'une nouvelle donnée.  L'individu insiste sur la nécessité d'une approche attentive et patiente ("avec attention et qui a ruined") pour la prise en compte de cette information. 
+
+### Interjections et Répétitions
+
+Le discours est ponctué de nombreuses interjections et répétitions, suggérant une forme d’incertitude ou d’hésitation.  La répétition de "à très tard" et "à la semaine prochaine" indique une tentative de conclusion de l'échange, sans pour autant le formaliser.  La phrase "genre, genre, genre" et "bon, genre, là"  suggère un trouble dans l'expression, une difficulté à structurer ses pensées.
+
+### Planification des Suivies et Échéances
+
+Le locuteur évoque une série de "questions" posées à une personne ou un groupe de personnes. Il promet de répondre à ces questions, indiquant une intention de suivi et d'éclaircissement. Il annonce une rencontre à venir, signalée par "à la semaine prochaine," qui semble être une échéance déterminante pour la continuation de l’échange. L’emploi du terme "genre" et la formulation imprécise de l’heure ("à très tard") laissent entrevoir une certaine incertitude quant à la planification de cette rencontre.
+
+### Conclusion
+
+En résumé, le discours décrit une situation d'échange d'informations potentiellement sensible, où une nouvelle ("le premier que j'ai ouvert") est présentée. Le locuteur met l'accent sur la nécessité d’une compréhension prudente de cette information. L'échéance de "la semaine prochaine" est donnée pour fixer une prochaine interaction.  La qualité du discours est toutefois entachée par des hésitations et des imprécisions, reflétant un état d’esprit contradictoire.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+## Analyse du Discours : Extraction d'Informations et Substance
+
+Le texte est un monologue fragmenté et hésitant, marqué par des interruptions et des répétitions. L’analyse vise à condenser avec une densité maximale, en reproduisant fidèlement toutes les informations contenues, sans interprétation ni simplification.
+
+### Contenu Principal et Argumentation
+
+Le locuteur se présente comme une personne familière avec une interlocution (implique une discussion ou un échange). Il exprime son intention de partager une information importante, qu’il décrit comme “le premier que j’ai ouvert”. Cette phrase est centrale et semble indiquer l’origine ou la révélation d’une nouvelle donnée. L’individu insiste sur la nécessité d’une approche attentive et patiente (“avec attention et qui a ruiné”) pour la prise en compte de cette information.
+
+### Interjections et Répétitions
+
+Le discours est ponctué de nombreuses interjections et répétitions, suggérant une forme d’incertitude ou d’hésitation. La répétition de “à très tard” et “à la semaine prochaine” indique une tentative de conclusion de l’échange, sans pour autant le formaliser. La phrase “genre, genre, genre” et “bon, genre, là” suggère un trouble dans l’expression, une difficulté à structurer ses pensées.
+
+### Planification des Suivies et Échéances
+
+Le locuteur évoque une série de “questions” posées à une personne ou un groupe de personnes. Il promet de répondre à ces questions, indiquant une intention de suivi et d’éclaircissement. Il annonce une rencontre à venir, signalée par “à la semaine prochaine,” qui semble être une échéance déterminante pour la continuation de l’échange. L’emploi du terme “genre” et la formulation imprécise de l’heure (“à très tard”) laissent entrevoir une certaine incertitude quant à la planification de cette rencontre.
+
+### Conclusion
+
+En résumé, le discours décrit une situation d’échange d’informations potentiellement sensible, où une nouvelle (“le premier que j’ai ouvert”) est présentée. Le locuteur met l’accent sur la nécessité d’une compréhension prudente de cette information. L’échéance de “la semaine prochaine” est donnée pour fixer une prochaine interaction. La qualité du discours est toutefois entachée par des hésitations et des imprécisions, reflétant un état d’esprit contradictoire.

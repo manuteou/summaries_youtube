@@ -42,16 +42,30 @@ class WorkflowManager:
 
     def get_video_text(self, url):
         """Extracts text from a video (subtitles or audio transcription)."""
-        # Check if it's a local file
-        if os.path.exists(url):
+        is_local = False
+        # Better heuristic for local files vs URLs
+        if os.path.exists(url) or (not url.startswith("http") and not "youtube.com" in url and not "youtu.be" in url):
+             is_local = True
+
+        if is_local:
             try:
+                if not os.path.exists(url):
+                     raise FileNotFoundError(f"Fichier local introuvable : {url}")
+
                 video_path = Path(url)
                 # Use processor to extract audio/split
                 segments = self.processor.extract_audio_from_mp4(video_path)
+                
+                if not segments:
+                     raise Exception("Aucun segment audio extrait.")
+
                 # Transcribe segments
                 texts = self.transcriber.transcribe_segments(segments)
                 result = "\n".join(texts)
                 
+                if not result.strip():
+                     raise Exception("La transcription est vide (pas de voix détectée ?).")
+
                 title = video_path.stem
                 author = "Fichier Local"
                 date = datetime.datetime.now().strftime("%Y-%m-%d")
@@ -59,19 +73,25 @@ class WorkflowManager:
                 return result, title, author, date, method
             except Exception as e:
                 print(f"Error processing local file: {e}")
-                # Fallback to default (might retry as URL or fail)
+                raise Exception(f"Échec du traitement fichier local : {e}")
 
-        code = self.processor.check_subtitles(url)
-        if code:
-            subtitles_file, title, author, date = self.processor.get_subtitles(url, code)
-            result = self.transcriber.extract_subtitles(subtitles_file)
-            method = "subtitles"
-        else:
-            audio_file, title, author, date = self.processor.download_audio(url)
-            result = self.transcriber.transcribe_audio(audio_file)
-            method = "audio"
-        
-        return result, title, author, date, method
+        # YouTube Logic (Only if NOT local)
+        try:
+            code = self.processor.check_subtitles(url)
+            if code:
+                subtitles_file, title, author, date = self.processor.get_subtitles(url, code)
+                result = self.transcriber.extract_subtitles(subtitles_file)
+                method = "subtitles"
+            else:
+                audio_file, title, author, date = self.processor.download_audio(url)
+                if not audio_file:
+                     raise Exception("Impossible de télécharger l'audio YouTube.")
+                result = self.transcriber.transcribe_audio(audio_file)
+                method = "audio"
+            
+            return result, title, author, date, method
+        except Exception as e:
+             raise Exception(f"Échec traitement YouTube : {e}")
 
     def process_single_video(self, url):
         """Processes a single video and returns the summary."""
@@ -206,50 +226,36 @@ class WorkflowManager:
         """Wrapper for processor.get_video_info"""
         return self.processor.get_video_info(url)
 
-    def synthesize_videos(self, selected_videos, search_term):
+    def synthesize_videos(self, selected_videos, search_term, title_override=None):
         """Synthesizes multiple videos into a single document."""
         texts = []
         source_info = []
         
-        # Prepare processing order
-        processing_list = selected_videos
-        
-        # If News mode, prioritizing RECENT videos is crucial.
-        # We sort them by date descending (newest first).
-        if self.summarizer.summary_type == "news":
-            # Assuming publish_date is datetime or comparable. If strings, ensure ISO format.
-            # pytubefix dates are datetime objects usually.
-            try:
-                processing_list = sorted(
-                    selected_videos, 
-                    key=lambda v: v.publish_date if v.publish_date else datetime.min, 
-                    reverse=True
-                )
-            except Exception as e:
-                # If sorting fails, stick to selection order but warn
-                print(f"Warning: Could not sort by date for News mode: {e}") 
+        for vid in selected_videos:
+            # vid is an object (YouTube or LocalVideo), not a dict
+            url = vid.watch_url
+            title = vid.title
+            summary_text, _, _ = self.process_video_path(url)
+            texts.append(f"Source: {title}\n{summary_text}")
+            source_info.append(vid)
 
-        for video in processing_list:
-            text, title, author, date, method = self.get_video_text(video.watch_url)
-            # Summarize each video individually first (long text summary)
-            video_summary = self.summarizer.summarize_long_text(text, author)
-            texts.append(f"Source : {title} (Auteur : {author}, Date: {date})\n{video_summary}")
-            source_info.append({"title": title, "url": video.watch_url, "date": video.publish_date})
-        
-        # Combine summaries
-        check = False
         final_search_term = search_term if search_term else "Synthèse Manuelle"
+        prompt_context = title_override if title_override else final_search_term
+        summary = "\n\n== Text suivant ==".join(texts)
         
-        summary = ""
-        # Iterative summarization loop (from original cli.py)
         for attempt in range(3):
-            if not check:
-                summary = "\n\n== Text suivant ==".join(texts)
-            for _ in range(2):
-                summary = self.summarizer.summarize_multi_texts(final_search_term, summary)
+            if self.summarizer.summary_type in ["meeting"]:
+                for _ in range(2):
+                    summary = self.summarizer.summarize_multi_texts(prompt_context, summary)
+                    summary = "\n\n== Text suivant ==".join(summary)
+
+            else:
+                summary = self.summarizer.summarize_multi_texts(prompt_context, summary)
             
+        
+                   
             # Check validity
-            check_valide_search = self.summarizer.check_synthese(summary, final_search_term)
+            check_valide_search = self.summarizer.check_synthese(summary, prompt_context)
             check = eval(check_valide_search)
             if check:
                 break
@@ -292,5 +298,5 @@ class WorkflowManager:
 
     def cleanup(self):
         """Cleans up temporary files."""
-        list_path = ["./audio_segments", "./chunk_data", "./segments_text"]
+        list_path = ["./audio_segments", "./chunk_data"]
         clean_files(list_path)

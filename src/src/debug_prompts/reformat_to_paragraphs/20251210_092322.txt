@@ -1,0 +1,74 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Gestion des Candidatures et des Interactions avec les Étudiants
+
+Le sujet central de cette discussion est l'optimisation de la gestion des candidatures et des interactions avec les étudiants, particulièrement concernant les étudiants de zones proches (Réunion, Mayotte).
+
+### Points Clés de Discussion
+
+1.  **Problématique des Données et des "Bêtes" (Systèmes d'Alertes)**
+    *   Il existe un nombre excessif de données, résultant en des "convulsions" de données avec des dates en septembre. Ceci conduit à des données surdimensionnées, rendant l'analyse complexe.
+    *   Les "bêtes" (systèmes d'alertes automatiques) sont souvent instantanées, mais leur utilisation est problématique car elles ne sont pas toujours préemptives et peuvent générer des flux de travail intenses.
+    *   L'objectif est de minimiser les interventions manuelles et d'optimiser la rapidité des réponses.
+
+2.  **Priorisation des Interactions et des Étudiants de Zones Proches**
+    *   Une attention particulière est portée aux étudiants résidant dans des zones proches (Réunion, Mayotte) afin de favoriser l'inclusion et de faciliter le suivi.
+    *   Il est important de repasser les messages pour éviter les oublis.
+    *   L'objectif est d'éviter d'encombrer les étudiants de ces zones.
+
+3.  **Gestion des "Bêtes" et des Alertes Instantanées**
+    *   L'utilisation des "bêtes" est perçue comme une source de surcharge et de complexité. Il faut trouver un équilibre entre la rapidité de l'alerte et la capacité de réaction.
+    *   L'objectif est d'éviter d'être submergé par des alertes instantanées.
+
+4.  **Prise en Compte des Étudiants de Zones Proches et Optimisation des Interactions**
+    *   Il est crucial de prendre en compte les spécificités des étudiants de zones proches (Réunion, Mayotte) dans la gestion des candidatures.
+    *   Les étudiants de ces zones sont priorisés pour éviter de les surcharger d'informations.
+    *   Il est recommandé de repasser les messages.
+
+5.  **Processus de Gestion des Candidatures et Rapports**
+    *   L'établissement souhaite optimiser les processus de gestion des candidatures.
+    *   Il est important de prendre en compte les données des candidatures.
+    *   La génération de rapports est un élément central.
+
+6.  **Mesures Prises et Actions Futures**
+    *   Le responsable cherche à se faire proposer un compte rendu des problèmes rencontrés, qu’il envoie à la suite d’un rendez-vous.
+    *   L'établissement envisage de s'investir dans la création de ressources (vidéos, tutoriels) pour aider les étudiants, en particulier ceux de zones proches.
+    *   Un défi est de garantir que l'accès aux informations est instantané, comme l'effet de la "bête".
+    *   Il est important d'optimiser le temps passé par les étudiants.
+
+7. **Gestion du temps et rendez-vous**
+    *   L'établissement a mis en place un outil, appelé "bête", pour se faire alerter des nouvelles demandes.
+    *   Le temps passé par le responsable est mesuré et valorisé.
+    *   Il est recommandé de ne pas dépasser 16 minutes pour les rendez-vous.
+    *   Il est important de préserver son temps, tout en étant réactif.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Gestion des Candidatures et des Interactions avec les Étudiants
+
+Le sujet central de cette discussion est l'optimisation de la gestion des candidatures et des interactions avec les étudiants, particulièrement concernant les étudiants de zones proches (Réunion, Mayotte).
+
+### Points Clés de Discussion
+
+L'établissement souhaite optimiser les processus de gestion des candidatures et de prise en compte des données des candidatures, tout en générant des rapports pertinents. Pour y parvenir, il est crucial de gérer efficacement les interactions avec les étudiants, en particulier ceux résidant dans des zones géographiques précises. Un axe central est la réduction de la surcharge d'informations et la simplification des flux de travail.
+
+L'utilisation des "bêtes" (systèmes d'alertes automatiques) est perçue comme une source de surcharge et de complexité. Il faut trouver un équilibre entre la rapidité de l'alerte et la capacité de réaction. L'objectif est d'éviter d'être submergé par des alertes instantanées, tout en garantissant une réponse rapide aux demandes des étudiants.
+
+Une attention particulière est portée aux étudiants résidant dans des zones proches (Réunion, Mayotte) afin de favoriser l’inclusion et de faciliter le suivi. Il est important de repasser les messages pour éviter les oublis et d’éviter d’encombrer ces étudiants d'informations.
+
+Le responsable cherche à se faire proposer un compte rendu des problèmes rencontrés, qu'il envoie à la suite d’un rendez-vous. L'établissement envisage de s'investir dans la création de ressources (vidéos, tutoriels) pour aider les étudiants, en particulier ceux de zones proches. Il est important d'optimiser le temps passé par les étudiants.
+
+En outre, l'établissement a mis en place un outil, appelé "bête", pour se faire alerter des nouvelles demandes. Le temps passé par le responsable est mesuré et valorisé. Il est recommandé de ne pas dépasser 16 minutes pour les rendez-vous, tout en restant réactif.

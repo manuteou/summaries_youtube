@@ -1,0 +1,80 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ## Analyse des Dispositions concernant les Primes Contractuelles et les Objectifs
+
+Cette discussion porte sur l'évaluation et la révision des critères de prime contractuelle, notamment dans le contexte de nouveaux programmes comme le Bachelor et le Campus. Plusieurs points clés ont été abordés concernant la complexité du système, les ajustements effectués, et les perspectives d'évolution.
+
+### 1.  Doublage des Primes et Objectifs
+
+Le système de prime contractuelle a été modifié pour doubler les primes des équipes. Ce doublement s'applique à 80% de la prime, qui est liée à l'atteinte d'objectifs. L'objectif est de valoriser l'effort et l'engagement des équipes, en particulier dans le cadre de nouveaux programmes initiés.
+
+### 2.  Critères d'Évaluation et Conséquences de l'Échec
+
+L'évaluation repose sur un système où l'atteinte d'objectifs donne droit à une prime doublée. Cependant, il est souligné que si un objectif n'est pas atteint, la prime est maintenue à 20% de sa valeur initiale. Cette approche est jugée punitive et limitée, car elle ne prend pas en compte l'ensemble des efforts déployés par l'équipe.
+
+### 3.  Complexité du Système et Ajustements
+
+Le système actuel est décrit comme complexe, en raison de la multiplication des critères d'évaluation.  Des ajustements ont été mis en place pour tenir compte de la réalité du terrain et des contraintes rencontrées par les équipes.  Ces ajustements visent à éviter une situation où l'équipe est pénalisée pour un seul objectif non atteint, malgré un travail globalement performant.
+
+### 4.  Gestion des Risques et Engagement
+
+L'objectif principal est de rassurer les équipes et de valoriser leur engagement.  Le système comprend un mécanisme de 20% pour la valorisation des défis, notamment dans le cadre d'événements de campus et de projets spécifiques. Ce mécanisme, bien que limité, est considéré comme essentiel pour maintenir un niveau d'engagement élevé.
+
+### 5.  Impact des Réductions de Prime
+
+Il est noté que des réductions de prime ont eu lieu, ce qui a impacté le montant versé aux équipes.  Cette réduction est attribuée à la diminution du pourcentage alloué à la prime, ce qui nécessite une attention particulière pour maintenir un niveau de rémunération adapté à l'effort fourni.
+
+### 6.  Prise en Compte des Diversité des Interprétations
+
+Il est reconnu que les équipes sont impliquées dans divers projets (éducation, événements, etc.) avec des exigences variables. L'objectif est de créer un système qui prenne en compte cette diversité et évite une valorisation exclusive des objectifs liés au campus.
+
+### 7.  Reconstruction du Système de Prime
+
+L'action entreprise est de "reconstruire" le système de prime, en se basant sur l'expérience et les enseignements tirés des années précédentes. Cette reconstruction vise à dépasser les difficultés rencontrées précédemment et à mettre en place un système plus juste et plus performant.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+## Analyse des Dispositions concernant les Primes Contractuelles et les Objectifs
+
+Cette discussion porte sur l’évaluation et la révision des critères de prime contractuelle, notamment dans le contexte de nouveaux programmes comme le Bachelor et le Campus. Plusieurs points clés ont été abordés concernant la complexité du système, les ajustements effectués, et les perspectives d’évolution.
+
+### 1. Doublage des Primes et Objectifs
+
+Le système de prime contractuelle a été modifié pour doubler les primes des équipes. Ce doublement s’applique à 80% de la prime, qui est liée à l’atteinte d’objectifs. L’objectif est de valoriser l’effort et l’engagement des équipes, en particulier dans le cadre de nouveaux programmes initiés.
+
+### 2. Critères d’Évaluation et Conséquences de l’Échec
+
+L’évaluation repose sur un système où l’atteinte d’objectifs donne droit à une prime doublée. Cependant, il est souligné qu’en cas d’échec à atteindre un objectif, la prime est maintenue à 20% de sa valeur initiale. Cette approche est jugée punitive et limitée, car elle ne prend pas en compte l’ensemble des efforts déployés par l’équipe.
+
+### 3. Complexité du Système et Ajustements
+
+Le système actuel est décrit comme complexe, en raison de la multiplication des critères d’évaluation. Des ajustements ont été mis en place pour tenir compte de la réalité du terrain et des contraintes rencontrées par les équipes. Ces ajustements visent à éviter une situation où l’équipe est pénalisée pour un seul objectif non atteint, malgré un travail globalement performant.
+
+### 4. Gestion des Risques et Engagement
+
+L’objectif principal est de rassurer les équipes et de valoriser leur engagement. Le système comprend un mécanisme de 20% pour la valorisation des défis, notamment dans le cadre d’événements de campus et de projets spécifiques. Ce mécanisme, bien que limité, est considéré comme essentiel pour maintenir un niveau d’engagement élevé.
+
+### 5. Impact des Réductions de Prime
+
+Il est noté que des réductions de prime ont eu lieu, ce qui a impacté le montant versé aux équipes. Cette réduction est attribuée à la diminution du pourcentage alloué à la prime, ce qui nécessite une attention particulière pour maintenir un niveau de rémunération adapté à l’effort fourni.
+
+### 6. Prise en Compte des Diversité des Interprétations
+
+Il est reconnu que les équipes sont impliquées dans divers projets (éducation, événements, etc.) avec des exigences variables. L’objectif est de créer un système qui prenne en compte cette diversité et évite une valorisation exclusive des objectifs liés au campus.
+
+### 7. Reconstruction du Système de Prime
+
+L’action entreprise est de "reconstruire" le système de prime, en se basant sur l’expérience et les enseignements tirés des années précédentes. Cette reconstruction vise à dépasser les difficultés rencontrées précédemment et à mettre en place un système plus juste et plus performant.

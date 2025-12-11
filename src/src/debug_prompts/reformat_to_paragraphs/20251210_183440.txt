@@ -1,0 +1,48 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Opportunités Mobilitaires et Valorisation des Pedagogues
+
+L'initiative porte sur la création d'opportunités de mobilité pour les pedagogues, en particulier à travers des expériences à l'étranger, initialement avec une proposition de séjour d'un mois en Chine.
+
+### Expérience Chinoise et Soutien Financier
+
+La première tentative, un séjour d'un mois en Chine, a été organisée avec l'aide d'une université chinoise.  L'hébergement et les frais de déplacement étaient pris en charge par l'entreprise. Cette initiative a été valorisée comme une opportunité rare et enrichissante pour les pedagogues.  La structure horaire de travail était de 35 heures.
+
+### Adaptation des primes et valorisation de l'engagement
+
+Face à une demande de primes pour les pedagogues liée à l'expérience Chine, les responsabilités ont été réévaluées.  Il a été décidé de revoir le système de primes, compte tenu de la réduction des budgets disponibles pour les périodes d'alternance. Les primes initialement réduites de 10% pour les périodes d’alternance seront maintenues. Il est envisagé de mettre en place une prime symbolique pour compenser la diminution des primes liées à l’expérience Chine.
+
+### Processus de Remontées et Intégration des Suggestions
+
+Un processus de remontées des idées est désormais intégré aux objectifs de la mission des responsables de module.  Les suggestions des pedagogues, même si elles concernent des cas individuels et peu nombreux, sont prises en compte pour la définition des objectifs suivants.  L’objectif est de s’assurer que les contributions des pedagogues soient prises en compte et intégrées dans le processus de planification et d’évaluation des activités. L’accent est mis sur la gestion de projets à long terme.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Opportunités Mobilitaires et Valorisation des Pedagogues
+
+L'initiative porte sur la création d'opportunités de mobilité pour les pedagogues, en particulier à travers des expériences à l'étranger. Initialement, une proposition de séjour d'un mois en Chine a été envisagée.
+
+### Expérience Chinoise et Soutien Financier
+
+La première tentative, un séjour d'un mois en Chine, a été organisée avec l'aide d'une université chinoise. L'hébergement et les frais de déplacement étaient pris en charge par l'entreprise. Cette initiative a été largement valorisée comme une opportunité rare et enrichissante pour les pedagogues. La structure horaire de travail était de 35 heures.
+
+### Adaptation des primes et valorisation de l'engagement
+
+Face à une demande de primes pour les pedagogues liée à l'expérience Chine, les responsabilités ont été réévaluées. Il a été décidé de revoir le système de primes, compte tenu de la réduction des budgets disponibles pour les périodes d'alternance. Les primes initialement réduites de 10% pour les périodes d’alternance seront maintenues. Il est envisagé de mettre en place une prime symbolique pour compenser la diminution des primes liées à l’expérience Chine.
+
+### Processus de Remontées et Intégration des Suggestions
+
+Un processus de remontées des idées est désormais intégré aux objectifs de la mission des responsables de module. Les suggestions des pedagogues, même si elles concernent des cas individuels et peu nombreux, sont prises en compte pour la définition des objectifs suivants. L’objectif est de s'assurer que les contributions des pedagogues soient prises en compte et intégrées dans le processus de planification et d’évaluation des activités. L’accent est mis sur la gestion de projets à long terme.

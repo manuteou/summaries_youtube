@@ -1,0 +1,88 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici l'extraction de la réunion, respectant scrupuleusement les règles d'or :
+
+*   **Absorption d'îles :** Discussion sur la possibilité d'impliquer un certain nombre d'îles.
+*   **Passage via les 5 lides :**  Exploration de la possibilité d'un passage quotidien via les 5 lides.
+*   **Distraction des candidats :**  Suggestion de distraire les candidats.
+*   **Web Academy :**
+    *   Formulaire de candidature pour la Web Academy ne demandant pas le campus.
+    *   Problématique concernant l'hiver et la récupération des candidats.
+    *   Problématique avec les campus concernés.
+*   **Processus de candidature :**  Besoin de synchroniser le processus.
+*   **Lides :**
+    *   Les lides ne mettent pas l'information correctement.
+    *   Il faut une requête directe vers une landing page.
+    *   Demande de dog, feuilles, etc.
+*   **Objecteurs :**
+    *   Présence de personnes qui posent des questions d'objecteur.
+    *   Il faut que les équipes soient toujours en contact.
+*   **Situation Ischine :**  Pas de contact avec Ischine.
+*   **Parents :**
+    *   Manque de temps des parents.
+    *   Les données du stage de seconde ne sont pas forcément de qualité.
+    *   Objectif du stage de seconde : faire connaître la zone, toucher du doigt, orientation.
+    *   Problèmes liés au nombre : manque de résultats (moins de 30% de fréquentation).
+    *   Manque de connaissance de l'informatique et de ses enjeux.
+*   **Objectif des stages :**  Qualité de la cible, pas seulement le nombre.
+*   **Nettoyage de la base de données :** Nécessité d'un nettoyage régulier.
+*   **Suivi des candidatures :**
+    *   Importance de suivre les deux candidatures (campus principal et secondaire).
+    *   Les candidats qui réservent automatiquement doivent être suivis.
+    *   Il faut que les candidats fassent leur candidature avant le rendez-vous.
+*   **Désaccord / Blocage:** Le volume de données est trop important.
+*   **Action:** Créer un dashboard sur les candidatures.
+*   **Action:**  Relancer les équipes concernant les candidatures.
+*   **Action:**  Clarifier l'objectif de la collecte des données.
+*   **Action:**  Faire un nettoyage de la base de données.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+Voici l'extraction de la réunion, respectant scrupuleusement les règles d'or :
+
+**Absorption d'îles :** La discussion a porté sur la possibilité d'impliquer un certain nombre d'îles.
+
+**Passage via les 5 lides :** L'exploration de la possibilité d'un passage quotidien via les 5 lides a été abordée.
+
+**Distraction des candidats :** Une suggestion a été faite concernant la distraction des candidats.
+
+**Web Academy :** La Web Academy soulève plusieurs problématiques. Le formulaire de candidature ne requiert pas le campus. Il existe une problématique liée à l'hiver et à la récupération des candidats, ainsi qu’une problématique concernant les campus concernés.
+
+**Processus de candidature :** Il est nécessaire de synchroniser le processus de candidature.
+
+**Lides :** Les lides ne mettent pas l’information correctement. Une requête directe vers une landing page est requise. De plus, il y a une demande de dog, feuilles, etc.
+
+**Objecteurs :** La présence de personnes qui posent des questions d’objecteur a été notée. Il est essentiel que les équipes soient toujours en contact.
+
+**Situation Ischine :** Il n'y a pas de contact avec Ischine.
+
+**Parents :** Les parents manquent de temps. Les données du stage de seconde ne sont pas forcément de qualité. L’objectif du stage de seconde est de faire connaître la zone, de toucher du doigt l’orientation.  Il existe des problèmes liés au nombre : un manque de résultats (moins de 30% de fréquentation). De plus, il y manque une connaissance de l’informatique et de ses enjeux.
+
+**Objectif des stages :** L'objectif est la qualité de la cible, et non seulement le nombre.
+
+**Nettoyage de la base de données :** Un nettoyage régulier de la base de données est nécessaire.
+
+**Suivi des candidatures :** Il est important de suivre les deux candidatures (campus principal et secondaire). Les candidats qui réservent automatiquement doivent être suivis. Il faut que les candidats fassent leur candidature avant le rendez-vous.
+
+**Désaccord / Blocage:** Le volume de données est trop important.
+
+**Action:** Créer un dashboard sur les candidatures.
+
+**Action:** Relancer les équipes concernant les candidatures.
+
+**Action:** Clarifier l'objectif de la collecte des données.
+
+**Action:** Faire un nettoyage de la base de données.

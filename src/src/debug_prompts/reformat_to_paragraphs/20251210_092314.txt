@@ -1,0 +1,40 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Gestion des Formulaires et des Leads
+
+L'équipe travaille sur l'optimisation de la collecte de données, en particulier concernant les étudiants intéressés par les stages de seconde. La stratégie principale repose sur l'utilisation de formulaires automatisés pour capturer les prospects.  Il existe 17 formulaires différents, incluant un formulaire spécifique pour les stages de seconde, un autre pour la web academy, et plusieurs pour des opportunités générales.  L'objectif est d'obtenir un volume important de contacts, même si la qualité de ces contacts peut varier – certains étudiants sont motivés par l'informatique, d'autres non.
+
+### Analyse de la Qualité des Leads et Objectifs des Stages
+
+L'évaluation des leads est primordiale.  Il est crucial de se concentrer sur la qualité des contacts, plutôt que sur le volume.  Le nombre de contacts qui sont réellement qualifiés pour être intégrés au CRM (système de gestion de données) est le critère principal. L'équipe utilise un suivi rigoureux des étudiants qui ont participé aux salons et aux événements.  Pour chaque étudiant, l'équipe enregistre si l'application a été faite, si l'application a été acceptée, et si l'étudiant a été contacté. L'objectif est d'appeler tous les étudiants, afin de maximiser le nombre d'intégrations au CRM.  L'équipe a constaté que les applications pour les stages de seconde sont souvent faites à la dernière minute.  L'équipe est donc attentive au fait qu'il y a des leads "de seconde" qui sont très peu motivés.
+
+### Actions et Suivi
+
+L'équipe met en place des actions manuelles pour gérer les leads, notamment via un fichier Excel partagé.  Pour minimiser l'effort, l'équipe utilise une automatisation pour traiter les nouvelles données qui arrivent dans le fichier, en copiant et collant automatiquement les informations dans la source de données.  Pour le suivi des leads, l'équipe utilise également un fichier Excel pour enregistrer les étapes de contact avec chaque étudiant.  Il est essentiel de suivre les stages réalisés avec les étudiants en seconde. Le but est de voir le nombre de personnes qui ont des rendez-vous avec la web academy. Les données sont donc partagées avec la Web Academy afin de lancer de nouvelles campagnes.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Gestion des Formulaires et des Leads
+
+L’équipe travaille sur l’optimisation de la collecte de données, en particulier concernant les étudiants intéressés par les stages de seconde. La stratégie principale repose sur l’utilisation de formulaires automatisés pour capturer les prospects. Il existe 17 formulaires différents, incluant un formulaire spécifique pour les stages de seconde, un autre pour la web academy, et plusieurs pour des opportunités générales. L’objectif est d’obtenir un volume important de contacts, même si la qualité de ces contacts peut varier – certains étudiants sont motivés par l’informatique, d’autres non.
+
+### Analyse de la Qualité des Leads et Objectifs des Stages
+
+L’évaluation des leads est primordiale. Il est crucial de se concentrer sur la qualité des contacts, plutôt que sur le volume. Le nombre de contacts qui sont réellement qualifiés pour être intégrés au CRM (système de gestion de données) est le critère principal. L’équipe utilise un suivi rigoureux des étudiants qui ont participé aux salons et aux événements. Pour chaque étudiant, l’équipe enregistre si l’application a été faite, si l’application a été acceptée, et si l’étudiant a été contacté. L’objectif est d’appeler tous les étudiants, afin de maximiser le nombre d’intégrations au CRM. L’équipe a constaté que les applications pour les stages de seconde sont souvent faites à la dernière minute. L’équipe est donc attentive au fait qu’il y a des leads “de seconde” qui sont très peu motivés.
+
+### Actions et Suivi
+
+L’équipe met en place des actions manuelles pour gérer les leads, notamment via un fichier Excel partagé. Pour minimiser l’effort, l’équipe utilise une automatisation pour traiter les nouvelles données qui arrivent dans le fichier, en copiant et collant automatiquement les informations dans la source de données. Pour le suivi des leads, l’équipe utilise également un fichier Excel pour enregistrer les étapes de contact avec chaque étudiant. Il est essentiel de suivre les stages réalisés avec les étudiants en seconde. Le but est de voir le nombre de personnes qui ont des rendez-vous avec la web academy. Les données sont donc partagées avec la Web Academy afin de lancer de nouvelles campagnes.

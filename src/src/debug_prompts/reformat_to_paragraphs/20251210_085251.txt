@@ -1,0 +1,56 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Réussite Académique et Suivi Pélagogique
+
+L'objectif principal est d'évaluer la réussite académique des étudiants via un ratio de passage supérieur à 90% par rapport au ratio national, sans fixer de valeur brute. La deuxième catégorie est la performance pélagogique. L'évaluation se base sur l'affectation des promotions aux salariés.
+
+### Traçage des Promotions et Ratio de Passage
+
+Le traçage des étudiants de la promotion affectés aux salariés permet d'analyser le ratio de passage. Pour chaque promotion, le ratio de passage avant le traçage doit dépasser 90% du ratio national.  Il ne s'agit pas d'établir une valeur brute mais de se positionner légèrement en dessous de la moyenne nationale.
+
+### Défis dans le Suivi Pédagogique
+
+Le suivi pédagogique est une source de frustration car de nombreux commentaires, tels ceux de Riveau et Quinoetre, sont inexploitables pour les étudiants, ce qui est considéré comme un problème majeur. Une démarche est en cours pour produire des critères de qualité pour les évaluations et les accompagnements pédagogiques.  L'objectif est que les équipes pédagogiques, allant jusqu'au niveau de la direction nationale, mettent en place une structure de suivi conforme à des exigences précises, aboutissant à un niveau de suivi d'au moins 70% de l'objectif.  Un questionnaire sera envoyé à l'ensemble des étudiants (MSC-1, MSC-2) en septembre pour recueillir leur niveau de satisfaction sur les entreprises et la pertinence des profils.  L'objectif est de parvenir à une satisfaction des entreprises de 75%.
+
+### Valorisation de l'Engagement Pédagogique
+
+L'engagement pédagogique est valorisé à travers plusieurs actions : participation à la correction automatisée des exercices, proposition de corrections, participation à des concours et challenges (Robocard, KIP, Nationaux), organisation de l'organisation du concours du meilleur gomoku, et la participation à des activités de suivi des équipes.
+
+### Diversification et Visibilité Externe
+
+La diversification des activités pédagogiques est encouragée, incluant la participation à des conférences techniques en dehors de l'école, la contribution à des thèses et des travaux de recherche, et la participation à des événements nationaux et internationaux.  Le service des affaires internationales propose des voyages pour les professeurs pour présenter le modèle pédagogique à l'étranger, rencontrer des équipes pédagogiques et des étudiants d'universités partenaires. Ces échanges visent à diversifier le réseau et à créer des opportunités de partage et d'échange. L'objectif est que nos équipes pédagogiques soient reconnues et valorisées, ce qui est considéré comme un atout majeur.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Réussite Académique et Suivi Pélagogique
+
+L’objectif principal est d’évaluer la réussite académique des étudiants via un ratio de passage supérieur à 90% par rapport au ratio national, sans fixer de valeur brute. La deuxième catégorie est la performance pélagogique. L’évaluation se base sur l’affectation des promotions aux salariés.
+
+### Traçage des Promotions et Ratio de Passage
+
+Le traçage des étudiants de la promotion affectés aux salariés permet d’analyser le ratio de passage. Pour chaque promotion, le ratio de passage avant le traçage doit dépasser 90% du ratio national. Il ne s’agit pas d’établir une valeur brute, mais de se positionner légèrement en dessous de la moyenne nationale.
+
+### Défis dans le Suivi Pédagogique
+
+Le suivi pédagogique est une source de frustration car de nombreux commentaires, tels ceux de Riveau et Quinoetre, sont inexploitables pour les étudiants, ce qui est considéré comme un problème majeur. Une démarche est en cours pour produire des critères de qualité pour les évaluations et les accompagnements pédagogiques. L’objectif est que les équipes pédagogiques, allant jusqu’au niveau de la direction nationale, mettent en place une structure de suivi conforme à des exigences précises, aboutissant à un niveau de suivi d’au moins 70% de l’objectif. Un questionnaire sera envoyé à l’ensemble des étudiants (MSC-1, MSC-2) en septembre pour recueillir leur niveau de satisfaction sur les entreprises et la pertinence des profils. L’objectif est de parvenir à une satisfaction des entreprises de 75%.
+
+### Valorisation de l'Engagement Pédagogique
+
+L’engagement pédagogique est valorisé à travers plusieurs actions : participation à la correction automatisée des exercices, proposition de corrections, participation à des concours et challenges (Robocard, KIP, Nationaux), organisation de l’organisation du concours du meilleur gomoku, et la participation à des activités de suivi des équipes.
+
+### Diversification et Visibilité Externe
+
+La diversification des activités pédagogiques est encouragée, incluant la participation à des conférences techniques en dehors de l’école, la contribution à des thèses et des travaux de recherche, et la participation à des événements nationaux et internationaux. Le service des affaires internationales propose des voyages pour les professeurs pour présenter le modèle pédagogique à l’étranger, rencontrer des équipes pédagogiques et des étudiants d’universités partenaires. Ces échanges visent à diversifier le réseau et à créer des opportunités de partage et d’échange. L’objectif est que nos équipes pédagogiques soient reconnues et valorisées, ce qui est considéré comme un atout majeur.

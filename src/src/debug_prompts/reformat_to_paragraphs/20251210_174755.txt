@@ -1,0 +1,78 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici une transcription détaillée de la réunion, structurée selon les objectifs demandés :
+
+**1. Qui dit quoi ?**
+
+*   **Laura :**  Représente l'équipe centrale, elle détaille les processus, les problèmes et les solutions envisagées.  Elle est responsable de la gestion des candidatures et des contacts.
+*   **Intervenant Général (sans nom) :** Posera des questions, sollicitera des compte-rendus, exprime des préoccupations concernant les délais et la qualité des données. Il fait référence à des problèmes spécifiques tels que la surcharge de données et les pertes d'appels.
+*   **Secrétaire de Séance (Vous) :** Capteur de l'information, organise les informations, identifie les points clés.
+
+**2. Décisions actées**
+
+*   **Automatisation du fiché Excel :**  L'équipe travaille à transformer le fiché Excel en un système automatisé, avec une copie collée dans le fichier partagé.
+*   **Notification automatique :**  L’automatisation générera des notifications lorsque de nouvelles lignes sont ajoutées au fichier.
+*   **Suivi des contacts :**  Laura a l'objectif de suivre manuellement les nouveaux contacts.
+*   **Double candidature :** Laura et l’intervenant général ont mis en place une stratégie pour suivre les deux candidatures, même si le candidat s'inscrit sur deux campus.
+*   **Priorité aux candidatures :** La priorité est donnée à la gestion des candidatures, suivie des contacts.
+*  **Confirmation de l'automatisation :** Laura sera chargée d'envoyer un compte rendu des actions prises.
+
+**3. Points de blocage**
+
+*   **Qualité des données :** L'intervenant général exprime une forte inquiétude concernant la qualité des données et la surcharge d'informations. Les données sont "trop nombreuses" et génèrent un dysfonctionnement.
+*   **Manque de motivation des étudiants :** L’intervenant général remet en question le niveau de motivation des étudiants, notamment concernant l’informatique.  Il signale une faible proportion de candidats réellement intéressés par le secteur.
+*   **Perte d’appels :**  Le principal blocage reste la perte d’appels. Les étudiants se désinscrivent parce qu’ils ne trouvent pas de temps pour les appeler.
+*   **Synchronisation des données :** L'intervenant général souligne le besoin d'une synchronisation rapide entre les fichiers et systèmes.
+*   **Dépendance au manuel :** La nécessité de faire des actions manuelles malgré l'automatisation est un point de frustration.
+*   **Défauts d'objectif :** L'intervenant général critique le manque de définition des objectifs réels pour les stages. Il pointe l'absence de critères objectifs et la difficulté d'évaluer la qualité des candidatures.
+
+**4. Actions futures**
+
+*   **Laura :**
+    *   Développer et mettre en œuvre l'automatisation du fichier Excel.
+    *   Envoyer un compte-rendu quotidien des actions prises.
+    *   Suivre manuellement les nouveaux contacts.
+*   **Intervenant Général :**
+    *   Poser des questions et demander des mises à jour sur les données et les processus.
+    *   Participer à la définition des objectifs pour les stages (en particulier, la qualité des contacts et la quantité de candidatures).
+*   **Tous :**
+    *   Nettoyer la base de données pour éliminer les données obsolètes et inutiles.
+    *   Améliorer la synchronisation entre les différents fichiers et systèmes.
+    *   Adopter une approche plus proactive pour identifier et contacter les étudiants intéressés.
+    *   Fixer des objectifs clairs et mesurables pour les stages.
+
+---
+J'espère que cette transcription répond à vos exigences. N'hésitez pas à me demander des précisions ou des ajustements.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+Voici une transcription détaillée de la réunion, structurée selon les objectifs demandés :
+
+**1. Qui dit quoi ?**
+
+Laura représente l’équipe centrale et détaille les processus, les problèmes et les solutions envisagées. Elle est responsable de la gestion des candidatures et des contacts. L’intervenant général, sans nom, pose des questions, sollicite des compte-rendus, exprime des préoccupations concernant les délais et la qualité des données. Il fait référence à des problèmes spécifiques tels que la surcharge de données et les pertes d’appels. Le Secrétaire de Séance (Vous) est un capteur d’information, organise les informations et identifie les points clés.
+
+**2. Décisions actées**
+
+L’équipe travaille à transformer le fiché Excel en un système automatisé, avec une copie collée dans le fichier partagé. L’automatisation générera des notifications lorsque de nouvelles lignes sont ajoutées au fichier. Laura a l’objectif de suivre manuellement les nouveaux contacts. Laura et l’intervenant général ont mis en place une stratégie pour suivre les deux candidatures, même si le candidat s’inscrit sur deux campus. La priorité est donnée à la gestion des candidatures, suivie des contacts. Laura sera chargée d’envoyer un compte-rendu des actions prises.
+
+**3. Points de blocage**
+
+L’intervenant général exprime une forte inquiétude concernant la qualité des données et la surcharge d’informations. Les données sont "trop nombreuses" et génèrent un dysfonctionnement. L’intervenant général remet en question le niveau de motivation des étudiants, notamment concernant l’informatique. Il signale une faible proportion de candidats réellement intéressés par le secteur. Le principal blocage reste la perte d’appels. Les étudiants se désinscrivent parce qu’ils ne trouvent pas de temps pour les appeler. L'intervenant général souligne le besoin d’une synchronisation rapide entre les fichiers et systèmes. La nécessité de faire des actions manuelles malgré l’automatisation est un point de frustration. L'intervenant général critique le manque de définition des objectifs réels pour les stages. Il pointe l’absence de critères objectifs et la difficulté d’évaluer la qualité des candidatures.
+
+**4. Actions futures**
+
+Laura développera et mettra en œuvre l’automatisation du fichier Excel. Elle enverra un compte-rendu quotidien des actions prises. Elle suivra manuellement les nouveaux contacts. L’intervenant général posera des questions et demandera des mises à jour sur les données et les processus. Il participera à la définition des objectifs pour les stages (en particulier, la qualité des contacts et la quantité de candidatures). Tous nettoyeront la base de données pour éliminer les données obsolètes et inutiles. Tous amélioreront la synchronisation entre les différents fichiers et systèmes. Tous adopteront une approche plus proactive pour identifier et contacter les étudiants intéressés. Tous fixeront des objectifs clairs et mesurables pour les stages.

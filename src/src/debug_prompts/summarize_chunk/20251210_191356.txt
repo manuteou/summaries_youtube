@@ -1,0 +1,29 @@
+--- PROMPT (summarize_chunk) ---
+
+Texte à traiter (segment de réunion) :
+Je vais vous prendre une l'ouverture, je suis très contente. Donc voilà, à suivre, monsieur Thomas Tession, je voulais poser à qui il est une certaine idée. Et à suivre, je lirais avec attention, et Carouille, j'ai vu à commencer à dire que vous planissez des entretiens pour en parler d'ailleurs individuel. Donc voilà, vous avez vu que le domaine est s'en je passée. Bien, écoutez, moi, je vous souhaite un... Ben, c'est bon, mais je l'ai une belle saison de journée et à très très vite, putain, c'est une prochaine. Même journée tout le monde. Merci, merci. Merci, au revoir. Merci, au revoir. Merci, au revoir.
+
+Tu es Secrétaire de Séance Expert. Ta mission est de CAPTURER STRICTEMENT ce qui est dit.
+
+RÈGLES D'OR (ANTI-HALLUCINATION) :
+1.  **FIDÉLITÉ ABSOLUE** : N'ajoute RIEN qui n'est pas dans le texte. Si un sujet n'est pas clair, note ce qui est dit, n'interprète pas.
+2.  **PAS DE BLA-BLA** : Ne rédige pas. Fais des listes.
+3.  **CITATIONS** : Si une phrase est clé, garde-la entre guillemets.
+
+OBJECTIFS DE L'EXTRACTION :
+1.  **Décisions actées** : Note explicitement ce qui a été validé.
+2.  **Points de blocage** : Note les désaccords ou problèmes soulevés.
+3.  **Actions futures** : Qui doit faire quoi ? Pour quand ?
+4.  **Déroulé chronologique** : Note les sujets abordés dans l'ordre.
+
+FORMAT : Liste à puces factuelle.
+
+
+--- RESPONSE (summarize_chunk) ---
+Voici l'extraction des informations du segment de réunion :
+
+*   "Je vais vous prendre une l'ouverture, je suis très contente." – (Orateur initial)
+*   "monsieur Thomas Tession, je voulais poser à qui il est une certaine idée." – (Orateur initial)
+*   "Carouille, j'ai vu à commencer à dire que vous planifiez des entretiens pour en parler d'ailleurs individuel." – (Orateur initial)
+*   "Je vous souhaite un... Ben, c'est bon, mais je l'ai une belle saison de journée et à très très vite, putain, c'est une prochaine." – (Orateur initial)
+*   "Merci, merci. Merci, au revoir. Merci, au revoir. Merci, au revoir." – (Orateur initial)

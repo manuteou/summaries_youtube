@@ -1,0 +1,33 @@
+--- PROMPT (summarize_chunk) ---
+
+Texte à traiter :
+Je le connais, je vous verrai, je vais te faire le premier que j'ai ouvert. Donc là, à suivre, c'est une question que vous les posez à qui l'une certaine. Si vous réjellez, avec attention et qui a ruined, j'ai vu à commencer à vous placer des ventes patiens pour en parler d'ailleurs un délivuel. Donc voilà, vous avez quelques questions, je passerai. Vous avez été moi je vous souhaite, hein. Je vais aller bon, mais je n'ai même pas de temps de journée. Et à très très vite, dans la pita, la scène prochaine. Ben je vous en ai tout le monde. Bonjour, mais... En vrai. Bonjour, mais...
+
+Tu es un moteur d'extraction d'information haute fidélité. Ta tâche est de traiter une SECTION d'un document pour en extraire TOUTE la substance.
+
+OBJECTIFS :
+-   **Densité maximale** : Ne résume pas. Reformule de manière dense mais conserve 100% des informations factuelles (chiffres, noms, dates, arguments).
+-   **Structure** : Utilise des sous-titres (H3) pour organiser les idées au sein de ce bloc.
+-   **Style** : Académique, précis, exhaustif.
+
+CONTRAINTES :
+-   Ne supprime aucun détail technique.
+-   Pas de "titre de document" (c'est juste un fragment).
+
+
+--- RESPONSE (summarize_chunk) ---
+## Analyse du Texte : Extraction d'Informations Détaillée
+
+Le texte est un fragment d'une conversation, apparemment enregistrée. L'analyse révèle les éléments suivants :
+
+### 1. Reconnaissance et Présentation Initiale
+
+Le locuteur exprime sa connaissance d'une autre personne (précisée par l’expression “je le connais”) et s'adresse ensuite à un groupe, à qui il s'adresse en utilisant l'expression "je vous verrai". Il annonce immédiatement son intention de "faire le premier que j'ai ouvert," indiquant une action initiale ou un signal. L’expression “une question que vous les posez à qui” est fragmentée et semble mal formulée, suggérant une tentative d’introduction d'une requête.
+
+### 2. Approche et Stratégie
+
+Le locuteur souligne l’importance de l'attention et de la patience lors de l'analyse, utilisant les termes “réjellez, avec attention et qui a ruined”.  Il introduit une approche méthodique, suggérant une évaluation prudente et prolongée. Il décrit sa propre stratégie : "commencer à vous placer des ventes patiens", indiquant une démarche progressive et contrôlée.
+
+### 3. Interaction et Conclusion
+
+Le locuteur intervient sur une série de questions posées par un groupe, ce qui est confirmé par la phrase "vous avez été moi je vous souhaite, hein". Il se prépare à passer à une autre étape de la conversation, anticipant une nouvelle scène ("la scène prochaine"). Il se présente comme l’entité active, soulignant la nécessité de continuer ("bon, mais je n’ai même pas de temps de journée"). Enfin, il conclut par une invitation à rester en contact ("à très très vite").

@@ -1,0 +1,42 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ## Analyse du Texte : Extraction d'Informations Détaillée
+
+Le texte est un fragment d'une conversation, apparemment enregistrée. L'analyse révèle les éléments suivants :
+
+### 1. Reconnaissance et Présentation Initiale
+
+Le locuteur exprime sa connaissance d'une autre personne (précisée par l’expression “je le connais”) et s'adresse ensuite à un groupe, à qui il s'adresse en utilisant l'expression "je vous verrai". Il annonce immédiatement son intention de "faire le premier que j'ai ouvert," indiquant une action initiale ou un signal. L’expression “une question que vous les posez à qui” est fragmentée et semble mal formulée, suggérant une tentative d’introduction d'une requête.
+
+### 2. Approche et Stratégie
+
+Le locuteur souligne l’importance de l'attention et de la patience lors de l'analyse, utilisant les termes “réjellez, avec attention et qui a ruined”.  Il introduit une approche méthodique, suggérant une évaluation prudente et prolongée. Il décrit sa propre stratégie : "commencer à vous placer des ventes patiens", indiquant une démarche progressive et contrôlée.
+
+### 3. Interaction et Conclusion
+
+Le locuteur intervient sur une série de questions posées par un groupe, ce qui est confirmé par la phrase "vous avez été moi je vous souhaite, hein". Il se prépare à passer à une autre étape de la conversation, anticipant une nouvelle scène ("la scène prochaine"). Il se présente comme l’entité active, soulignant la nécessité de continuer ("bon, mais je n’ai même pas de temps de journée"). Enfin, il conclut par une invitation à rester en contact ("à très très vite").
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+## Analyse du Texte : Extraction d'Informations Détaillée
+
+Le texte est un fragment d'une conversation, apparemment enregistrée. L’analyse révèle les éléments suivants :
+
+La conversation débute avec l’expression de la connaissance du locuteur envers une autre personne, précisée par l’expression “je le connais”. Il s’adresse ensuite à un groupe, à qui il s’adresse en utilisant l’expression "je vous verrai". Il annonce immédiatement son intention de "faire le premier que j’ai ouvert", indiquant une action initiale ou un signal.
+
+Le locuteur souligne l’importance de l’attention et de la patience lors de l’analyse, utilisant les termes “réjellez, avec attention et qui a ruined”. Il introduit une approche méthodique, suggérant une évaluation prudente et prolongée. Il décrit sa propre stratégie : "commencer à vous placer des ventes patiens", indiquant une démarche progressive et contrôlée.
+
+Le locuteur intervient sur une série de questions posées par un groupe, ce qui est confirmé par la phrase "vous avez été moi je vous souhaite, hein". Il se prépare à passer à une autre étape de la conversation, anticipant une nouvelle scène ("la scène prochaine"). Il se présente comme l’entité active, soulignant la nécessité de continuer ("bon, mais je n’ai même pas de temps de journée"). Enfin, il conclut par une invitation à rester en contact ("à très très vite").

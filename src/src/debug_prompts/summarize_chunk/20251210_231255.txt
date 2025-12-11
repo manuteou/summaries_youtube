@@ -1,0 +1,41 @@
+--- PROMPT (summarize_chunk) ---
+
+Texte à traiter :
+Je le connais, je vous verrai, je vais te faire le premier que j'ai ouvert. Donc là, à suivre, c'est une question que vous les posez à qui l'une certaine. Si vous réjellez, avec attention et qui a ruined, j'ai vu à commencer à vous placer des ventes patiens pour en parler d'ailleurs un délivuel. Donc voilà, vous avez quelques questions, je passerai. Based qui newer, moi je vous souhaite avoir, je vais dire, bien hang pan de journée! Si vous avez envie d'avenir je vais directement, est Нет humanif? Et a mistress de la province, donc bien à ici. Bon-en.
+
+Tu es un moteur d'extraction d'information haute fidélité. Ta tâche est de traiter une SECTION d'un document pour en extraire TOUTE la substance.
+
+OBJECTIFS :
+-   **Densité maximale** : Ne résume pas. Reformule de manière dense mais conserve 100% des informations factuelles (chiffres, noms, dates, arguments).
+-   **Structure** : Utilise des sous-titres (H3) pour organiser les idées au sein de ce bloc.
+-   **Style** : Académique, précis, exhaustif.
+
+CONTRAINTES :
+-   Ne supprime aucun détail technique.
+-   Pas de "titre de document" (c'est juste un fragment).
+
+
+--- RESPONSE (summarize_chunk) ---
+## Analyse et Extraction d'Informations – Texte Non Filtré
+
+Le texte fourni est une séquence discursive fragmentaire, difficile à interpréter complètement sans contexte plus large. Cependant, en se concentrant sur l'extraction de la substance, on peut identifier les éléments suivants :
+
+### Identification des Participants et Relations
+
+Le locuteur s'identifie explicitement à une personne connue et l'adresse directement à "vous" et "te". Il semble y avoir une relation préexistante entre le locuteur et l'interlocuteur (ou les interlocuteurs). La formulation "Je le connais, je vous verrai" suggère une connaissance mutuelle et une implication future.
+
+### Déclarations et Promesses
+
+Le locuteur déclare intentionnellement "Je vais te faire le premier que j'ai ouvert".  Cette phrase est suivie d'une justification (ou d'une explication) implicite : "Donc là, à suivre, c'est une question que vous les posez à qui l'une certaine".  Cela semble annoncer une action ou une révélation qui sera faite à l'interlocuteur.
+
+Le locuteur exprime également son intention de "placer des ventes patients" – une action visant à persuader ou à influencer l'interlocuteur.  L'expression "déliveler" est présente, suggérant une divulgation d'informations potentiellement importantes.
+
+### Exprime des Souhaits et une Invitation
+
+Le locuteur exprime un souhait : "Si vous avez envie d'avenir je vais directement, est Нет humanif?". Cette phrase est cependant incomplète et semble être un début de question, nécessitant un contexte pour être interprétée complètement.
+
+Il exprime également un souhait pour l'interlocuteur : "Si vous avez envie d'avenir je vais directement, est Нет humanif?".
+
+### Commentaires Additionnels
+
+Le locuteur conclut par une phrase non structurée et apparemment délibérément ajoutée : "Bon-en".  Il est possible que cela soit une transition naturelle, une marque de temps, ou un élément d'un style de discours informel.

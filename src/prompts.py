@@ -11,6 +11,8 @@ class PromptManager:
             return self._get_long_prompt(context, text)
         elif summary_type == "news":
             return self._get_news_prompt(context, text)
+        elif summary_type == "meeting":
+            return self._get_meeting_prompt(context, text)
         else:
             return self._get_short_prompt(context, text) # Default
 
@@ -337,5 +339,79 @@ RÈGLES D'OR :
 -   Utilise le **gras** pour les infos cruciales.
 -   Hésite pas à utiliser des encadrés markdown ( > Citation) pour les déclarations chocs.
 -   Si les sources se contredisent, la source la plus RÉCENTE a raison (mais mentionne le changement).
+"""
+        return ""
+
+    def _get_meeting_prompt(self, context: str, text: str) -> str:
+        if context == "chunk":
+            return f"""
+Texte à traiter (segment de réunion) :
+{text}
+
+Tu es Secrétaire de Séance Expert. Ta mission est de CAPTURER STRICTEMENT ce qui est dit.
+
+RÈGLES D'OR (ANTI-HALLUCINATION) :
+1.  **FIDÉLITÉ ABSOLUE** : N'ajoute RIEN qui n'est pas dans le texte. Si un sujet n'est pas clair, note ce qui est dit, n'interprète pas.
+2.  **PAS DE BLA-BLA** : Ne rédige pas. Fais des listes.
+3.  **CITATIONS** : Si une phrase est clé, garde-la entre guillemets.
+
+OBJECTIFS DE L'EXTRACTION :
+1.  **Décisions actées** : Note explicitement ce qui a été validé.
+2.  **Points de blocage** : Note les désaccords ou problèmes soulevés.
+3.  **Actions futures** : Qui doit faire quoi ? Pour quand ?
+4.  **Déroulé chronologique** : Note les sujets abordés dans l'ordre.
+
+FORMAT : Liste à puces factuelle.
+"""
+        elif context == "full_text":
+            return f"""
+Texte à traiter :
+{text}
+
+Tu es le Secrétaire Général. Tu dois rédiger le **COMPTE-RENDU** de cette réunion.
+
+TITRE DU DOCUMENT À UTILISER : (Voir contexte ou titre fourni par l'utilisateur).
+
+STRUCTURE IMPÉRATIVE (UNIQUEMENT CES DEUX PARTIES) :
+
+1.  **DÉROULÉ DE LA SÉANCE** (H2)
+    -   Retrace chronologiquement les échanges.
+    -   Utilise des sous-titres (H3) pour séparer les sujets.
+    -   Sois précis sur les échanges (arguments, points de vue).
+
+2.  **RELEVÉ DE DÉCISIONS ET ACTIONS** (H2)
+    -   **Décisions** : Ce qui est acté.
+    -   **Actions** : [Qui] [Quoi] [Pour quand].
+    -   **Points bloquants** : Ce qui reste en suspens.
+
+CONTRAINTES :
+-   **PAS D'INTRODUCTION, PAS DE CONCLUSION, PAS DE RÉSUMÉ EXÉCUTIF**.
+-   **Exhaustivité** : Rapporte les faits, ne les compresse pas.
+-   **Style** : Factuel, précis, sans fioritures.
+"""
+        elif context == "multi":
+            return f"""
+Sources (Segments consolidés) :
+{text['content']}
+
+Sujet / Titre de la réunion : {text['search']}
+
+Tu rédiges le **COMPTE-RENDU FINAL** en consolidant les notes intermédiaires.
+
+STRUCTURE IMPÉRATIVE (UNIQUEMENT CES DEUX PARTIES) :
+
+1.  **DÉROULÉ DE LA SÉANCE** (H2)
+    -   Fusionne les notes pour reconstituer le fil de la réunion.
+    -   Utilise des sous-titres (H3) pour les thématiques.
+    -   Conserve la richesse des débats.
+
+2.  **RELEVÉ DE DÉCISIONS ET ACTIONS** (H2)
+    -   Consolide toutes les actions et décisions repérées.
+    -   Format strict : Action / Responsable / Date.
+
+CONTRAINTES :
+-   UTILISE LE TITRE FOURNI CI-DESSUS ({text['search']}) comme contexte, mais ne l'affiche pas en H1 (le système le fera).
+-   **PAS D'AUTRE SECTION** : On veut juste le déroulé et les actions.
+-   Ne perds aucune info technique.
 """
         return ""

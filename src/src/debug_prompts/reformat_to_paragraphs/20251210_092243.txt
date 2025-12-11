@@ -1,0 +1,72 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Objectifs Généraux de l'Amélioration et de la Performance
+
+Le document traite de plusieurs objectifs liés à l'amélioration de la performance de l'établissement, principalement axés sur l'évaluation des étudiants, l'implication des entreprises et l'innovation pédagogique. L'établissement souhaite atteindre des niveaux de performance élevés et s'assure de la conformité avec des critères précis.
+
+### Évaluation des Étudiants et Performance Académique
+
+*   **Critères d'Évaluation:** L'évaluation des étudiants est basée sur deux critères principaux : la réussite académique (Catégorie 2.1) et la contribution aux activités et projets.
+*   **Taux de Réussite Minimum:** Un taux de passage minimum de 90% est exigé pour la promotion des étudiants, prenant en compte le total de passage. Un taux inférieur est considéré comme non qualitatif.
+*   **Rapprochement avec les Normes Nationales:** Le ratio de passage de chaque promotion doit être supérieur à la moyenne nationale fixée, sans utiliser de valeur brute, mais en se basant sur la moyenne nationale comme référence.
+*   **Suivi Pédagogique et Qualité des Commentaires:** Une attention particulière est accordée à la qualité du suivi pédagogique et des évaluations, en particulier des commentaires. Il existe une procédure de suivi pédagogique avec une trame de suivi transmisée. Il est constaté un problème : de nombreux commentaires sont inexploitables pour les étudiants. Un appel à suggestions a été lancé. L'objectif est de produire une note définissant l'exigibilité et l'explotabilité des commentaires pédagogiques et des évaluations.
+*   **Suivi de la Performance:** L'équipe pédagogique s'attend à ce que les étudiants soient régulièrement suivis.
+
+### Implication des Entreprises et Innovation Pédagogique
+
+*   **Rôle des Entreprises:** La présence des entreprises est considérée comme un levier essentiel pour une meilleure compréhension des enjeux professionnels et l'engagement des étudiants.
+*   **Participation Obligatoire:** Les entreprises sont attendues à participer à l'animation de la vie pédagogique, avec une implication minimale de trois entreprises par an.
+*   **Projet Week et Activités Professionnelles:** Les entreprises sont sollicitées pour organiser des "Project Weeks" et d'autres activités professionnelles liées aux compétences.
+*   **Satisfaction des Entreprises:** L'objectif est d'atteindre un taux de satisfaction de 75% des entreprises concernant les stages. Des questionnaires seront envoyés en septembre pour recueillir leurs retours. L'évaluation de la pertinence des profils est également importante.
+*   **Utilisation des Outils Développés par les Entreprises:** Les entreprises sont encouragées à développer des outils pédagogiques qui peuvent être utilisés par les étudiants.
+
+### Contribution Nationale et Innovation Pédagogique Technique
+
+*   **Participation à des Initiatives:** Les collaborateurs sont encouragés à participer à des initiatives d'amélioration continue.
+*   **Valorisation des Contributions:** Les efforts des collaborateurs sont valorisés, en particulier ceux qui se manifestent par des propositions de corrections pour des tâches automatisées.
+*   **Organisation de Concours et Challenges:**  Des initiatives telles que Robocard, la participation aux concours nationaux (KIP, AGOGIQUE Nationaux) sont encouragées.
+*   **Organisation de Concours et Challenges:** Les équipes sont encouragées à participer à des concours de compétences, notamment Robocard.
+*   **Animation de Conférences et Partage d'Expériences:** Les équipes pédagogiques sont incitées à participer à des conférences techniques et à partager leurs expériences à l'extérieur.
+*   **Collaboration avec les Partenaires Internationaux:** Le service des affaires internationales organise des voyages pour les équipes pédagogiques afin qu'elles puissent rencontrer des étudiants et des équipes pédagogiques de partenaires étrangers.
+
+###  Collecte des Données et Suivi
+
+*   **Organisation de Collecte de Données:** Une méthodologie est mise en place pour recueillir des données sur la participation des collaborateurs et l'utilisation des outils.
+*   **Analyse des Données:** L'équipe pédagogique s'attend à ce que les données collectées soient croisées avec les observations effectuées sur le terrain.
+*   **Valorisation des Initiatives:** L'objectif est de valoriser les équipes qui s'engagent dans ces activités.
+*   **Suivi des Performances :** Un suivi des performances est mis en place, avec des critères d'évaluation précis.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Objectifs Généraux de l’Amélioration et de la Performance
+
+Le document traite de plusieurs objectifs liés à l’amélioration de la performance de l’établissement, principalement axés sur l’évaluation des étudiants, l’implication des entreprises et l’innovation pédagogique. L’établissement souhaite atteindre des niveaux de performance élevés et s’assure de la conformité avec des critères précis.
+
+### Évaluation des Étudiants et Performance Académique
+
+L’évaluation des étudiants est basée sur deux critères principaux : la réussite académique (Catégorie 2.1) et la contribution aux activités et projets. Un taux de passage minimum de 90% est exigé pour la promotion des étudiants, prenant en compte le total de passage. Un taux inférieur est considéré comme non qualitatif. Le ratio de passage de chaque promotion doit être supérieur à la moyenne nationale fixée, sans utiliser de valeur brute, mais en se basant sur la moyenne nationale comme référence. Une attention particulière est accordée à la qualité du suivi pédagogique et des évaluations, en particulier des commentaires. Il existe une procédure de suivi pédagogique avec une trame de suivi transmisée. Un problème est constaté : de nombreux commentaires sont inexploitables pour les étudiants. Un appel à suggestions a été lancé. L’objectif est de produire une note définissant l’exigibilité et l’explotabilité des commentaires pédagogiques et des évaluations. L’équipe pédagogique s’attend à ce que les étudiants soient régulièrement suivis.
+
+### Implication des Entreprises et Innovation Pédagogique
+
+La présence des entreprises est considérée comme un levier essentiel pour une meilleure compréhension des enjeux professionnels et l’engagement des étudiants. Les entreprises sont attendues à participer à l’animation de la vie pédagogique, avec une implication minimale de trois entreprises par an. Les entreprises sont sollicitées pour organiser des “Project Weeks” et d’autres activités professionnelles liées aux compétences. L’objectif est d’atteindre un taux de satisfaction de 75% des entreprises concernant les stages. Des questionnaires seront envoyés en septembre pour recueillir leurs retours. L’évaluation de la pertinence des profils est également importante. Les entreprises sont encouragées à développer des outils pédagogiques qui peuvent être utilisés par les étudiants.
+
+### Contribution Nationale et Innovation Pédagogique Technique
+
+Les collaborateurs sont encouragés à participer à des initiatives d’amélioration continue. Les efforts des collaborateurs sont valorisés, en particulier ceux qui se manifestent par des propositions de corrections pour des tâches automatisées. Des initiatives telles que Robocard, la participation aux concours nationaux (KIP, AGOGIQUE Nationaux) sont encouragées. Les équipes sont encouragées à participer à des concours de compétences, notamment Robocard. Les équipes pédagogiques sont incitées à participer à des conférences techniques et à partager leurs expériences à l’extérieur. Le service des affaires internationales organise des voyages pour les équipes pédagogiques afin qu’elles puissent rencontrer des étudiants et des équipes pédagogiques de partenaires étrangers.
+
+### Collecte des Données et Suivi
+
+Une méthodologie est mise en place pour recueillir des données sur la participation des collaborateurs et l’utilisation des outils. L’équipe pédagogique s’attend à ce que les données collectées soient croisées avec les observations effectuées sur le terrain. L’objectif est de valoriser les équipes qui s’engagent dans ces activités. Un suivi des performances est mis en place, avec des critères d’évaluation précis.

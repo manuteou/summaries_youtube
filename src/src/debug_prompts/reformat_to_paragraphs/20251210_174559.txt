@@ -1,0 +1,94 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ## Compte-rendu de la Réunion – Analyse des Objectifs et des Critères d’Évaluation
+
+**Date:** (Non spécifiée dans le texte)
+**Participants:** (Non spécifiés dans le texte – l'intervenant principal est anonyme)
+
+**1. Qui dit quoi ?**
+
+*   **Intervenant Principal (Anonyme):** Responsable de la coordination des objectifs, de la définition des critères d’évaluation et de la gestion des événements. Adopte une approche proactive et cherche à aligner les équipes.
+*   **Paul (Nom de l'intervenant):**  Exprime des interrogations concernant la complexité du système et le nombre d'événements envisagés. Soulève des préoccupations quant à la gestion du temps.
+*   **Autres Intervenants (Nommés en arrière-plan):** Mentionnés brièvement (Ajay Achered, Réner, Stéphàne, Githil) – leurs rôles et opinions ne sont pas clairement développés.
+
+**2. Décisions Actées**
+
+*   **Base des Devoirs:** L'objectif principal de la réunion est de formaliser les devoirs des campus et de les intégrer dans une liste centralisée (la liste "mets" à laquelle Ajay Achered fait référence).
+*   **Redirection des Missions:**  Réner avait des missions non réalisées et cela est maintenant pris en compte.
+*   **Nouvelle Version du Système de Payat:** Une nouvelle version du système Payat a été approuvée, comportant des boutons permettant de repositionner, d'annuler, de modifier des formations, des modalités de prélèvements.
+*   **Recouvrement Automatique:** Le système de recouvrement (R1, R2, R3) sera automatisé, similaire aux processus mis en place avec les anciens systèmes (lanies et Stéphàne).
+*   **Création d'un Éventement Thématique Annuel:** Un événement thématique annuel sera créé.
+*   **Participation aux Événements Internes:** Tous les collaborateurs sont encouragés à participer aux événements internes.
+*   **Engagement des Étudiants:** Le critère de participation des étudiants à des sessions de vie, des événements, et des ateliers est validé.
+*   **Évaluation par des Critères:**
+    *   **Événement 1 :** 10 événements par an minimum.
+    *   **Critère 2 :** Au moins 50% de la promotion participe aux activités.
+    *   **Critère 3 :**  Au moins 60% des étudiants participent aux sessions de vie ou à des ateliers (selon l'âge)
+*   **Évaluation de la participation associative** - 1 session de soutien
+*   **Participation aux réunions/événements internes:** l'ensemble des collaborateurs.
+
+**3. Points de Blocage**
+
+*   **Complexité du Système:** Paul exprime une inquiétude quant à la complexité de l’ensemble du système de suivi et de gestion. Il se demande si le nombre d’événements envisagé est réaliste.
+*   **Gestion du Temps:** Le temps nécessaire à l'organisation des événements est une source d'inquiétude.
+*   **Potentiel Désaccord:** Un désaccord potentiel existe sur le nombre d'événements à organiser.
+*   **Communication et Clarté:** Des questions restent en suspens concernant la communication interne et la compréhension des procédures.
+
+**4. Actions Futures**
+
+*   **Réner:**  Assurer le suivi des missions non réalisées.
+*   **Intervenant Principal (Anonyme):**
+    *   Définir précisément le calendrier des événements.
+    *   Clarifier les procédures de gestion des événements.
+    *   Suivre l’évolution de la liste des devoirs des campus.
+    *   Mettre en place un système de communication plus efficace.
+*   **Toute l'équipe :** S'assurer de la bonne exécution des actions définies.
+
+**Fin du Compte-rendu**
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+## Compte-rendu de la Réunion – Analyse des Objectifs et des Critères d’Évaluation
+
+**Date:** (Non spécifiée dans le texte)
+**Participants:** (Non spécifiés dans le texte – l’intervenant principal est anonyme)
+
+**1. Qui dit quoi ?**
+
+L’intervenant principal, responsable de la coordination des objectifs, de la définition des critères d’évaluation et de la gestion des événements, adopte une approche proactive et cherche à aligner les équipes. Paul, intervenant présent, exprime des interrogations concernant la complexité du système et le nombre d’événements envisagés. Il soulève des préoccupations quant à la gestion du temps. Les autres intervenants, notamment Ajay Achered, Réner, Stéphàne, Githil, sont mentionnés brièvement et leurs rôles et opinions ne sont pas clairement développés.
+
+**2. Décisions Actées**
+
+L’objectif principal de la réunion était de formaliser les devoirs des campus et de les intégrer dans une liste centralisée, la liste “mets” à laquelle Ajay Achered fait référence. Réner avait des missions non réalisées et cela est maintenant pris en compte. Une nouvelle version du système Payat a été approuvée, comportant des boutons permettant de repositionner, d’annuler, de modifier des formations, des modalités de prélèvements. Le système de recouvrement (R1, R2, R3) sera automatisé, similaire aux processus mis en place avec les anciens systèmes (lanies et Stéphàne). Un événement thématique annuel sera créé. Tous les collaborateurs sont encouragés à participer aux événements internes. Le critère de participation des étudiants à des sessions de vie, des événements, et des ateliers est validé.
+
+Concernant l’évaluation, les critères suivants ont été définis :
+*   **Événement 1 :** 10 événements par an minimum.
+*   **Critère 2 :** Au moins 50% de la promotion participe aux activités.
+*   **Critère 3 :** Au moins 60% des étudiants participent aux sessions de vie ou à des ateliers (selon l’âge).
+
+L’évaluation de la participation associative inclut une session de soutien. L’ensemble des collaborateurs est invité à participer aux réunions/événements internes.
+
+**3. Points de Blocage**
+
+La complexité du système est une source d'inquiétude, Paul exprimant une préoccupation quant à la faisabilité du nombre d'événements envisagé. La gestion du temps nécessaire à l'organisation des événements est également une source d'inquiétude. Un potentiel désaccord existe sur le nombre d'événements à organiser. Des questions subsistent concernant la communication interne et la compréhension des procédures.
+
+**4. Actions Futures**
+
+*   **Réner:** Assurer le suivi des missions non réalisées.
+*   **Intervenant Principal (Anonyme):** Définir précisément le calendrier des événements, clarifier les procédures de gestion des événements, suivre l’évolution de la liste des devoirs des campus et mettre en place un système de communication plus efficace.
+*   **Toute l'équipe :** S'assurer de la bonne exécution des actions définies.
+
+**Fin du Compte-rendu**

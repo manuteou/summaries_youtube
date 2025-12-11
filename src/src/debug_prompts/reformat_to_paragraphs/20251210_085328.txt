@@ -1,0 +1,58 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Stratégie de Gestion des Prospects d'Études Informatiques
+
+La discussion porte sur l'optimisation de l'acquisition de prospects pour les programmes d'études en informatique, en mettant l'accent sur la conversion et la qualité des leads. Plusieurs aspects sont abordés, dont les formulaires informatisés, le suivi des candidatures, et la nécessité d'une approche large et quantitative.
+
+### Optimisation des Formulaires et des Sources de Prospects
+
+L'équipe explore l'utilisation de différents types de formulaires informatisés, notamment ceux reliant les campagnes marketing aux landing pages, ainsi qu'un formulaire permettant la capture des candidatures pour les stages de seconde. Il existe 17 formulaires différents, conçus pour collecter des données des campus. Ces formulaires sont essentiels pour collecter des données, et non pas pour être une fin en soi.
+
+### Gestion des Leads et Suivi des Candidatures
+
+L'objectif principal est d'augmenter le nombre de leads qualifiés, en adoptant une stratégie d'appel large et systématique, quelle que soit la motivation initiale des candidats. L'équipe reconnaît que les candidatures des élèves de seconde ne sont pas toujours motivées par un intérêt profond pour l'informatique, et que le volume de contacts doit être suffisamment important pour garantir une certaine proportion de réponses positives.
+
+Un suivi rigoureux des candidatures est mis en place, incluant un appel systématique à tous les leads, afin de déterminer leur réel intérêt et d'identifier les opportunités de conversion. La qualité des leads est primordiale, même si cela implique de générer un volume important de contacts.
+
+### Remédiation des Données et Automatisation
+
+L'équipe s'attaque à la qualité des données, en mettant en place un système de nettoyage régulier des données via un fichier Excel partagé. Un deuxième formulaire est dédié à la collecte des informations liées aux candidats inscrits à la web academy. La mise en place d'une automatisation, via un fichier Excel, permet d'intégrer automatiquement les nouvelles données collectées dans la base de données, réduisant ainsi les tâches manuelles.
+
+### Amélioration Continue et Feedback
+
+Il est souligné la nécessité d'une approche itérative, avec un focus sur l'amélioration continue basée sur les retours d'expérience. L'équipe est consciente de la complexité du processus et de la nécessité de mesurer et d'analyser les résultats pour ajuster la stratégie en conséquence.  La stratégie est axée sur l'exploitation des données collectées pour maximiser le nombre de leads qualifiés et assurer une conversion efficace.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Stratégie de Gestion des Prospects d’Études Informatiques
+
+La discussion porte sur l’optimisation de l’acquisition de prospects pour les programmes d’études en informatique, en mettant l’accent sur la conversion et la qualité des leads. Plusieurs aspects sont abordés, dont les formulaires informatisés, le suivi des candidatures, et la nécessité d’une approche large et quantitative.
+
+### Optimisation des Formulaires et des Sources de Prospects
+
+L’équipe explore l’utilisation de différents types de formulaires informatisés, notamment ceux reliant les campagnes marketing aux landing pages, ainsi qu’un formulaire permettant la capture des candidatures pour les stages de seconde. Il existe 17 formulaires différents, conçus pour collecter des données des campus. Ces formulaires sont essentiels pour collecter des données, et non pas pour être une fin en soi.
+
+### Gestion des Leads et Suivi des Candidatures
+
+L’objectif principal est d’augmenter le nombre de leads qualifiés, en adoptant une stratégie d’appel large et systématique, quelle que soit la motivation initiale des candidats. L’équipe reconnaît que les candidatures des élèves de seconde ne sont pas toujours motivées par un intérêt profond pour l’informatique, et que le volume de contacts doit être suffisamment important pour garantir une certaine proportion de réponses positives. Un suivi rigoureux des candidatures est mis en place, incluant un appel systématique à tous les leads, afin de déterminer leur réel intérêt et d’identifier les opportunités de conversion. La qualité des leads est primordiale, même si cela implique de générer un volume important de contacts.
+
+### Remédiation des Données et Automatisation
+
+L’équipe s’attaque à la qualité des données, en mettant en place un système de nettoyage régulier des données via un fichier Excel partagé. Un deuxième formulaire est dédié à la collecte des informations liées aux candidats inscrits à la web academy. La mise en place d’une automatisation, via un fichier Excel, permet d’intégrer automatiquement les nouvelles données collectées dans la base de données, réduisant ainsi les tâches manuelles.
+
+### Amélioration Continue et Feedback
+
+Il est souligné la nécessité d’une approche itérative, avec un focus sur l’amélioration continue basée sur les retours d’expérience. L’équipe est consciente de la complexité du processus et de la nécessité de mesurer et d’analyser les résultats pour ajuster la stratégie en conséquence. La stratégie est axée sur l’exploitation des données collectées pour maximiser le nombre de leads qualifiés et assurer une conversion efficace.

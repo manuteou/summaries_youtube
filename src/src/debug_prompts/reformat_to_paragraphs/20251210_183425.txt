@@ -1,0 +1,82 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Stratégie de Fidélisation et Évaluation des Pédagogues
+
+La discussion porte sur l'établissement d'un système de fidélisation des étudiants et l'évaluation des pédagogues, impliquant une approche multi-critères et des mécanismes de suivi rigoureux. L'objectif principal est d'optimiser le parcours des étudiants tout en évaluant la performance des pédagogues.
+
+### Évaluation des Pédagogues : Un Système Multi-Critères
+
+L'évaluation des pédagogues repose sur trois critères principaux, liés aux objectifs de fidélisation et de qualité de l'enseignement. 
+
+1.  **Atteinte des Objectifs de Promotion:** Chaque pédagogue est évalué sur le nombre de promotions auxquelles il est affecté, avec pour chaque promotion, il doit atteindre un objectif de fidélisation. Pour chaque objectif atteint, on se base sur un pourcentage, soit 1 sur N (où N est le nombre de promotions affectées au pédagogue), et il s’agit d’atteindre un objectif de 100% si tous les critères de cette promotion sont atteints.
+
+2.  **Satisfaction des Étudiants:** Des sondages sont réalisés à intervalles réguliers, avec des enquêtes intermédiaires à la fin de chaque semestre pour les étudiants de première année, et des sondages annuels à la fin de chaque année pour les autres années. Ces sondages mesurent la qualité des échanges avec l'équipe pédagogique, le niveau de disponibilité de cette équipe, et la satisfaction des étudiants concernant les activités et l'accompagnement.
+
+3.  **Satisfaction des Activités et Accompagnement:**  Cette dimension évalue la perception des étudiants concernant les activités proposées et l'accompagnement qu'ils reçoivent.
+
+
+### Chronologie et Spécificités des Évaluations
+
+L'évaluation des pédagogues suit une chronologie précise, tenant compte des phases de l'expérience étudiante.
+
+*   **Évaluations Annuelles:** Les sondages annuels sont menés à la fin de chaque année pour tous les niveaux d'études.
+*   **Évaluations Intermédiaires:** Des sondages sont organisés à la fin de chaque semestre pour les étudiants de première année.
+*   **Périodes Spécifiques:** Les évaluations sont réalisées à la fin de l'année pour les pédagogues travaillant avec les étudiants en fin de cursus (avant le départ en stage), et à des dates spécifiques (juin, mars, mai, septembre) pour les différents niveaux d'études.
+
+### Organisation et Spécificités par Campus et Parcours
+
+La mise en œuvre de ce système est adaptée à la complexité des campus et des parcours d'études.
+
+*   **Campus de Région:** Le système est appliqué à tous les salariés et pédagogues sur tous les campus, impliquant une mutualisation des équipes pour les interventions sur le terrain.
+*   **Mutualisation des Équipes:** Une équipe mutualisée est mise en place pour les interventions sur le terrain et l'accompagnement pédagogique.
+*   **Approche Personnalisée:** L'approche est personnalisée, en tenant compte du parcours spécifique de chaque étudiant, sans distinction de niveau.
+*   **Externalisation Limitée:** La gestion de MSC2 est majoritairement externalisée, avec seulement quelques interventions internes.
+*   **Déséquilibre des Promotions:** Le système prend en compte les déséquilibres de la répartition des activités entre les promotions.
+*   **Impact des Promotions:** Les opinions et les expériences des étudiants sont prises en compte, en particulier en fin de cursus.
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Stratégie de Fidélisation et Évaluation des Pédagogues
+
+La discussion porte sur l’établissement d’un système de fidélisation des étudiants et l’évaluation des pédagogues, impliquant une approche multi-critères et des mécanismes de suivi rigoureux. L’objectif principal est d’optimiser le parcours des étudiants tout en évaluant la performance des pédagogues.
+
+### Évaluation des Pédagogues : Un Système Multi-Critères
+
+L’évaluation des pédagogues repose sur trois critères principaux, liés aux objectifs de fidélisation et de qualité de l’enseignement.
+
+1.  **Atteinte des Objectifs de Promotion:** Chaque pédagogue est évalué sur le nombre de promotions auxquelles il est affecté. Pour chaque promotion, on se base sur un pourcentage, soit 1 sur N (où N est le nombre de promotions affectées au pédagogue), et il s’agit d’atteindre un objectif de 100% si tous les critères de cette promotion sont atteints.
+
+2.  **Satisfaction des Étudiants:** Des sondages sont réalisés à intervalles réguliers. Des enquêtes intermédiaires sont organisées à la fin de chaque semestre pour les étudiants de première année, et des sondages annuels sont menés à la fin de chaque année pour les autres années. Ces sondages mesurent la qualité des échanges avec l’équipe pédagogique, le niveau de disponibilité de cette équipe, et la satisfaction des étudiants concernant les activités et l’accompagnement.
+
+3.  **Satisfaction des Activités et Accompagnement:** Cette dimension évalue la perception des étudiants concernant les activités proposées et l’accompagnement qu’ils reçoivent.
+
+### Chronologie et Spécificités des Évaluations
+
+L’évaluation des pédagogues suit une chronologie précise, tenant compte des phases de l’expérience étudiante.
+
+*   **Évaluations Annuelles:** Les sondages annuels sont menés à la fin de chaque année pour tous les niveaux d’études.
+*   **Évaluations Intermédiaires:** Des sondages sont organisés à la fin de chaque semestre pour les étudiants de première année.
+*   **Périodes Spécifiques:** Les évaluations sont réalisées à la fin de l’année pour les pédagogues travaillant avec les étudiants en fin de cursus (avant le départ en stage), et à des dates spécifiques (juin, mars, mai, septembre) pour les différents niveaux d’études.
+
+### Organisation et Spécificités par Campus et Parcours
+
+La mise en œuvre de ce système est adaptée à la complexité des campus et des parcours d’études.
+
+*   **Campus de Région:** Le système est appliqué à tous les salariés et pédagogues sur tous les campus, impliquant une mutualisation des équipes pour les interventions sur le terrain.
+*   **Mutualisation des Équipes:** Une équipe mutualisée est mise en place pour les interventions sur le terrain et l’accompagnement pédagogique.
+*   **Approche Personnalisée:** L’approche est personnalisée, en tenant compte du parcours spécifique de chaque étudiant, sans distinction de niveau.
+*   **Externalisation Limitée:** La gestion de MSC2 est majoritairement externalisée, avec seulement quelques interventions internes.
+*   **Déséquilibre des Promotions:** Le système prend en compte les déséquilibres de la répartition des activités entre les promotions.
+*   **Impact des Promotions:** Les opinions et les expériences des étudiants sont prises en compte, en particulier en fin de cursus.

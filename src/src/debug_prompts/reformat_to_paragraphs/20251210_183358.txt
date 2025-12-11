@@ -1,0 +1,55 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Ajustements et Doublement des Primes Contractuelles : Une Analyse Critique
+
+La discussion porte sur la mise en place d'un doublement des primes contractuelles, initialement prévue à 20% des primes, et les implications de cette décision, ainsi que les critiques et préoccupations associées.
+
+### Les Points Clés du Doublement
+
+*   **Objectif initial :** Le doublement des primes contractuelles visait à augmenter les rémunérations des collaborateurs et à valoriser leurs efforts.
+*   **Pourcentage de doublement :** Le doublement était initialement prévu à 20% des primes contractuelles.
+*   **Critères de valorisation :** Les primes étaient attribuées en fonction de la validation de plusieurs critères, dont :
+    *   20% pour l'atteinte des objectifs.
+    *   5% pour l'OV-CIF global passback.
+    *   25% pour les primes des MSC (Mission Système Campus).
+    *   25% pour les primes des prémessées.
+    *   5% pour le système d'escrès scréciolaire.
+*   **Potentiel de validation des primes :** Les collaborateurs pouvaient valider jusqu'à 180% de leur prime contractuelle.
+
+### Critiques et Préoccupations
+
+*   **Mécanisme punitif :** Le système de validation des critères est critiqué pour son caractère punitif, car un simple échec de validation d'un objectif peut entraîner une perte quasi-totale de la prime.
+*   **Impact sur la prime :** Cette perte de prime est particulièrement problématique, notamment pour les commerciaux, qui sont rémunérés sur performance, et qui peuvent être pénalisés même en cas d'absence de succès.
+*   **Prise en compte des objectifs :** Les objectifs, même s'ils sont définis, sont moins pris en compte dans le calcul des primes.
+*   **Réduction des primes :** Une réduction générale des primes a été mise en œuvre, entrainant une diminution de 12,15% des primes des MSC, et 12,15% des primes des prémessées.
+*   **Stratégie d’incitation:** La stratégie est une stratégie d'incitation qui s'applique à des objectifs à court terme, il est en fait une mesure à court terme.
+*   **Mesure de réassurance:** La mesure de réassurance pour les équipes est de garantir un minimum de prime, en particulier pour ceux qui continuent à s'investir dans le campus.
+*   **Décalage des attentes:** Le projet a été mis en place sans avoir de brochure ou d’éléments de support complets, ce qui a causé des retards et une incompréhension.
+*   **Remise en question de l'approche :** Il est désormais question de questionner cette approche, et d'envisager d'autres voies pour valoriser l'investissement des équipes.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Ajustements et Doublement des Primes Contractuelles : Une Analyse Critique
+
+La discussion porte sur la mise en place d’un doublement des primes contractuelles, initialement prévu à 20% des primes, et les implications de cette décision, ainsi que les critiques et préoccupations associées. Le doublement des primes contractuelles visait à augmenter les rémunérations des collaborateurs et à valoriser leurs efforts.
+
+### Les Points Clés du Doublement
+
+Le pourcentage de doublement était initialement prévu à 20% des primes contractuelles. Les primes étaient attribuées en fonction de la validation de plusieurs critères.  20% étaient alloués pour l’atteinte des objectifs.  5% étaient attribués pour l’OV-CIF global passback. 25% étaient réservés aux primes des MSC (Mission Système Campus), et 25% aux primes des prémessées.  De plus, 5% étaient alloués pour le système d’escrès scréciolaire.  Les collaborateurs pouvaient valider jusqu'à 180% de leur prime contractuelle.
+
+### Critiques et Préoccupations
+
+Le système de validation des critères est critiqué pour son caractère punitif, car un simple échec de validation d’un objectif peut entraîner une perte quasi-totale de la prime. Cette perte de prime est particulièrement problématique, notamment pour les commerciaux, qui sont rémunérés sur performance, et qui peuvent être pénalisés même en cas d’absence de succès.  De plus, les objectifs, même s'ils sont définis, sont moins pris en compte dans le calcul des primes.  Une réduction générale des primes a été mise en œuvre, entrainant une diminution de 12,15% des primes des MSC, et 12,15% des primes des prémessées.  La stratégie est une stratégie d'incitation qui s'applique à des objectifs à court terme, il est en fait une mesure à court terme. La mesure de réassurance pour les équipes est de garantir un minimum de prime, en particulier pour ceux qui continuent à s'investir dans le campus.  Enfin, le projet a été mis en place sans avoir de brochure ou d’éléments de support complets, ce qui a causé des retards et une incompréhension, et il est désormais question de questionner cette approche, et d’envisager d’autres voies pour valoriser l'investissement des équipes.

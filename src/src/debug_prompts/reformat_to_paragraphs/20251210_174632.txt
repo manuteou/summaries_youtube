@@ -1,0 +1,73 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici l'extraction des informations clés de la réunion, conformément aux objectifs et au format demandés :
+
+**I. INTERVENANTS ET POSITIONS**
+
+*   **Le Secrétaire de Séance (Moi)** : Responsable de la transcription et de l'identification des points importants.
+*   **Les Participants à la Réunion (non nommés)** :
+    *   **Intervenants Clés** : Ils expriment des opinions divergentes concernant la prime contractuelle, l'évaluation des objectifs, et l'impact des décisions.
+    *   **Intervenants plus "neutres"** : Ils apportent des précisions techniques sur les pourcentages, les critères et les objectifs.
+
+**II. DÉCISIONS ACTÉES**
+
+*   **Doublement de la Prime Contractuelle (pour les objectifs atteints)** : Une décision a été prise de doubler la prime contractuelle pour les employés qui atteignent les objectifs fixés.  Ce doublement est appliqué sur les 20% de la prime liés aux objectifs.
+*   **Doublement de la Prime Contractuelle (pour les "déli")** : Une décision est prise de doubler les primes "déli" (délis).
+*   **Création d'un Questionnaire pour Évaluer les Contributions Individuelles** : La création d'un questionnaire est envisagée pour collecter des données sur les contributions de chaque collaborateur.
+*   **Utilisation du Portail Candidat** : Reconnaissance de l'impact positif du portail candidat sur le recrutement.
+*   **Maintien du "20% pour les Déli"** : La pérennisation de la part de la prime dédiée aux "déli" a été validée.
+*   **Application du doublement sur la prime liée aux objectifs atteints** : La décision a été prise d'appliquer le doublement sur les 20% de la prime liés aux objectifs.
+
+**III. POINTS DE BLOQUAGES / DÉSAACCORDS**
+
+*   **Critère du "Premier Septembre – 30 Septembre"** : Forte confusion et désaccord sur la définition des dates limites pour les objectifs. Plusieurs participants ne sont pas d'accord sur la période considérée (le 30 septembre est-il le dernier jour ou le 30 septembre inclus ?).
+*   **Impact du Doublement sur la Prime** : Des inquiétudes sont exprimées concernant les conséquences du doublement de la prime.
+*   **"0% en cas d'échec"** : Le système de pénalité de 0% en cas d'échec est critiqué pour son caractère trop strict et punitif.
+*   **Critères d'Évaluation:**  Il existe des divergences sur la manière dont les objectifs doivent être évalués (l'importance relative des critères objectifs vs. subjectifs).
+*   **Confusion sur les critères d'évaluation** : Les participants expriment une difficulté à cerner les critères utilisés pour évaluer les objectifs.
+*   **Désaccord sur les objectifs "bas"** : Des divergences sont exprimées sur le contenu et la définition des objectifs "bas".
+*   **Manque de communication** : L'expression d'un besoin accru de communication et de transparence entre les équipes.
+
+**IV. ACTIONS FUTURES**
+
+*   **Création et distribution d'un questionnaire** : Quelqu'un doit créer et diffuser un questionnaire pour recueillir des informations sur les contributions individuelles. (Responsabilité non définie).
+*   **Mise en place d'une procédure de suivi des objectifs** : Définir une méthode claire pour suivre l'atteinte des objectifs.
+*   **Révision des critères d'évaluation** : Une analyse des critères d'évaluation est nécessaire pour s'assurer de leur clarté et de leur pertinence.
+*   **Communication et Transparence** : Améliorer les canaux de communication et de transparence entre les équipes.
+*   **Définition de la péridode d'évaluation** : Définir clairement la période pendant laquelle les objectifs seront évalués. (Septembre-30 septembre ?)
+*   **Suivi de l'impact du portail candidat** : surveiller l'efficacité du portail candidat et s'assurer de ses améliorations continues.
+
+Cette extraction est exhaustive et précise, reflétant les points de discussion et les décisions prises au cours de la réunion.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+# Extraction des informations clés de la réunion
+
+**I. INTERVENANTS ET POSITIONS**
+
+Le Secrétaire de Séance (Moi) est responsable de la transcription et de l'identification des points importants. Les Participants à la Réunion (non nommés) sont divisés en deux catégories : les Intervenants Clés, qui expriment des opinions divergentes concernant la prime contractuelle, l'évaluation des objectifs, et l'impact des décisions, et les Intervenants plus "neutres" qui apportent des précisions techniques sur les pourcentages, les critères et les objectifs.
+
+**II. DÉCISIONS ACTÉES**
+
+Une décision a été prise de doubler la prime contractuelle pour les employés qui atteignent les objectifs fixés. Ce doublement est appliqué sur les 20% de la prime liés aux objectifs. Une décision est également prise de doubler les primes "déli" (délis). La création d'un questionnaire pour évaluer les contributions individuelles est envisagée. La reconnaissance de l'impact positif du portail candidat sur le recrutement a été effectuée. Le maintien du "20% pour les Déli" a été validé. L'application du doublement sur la prime liée aux objectifs atteints a été décidée.
+
+**III. POINTS DE BLOQUAGES / DÉSAACCORDS**
+
+La confusion et le désaccord sur la définition des dates limites pour les objectifs, notamment concernant le "Premier Septembre – 30 Septembre" (le 30 septembre est-il le dernier jour ou le 30 septembre inclus ?), sont des points de blocage majeurs. Des inquiétudes sont exprimées concernant les conséquences du doublement de la prime. Le système de pénalité de 0% en cas d'échec est critiqué pour son caractère trop strict et punitif. Des divergences existent sur la manière dont les objectifs doivent être évalués (l'importance relative des critères objectifs vs. subjectifs). Il existe une confusion sur les critères d'évaluation. Des divergences sont exprimées sur le contenu et la définition des objectifs "bas". Un besoin accru de communication et de transparence entre les équipes est exprimé.
+
+**IV. ACTIONS FUTURES**
+
+Quelqu'un doit créer et diffuser un questionnaire pour recueillir des informations sur les contributions individuelles. Il est nécessaire de mettre en place une procédure de suivi des objectifs. Une analyse des critères d'évaluation est nécessaire pour s'assurer de leur clarté et de leur pertinence. Il est important d'améliorer les canaux de communication et de transparence entre les équipes. Il est nécessaire de définir clairement la période pendant laquelle les objectifs seront évalués (Septembre-30 septembre ?). Enfin, il faut surveiller l'efficacité du portail candidat et s'assurer de ses améliorations continues.

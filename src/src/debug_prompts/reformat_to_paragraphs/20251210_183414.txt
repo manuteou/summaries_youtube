@@ -1,0 +1,56 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Objectifs de Mesure de l'Impact des Coudions et Performance Pédagogique
+
+L'objectif principal est de structurer la mesure de l'impact des coudions (formations) et de la performance pédagogique, en s'appuyant sur trois piliers : l'impact institutionnel, la performance pédagogique, et la densité maximale de l'extraction d'informations.
+
+### Composantes de la Mesure de l'Impact
+
+1.  **Impact Institutionnel (50% du total)**
+
+    *   **Mesure de la Réinscription des Étudiants (40% du composant)** :  Le taux de réinscription des étudiants d'une année à l'autre sur les formations initiales sera utilisé.  Sur les formations professionnelles, l'objectif est de mesurer la mise en emploi des étudiants.  L'analyse repose sur les données issues des formulaires de réinscription et des contrats de travail.
+    *   **Collecte des Données de Satisfaction des Étudiants (60% du composant)** :  Des enquêtes de satisfaction des étudiants seront mises en place pour évaluer leur expérience dans le cadre des formations.
+
+2.  **Performance Pédagogique (40% du total)**
+
+    *   **Partie 1 : Réussite Académique (30% du composant)** : Cette partie est liée à la réussite des étudiants sur les formations. Elle se base sur :
+        *   Le taux de passage des examens (niveau d'exigence).
+        *   Le suivi des étudiants (qualité du suivi).
+    *   **Partie 2 : Qualité de l’Évaluation (10% du composant)** : Cet aspect concerne la qualité de l'évaluation des étudiants.
+
+3.  **Contribution Nationale (50% du total)**
+
+    *   **Innovation Pédagogique et Communication (50% du composant)** :  Ce composant mesure la contribution de l'école au domaine de l'innovation pédagogique. Il est basé sur la communication des démarches innovantes. Le but est de la mise en oeuvre d’actions innovantes et d’actions de communication sur ces actions.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Objectifs de Mesure de l'Impact des Coudions et Performance Pédagogique
+
+L'objectif principal est de structurer la mesure de l'impact des coudions (formations) et de la performance pédagogique, en s'appuyant sur trois piliers : l'impact institutionnel, la performance pédagogique, et la densité maximale de l'extraction d'informations.
+
+### Composantes de la Mesure de l'Impact
+
+**Impact Institutionnel (50% du total)**
+
+Le composant de l'impact institutionnel est réparti en deux parties. Tout d'abord, la mesure de la réinscription des étudiants est déterminée à 40% de ce composant.  Le taux de réinscription des étudiants d'une année à l'autre sur les formations initiales sera utilisé. Sur les formations professionnelles, l'objectif est de mesurer la mise en emploi des étudiants. L'analyse repose sur les données issues des formulaires de réinscription et des contrats de travail. Ensuite, des enquêtes de satisfaction des étudiants seront mises en place pour évaluer leur expérience dans le cadre des formations, représentant les 60% restants du composant.
+
+**Performance Pédagogique (40% du total)**
+
+Ce composant est divisé en deux parties. La première partie, axée sur la réussite académique, représente 30% de ce composant. Elle est liée à la réussite des étudiants sur les formations et se base sur le taux de passage des examens (niveau d'exigence) et le suivi des étudiants (qualité du suivi). La deuxième partie, concernant la qualité de l'évaluation des étudiants, représente les 10% restants du composant.
+
+**Contribution Nationale (50% du total)**
+
+Le composant de contribution nationale se concentre sur l'innovation pédagogique et la communication. Il est basé sur la communication des démarches innovantes et le suivi de la mise en oeuvre d’actions innovantes et d’actions de communication sur ces actions, représentant 50% du composant.

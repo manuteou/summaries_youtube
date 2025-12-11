@@ -1,0 +1,79 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Gestion des Échanges et Nouvelles Fonctionnalités de Payat
+
+Le document traite de l'implémentation de nouvelles fonctionnalités et de l'amélioration de la fiabilité des échanges sur la plateforme Payat. Plusieurs points clés sont abordés :
+
+**1. Migration des Données et Intégration des Échanges**
+
+*   Une migration des données est en cours, avec l'importation des données financières à partir du 1er septembre.
+*   Les échanges de 2025 et 2026, ainsi que ceux de 2027, sont progressivement importés sur Payat.
+*   Les échanges "séques" qui ont été effectués avant le 1er septembre ne sont pas encore importés, ce qui pose un défi pour les ADM (Administrateurs de Domaine) qui doivent synchroniser les données.
+*   Un travail important est en cours pour l'harmonisation des données entre Payat et la source de données originelle.
+*   L'importation est réalisée en plusieurs étapes, notamment avec une analyse des inscriptions.
+
+**2. Nouvelle Interface Utilisateur et Fonctionnalités**
+
+*   Une nouvelle interface utilisateur est en cours de déploiement, dotée de nouveaux boutons et de droits d'accès permettant d'accéder à un plus large éventail d'informations.
+*   Certains boutons, notamment ceux relatifs aux demandes d'échanges, ont disparu et doivent être réintégrés.
+*   Les ADM disposent désormais d'une vue d'ensemble des données, incluant la possibilité d'analyser les échanges sur 7 jours.
+*   La plateforme permet de gérer les modifications de montants, les changements de codes d’affectation et de formation.
+
+**3. Demandes d'Échanges et Processus**
+
+*   Il est possible de faire des demandes d'échanges directement sur Payat.
+*   Le processus d'inscription des étudiants est en cours de modernisation, avec une logique de plusieurs étapes.
+*   Les PG-4 (Probatoire Général - 4) sont notamment concernés par les inscriptions.
+
+**4. Difficultés et Solutions**
+
+*   L'importation des données est complexe en raison du manque d'importation des données antérieures au 1er septembre.
+*   Des tests ont été réalisés sur les différents composants de la plateforme, notamment les métadonnées.
+*   Des réunions d’équipe sont organisées pour apporter des solutions et suivre l’avancement des changements.
+*   Il existe une option pour signaler les anomalies (appelées "mèdes") directement sur la plateforme Payat.
+*   Des demandes concernant des mots de passe peuvent être faites mais ne sont pas toujours possibles.
+*   L'équipe met à disposition des outils permettant de visualiser les demandes, les évolutions et les notifications.
+
+**5. Aspects Techniques et Limitation**
+
+*   Le code d'affectation initial sur ce MSE1 ne peut pas être modifié.
+*   L'importation des données est réalisée en 2 parties, MSE1 et les données des étudiants.
+*   Le document indique une difficulté avec la modification des mots de passe.
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Gestion des Échanges et Nouvelles Fonctionnalités de Payat
+
+Le document traite de l'implémentation de nouvelles fonctionnalités et de l'amélioration de la fiabilité des échanges sur la plateforme Payat. Plusieurs points clés sont abordés :
+
+**1. Migration des Données et Intégration des Échanges**
+
+Une migration des données est en cours, avec l'importation des données financières à partir du 1er septembre. Les échanges de 2025 et 2026, ainsi que ceux de 2027, sont progressivement importés sur Payat. Les échanges "séques" qui ont été effectués avant le 1er septembre ne sont pas encore importés, ce qui pose un défi pour les ADM (Administrateurs de Domaine) qui doivent synchroniser les données. Un travail important est en cours pour l'harmonisation des données entre Payat et la source de données originelle. L'importation est réalisée en plusieurs étapes, notamment avec une analyse des inscriptions.
+
+**2. Nouvelle Interface Utilisateur et Fonctionnalités**
+
+Une nouvelle interface utilisateur est en cours de déploiement, dotée de nouveaux boutons et de droits d’accès permettant d'accéder à un plus large éventail d'informations. Certains boutons, notamment ceux relatifs aux demandes d’échanges, ont disparu et doivent être réintégrés. Les ADM disposent désormais d’une vue d’ensemble des données, incluant la possibilité d'analyser les échanges sur 7 jours. La plateforme permet de gérer les modifications de montants, les changements de codes d’affectation et de formation.
+
+**3. Demandes d'Échanges et Processus**
+
+Il est possible de faire des demandes d'échanges directement sur Payat. Le processus d'inscription des étudiants est en cours de modernisation, avec une logique de plusieurs étapes. Les PG-4 (Probatoire Général - 4) sont notamment concernés par les inscriptions.
+
+**4. Difficultés et Solutions**
+
+L'importation des données est complexe en raison du manque d'importation des données antérieures au 1er septembre. Des tests ont été réalisés sur les différents composants de la plateforme, notamment les métadonnées. Des réunions d’équipe sont organisées pour apporter des solutions et suivre l’avancement des changements. Il existe une option pour signaler les anomalies (appelées "mèdes") directement sur la plateforme Payat. Des demandes concernant des mots de passe peuvent être faites mais ne sont pas toujours possibles. L'équipe met à disposition des outils permettant de visualiser les demandes, les évolutions et les notifications.
+
+**5. Aspects Techniques et Limitation**
+
+Le code d’affectation initial sur ce MSE1 ne peut pas être modifié. L'importation des données est réalisée en 2 parties, MSE1 et les données des étudiants.

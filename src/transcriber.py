@@ -11,7 +11,29 @@ class WhisperTranscriber:
 
     def transcribe_audio(self, audio_file: str) -> str:
         result = self.model.transcribe(audio_file)
-        return result['text']
+        text = result['text']
+        
+        # Save to debug file
+        try:
+            # Use only the filename without extension as the ID
+            filename = os.path.basename(audio_file)
+            name_without_ext = os.path.splitext(filename)[0]
+            
+            # Directory path - go up one level from src if running from src, or relative to cwd
+            # Ideally use absolute path or relative to project root. 
+            # Given user request: C:\Users\froge\Documents\vscode\test_whisper\src\segments_text
+            debug_dir = os.path.join(os.path.dirname(__file__), "segments_text")
+            os.makedirs(debug_dir, exist_ok=True)
+            
+            debug_file = os.path.join(debug_dir, f"{name_without_ext}.txt")
+            with open(debug_file, "w", encoding="utf-8") as f:
+                f.write(text)
+                
+            print(f"DEBUG: Transcription saved to {debug_file}")
+        except Exception as e:
+            print(f"Warning: Could not save debug transcription: {e}")
+            
+        return text
 
     @staticmethod
     def extract_subtitles(srt_content: str) -> str:

@@ -1,0 +1,73 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici la transcription de la réunion, capturée de manière factuelle et sans interprétation :
+
+*   **Objectifs Principaux :**
+    *   Suivi des participations des entreprises au campus.
+    *   Évaluation de la satisfaction des partenaires.
+    *   Partage de bonnes pratiques internes.
+*   **Points Décidés :**
+    *   Se baser uniquement sur le total de satisfaction (pas de registre de participation).
+    *   Chaque collaborateur doit contribuer au moins trois interventions entreprise par an.
+    *   Questionnaire à remplir par tous les collaborateurs (minimum 3 questions + un verbatim).
+    *   Partage des réponses du questionnaire (via Gilda, possiblement).
+    *   Utilisation des salons de l'étudiant et des événements pour recueillir des témoignages.
+    *   Pas de "porte-fail" spécifique pour les stages.
+    *   Les tutorat s'effectuent en fin de stage
+*   **Actions Futures :**
+    *   Création d'un espace pour que les collaborateurs puissent déposer leurs idées et contributions.
+    *   Organisation d'animations et présentations par les Pédago sur les bonnes pratiques.
+    *   Partage des réponses des collaborateurs (via Gilda).
+    *   Recueil de témoignages via les événements (salons, etc.).
+*   **Points de Blocage/Questions Soulevées :**
+    *   Besoin de plus d’espace pour que les participants puissent déposer leurs idées.
+    *   La notion de "porte-fail" a été remise en question. (Pas de "porte-fail" spécifique pour les stages).
+    *   Clarification sur le type de "verbatim" (questionnaire et partage des réponses).
+    *   Confirmation de l'utilité des animations des Pédago.
+*   **Déroulé Chronologique (Sujets Abordés) :**
+    1.  Présentation des objectifs du suivi.
+    2.  Décision sur le mode d'évaluation (total satisfaction).
+    3.  Définition du nombre minimum d'interventions entreprise par an.
+    4.  Description du questionnaire à remplir.
+    5.  Discussion sur le partage des réponses.
+    6.  Clarification sur le rôle des Pédago et animations.
+    7.  Discussion sur l'utilisation des événements (salons, etc.) pour recueillir des témoignages.
+    8.  Question sur l’utilité des animations des Pédago.
+    9.  Questions sur la notion de "porte-fail".
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+Voici la transcription de la réunion, capturée de manière factuelle et sans interprétation :
+
+**Objectifs Principaux :**
+
+Les objectifs principaux de cette réunion étaient le suivi des participations des entreprises au campus, l'évaluation de la satisfaction des partenaires, et le partage de bonnes pratiques internes.
+
+**Points Décidés :**
+
+Il a été décidé de se baser uniquement sur le total de satisfaction, sans registre de participation. Chaque collaborateur doit contribuer au moins trois interventions auprès d'entreprises par an. Un questionnaire à remplir a été mis en place, comprenant un minimum de trois questions et un verbatim. Les réponses à ce questionnaire seront partagées via Gilda, et possiblement d’autres canaux. Afin de recueillir des témoignages, l'utilisation des salons de l'étudiant et des événements est privilégiée. Il a également été convenu qu’il n’y aurait pas de “porte-fail” spécifique pour les stages, et que les tutorats se dérouleraient à la fin du stage.
+
+**Actions Futures :**
+
+Les actions futures comprennent la création d’un espace où les collaborateurs pourront déposer leurs idées et contributions.  De plus, des animations et présentations par les Pédago sur les bonnes pratiques seront organisées, ainsi que le partage des réponses des collaborateurs via Gilda. Enfin, le recueil de témoignages via les événements (salons, etc.) est maintenu.
+
+**Points de Blocage/Questions Soulevées :**
+
+Plusieurs points de blocage ont été soulevés. Il est nécessaire de prévoir davantage d’espace pour que les participants puissent déposer leurs idées. La notion de “porte-fail” a été remise en question, et il est nécessaire de clarifier le type de "verbatim" à inclure dans les questionnaires et lors du partage des réponses. Il est également important de confirmer l'utilité des animations des Pédago.
+
+**Déroulé Chronologique (Sujets Abordés) :**
+
+La réunion a débuté par une présentation des objectifs du suivi.  Elle a ensuite porté sur la décision concernant le mode d'évaluation (total satisfaction).  Par la suite, des discussions ont eu lieu sur la définition du nombre minimum d'interventions auprès d'entreprises par an, la description du questionnaire à remplir, et la discussion sur le partage des réponses. Des éclaircissements ont été apportés sur le rôle des Pédago et les animations prévues. Enfin, des questions ont été adressées concernant l'utilisation des événements (salons, etc.) pour recueillir des témoignages.

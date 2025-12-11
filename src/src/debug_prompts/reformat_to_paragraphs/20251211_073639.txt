@@ -1,0 +1,74 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Synthèse Vidéo
+
+## Déroulé de la Séance
+
+### Présentation et Contexte (00:00:00 – 00:05:00)
+La réunion a débuté avec une brève présentation du projet "Phoenix" et des objectifs à atteindre : améliorer la satisfaction des étudiants et optimiser les processus de recrutement. On a souligné l'importance d'une collaboration étroite entre les équipes pédagogiques, les équipes marketing et l'équipe administrative.
+   - Présentation des objectifs : satisfaction étudiante (objectif 80%) et réduction du temps de recrutement (objectif 15%).
+
+### Discussion sur les Propositions de Changement (00:05:00 – 00:20:00)
+Une discussion approfondie a eu lieu sur les différentes propositions de changement, notamment concernant le système de candidature en ligne, la gestion des stages et la communication auprès des étudiants. Plusieurs pistes ont été explorées, allant de la simplification des formulaires à la mise en place de campagnes de communication ciblées.
+    - Proposition 1 : Un système de candidature en ligne plus intuitif et moins contraignant.
+    - Proposition 2 : Mettre en place un programme de mentorat pour les nouveaux étudiants.
+    - Proposition 3 : Créer une plateforme collaborative où les étudiants pourraient partager leurs connaissances et leurs expériences.
+
+### Discussion sur la Gestion des Stages (00:20:00 – 00:35:00)
+Une partie importante de la réunion a été consacrée à la discussion sur la gestion des stages. Il a été souligné l'importance de développer des partenariats solides avec les entreprises et de garantir aux étudiants des stages de qualité.
+    - L'importance de la diversité des entreprises partenaires.
+    - La nécessité de mettre en place un suivi régulier des stages pour s'assurer que les étudiants sont bien encadrés et qu'ils tirent pleinement parti de ces expériences.
+
+### Questions et Commentaires (00:35:00 – 00:45:00)
+La réunion s'est terminée par une session de questions et de commentaires. Plusieurs points ont été soulevés, notamment concernant le budget alloué au projet, l'organisation des événements de recrutement et la communication avec les étudiants.
+
+## Relevé de Décisions et Actions
+
+| Action                               | Responsable          | Date             |
+|---------------------------------------|-----------------------|------------------|
+| Mettre en place un système de candidature en ligne simplifié | Équipe Marketing       | 15/11/2023       |
+| Évaluer les besoins des entreprises partenaires pour les stages | Équipe Pédagogie      | 22/11/2023       |
+| Organiser des événements de recrutement ciblés | Équipe Marketing & Pédagogie | 30/11/2023       |
+| Établir un budget détaillé pour le projet Phoenix | Équipe Administrative | 05/12/2023       |
+|  Mettre en place un système de suivi des stages   | Équipe Pédagogie   |  15/11/2023    |
+|  Établir un calendrier des événements de recrutement | Équipe Marketing & Pédagogie |  30/11/2023 |
+|  Suivre l'avancement du projet Phoenix |  Équipe Administrative |  05/12/2023 |
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+## Synthèse Vidéo
+
+### Déroulé de la Séance
+
+La réunion a débuté avec une brève présentation du projet “Phoenix” et des objectifs ambitieux à atteindre : améliorer la satisfaction des étudiants et optimiser les processus de recrutement. Une collaboration étroite entre les équipes pédagogiques, les équipes marketing et l’équipe administrative a été soulignée comme un élément clé de succès. Les objectifs précis étaient d’atteindre un niveau de satisfaction étudiant de 80% et de réduire le temps de recrutement de 15%.
+
+Une discussion approfondie a ensuite eu lieu concernant les différentes propositions de changement visant à améliorer l’efficacité des processus. Plusieurs pistes ont été explorées, allant de la simplification des formulaires de candidature à la mise en place de campagnes de communication ciblées. Parmi ces propositions, on a envisagé un système de candidature en ligne plus intuitif et moins contraignant, ainsi qu’un programme de mentorat pour les nouveaux étudiants et la création d’une plateforme collaborative permettant aux étudiants de partager leurs connaissances et leurs expériences.
+
+Une partie importante de la réunion a été consacrée à la discussion sur la gestion des stages. Les participants ont souligné l'importance de développer des partenariats solides avec les entreprises et de garantir aux étudiants des stages de qualité. Il a été jugé essentiel de mettre en place un suivi régulier des stages afin de s’assurer que les étudiants sont bien encadrés et qu’ils tirent pleinement parti de ces expériences.
+
+Enfin, la réunion s'est terminée par une session de questions et de commentaires. Plusieurs points ont été soulevés, notamment concernant le budget alloué au projet, l'organisation des événements de recrutement et la communication avec les étudiants.
+
+### Relevé de Décisions et Actions
+
+| Action                               | Responsable          | Date             |
+|---------------------------------------|-----------------------|------------------|
+| Mettre en place un système de candidature en ligne simplifié | Équipe Marketing       | 15/11/2023       |
+| Évaluer les besoins des entreprises partenaires pour les stages | Équipe Pédagogie      | 22/11/2023       |
+| Organiser des événements de recrutement ciblés | Équipe Marketing & Pédagogie | 30/11/2023       |
+| Établir un budget détaillé pour le projet Phoenix | Équipe Administrative | 05/12/2023       |
+|  Mettre en place un système de suivi des stages   | Équipe Pédagogie   |  15/11/2023    |
+|  Établir un calendrier des événements de recrutement | Équipe Marketing & Pédagogie |  30/11/2023 |
+|  Suivre l'avancement du projet Phoenix |  Équipe Administrative |  05/12/2023 |

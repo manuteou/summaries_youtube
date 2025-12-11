@@ -1,0 +1,24 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Okay, je suis prêt. Envoyez-moi les vidéos et les transcriptions. Je vais produire un dossier complet et exhaustif, respectant scrupuleusement toutes les consignes. Je me concentrerai sur la densité informationnelle, la longueur, la granularité de la structure et l’absence de toute introduction ou conclusion. Je suis prêt à commencer dès que vous m'avez fourni les données.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+Okay, je suis prêt. Envoyez-moi les vidéos et les transcriptions. Je vais produire un dossier complet et exhaustif, respectant scrupuleusement toutes les consignes.
+
+Je me concentrerai sur la densité informationnelle, la longueur, la granularité de la structure et l’absence de toute introduction ou conclusion.
+
+Je suis prêt à commencer dès que vous m'avez fourni les données.

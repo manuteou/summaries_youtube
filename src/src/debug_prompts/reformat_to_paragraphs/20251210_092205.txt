@@ -1,0 +1,76 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ## Augmentation des primes contractuelles et critères d’évaluation
+
+La discussion porte sur une modification substantielle du système de primes contractuelles au sein de l’institution. L’objectif principal est de valoriser l’engagement des collaborateurs, particulièrement ceux impliqués dans la vie du campus.
+
+###  Modification du système de primes
+
+Le montant global alloué aux primes est doublé, passant de 500 000 euros à 1 000 000 euros. Cette augmentation s’articule autour de critères précis, divisés en plusieurs catégories.
+
+###  Répartition des primes
+
+La répartition des 1 000 000 euros est la suivante :
+
+*   **20%** alloués à une prime pour les collaborateurs qui atteignent les objectifs.
+*   **80%** répartis comme suit :
+    *   **25%** pour les primes de base.
+    *   **12,25%** pour une autre catégorie de primes (désignée comme "MSC" – *Multiservices*).
+    *   **7,25%** pour une prime d'excellence (OVX – *Orientation et Valorisation des Expatriés*).
+    *   **5%** pour un système d'évaluation des performances (système d’escrétienneaire).
+
+###  Conditions d’attribution et valorisation de l'engagement
+
+Pour atteindre les 80% de la prime, il est nécessaire de valider les critères intermédiaires. Si les deux critères sont validés, l’OVX, qui est une prime d’excellence, est également attribuée.  L’objectif est de valoriser l’engagement des collaborateurs, même en cas d’atteinte des objectifs. Il est important de noter que cette augmentation concerne principalement l’attribution de primes de base.
+
+###  Contexte et raisons de la modification
+
+Cette modification est motivée par plusieurs facteurs :
+
+*   L'absence de brochure ou de plan de communication au début de l'année (première année de ce nouveau dispositif).
+*   Des problèmes de bourse et d'orientation, entraînant des difficultés pour les étudiants.
+*   La nécessité de valoriser l'engagement des collaborateurs, particulièrement ceux qui ont fait des "bâchors" (c'est-à-dire qui ont fait des efforts exceptionnels).
+*   La volonté de tenir compte des critiques exprimées par les équipes et les collaborateurs.
+
+###  Points clés à retenir
+
+Il est crucial de souligner que la valorisation de l'engagement est au cœur de cette modification. L'augmentation des primes, même en cas d'atteinte des objectifs, vise à récompenser l'implication des collaborateurs.  L'objectif est de créer un système de primes plus équitable et plus motivant, qui prenne en compte les efforts individuels et l'engagement global au sein de l'institution. L'évaluation repose sur un double critère, la performance individuelle et le respect des objectifs intermédiaires.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+## Augmentation des primes contractuelles et critères d’évaluation
+
+La discussion porte sur une modification substantielle du système de primes contractuelles au sein de l’institution. L’objectif principal est de valoriser l’engagement des collaborateurs, particulièrement ceux impliqués dans la vie du campus.
+
+### Modification du système de primes
+
+Le montant global alloué aux primes est doublé, passant de 500 000 euros à 1 000 000 euros. Cette augmentation s’articule autour de critères précis, divisés en plusieurs catégories. La répartition des fonds vise à récompenser l’investissement des collaborateurs, quel que soit l’atteinte des objectifs individuels, et à encourager l’implication dans les activités du campus.
+
+### Répartition des primes
+
+La répartition des 1 000 000 euros est la suivante : 20% sont alloués à une prime pour les collaborateurs qui atteignent les objectifs. Les 80% restants sont répartis comme suit : 25% pour les primes de base, 12,25% pour une autre catégorie de primes (désignée comme "MSC” – *Multiservices*), 7,25% pour une prime d’excellence (OVX – *Orientation et Valorisation des Expatriés*) et 5% pour un système d’évaluation des performances (système d’escrétienneaire). Ce système vise à créer un système de primes plus équitable et plus motivant, qui prenne en compte les efforts individuels et l’engagement global au sein de l’institution. L’évaluation repose sur un double critère, la performance individuelle et le respect des objectifs intermédiaires.
+
+### Conditions d’attribution et valorisation de l’engagement
+
+Pour atteindre les 80% de la prime, il est nécessaire de valider les critères intermédiaires. Si les deux critères sont validés, l’OVX, qui est une prime d’excellence, est également attribuée. L’objectif est de valoriser l’engagement des collaborateurs, même en cas d’atteinte des objectifs. Cela permet de récompenser les efforts exceptionnels et l’implication des individus dans les activités de l’institution.
+
+### Contexte et raisons de la modification
+
+Cette modification est motivée par plusieurs facteurs. Tout d’abord, l’absence de brochure ou de plan de communication au début de l’année (première année de ce nouveau dispositif) a nécessité une adaptation. Ensuite, des problèmes de bourse et d’orientation ont entraîné des difficultés pour les étudiants, ce qui a influencé la prise de décision. De plus, il était essentiel de valoriser l’engagement des collaborateurs, particulièrement ceux qui ont fait des "bâchors" (c'est-à-dire qui ont fait des efforts exceptionnels). Enfin, la volonté de tenir compte des critiques exprimées par les équipes et les collaborateurs a joué un rôle déterminant dans la conception de ce nouveau système.
+
+### Points clés à retenir
+
+Il est crucial de souligner que la valorisation de l’engagement est au cœur de cette modification. L’augmentation des primes, même en cas d’atteinte des objectifs, vise à récompenser l’implication des collaborateurs. En créant un système de primes plus équitable et plus motivant, prenant en compte les efforts individuels et l’engagement global au sein de l’institution, l’objectif est de créer un environnement de travail stimulant et de valoriser la contribution de chaque membre de l’équipe.

@@ -1,0 +1,65 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Nouvelle Structure de Prime Contractuelle des Collaborateurs des Unités Campus
+
+Le document traite de la mise en place d'une nouvelle structure de prime contractuelle pour les collaborateurs des unités campus, introduisant des critères plus larges et des objectifs de participation multiformes.
+
+### Éléments Clés de la Nouvelle Structure
+
+*   **Montant de la Prime:** 20% de la prime contractuelle sera allouée aux collaborateurs des unités campus.
+*   **Critères d'Évaluation:** La prime sera versée si au moins 6 critères sur 8 sont atteints. Si 8 critères sont atteints, la prime sera de 25%.
+*   **Évaluation des Participations:** Les critères d'évaluation se divisent en deux catégories principales :
+    *   **Activités Internes Campus :** Participation à des événements tels que des journées thématiques, des sessions d'information, ou des événements spécifiques.
+    *   **Activités de Vie Campus et de Soutien à la Communauté Étudiante :**
+        *   **Participation à des sessions d'étudiants :** Implication dans des sessions de discussion sur la vie étudiante, évaluée via l'atteinte de 15% des critères.
+        *   **Soutien à la communauté étudiante :**  Participation à des actions de soutien direct à la communauté étudiante, incluant des actions comme la soirée des étudiants.
+        *   **Activités de soutien à la communauté étudiante :**  Implication dans des actions de soutien direct à la communauté étudiante, incluant des actions comme l'accompagnement individuel.
+        *   **Participer à des activités de soutien à la communauté étudiante :**  Participer à des actions de soutien direct à la communauté étudiante, incluant des actions comme l'accompagnement individuel.
+        *   **Soutien à la vie étudiante :** Participer à des activités de soutien à la vie étudiante.
+*   **Définition des critères :** Les critères sont définis sur un total de 8, et la réussite est définie par l'atteinte de 6 critères minimum.
+*   **Évaluation Quantitative:** 15% des critères doivent être atteints pour la participation aux sessions d'étudiants.
+
+### Autres Points Importants
+
+*   **Objectif Global :** L'objectif principal est de favoriser une participation accrue des collaborateurs des unités campus dans les activités de campus, de promouvoir la collaboration entre les équipes, et de stimuler l'engagement étudiant.
+*   **Nature des objectifs :** Il s'agit de dépasser les approches actuelles, en particulier l'approche silo, et en favorisant la création d'un climat plus collaboratif.
+*   **Financement :** 20% de la prime contractuelle est dédiée à ce programme.
+*   **Date de Fin :** La prime sera versée à partir du 31 octobre 2022.
+*   **Impact :** Le calcul de la prime est basé sur un système de points, avec une pondération de 5% pour chaque point atteint, jusqu'à un maximum de 10% pour chaque point.
+*   **Nouveauté :** Cette nouvelle structure remplace l'ancienne méthode d'attribution des primes, basée sur des critères plus restrictifs.
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Nouvelle Structure de Prime Contractuelle des Collaborateurs des Unités Campus
+
+Ce document détaille la mise en place d’une nouvelle structure de prime contractuelle conçue pour les collaborateurs des unités campus. Cette structure introduit des critères d’évaluation plus larges et vise à encourager une participation multiforme.
+
+### Éléments Clés de la Nouvelle Structure
+
+La prime contractuelle allouée aux collaborateurs des unités campus représente 20% du montant total. La prime est versée sous deux conditions : l’atteinte d’au moins six critères sur un total de huit, ou, si huit critères sont atteints, la prime sera de 25%.
+
+L’évaluation des participations se divise en deux catégories principales. Premièrement, les *Activités Internes Campus* incluent la participation à des événements tels que des journées thématiques, des sessions d’information, ou des événements spécifiques. Deuxièmement, les *Activités de Vie Campus et de Soutien à la Communauté Étudiante* sont évaluées en fonction des critères suivants :
+
+*   **Participation à des sessions d'étudiants :** L'implication dans des sessions de discussion sur la vie étudiante est évaluée à partir de l’atteinte de 15% des critères.
+*   **Soutien à la communauté étudiante :** La participation à des actions de soutien direct à la communauté étudiante, comme la soirée des étudiants, est prise en compte.
+*   **Activités de soutien à la communauté étudiante :** L'implication dans des actions de soutien direct à la communauté étudiante, incluant des actions comme l'accompagnement individuel, est évaluée.
+*   **Participer à des activités de soutien à la communauté étudiante :** La participation à des actions de soutien direct à la communauté étudiante, incluant des actions comme l'accompagnement individuel, est prise en compte.
+*   **Soutien à la vie étudiante :** La participation à des activités de soutien à la vie étudiante est évaluée.
+
+La définition des critères est basée sur un total de huit, et la réussite est définie par l’atteinte de six critères minimum. L'évaluation quantitative est pondérée à 15% pour les critères liés aux sessions d'étudiants.
+
+### Autres Points Importants
+
+L’objectif global de cette nouvelle structure est de favoriser une participation accrue des collaborateurs des unités campus dans les activités de campus, de promouvoir la collaboration entre les équipes et de stimuler l'engagement étudiant. Elle se veut dépasser les approches actuelles, notamment l'approche silo, en favorisant un climat plus collaboratif. Le financement de ce programme représente 20% de la prime contractuelle, et la prime sera versée à partir du 31 octobre 2022.  Le calcul de la prime repose sur un système de points, avec une pondération de 5% pour chaque point atteint, jusqu'à un maximum de 10% pour chaque point. Cette nouvelle structure remplace l'ancienne méthode d’attribution des primes, qui reposait sur des critères plus restrictifs.

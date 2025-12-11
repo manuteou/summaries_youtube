@@ -1,0 +1,64 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici une capture des points clés de la réunion, structurée selon les objectifs définis :
+
+**1. Qui dit quoi ?**
+
+*   **Enrique :** Pose des questions sur la cohérence du suivi des interactions (stage, événements, etc.). Souligne l'importance du partage d'informations et d'observations. Intervient pour clarifier des aspects spécifiques (ex: utilisation des "vers battins", des "compuses", des "porteurs-faille").
+*   **Manuel :**  Présente les objectifs de l'initiative : valoriser l'engagement des équipes, encourager le partage de bonnes pratiques internes et externes, et collecter des données (vers battins, contributions, vidéos). Souligne l’importance d’avoir une vision et une contribution.
+*   **Les participants (équipe) :**  Discutent et s'accordent sur les éléments suivants : la nécessité de quantifier l'impact des actions, l'importance de la communication (internes et externes), et la collecte de données pour évaluer les résultats.
+
+**2. Décisions actées**
+
+*   **Création d'un système de "vers battins" :**  Chaque collaborateur doit produire ou partager au moins une contribution (innovation, pratiques, questionnements) sur le campus ou au niveau national.
+*   **Participation obligatoire à des événements :** Chaque collaborateur doit participer à au moins un salon d'étudiants par an.
+*   **Création d'un système de collecte de données :**  Il sera mis en place un système pour suivre et évaluer les "vers battins", les contributions, les vidéos, les participations à des événements, etc.
+*   **Objectif de communication externe :** Chaque collaborateur doit contribuer à au moins une action de communication externe, incluant des actions comme poster sur son propre compte social, témoigner dans une vidéo de campus, ou participer à des événements en tant que porte-parole.
+*   **Utilisation des "compuses" :**  Il est défini que les "compuses" (porteurs-faille) seront utilisées pour identifier et résoudre les problèmes rencontrés.
+
+**3. Points de blocage**
+
+*   **Définition précise des "vers battins" :**  Il y a un débat sur ce qui constitue réellement un "vers battin" et sur la manière de le définir de manière opérationnelle. L'argument est que sans définition claire, il y aura du manque d'engagement.
+*   **Difficulté à quantifier l'impact :**  Il est reconnu que l'évaluation des actions (impact sur les étudiants, résultats de la communication) sera un défi.
+*   **Risque de surcharge de travail :**  La nécessité d'une contribution à la fois interne et externe est perçue comme potentiellement chronophage pour les collaborateurs.
+*   **Manque de clarté sur les actions de communication externe :** Il y a un doute sur la manière dont les collaborateurs seront évalués sur les plateformes sociales.
+
+**4. Actions futures**
+
+*   **Enrique :** Est chargé de clarifier la définition des "vers battins" et de proposer un cadre de suivi.
+*   **Manuel (et l’équipe) :**  Est chargé de mettre en place le système de suivi des "vers battins" et de définir les critères d’évaluation des actions de communication externe.
+*   **Toute l’équipe :**  Est encouragée à s'impliquer activement dans la mise en œuvre de l'initiative et à contribuer à son succès.
+*   **Prochaine étape:**  Définir précisément le processus de suivi et d'évaluation des contributions.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+Voici une capture des points clés de la réunion, structurée selon les objectifs définis :
+
+**1. Qui dit quoi ?**
+
+Enrique a souligné l’importance du partage d’informations et d’observations, posant des questions sur la cohérence du suivi des interactions (stage, événements, etc.). Il a cherché à clarifier des aspects spécifiques, notamment l’utilisation des “vers battins”, des “compuses”, et des “porteurs-faille”. Manuel a présenté les objectifs de l’initiative : valoriser l’engagement des équipes, encourager le partage de bonnes pratiques internes et externes, et collecter des données (vers battins, contributions, vidéos). Il a insisté sur l’importance d’avoir une vision et une contribution. Les participants (équipe) ont discuté et s’accordé sur la nécessité de quantifier l’impact des actions, l’importance de la communication (internes et externes), et la collecte de données pour évaluer les résultats.
+
+**2. Décisions actées**
+
+Une décision majeure a été prise : la création d’un système de “vers battins”. Chaque collaborateur devra produire ou partager au moins une contribution (innovation, pratiques, questionnements) sur le campus ou au niveau national. De plus, la participation obligatoire à des événements (salons d’étudiants par an) a été définie. Un système de collecte de données a été créé pour suivre et évaluer les “vers battins”, les contributions, les vidéos, les participations à des événements, etc. Enfin, un objectif de communication externe a été établi : chaque collaborateur doit contribuer à au moins une action de communication externe, incluant des actions comme poster sur son propre compte social, témoigner dans une vidéo de campus, ou participer à des événements en tant que porte-parole. L’utilisation des “compuses” (porteurs-faille) a été définie pour identifier et résoudre les problèmes rencontrés.
+
+**3. Points de blocage**
+
+Plusieurs points de blocage ont été identifiés. La définition précise des “vers battins” est un sujet de débat, avec un doute sur la manière de le définir de manière opérationnelle, car sans définition claire, il y aurait un manque d’engagement. De plus, l’évaluation de l’impact des actions (notamment sur les étudiants, résultats de la communication) est perçue comme un défi. Il existe également une préoccupation quant au risque de surcharge de travail lié à la nécessité d’une contribution à la fois interne et externe. Enfin, il y a un doute sur la manière dont les collaborateurs seront évalués sur les plateformes sociales en matière de communication externe.
+
+**4. Actions futures**
+
+Enrique est chargé de clarifier la définition des “vers battins” et de proposer un cadre de suivi. Manuel (et l’équipe) est chargé de mettre en place le système de suivi des “vers battins” et de définir les critères d’évaluation des actions de communication externe. Toute l’équipe est encouragée à s’impliquer activement dans la mise en œuvre de l’initiative et à contribuer à son succès. La prochaine étape consiste à définir précisément le processus de suivi et d’évaluation des contributions.

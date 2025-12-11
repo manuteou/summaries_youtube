@@ -1,0 +1,40 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Évaluation des Contributions aux Campus : Définition des Critères et Processus
+
+Le projet d'évaluation des contributions des étudiants aux différents campus implique la définition de critères objectifs et la mise en place d'un processus structuré pour assurer une valorisation précise des efforts. L'objectif principal est de dépasser une notation globale et arbitraire, en s'appuyant sur des indicateurs mesurables et une compréhension fine des actions menées par les étudiants.
+
+### Les Critères d'Évaluation
+
+Les critères d'évaluation se concentrent sur plusieurs aspects. Premièrement, il s’agit de valoriser la participation aux événements extérieurs, qu’ils soient des conventions, des forums ou des salons étudiants. Deuxièmement, il est important de considérer les contributions aux projets et aux initiatives en dehors des cours formels. Troisièmement, la gestion des aides, dans le cadre des collectifs ou des projets spécifiques, est un élément crucial.  L'évaluation ne se limite pas à ce qui est "fait", mais prend en compte le nombre d'adhérents et la qualité des interventions. Pour la notation, il faut considérer les notes obtenues par les étudiants,  et il est important de définir des pourcentages de note pour chaque aspect.  Pour la promotion de la proximité, un point sera attribué pour chaque action menée.
+
+### Le Processus d'Évaluation
+
+Le processus repose sur la collecte régulière d'informations.  Une fois par an, au mois de juin ou septembre, un questionnaire sera distribué aux étudiants et aux collaborateurs pour évaluer leurs actions au cours de l'année précédente.  Ces questionnaires permettront d'identifier les critères et les réalisations de chacun.  Une colonne sera créée dans un tableau Excel, qui sera actualisée au fur et à mesure de l'année.  À la fin de l'année, les notes seront attribuées sur la base de ces données, en tenant compte des différentes contributions et des critères définis.  Le document sera utilisé pour aider à la prise de décision. Il est essentiel de ne pas attendre la fin de l'année pour noter les choses. L'utilisation d'un tableur est prévue afin de centraliser les informations et d'assurer une gestion efficace de l'évaluation. La direction pédagogique se servira de ce document pour évaluer les performances de chaque étudiant. Les notes seront calculées en fonction des différents indicateurs.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Évaluation des Contributions aux Campus : Définition des Critères et Processus
+
+Le projet d’évaluation des contributions des étudiants aux différents campus vise à dépasser une notation globale et arbitraire en s’appuyant sur des indicateurs mesurables et une compréhension fine des actions menées par les étudiants. L’objectif principal est de valoriser précisément ces efforts, en définissant des critères objectifs et en mettant en place un processus structuré.
+
+### Les Critères d’Évaluation
+
+Les critères d’évaluation se concentrent sur plusieurs aspects clés. Tout d’abord, il s’agit de valoriser la participation aux événements extérieurs, tels que les conventions, les forums ou les salons étudiants. Deuxièmement, il est important de considérer les contributions aux projets et aux initiatives en dehors des cours formels. Troisièmement, la gestion des aides, dans le cadre des collectifs ou des projets spécifiques, est un élément crucial. L’évaluation ne se limite pas à ce qui est "fait", mais prend en compte le nombre d'adhérents et la qualité des interventions. Pour la notation, il faut considérer les notes obtenues par les étudiants, et il est important de définir des pourcentages de note pour chaque aspect. Enfin, un point sera attribué pour chaque action menée, dans le but de promouvoir la proximité.
+
+### Le Processus d’Évaluation
+
+Le processus repose sur la collecte régulière d’informations. Une fois par an, au mois de juin ou septembre, un questionnaire sera distribué aux étudiants et aux collaborateurs pour évaluer leurs actions au cours de l’année précédente. Ces questionnaires permettront d’identifier les critères et les réalisations de chacun. Une colonne sera créée dans un tableau Excel, qui sera actualisée au fur et à mesure de l’année. À la fin de l’année, les notes seront attribuées sur la base de ces données, en tenant compte des différentes contributions et des critères définis. Le document sera utilisé pour aider à la prise de décision. Il est essentiel de ne pas attendre la fin de l’année pour noter les choses. L’utilisation d’un tableur est prévue afin de centraliser les informations et d’assurer une gestion efficace de l’évaluation. La direction pédagogique se servira de ce document pour évaluer les performances de chaque étudiant. Les notes seront calculées en fonction des différents indicateurs.

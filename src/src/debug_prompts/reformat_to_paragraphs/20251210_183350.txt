@@ -1,0 +1,48 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Évaluation des Contributions Pédagogiques des Campus
+
+Le projet vise à formaliser et évaluer les contributions des différents campus à l’activité pédagogique.  L'approche repose sur une valorisation des initiatives, au-delà du simple nombre d'étudiants présents. Une contribution minimale est requise : au moins une "GPO" (Groupe de Prévention de l'Orientation) par an.
+
+### Critères d'Évaluation
+
+L'évaluation des contributions est structurée autour de plusieurs axes :
+
+*   **Événements Pédagogiques :**  Au minimum, chaque campus doit organiser un salon étudiant, une convention ou un forum par an.  Ces événements doivent être reconnus et valorisés.
+*   **Participation aux Initiatives Pédagogiques:** Les campus doivent participer à des activités telles que les articles publiés dans des revues pédagogiques (par exemple, le FQF, Terrier), aux publications de l'ADEM, ou à des contributions aux opérations sur le campus.
+*   **Représentation dans des Forums et Commissions:** La participation à des forums, conférences, ou commissions est également considérée comme une contribution.
+*   **Évaluation Individuelle des Contributeurs :**  À la fin de l’année, une note est attribuée à chaque enseignant, en fonction de son implication et de la qualité de son travail.
+
+### Méthodologie d'Évaluation et Outils
+
+*   **Tableau de Suivi:** Un tableau est établi pour suivre les contributions de chaque campus. Ce tableau inclura les types d'événements organisés, les activités participées, ainsi que les résultats de l'évaluation individuelle.
+*   **Utilisation d'un Tableur :** Un tableur (probablement Excel) est utilisé pour la gestion de ces données et le calcul des notes.  Ce tableur est initialement critiqué, mais est considéré comme un outil essentiel pour le suivi.
+*   **Notes Individuelles :** Les notes attribuées à chaque enseignant sont personnalisées. Par exemple, Jacques reçoit 25%, Lucille 20%, et un autre enseignant 20 ou 25%.  Une colonne permet de prévoir une part (5%) pour les "héros" – les personnes ayant réalisé des actions exceptionnelles.
+*   **Revue Annuelle :** À la fin de l'année, une revue des données est effectuée pour identifier les tendances et ajuster les objectifs pour l'année suivante. Le but est d'assurer une évaluation juste et précise des contributions de chaque campus.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Évaluation des Contributions Pédagogiques des Campus
+
+Le projet vise à formaliser et évaluer les contributions des différents campus à l’activité pédagogique. L’approche repose sur une valorisation des initiatives, au-delà du simple nombre d’étudiants présents. Une contribution minimale est requise : au moins une "GPO" (Groupe de Prévention de l'Orientation) par an.
+
+### Critères d’Évaluation
+
+L’évaluation des contributions est structurée autour de plusieurs axes. Tout d’abord, chaque campus doit organiser au minimum un salon étudiant, une convention ou un forum par an, ces événements devant être reconnus et valorisés. Ensuite, les campus doivent participer à des activités telles que la publication d’articles dans des revues pédagogiques (par exemple, le FQF, Terrier), aux publications de l’ADEM, ou à des contributions aux opérations sur le campus. De plus, la participation à des forums, conférences, ou commissions est également considérée comme une contribution. Enfin, à la fin de l’année, une note est attribuée à chaque enseignant, en fonction de son implication et de la qualité de son travail.
+
+### Méthodologie d’Évaluation et Outils
+
+Pour assurer un suivi rigoureux, un tableau est établi pour suivre les contributions de chaque campus. Ce tableau inclura les types d’événements organisés, les activités participées, ainsi que les résultats de l’évaluation individuelle. Un tableur (probablement Excel) est utilisé pour la gestion de ces données et le calcul des notes. Initialement critiqué, il est considéré comme un outil essentiel pour le suivi. Les notes attribuées à chaque enseignant sont personnalisées : Jacques reçoit 25%, Lucille 20%, et un autre enseignant 20 ou 25%. Une colonne permet de prévoir une part (5%) pour les “héros” – les personnes ayant réalisé des actions exceptionnelles. À la fin de l’année, une revue des données est effectuée pour identifier les tendances et ajuster les objectifs pour l’année suivante, afin d’assurer une évaluation juste et précise des contributions de chaque campus.

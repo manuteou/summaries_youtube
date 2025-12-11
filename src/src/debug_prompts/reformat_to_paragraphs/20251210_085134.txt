@@ -1,0 +1,62 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Gestion des Prélevements et Migrations Vers Payat
+
+Le dialogue traite de la mise en place d'un nouveau système de gestion des prélevements, principalement via la plateforme Payat, et des défis liés à la migration des données.
+
+### Étapes de la Migration et des Prélevements
+
+La migration vers Payat est planifiée en plusieurs étapes, comprenant :
+
+*   **Première Étape (Déjà Livrée):**  L'importation des prélevements séparés, classés par années (2025, 2026).
+*   **Deuxième Étape :** Importation des prélevements associés à un MSE1 (en cours de finalisation d'ici la fin d'année). Les données prélevées avant le 1er septembre n'ont pas été importées.
+*   **Troisième Étape :** Importation des prélevements signés, débutant fin février.  Les inscriptions des PG-4 avec spécificités (en raison de la nature intentionnelle de ces prélevements) sont prioritaires.
+*   **Suppression des Demandes :**  À partir de la fin de la semaine, toutes les demandes de validation (boutons ou autres) seront supprimées, afin d’éviter les blocages.
+
+### Défis et Difficultés
+
+Plusieurs difficultés ont été rencontrées :
+
+*   **Modification des Motages:** La modification des motages est impossible, étant donné qu'ils sont gérés de manière sécurisée. Un motage sans pitié a été initialement attribué, et il est désormais impossible de le modifier.
+*   **Importation des Données Financières :** L'import des données financières à partir du 1er septembre est en cours, mais une partie significative des données n'a pas été importée.
+*   **Conséquences de l'Import Partiel:** L'absence d'import des données prélevées avant le 1er septembre nécessite des vérifications et une gestion manuelle.
+*   **Demande d'Information:** Une demande d'information sur une vue d'ensemble des dépenses annuelles est en cours de réalisation.
+
+### Actions et Suivi
+
+*   **Réunions d'Équipe :**  Des réunions d’équipe sont prévues pour assurer le suivi de la migration.
+*   **Feedback des Utilisateurs :** Un mécanisme de feedback est mis en place pour recueillir les retours des utilisateurs.
+*   **Support Technique :** Un canal de support technique (NL ou maite) est disponible pour les questions techniques et les problèmes d'accès.
+*   **Validation des Données :**  L'équipe s’attache à valider les données importées.
+*   **Dépassement des délais:** Un éffort est mis en place pour donner des éléments avant la fin de la semaine.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Gestion des Prélevements et Migrations Vers Payat
+
+Le dialogue traite de la mise en place d’un nouveau système de gestion des prélevements, principalement via la plateforme Payat, et des défis liés à la migration des données.
+
+### Étapes de la Migration et des Prélevements
+
+La migration vers Payat est planifiée en plusieurs étapes. La première étape, déjà livrée, comprend l’importation des prélevements séparés, classés par années (2025, 2026). La deuxième étape consiste en l’importation des prélevements associés à un MSE1, en cours de finalisation d’ici la fin de l’année. Les données prélevées avant le 1er septembre n’ont pas été importées. La troisième étape concerne l’importation des prélevements signés, débutant fin février. Les inscriptions des PG-4 avec spécificités sont prioritaires, en raison de la nature intentionnelle de ces prélevements. À partir de la fin de la semaine, toutes les demandes de validation (boutons ou autres) seront supprimées, afin d’éviter les blocages.
+
+### Défis et Difficultés
+
+Plusieurs difficultés ont été rencontrées. La modification des motages est impossible, étant donné qu’ils sont gérés de manière sécurisée. Un motage sans pitié a été initialement attribué, et il est désormais impossible de le modifier. L’importation des données financières à partir du 1er septembre est en cours, mais une partie significative des données n’a pas été importée. L’absence d’import des données prélevées avant le 1er septembre nécessite des vérifications et une gestion manuelle. Une demande d’information sur une vue d’ensemble des dépenses annuelles est en cours de réalisation.
+
+### Actions et Suivi
+
+Des réunions d’équipe sont prévues pour assurer le suivi de la migration. Un mécanisme de feedback est mis en place pour recueillir les retours des utilisateurs. Un canal de support technique (NL ou maite) est disponible pour les questions techniques et les problèmes d’accès. L’équipe s’attache à valider les données importées. Un efforçs est mis en place pour donner des éléments avant la fin de la semaine.

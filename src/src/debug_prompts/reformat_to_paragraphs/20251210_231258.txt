@@ -1,0 +1,64 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ## Analyse et Extraction d'Informations – Texte Non Filtré
+
+Le texte fourni est une séquence discursive fragmentaire, difficile à interpréter complètement sans contexte plus large. Cependant, en se concentrant sur l'extraction de la substance, on peut identifier les éléments suivants :
+
+### Identification des Participants et Relations
+
+Le locuteur s'identifie explicitement à une personne connue et l'adresse directement à "vous" et "te". Il semble y avoir une relation préexistante entre le locuteur et l'interlocuteur (ou les interlocuteurs). La formulation "Je le connais, je vous verrai" suggère une connaissance mutuelle et une implication future.
+
+### Déclarations et Promesses
+
+Le locuteur déclare intentionnellement "Je vais te faire le premier que j'ai ouvert".  Cette phrase est suivie d'une justification (ou d'une explication) implicite : "Donc là, à suivre, c'est une question que vous les posez à qui l'une certaine".  Cela semble annoncer une action ou une révélation qui sera faite à l'interlocuteur.
+
+Le locuteur exprime également son intention de "placer des ventes patients" – une action visant à persuader ou à influencer l'interlocuteur.  L'expression "déliveler" est présente, suggérant une divulgation d'informations potentiellement importantes.
+
+### Exprime des Souhaits et une Invitation
+
+Le locuteur exprime un souhait : "Si vous avez envie d'avenir je vais directement, est Нет humanif?". Cette phrase est cependant incomplète et semble être un début de question, nécessitant un contexte pour être interprétée complètement.
+
+Il exprime également un souhait pour l'interlocuteur : "Si vous avez envie d'avenir je vais directement, est Нет humanif?".
+
+### Commentaires Additionnels
+
+Le locuteur conclut par une phrase non structurée et apparemment délibérément ajoutée : "Bon-en".  Il est possible que cela soit une transition naturelle, une marque de temps, ou un élément d'un style de discours informel.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+## Analyse et Extraction d'Informations – Texte Non Filtré
+
+Le texte fourni est une séquence discursive fragmentaire, difficile à interpréter complètement sans contexte plus large. Cependant, en se concentrant sur l'extraction de la substance, on peut identifier les éléments suivants :
+
+### Identification des Participants et Relations
+
+Le locuteur s'identifie explicitement à une personne connue et l'adresse directement à "vous" et "te". Il semble y avoir une relation préexistante entre le locuteur et l'interlocuteur (ou les interlocuteurs). La formulation "Je le connais, je vous verrai" suggère une connaissance mutuelle et une implication future.
+
+### Déclarations et Promesses
+
+Le locuteur déclare intentionnellement "Je vais te faire le premier que j'ai ouvert". Cette phrase est suivie d'une justification (ou d'une explication) implicite : "Donc là, à suivre, c'est une question que vous les posez à qui l'une certaine". Cela semble annoncer une action ou une révélation qui sera faite à l'interlocuteur.
+
+Le locuteur exprime également son intention de "placer des ventes patients" – une action visant à persuader ou à influencer l'interlocuteur. L'expression "déliveler" est présente, suggérant une divulgation d'informations potentiellement importantes.
+
+### Exprime des Souhaits et une Invitation
+
+Le locuteur exprime un souhait : "Si vous avez envie d'avenir je vais directement, est Нет humanif?". Cette phrase est cependant incomplète et semble être un début de question, nécessitant un contexte pour être interprétée complètement.
+
+Il exprime également un souhait pour l'interlocuteur : "Si vous avez envie d'avenir je vais directement, est Нет humanif?".
+
+### Commentaires Additionnels
+
+Le locuteur conclut par une phrase non structurée et apparemment délibérément ajoutée : "Bon-en". Il est possible que cela soit une transition naturelle, une marque de temps, ou un élément d'un style de discours informel.

@@ -1,0 +1,85 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        # Évaluation de la Performance Pédagogique : Structure et Indicateurs
+
+Le système d'évaluation de la performance pédagogique est structuré autour de trois axes principaux, répartissant les objectifs de performance entre eux : évaluation de la performance pédagogique (40%), performance pédagogique (20%) et implication institutionnelle (40%).
+
+## 1. Évaluation de la Performance Pédagogique (40%)
+
+Cet axe vise à évaluer l'impact des interventions pédagogiques sur les étudiants. Il se décompose en deux critères principaux :
+
+*   **Critère 1 : Implication des Étudiants** (20% du critère 1) : Cet indicateur quantifie l’engagement des étudiants et leur satisfaction dans leur parcours. Il repose sur deux éléments :
+    *   **Taux de Réinscription** : Calculé sur une base annuelle, il mesure la fidélisation des étudiants entre les années d’études.
+    *   **Mise en Emploi** : Mesure le taux de placement des étudiants après leurs études.
+*   **Critère 2 : Satisfaction des Étudiants** (20% du critère 1) : Il évalue la qualité des interactions des étudiants avec les équipes pédagogiques et leur contribution à la vie pédagogique. Il s'appuie sur :
+    *   **Enquêtes de Satisfaction** : Collecte de données via des enquêtes auprès des étudiants concernant leur relation avec les équipes pédagogiques et leur participation à la vie pédagogique.
+
+## 2. Performance Pédagogique (20%)
+
+Cet axe se concentre sur les résultats des interventions pédagogiques. Il est divisé en trois sous-critères :
+
+*   **Critère 1 : Réussite Académique** (10% du critère 1) : Il est fondé sur la performance des étudiants.
+    *   **Performance Étudiante** : Suivi de la progression des étudiants en fonction de leurs résultats académiques.
+    *   **Qualité de l’Évaluation et du Suivi** : Analyse de la qualité des évaluations et du suivi individualisé des étudiants.
+    *   **Avis des Entreprises** : Intégration des retours des entreprises concernant la préparation des étudiants.
+
+## 3. Implication Institutionnelle (40%)
+
+Cet axe évalue la contribution des établissements à l’ensemble de l'écosystème éducatif. Il est constitué de deux sous-critères :
+
+*   **Critère 1 : Communication sur la Vie Pédagogique** (20% du critère 1) : Il se concentre sur l'amplification des actions pédagogiques.
+*   **Critère 2 : Événement Pédagogique et Communication** (20% du critère 1) :  Il évalue l'organisation d'événements et la communication sur les initiatives pédagogiques.
+
+**Informations Complémentaires :**
+
+Il est important de noter que l'encadrement contractuel pour les êtres de mission avec des responsabilités nationales est désormais validé, incluant une prime sur objectif, due aux efforts de ces individus. Ce système a été finalisé avec Zona Tant et validé par l’hora, dimanche soir.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+# Évaluation de la Performance Pédagogique : Structure et Indicateurs
+
+Le système d’évaluation de la performance pédagogique est structuré autour de trois axes principaux, répartissant les objectifs de performance entre eux : évaluation de la performance pédagogique (40%), performance pédagogique (20%) et implication institutionnelle (40%).
+
+## 1. Évaluation de la Performance Pédagogique (40%)
+
+Cet axe vise à évaluer l’impact des interventions pédagogiques sur les étudiants. Il se décompose en deux critères principaux :
+
+*   **Critère 1 : Implication des Étudiants** (20% du critère 1) : Cet indicateur quantifie l’engagement des étudiants et leur satisfaction dans leur parcours. Il repose sur deux éléments :
+    *   **Taux de Réinscription** : Calculé sur une base annuelle, il mesure la fidélisation des étudiants entre les années d’études.
+    *   **Mise en Emploi** : Mesure le taux de placement des étudiants après leurs études.
+
+*   **Critère 2 : Satisfaction des Étudiants** (20% du critère 1) : Il évalue la qualité des interactions des étudiants avec les équipes pédagogiques et leur contribution à la vie pédagogique. Il s’appuie sur :
+    *   **Enquêtes de Satisfaction** : Collecte de données via des enquêtes auprès des étudiants concernant leur relation avec les équipes pédagogiques et leur participation à la vie pédagogique.
+
+## 2. Performance Pédagogique (20%)
+
+Cet axe se concentre sur les résultats des interventions pédagogiques. Il est divisé en trois sous-critères :
+
+*   **Critère 1 : Réussite Académique** (10% du critère 1) : Il est fondé sur la performance des étudiants.
+    *   **Performance Étudiante** : Suivi de la progression des étudiants en fonction de leurs résultats académiques.
+    *   **Qualité de l’Évaluation et du Suivi** : Analyse de la qualité des évaluations et du suivi individualisé des étudiants.
+    *   **Avis des Entreprises** : Intégration des retours des entreprises concernant la préparation des étudiants.
+
+## 3. Implication Institutionnelle (40%)
+
+Cet axe évalue la contribution des établissements à l’ensemble de l’écosystème éducatif. Il est constitué de deux sous-critères :
+
+*   **Critère 1 : Communication sur la Vie Pédagogique** (20% du critère 1) : Il se concentre sur l’amplification des actions pédagogiques.
+*   **Critère 2 : Événement Pédagogique et Communication** (20% du critère 1) : Il évalue l’organisation d’événements et la communication sur les initiatives pédagogiques.
+
+**Informations Complémentaires :**
+
+Il est important de noter que l’encadrement contractuel pour les êtres de mission avec des responsabilités nationales est désormais validé, incluant une prime sur objectif, due aux efforts de ces individus. Ce système a été finalisé avec Zona Tant et validé par l’hora, dimanche soir.

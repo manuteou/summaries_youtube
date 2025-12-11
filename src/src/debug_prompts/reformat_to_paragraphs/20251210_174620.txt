@@ -1,0 +1,70 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici l'extraction des informations clés de la réunion, structurée selon les objectifs définis :
+
+**1. Qui dit quoi ?**
+
+*   **Secrétaire de Séance (vous)** : Anote et structure les informations.
+*   **Emmanuel** : Propose l'utilisation d'Excel pour la gestion des notations. Il est critique de la méthode.
+*   **Charlotte** :  Soulève la nécessité de valoriser les interventions des étudiants, notamment en représentation externe. Elle propose de noter les étudiants pour leur implication.
+*   **L'équipe (en général)** :  Partage l'objectif de définir des objectifs de notation par campus.
+*   **Les Directeurs Pédagogiques** : Responsables de l'application des objectifs.
+*   **Les étudiants (par campus)** :  Sont la cible de la notation.
+
+**2. Décisions Actées**
+
+*   **Objectif principal** :  Établir une notation pour chaque campus, basée sur l'implication des étudiants.
+*   **Méthode de notation par campus** : Le Secrétaire de Séance propose une approche progressive, avec des objectifs variables par campus (20% pour certains, 25% pour d'autres, etc.).
+*   **Utilisation d'Excel** : Emmanuel suggère d'utiliser Excel pour la gestion des données, mais il exprime une critique envers l'approche.
+*   **Prise en compte de l'implication des étudiants** : L'équipe s'accorde sur l'importance de valoriser les étudiants, notamment par leur participation à des événements externes (salons, conventions, etc.).
+*   **Point de blocage :** Les étudiants ont des niveaux d'implication différents (ex: certains auront un projet plus complexe que d'autres).
+
+**3. Points de Blocage**
+
+*   **Désaccords sur la méthode** : Emmanuel critique fortement l'utilisation d'Excel et semble préférer une approche plus qualitative.
+*   **Variabilité de l'implication des étudiants** :  Il existe une grande disparité entre les niveaux d'engagement des étudiants entre les différents campus.  L'équipe doit tenir compte de ce point et ajuster les objectifs en conséquence.
+*   **Manque de définition des critères de notation** :  Il n'a pas encore été défini clairement ce qui sera évalué pour justifier les notations (participation aux événements, qualité du travail, etc.).
+*   **Risque de subjectivité** :  La notation pourrait être perçue comme subjective, ce qui pourrait générer des tensions.
+
+**4. Actions Futures**
+
+*   **Définition des critères de notation** : L'équipe doit définir ensemble les critères précis qui seront utilisés pour évaluer l'implication des étudiants.  Il est essentiel d'avoir des critères clairs et objectifs.
+*   **Discussion sur l'utilisation d'Excel** :  L'équipe doit analyser les arguments d'Emmanuel et décider de la méthode de gestion des données la plus appropriée.
+*   **Proposition d'un tableau Excel** :  Le Secrétaire de Séance propose de mettre en place un tableau Excel simple pour l'enregistrement des données, en tenant compte de la critique d'Emmanuel.
+*   **Réunion de suivi** :  La prochaine étape est de se revoir dans 2-3 semaines pour discuter de l'avancement de la mise en place de la notation, en s'appuyant sur le tableau Excel.
+*   **Consulter les Directeurs Pédagogiques** : Pour définir les objectifs, en tenant compte des différents contextes de chaque campus.
+*   **Mettre en place un système de notation progressive** : 20% pour certains, 25% pour d'autres, etc.
+
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+Voici l'extraction des informations clés de la réunion, structurée selon les objectifs définis :
+
+**1. Qui dit quoi ?**
+
+Le Secrétaire de Séance est chargé d’anoter et de structurer les informations recueillies lors de la réunion. Emmanuel a proposé l'utilisation d'Excel pour la gestion des notations, tout en exprimant une critique envers la méthode. Charlotte a souligné la nécessité de valoriser les interventions des étudiants, notamment en représentation externe, et a suggéré de noter les étudiants pour leur implication. L’équipe, en général, partage l’objectif de définir des objectifs de notation par campus. Les Directeurs Pédagogiques sont responsables de l’application des objectifs, tandis que les étudiants, par campus, sont la cible de la notation.
+
+**2. Décisions Actées**
+
+L’objectif principal est d’établir une notation pour chaque campus, basée sur l’implication des étudiants.  Une méthode de notation par campus a été proposée, avec des objectifs variables : 20% pour certains campus et 25% pour d’autres. L’utilisation d’Excel a été suggérée par Emmanuel, mais il exprime une critique envers cette approche. Il est convenu que l’implication des étudiants doit être valorisée, notamment par leur participation à des événements externes tels que les salons et conventions. Un point de blocage est identifié : les étudiants ont des niveaux d'implication différents, avec une disparité entre les projets proposés par les différents campus.
+
+**3. Points de Blocage**
+
+Un désaccord sur la méthode est présent, Emmanuel critiquant fortement l’utilisation d’Excel et préconisant une approche plus qualitative. Il existe une grande disparité de l’implication des étudiants entre les différents campus, ce qui nécessite une attention particulière lors de la définition des objectifs.  Il n’a pas encore été défini clairement ce qui sera évalué pour justifier les notations (participation aux événements, qualité du travail, etc.), ce qui pourrait engendrer une perception de subjectivité.
+
+**4. Actions Futures**
+
+Il est impératif de définir ensemble les critères précis qui seront utilisés pour évaluer l’implication des étudiants, en veillant à ce qu’ils soient clairs et objectifs. L’équipe doit analyser les arguments d’Emmanuel concernant l’utilisation d’Excel et décider de la méthode de gestion des données la plus appropriée. Le Secrétaire de Séance propose de mettre en place un tableau Excel simple pour l’enregistrement des données, en tenant compte de la critique d’Emmanuel.  Une réunion de suivi est prévue dans 2-3 semaines pour discuter de l'avancement de la mise en place de la notation, en s’appuyant sur le tableau Excel. Il est également nécessaire de consulter les Directeurs Pédagogiques afin de définir les objectifs, en tenant compte des différents contextes de chaque campus, et de mettre en place un système de notation progressive (20% pour certains, 25% pour d’autres).

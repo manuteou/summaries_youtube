@@ -1,0 +1,65 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ## Objectifs de Contribution des Collaborateurs
+
+Le document traite de l’objectif de promouvoir la contribution active des collaborateurs à divers domaines, structurés autour de plusieurs axes de participation.
+
+### Actions de Communication Interne et Externe
+
+*   **Création de Contenu :** Chaque collaborateur doit produire ou partager au moins une contribution pédagogique, administrative, relationnelle (entre équipes ou prises), de communication, d’innovation, ou de nature interne.
+*   **Contenu Externe :**  En plus des contributions internes, chaque collaborateur doit contribuer à au moins une action de communication externe, incluant la création de contenu (par exemple, sur une ligne Instagram) ou, à défaut, la participation à des salons.
+*   **Salons :** La participation à au moins un salon par an est exigée, en s'assurant qu'il y ait suffisamment de place pour tous les participants.
+*   **Format des Salons :** L'organisation des salons est structurée en sessions d'une journée, avec un pédagogue par jour.
+
+### Actions de Participation Collective
+
+*   **Groupes de Projection (GPOs) :**  La participation à au moins une GPO par an est imposée.
+*   **Implication des Équipes et des Agences :** Le document vise à augmenter l'implication des équipes et des agences, qui ont pu participer moins jusqu'à présent.
+*   **Rôle des Cadres :** Certains cadres ont été contraints de participer à toutes les GPOs, probablement pour faciliter l'engagement.
+
+### Contributions Formelles
+
+*   **Articles de Publication :** La production d'articles de publication en puce est également requise.
+*   **Charge de Travail :** La création de charges de travail est également envisagée.
+
+### Aspects spécifiques du modèle de gestion :
+
+*   **Valorisation des Rôles :**  Il est important que chaque collaborateur ait la possibilité de mettre en scène ses contributions.
+*   **Analyse des Rôles :**  Il est nécessaire d'identifier les rôles qui ne sont pas exercés, et d'assurer que chacun puisse jouer un rôle pertinent.
+*   **Gestion des Salons :** La création d'un format d'un salon par jour est en place.
+*   **Suivi et Évaluation :** La participation à des salons est une mesure de suivi pour évaluer l'implication des collaborateurs.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+## Objectifs de Contribution des Collaborateurs
+
+Le document traite de l’objectif de promouvoir la contribution active des collaborateurs à divers domaines, structurés autour de plusieurs axes de participation.
+
+### Actions de Communication Interne et Externe
+
+Chaque collaborateur doit produire ou partager au moins une contribution pédagogique, administrative, relationnelle (entre équipes ou prises), de communication, d’innovation, ou de nature interne. En plus de ces contributions internes, chaque collaborateur doit contribuer à au moins une action de communication externe, incluant la création de contenu (par exemple, sur une ligne Instagram) ou, à défaut, la participation à des salons. La participation à au moins un salon par an est exigée, en s'assurant qu'il y ait suffisamment de place pour tous les participants. L'organisation des salons est structurée en sessions d'une journée, avec un pédagogue par jour.
+
+### Actions de Participation Collective
+
+La participation à au moins une Groupe de Projection (GPO) par an est imposée. Le document vise à augmenter l’implication des équipes et des agences, qui ont pu participer moins jusqu’à présent. Certains cadres ont été contraints de participer à toutes les GPOs, probablement pour faciliter l'engagement.
+
+### Contributions Formelles
+
+La production d’articles de publication en puce est également requise. La création de charges de travail est également envisagée.
+
+### Aspects spécifiques du modèle de gestion :
+
+Il est important que chaque collaborateur ait la possibilité de mettre en scène ses contributions. Il est nécessaire d'identifier les rôles qui ne sont pas exercés, et d'assurer que chacun puisse jouer un rôle pertinent. La participation à des salons est une mesure de suivi pour évaluer l'implication des collaborateurs.

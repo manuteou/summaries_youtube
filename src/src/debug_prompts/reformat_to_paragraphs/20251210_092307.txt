@@ -1,0 +1,56 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Stratégie Globale de Communication et de Valorisation des Réalisations
+
+Le texte décrit une stratégie de communication complexe, axée sur la valorisation des réalisations des étudiants et des campus, mais également confrontée à des défis et des ambiguïtés. Cette stratégie repose sur plusieurs piliers, dont l'objectif est de maximiser la visibilité et la reconnaissance des efforts accomplis.
+
+### Points Clés de la Stratégie
+
+*   **Valorisation Multidimensionnelle des Réalisations:** L'approche consiste à dépasser la simple valorisation des "succès" classiques (catons, projets, etc.). Il s'agit de capturer un spectre plus large de réalisations, incluant des participations, des engagements, des expériences uniques, et même des "réussites" qui pourraient ne pas se qualifier directement de "succès" au sens traditionnel (ex : une participation à un événement qui, bien que n'ayant pas de résultat tangible, démontre l'engagement de l'étudiant).  L'accent est mis sur la reconnaissance de ces "réussites" et leur inclusion dans des supports de communication.
+*   **Le "Wall of Fame" comme Outil Central :** Le concept de "Wall of Fame" (mur des réussites) est central. Il s’agit d’un tableau où sont consignées toutes les réalisations, qu’elles soient issues de projets académiques, d’événements extérieurs (catons, etc.) ou d’initiatives personnelles.  Cependant, la valeur de ce "Wall of Fame" est remise en question : il est considéré comme une tentative de capturer des réalisations qui, par nature, sont par définition "non-génériques".
+*   **Importance des Communications Multi-Canaux:** La stratégie s'articule autour de l'utilisation de multiples canaux de communication pour assurer la visibilité des réalisations. Cela comprend la création de vidéos (à publier sur YouTube et LinkedIn), des articles par mois (dont un article national), ainsi que la mise en avant des contenus existants (photos, streams, etc.).
+*   **Collaboration Nationale et Équipements :**  Une collaboration nationale est essentielle entre les différents campus. Cela implique l'échange de bonnes pratiques, le partage de ressources et la transmission des directives nationales. Il existe des "équipements" nationaux qui jouent un rôle crucial dans cette coordination.
+*   **Création de "Cadrés Exceptionnels" :** La stratégie intègre la reconnaissance des individus qui se distinguent par leur prestation (ex : "un public opinion" exceptionnel lors d'une présentation). Cette reconnaissance est également enregistrée dans le "Wall of Fame".
+*   **Gestion des Informations et "Fichiers" :** La gestion de ces informations est un défi. La nécessité de capturer des "réussites" qui ne sont pas nécessairement "génériques" rend le processus complexe. Il est envisagé de mettre en place des "fichiers" pour structurer l'information.
+*   **Remise en Question de la Pédagogie Traditionnelle :** Il y a une réflexion sur la manière de traduire dans un cadre pédagogique les expériences des étudiants, notamment celles qui se déroulent en dehors des programmes académiques traditionnels.
+*   **Problèmes de communication et de ressources :** L'émetteur exprime des difficultés de communication,  souvent liées à un manque de ressources et à la complexité de la tâche. Une attention particulière est portée sur la gestion des informations et de leur diffusion.
+*   **Évaluation des réalisations:** L'évaluation est envisagée à travers le "Wall of Fame" et la mesure de l'impact. Il est souligné que certaines réalisations doivent être capturées afin de pouvoir les comparer et les évaluer.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Stratégie Globale de Communication et de Valorisation des Réalisations
+
+Le texte décrit une stratégie de communication complexe, axée sur la valorisation des réalisations des étudiants et des campus, mais également confrontée à des défis et des ambiguïtés. Cette stratégie repose sur plusieurs piliers, dont l’objectif est de maximiser la visibilité et la reconnaissance des efforts accomplis.
+
+### Points Clés de la Stratégie
+
+La stratégie s'articule autour d’une valorisation multidimensionnelle des réalisations, dépassant la simple valorisation des “succès” classiques (catons, projets, etc.). Il s’agit de capturer un spectre plus large de réalisations, incluant des participations, des engagements, des expériences uniques, et même des “réussites” qui pourraient ne pas se qualifier directement de “succès” au sens traditionnel (ex : une participation à un événement qui, bien que n’ayant pas de résultat tangible, démontre l’engagement de l’étudiant). L’accent est mis sur la reconnaissance de ces “réussites” et leur inclusion dans des supports de communication.
+
+Le concept de "Wall of Fame" (mur des réussites) est central. Il s’agit d’un tableau où sont consignées toutes les réalisations, qu’elles soient issues de projets académiques, d’événements extérieurs (catons, etc.) ou d’initiatives personnelles. Cependant, la valeur de ce "Wall of Fame" est remise en question : il est considéré comme une tentative de capturer des réalisations qui, par nature, sont par définition "non-génériques".
+
+La stratégie s'articule autour de l’utilisation de multiples canaux de communication pour assurer la visibilité des réalisations. Cela comprend la création de vidéos (à publier sur YouTube et LinkedIn), des articles par mois (dont un article national), ainsi que la mise en avant des contenus existants (photos, streams, etc.).
+
+Une collaboration nationale est essentielle entre les différents campus. Cela implique l’échange de bonnes pratiques, le partage de ressources et la transmission des directives nationales. Il existe des “équipements” nationaux qui jouent un rôle crucial dans cette coordination.
+
+La stratégie intègre la reconnaissance des individus qui se distinguent par leur prestation (ex : “un public opinion” exceptionnel lors d’une présentation). Cette reconnaissance est également enregistrée dans le "Wall of Fame".
+
+La gestion de ces informations est un défi. La nécessité de capturer des “réussites” qui ne sont pas nécessairement "génériques" rend le processus complexe. Il est envisagé de mettre en place des “fichiers” pour structurer l’information.
+
+Il y a une réflexion sur la manière de traduire dans un cadre pédagogique les expériences des étudiants, notamment celles qui se déroulent en dehors des programmes académiques traditionnels.
+
+Les problèmes de communication et de ressources sont souvent liés à un manque de ressources et à la complexité de la tâche. Une attention particulière est portée sur la gestion des informations et de leur diffusion.
+
+L’évaluation des réalisations est envisagée à travers le "Wall of Fame" et la mesure de l'impact. Il est souligné que certaines réalisations doivent être capturées afin de pouvoir les comparer et les évaluer.

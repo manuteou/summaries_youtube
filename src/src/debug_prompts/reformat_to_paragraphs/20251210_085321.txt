@@ -1,0 +1,63 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Stratégie de Communication et Valorisation des Réalisations des Étudiants
+
+L'objectif principal de cette discussion est de définir une stratégie de communication efficace pour valoriser les réalisations des étudiants, en particulier au sein des campus et en lien avec les initiatives nationales. Cette stratégie s'articule autour de plusieurs axes clés.
+
+###  Communication Inter-Campus et Nationnale
+
+*   **Volet Équipemental et National:**  Une communication efficace doit se faire entre les campus et les équipes nationales. Il est crucial d'établir une communication réactive avec les "meugins" (probablement des étudiants).
+*   **Indications et Partage de Bonnes Pratiques:**  Des indicateurs sont nécessaires pour suivre la situation active des "bréignons" (terme géographique ou affectif). La stratégie implique une communication régulière (une heure par semaine) avec tous les campus et les équipes nationales.
+*   **Pédéinformation Régulière:** Cette communication vise à favoriser le partage des bonnes pratiques et des actions menées en région, afin d'inspirer les étudiants entre eux. Elle assure également la transmission des directives nationales.
+
+### Production de Contenu et Valorisation des Réalisations
+
+*   **Production de Contenu Multimédia:**  Il est nécessaire de produire régulièrement trois articles par mois, incluant un article national.
+*   **Wall of Fame (Mur de la Réussite):** La stratégie comprend la création d'un "Wall of Fame" physique sur les campus, où seront regroupées les réussites des étudiants. Ce mur comprendra :
+    *   **Particiations aux Accatons :** Les participations aux Accatons, défis et événements externes doivent être valorisées et incluses dans le Wall of Fame.
+    *   **Réalisations Petites et Grandes :** Il est essentiel de reconnaître également les petites réalisations, telles que la participation à un porte, en plus des projets plus importants.
+    *   **Réalisations à Long Terme :** La stratégie prend également en compte des réalisations à long terme, comme des participations sur 4 ans.
+    *   **Réalisations Immédiates :** Des résultats immédiats, comme une victoire à un concours, doivent également être reconnus.
+*   **Valorisation des Photos et Vidéos:**  Il est important de documenter les événements et de prendre des photos et des vidéos, qui peuvent être utilisées dans les différents canaux de communication.
+*   **Utilisation de Plateformes Multimédias :** Les contenus produits doivent être diffusés sur diverses plateformes, notamment YouTube et LinkedIn.
+
+###  Gestion des Informations et Évaluation des Réalisations
+
+*   **Transcription des Vidéos:** Les vidéos produites doivent être transcrites pour faciliter la compréhension et la recherche d'informations.
+*   **Partenariats :** L'établissement travaille en partenariat avec des entreprises, notamment une "barine nationale," ce qui implique des échanges d'informations et de meilleures pratiques.
+*   **Communication avec les Acteurs de Campus :** La communication s'adresse aux "acteurs de campus," et il est nécessaire de maintenir un dialogue régulier avec eux.
+*   **Collecte d'Informations Diverses:** Des informations provenant de diverses sources sont collectées, notamment des votes, des opinions, des statistiques.
+*   **Évaluation des Réalisations :** L'équipe a mis en place une méthode d'évaluation des réalisations.
+
+###  Prise en compte des Informations Diverses
+
+*   **Gestion des Incohérences :** La stratégie reconnaît la nécessité de gérer les incohérences entre les différents canaux d'information (Wall of Fame, indicateurs, statistiques, etc.).
+*   **Prise en compte des Informations de Terrain:** Il est important de tenir compte des informations fournies par les équipes sur le terrain, notamment concernant les événements locaux et les initiatives des étudiants.
+
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Stratégie de Communication et Valorisation des Réalisations des Étudiants
+
+L'objectif principal de cette discussion est de définir une stratégie de communication efficace pour valoriser les réalisations des étudiants, en particulier au sein des campus et en lien avec les initiatives nationales. Cette stratégie s'articule autour de plusieurs axes clés.
+
+La communication inter-campus et nationnale est essentielle. Il est crucial d'établir une communication réactive avec les étudiants, que l'on peut désigner comme des "meugins." Des indicateurs sont nécessaires pour suivre la situation active, et une communication régulière (une heure par semaine) doit être maintenue avec tous les campus et les équipes nationales afin de partager des indications et des bonnes pratiques.  De plus, cette communication vise à favoriser le partage des bonnes pratiques et des actions menées en région, afin d'inspirer les étudiants entre eux et d'assurer la transmission des directives nationales.
+
+La production de contenu et la valorisation des réalisations des étudiants nécessitent la création régulière de trois articles par mois, incluant un article national. Un "Wall of Fame" physique sera créé sur les campus, où seront regroupées les réussites des étudiants. Ce mur comprendra la valorisation des participations aux Accatons, défis et événements externes, ainsi que la reconnaissance des petites et grandes réalisations, incluant la participation à un porte, ainsi que des réalisations à long terme, comme des participations sur 4 ans, et des réalisations immédiates, comme une victoire à un concours. Il est important de documenter les événements et de prendre des photos et des vidéos, qui peuvent être utilisées dans les différents canaux de communication, et de diffuser les contenus produits sur diverses plateformes, notamment YouTube et LinkedIn.
+
+La gestion des informations et l’évaluation des réalisations impliquent la transcription des vidéos produites pour faciliter la compréhension et la recherche d’informations. Des partenariats sont développés avec des entreprises, notamment une "barine nationale," ce qui implique des échanges d'informations et de meilleures pratiques. Une communication est maintenue avec les "acteurs de campus," et des informations sont collectées à partir de diverses sources, incluant des votes, des opinions et des statistiques. Une méthode d'évaluation des réalisations a été mise en place.
+
+Enfin, la stratégie prend en compte la gestion des incohérences entre les différents canaux d’information (Wall of Fame, indicateurs, statistiques, etc.) et la prise en compte des informations fournies par les équipes sur le terrain, notamment concernant les événements locaux et les initiatives des étudiants.

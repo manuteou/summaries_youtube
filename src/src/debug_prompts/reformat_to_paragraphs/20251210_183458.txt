@@ -1,0 +1,68 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Stratégie de Communication et Valorisation des Réussites
+
+Le texte décrit une stratégie de communication complexe visant à valoriser les réalisations des campus et des étudiants, en s'éloignant d'une approche centrée uniquement sur les "réussites" au sens traditionnel. L'objectif est d'établir une communication plus large et nuancée, reconnaissant l'importance des actions, participations et défis, au-delà des seuls événements culminants.
+
+### Composantes Clés de la Stratégie
+
+1.  **Wall of Fame et Catons/Participation :** L'utilisation du "Wall of Fame" pour célébrer les réussites est reconnue, mais étendue pour inclure les "catons" (petites réalisations) et les participations aux événements. Ces éléments sont considérés comme essentiels pour la reconnaissance et la valorisation des efforts des étudiants.
+
+2.  **Communication Multicanale:** La stratégie implique un engagement dans plusieurs canaux de communication, notamment:
+
+    *   **YouTube :** Création de vidéos régulières, dont une partie consacrée à la présentation des réalisations, pour nourrir une chaîne YouTube et LinkedIn.
+    *   **LinkedIn :** Partage de contenus et de vidéos, même courtes, sur LinkedIn.
+    *   **Site Internet:** Mise en place d'un espace où l'on trouve des informations.
+
+3.  **Collecte et Structuration des Informations :**
+
+    *   **Cadrage des Réalisations :** Il est proposé de mettre en place un système de catégorisation des réalisations (exemples: projets, événements, challenges, partenariats) pour faciliter leur collecte et leur valorisation.
+    *   **Tableau de Bord des Réussites :** Création d'un tableau de bord structuré, intégrant les différents types de réalisations (catons, projets, événements, participations) pour une meilleure visibilité et analyse.
+
+4.  **Collaboration Nationale et Partenariats :**
+
+    *   **Communication Inter-Campus:** Mise en place d'une communication régulière entre les différents campus afin de partager les bonnes pratiques et les actions menées.
+    *   **Partenariats :** Développement de partenariats avec des organisations externes (ex: Barine Nationale, ORA) pour enrichir l'offre de l'établissement.
+    *   **Échanges de Bonnes Pratiques:** Organisation de sessions de partage de connaissances et d'expériences entre les différents campus et institutions.
+
+5.  **Valorisation des Actions Extérieures:**
+
+    *   **Projets de Présentation:** Encouragement à la participation des étudiants à des événements externes (ex: concours, présentations) pour développer leurs compétences et mettre en valeur les projets menés.
+    *   **Intégration dans le "Wall of Fame" :** Reconnaissance de ces actions en tant que réalisations, même si elles ne sont pas des "succès" majeurs.
+
+6.  **Évaluation et Reporting :**
+
+    *   **Métrage des Réussites :**  Mise en place d'un système de suivi et de mesure des réalisations des étudiants et des équipes,  intégrée à des méting réguliers.
+    *   **Communication des Résultats :**  Transparence dans la communication des résultats à l'ensemble des parties prenantes.
+    *   **Analyse des Données :** Utilisation des données collectées pour adapter et améliorer la stratégie de communication.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Stratégie de Communication et Valorisation des Réussites
+
+Le texte décrit une stratégie de communication complexe visant à valoriser les réalisations des campus et des étudiants, en s'éloignant d'une approche centrée uniquement sur les "réussites" au sens traditionnel. L'objectif est d'établir une communication plus large et nuancée, reconnaissant l'importance des actions, participations et défis, au-delà des seuls événements culminants.
+
+### Composantes Clés de la Stratégie
+
+La stratégie repose sur plusieurs composantes clés, articulées autour de la reconnaissance des efforts et des contributions des étudiants. Premièrement, l'utilisation du "Wall of Fame" est confirmée, mais étendue pour inclure les "catons" – ces petites réalisations – et les participations aux événements. Ces éléments sont considérés comme essentiels pour la valorisation des efforts des étudiants.  Parallèlement, une communication multicanale est mise en place, impliquant notamment YouTube, LinkedIn et le site internet de l'établissement.
+
+Deuxièmement, la stratégie prévoit la collecte et la structuration des informations. Il est proposé de mettre en place un système de catégorisation des réalisations, par exemple en distinguant les projets, les événements, les défis et les partenariats, afin de faciliter leur collecte et leur valorisation.  Un tableau de bord structuré, intégrant ces différents types de réalisations, serait créé pour assurer une meilleure visibilité et une analyse plus approfondie.
+
+Troisièmement, la collaboration nationale et les partenariats sont au cœur de la stratégie. Cela implique une communication régulière entre les différents campus afin de partager les bonnes pratiques et les actions menées. Des partenariats seraient développés avec des organisations externes, telles que Barine Nationale ou ORA, pour enrichir l'offre de l'établissement.  Des échanges de bonnes pratiques seraient organisés entre les campus et les institutions.
+
+Quatrièmement, la valorisation des actions extérieures est encouragée. Cela se traduit par l'incitation des étudiants à participer à des événements externes, comme des concours ou des présentations, afin de développer leurs compétences et de mettre en valeur les projets menés.  Ces actions seraient même intégrées au "Wall of Fame", reconnaissant ainsi leur valeur.
+
+Cinquièmement, une évaluation et un reporting réguliers sont essentiels. Un système de suivi et de mesure des réalisations des étudiants et des équipes serait mis en place, intégré à des réunions régulières. La transparence dans la communication des résultats à l’ensemble des parties prenantes est également prévue, et les données collectées seraient utilisées pour adapter et améliorer la stratégie de communication.

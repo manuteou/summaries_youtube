@@ -1,0 +1,78 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici un résumé détaillé de la réunion, capturant les informations clés, les positions, les décisions et les points de blocage :
+
+**I. Intervenants & Positions :**
+
+*   **Présent :** Le Secrétaire de Séance (moi), et des membres d'une équipe (non nommés).
+*   **Position du Secrétaire de Séance :**  Faciliter la discussion, assurer la capture précise des informations.
+*   **Position des Membres de l'Équipe :**  Discussions techniques et d'organisation, concernant les primes, les objectifs, et la gestion des départs.  Il existe une certaine familiarité avec les procédures existantes mais des questions sur leur application dans des cas spécifiques.
+
+**II. Décisions Actées & Points Clairs :**
+
+*   **Durée Minimum d'Emploi pour Prime :**  Minimum 3 mois d'ancienneté pour le versement d'une prime.
+*   **Adaptation des Règles :** L'équipe est en train d'examiner des cas où la durée d'ancienneté est inférieure à 3 mois (ex : arrivée en septembre).
+*   **Prise en Compte des Cas Particuliers :**  Une prise de décision sera nécessaire pour évaluer l'ancienneté dans ces cas, notamment en fonction de la période de présence et des résultats obtenus.
+*   **Versement à 100% en cas d'arrivée avant 3 mois :** Si une personne arrive avant 3 mois d'ancienneté, elle reçoit sa prime à 100%.
+*   **Prise en compte des résultats:** La prime sera attribuée en fonction des résultats de l'employé (à évaluer au cas par cas).
+
+**III. Points de Blocage & Désaccords :**
+
+*   **Consensus sur la définition de "présence effective" :** Il n'y a pas de consensus clair sur la manière de définir précisément "présence effective" pour déterminer l'ancienneté.
+*   **Gestion des cas individuels :**  L'équipe doit trouver une méthode pour juger de la pertinence des primes pour les employés arrivant avec moins de 3 mois d'ancienneté.  Il y a un débat sur les critères à utiliser (résultats, période de prise de fonction...).
+*   **Reconnaissance de la difficulté :** Il est reconnu que la situation est complexe et nécessite un examen attentif de chaque cas.
+*   **Nécessité d'une procédure claire :** Il est clairement admis qu'il manque une procédure formelle et précise pour ce type de situations.
+*   **Incertitude sur les "cas d'usage" :** L'équipe n'a pas encore défini les "cas d'usage" à considérer.
+
+**IV. Actions Futures :**
+
+*   **Élaboration d'une procédure formelle :** Une des actions clés est d'établir une procédure écrite et détaillée pour déterminer les primes dans des situations où l'ancienneté est inférieure à 3 mois.
+*   **Définition des critères d'évaluation :** L'équipe doit définir des critères objectifs pour évaluer la performance des employés arrivant avec une courte ancienneté.
+*   **Analyse des "cas d'usage" :** L'équipe doit identifier des exemples précis de cas à examiner pour la création de la nouvelle procédure.
+*   **Prise de décision collective :**  Une décision collective sera nécessaire pour valider la nouvelle procédure.
+
+**V. Points Supplémentaires :**
+
+*   Il y a une référence à des discussions antérieures sur les primes, impliquant des départs et des primes accordées pour des périodes spécifiques.
+*   Il y a une question concernant la "prém" (probablement un objectif).
+*   La discussion mentionne des "cas d'usage" qui seront définis.
+*   La discussion aborde la question de l'impact du décès d'un collaborateur sur la définition de l'objectif et la prime.
+
+Ce résumé est fidèle et complet au mieux de mes capacités, capturant les nuances et les points de blocage de la discussion.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+Voici un résumé détaillé de la réunion, capturant les informations clés, les positions, les décisions et les points de blocage :
+
+**I. Intervenants & Positions :**
+
+Le Secrétaire de Séance, associé à des membres d'une équipe non nommés, a participé à la réunion. La position du Secrétaire de Séance était celle de faciliter la discussion et d'assurer la capture précise des informations. Les membres de l'équipe ont discuté des questions techniques et organisationnelles relatives aux primes, aux objectifs et à la gestion des départs, manifestant une certaine familiarité avec les procédures existantes, tout en soulevant des questions sur leur application dans des contextes spécifiques.
+
+**II. Décisions Actées & Points Clairs :**
+
+Il a été décidé que minimum 3 mois d'ancienneté sont nécessaires pour le versement d'une prime. L'équipe est actuellement en train d'examiner des cas où la durée d'ancienneté est inférieure à 3 mois, notamment ceux concernant des arrivées en septembre.  En cas d'arrivée d'un employé avant 3 mois d'ancienneté, il est prévu de lui verser sa prime à 100%.  La prime sera attribuée en fonction des résultats de l'employé, après une évaluation au cas par cas.
+
+**III. Points de Blocage & Désaccords :**
+
+L'absence de consensus sur la définition de "présence effective" constitue un point de blocage majeur. L'équipe doit trouver une méthode pour juger de la pertinence des primes pour les employés arrivant avec moins de 3 mois d'ancienneté. Il y a un débat sur les critères à utiliser, que ce soit en fonction des résultats obtenus ou de la période de prise de fonction.  Il est reconnu que la situation est complexe et nécessite un examen attentif de chaque cas. Il est clairement admis qu'il manque une procédure formelle et précise pour ce type de situations.  L'équipe n'a pas encore défini les "cas d'usage" à considérer.
+
+**IV. Actions Futures :**
+
+L'élaboration d'une procédure écrite et détaillée pour déterminer les primes dans des situations où l'ancienneté est inférieure à 3 mois est une des actions clés.  L'équipe doit définir des critères objectifs pour évaluer la performance des employés arrivant avec une courte ancienneté. Il est également nécessaire d'analyser des exemples précis de cas à examiner pour la création de la nouvelle procédure, afin de s'assurer de son applicabilité et de sa pertinence. Enfin, une décision collective sera nécessaire pour valider la nouvelle procédure.
+
+**V. Points Supplémentaires :**
+
+La discussion a fait référence à des discussions antérieures sur les primes, impliquant des départs et des primes accordées pour des périodes spécifiques.  Il y a eu une question concernant la "prém" (probablement un objectif).  La discussion mentionnait des "cas d'usage" qui seront définis.  De plus, la discussion abordait la question de l'impact du décès d'un collaborateur sur la définition de l'objectif et la prime.

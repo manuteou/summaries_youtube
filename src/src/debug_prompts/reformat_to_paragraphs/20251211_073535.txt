@@ -1,0 +1,68 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici une transcription fidèle du segment de réunion, respectant les règles définies :
+
+*   **Décisions Actées :**
+    *   Validation du doublement de la prime contractuelle à 80%, avec 20% pour les objectifs et 20% pour le fonctionnement de campus.
+    *   Décision de prendre en compte la première année d'utilisation de parcoursite.
+    *   Validation de la valorisation des équipes travaillant sur parcoursite.
+    *   Décision de mettre en place un système de primes basé sur des critères finaux.
+    *   Validation du doublement de la prime pour les équipes ayant atteint des objectifs finaux.
+    *   Décision de prendre en compte les remarques des Epidagos.
+
+*   **Points de Blocage / Désaccords :**
+    *   Critique du système de primes "punitif" (1% de perte de prime par objectif manqué).
+    *   Remise en question de l'impact du système, jugé trop finitif.
+    *   Désaccords concernant l'attribution des primes (question de la motivation des équipes).
+    *   Remise en cause du 20% des "dépenses" pour les objectifs.
+    *   Difficultés rencontrées dans la mise en place du programme bachelor.
+    *   Désaccords concernant la prise en compte des remarques des Epidagos et des autres équipes.
+
+*   **Actions Futures :**
+    *   Élaboration du programme bachelor (qui doit être fait par un groupe).
+    *   Mise en place d'un système de primes valorisant l'implication des équipes.
+    *   Suivi des remarques des Epidagos et des autres équipes.
+    *   Réalisation d'un questionnaire mensuel auprès des équipes pour évaluer leur implication.
+    *   Prise en compte des éléments soulevés par les équipes lors de réunions.
+
+*   **Déroulé Chronologique :**
+    1.  Discussion sur le doublement de la prime contractuelle.
+    2.  Critiques du système de primes.
+    3.  Discussion sur la prise en compte de parcoursite.
+    4.  Élaboration du programme bachelor.
+    5.  Discussion sur le système de primes et sa valorisation.
+    6.  Remise en question des remarques des Epidagos.
+    7.  Discussion des questionnaires et de leur utilisation.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+Voici une transcription fidèle du segment de réunion, respectant les règles définies :
+
+**Décisions Actées :**
+
+La réunion a abouti à plusieurs décisions importantes. Tout d'abord, il y a eu la validation du doublement de la prime contractuelle, répartie à 80% entre les objectifs et 20% pour le fonctionnement de campus. Une décision a également été prise de prendre en compte la première année d’utilisation de parcoursite, ainsi que la valorisation des équipes travaillant sur ce projet.  De plus, il y a eu la mise en place d’un système de primes basé sur des critères finaux, et la validation du doublement de la prime pour les équipes ayant atteint ces objectifs. Enfin, la prise en compte des remarques des Epidagos a été approuvée.
+
+**Points de Blocage / Désaccords :**
+
+Des points de blocage et des désaccords ont été soulevés concernant la proposition de système de primes. La critique d'un système perçu comme "punitif" (1% de perte de prime par objectif manqué) a été exprimée, ainsi que la remise en question de son impact jugé trop finitif.  Des désaccords ont également été constatés concernant l’attribution des primes et la question de la motivation des équipes.  La remise en cause du 20% des "dépenses" pour les objectifs et les difficultés rencontrées dans la mise en place du programme bachelor ont été abordées, tout comme les désaccords concernant la prise en compte des remarques des Epidagos et des autres équipes.
+
+**Actions Futures :**
+
+Suite à cette réunion, plusieurs actions doivent être entreprises. Il est nécessaire d’élaborer le programme bachelor, en s’appuyant sur un groupe dédié.  Il s'agit également de mettre en place un système de primes valorisant l’implication des équipes, tout en assurant un suivi rigoureux des remarques des Epidagos et des autres équipes.  Un questionnaire mensuel auprès des équipes devra être réalisé pour évaluer leur implication, et les éléments soulevés lors des réunions devront être pris en compte.
+
+**Déroulé Chronologique :**
+
+La réunion a suivi un déroulement structuré.  Elle a débuté par une discussion sur le doublement de la prime contractuelle.  Par la suite, des critiques ont été formulées concernant le système de primes.  Une discussion s’est ensuite concentrée sur la prise en compte de parcoursite.  L'élaboration du programme bachelor a été abordée, suivie d'une discussion approfondie sur le système de primes et sa valorisation.  Enfin, des remises en question des remarques des Epidagos et une discussion sur l'utilisation des questionnaires ont clôturé la réunion.

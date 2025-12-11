@@ -1,0 +1,96 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Gestion des Candidatures et Données Excessives
+
+La discussion porte sur l'optimisation du suivi des candidatures, en particulier face à un volume de données significatif et à des taux de réussite faibles. L'objectif principal est de réduire la surcharge de données et d'améliorer l'efficacité du processus.
+
+### Campuses et Double Candidature
+
+Il existe deux campus concernés : celui où le candidat a déjà effectué une candidature et un autre campus. Le système prend en compte la possibilité d'une candidature multiple par le même candidat, notamment en raison de l'utilisation de critères de sélection aléatoires. Il est noté que certains candidats effectuent plusieurs candidatures, souvent via des processus d'admission non-déterministes.
+
+### Gestion des "Bêtes" et Interventions Immédiates
+
+L'utilisation des "bêtes" (probablement des assistants ou interlocuteurs) est soulignée. Leur rôle est d'intervenir de manière instantanée pour faciliter le processus de candidature, en particulier en permettant de prendre contact avec les candidats qui ne sont pas présents. L'objectif est de capturer les opportunités de candidature dès que possible.
+
+### Suivi des Candidatures et Gestion des Dates
+
+Le système suit les candidatures sur deux campus, avec un volume important de données. Des convocations sont programmées, mais le suivi des candidats non-présents est une source de problèmes. En cas d'absence, la date de convocation n'est pas automatiquement renouvelée et il n'y a pas de relance automatique.
+
+### Intervention des Équipes et Gestion des Messages
+
+Les équipes sont chargées de contacter les candidats via des messages pour les inciter à compléter leur candidature avant le rendez-vous. Il est crucial d'enregistrer les échanges et d'adapter les messages en fonction des spécificités de chaque candidat.
+
+### Gestion des Données et Profils Internationaux
+
+Des efforts sont déployés pour gérer les données provenant de candidats de diverses origines, notamment des étudiants de La Réunion ou de la Martinique, qui sont considérés comme des zones proches. L'enregistrement précis des informations est essentiel pour un suivi optimal.
+
+### Gestion des Contacts et Suivi des Rendez-vous
+
+L'enregistrement des contacts et le suivi des rendez-vous sont des éléments cruciaux. Il est important de noter que l'utilisation de données peut engendrer une surcharge et qu'il faut des mécanismes pour gérer ces volumes.
+
+###  Temps Limité et Optimisation des Sessions
+
+La durée des sessions est limitée (8 minutes), et il est crucial de gérer le temps de manière efficace. Les échanges sont enregistrés pour un suivi et une possible utilisation ultérieure.
+
+###  Gestion des Contacts de Dernière Minute
+
+Il y a une attention particulière aux contacts de dernière minute, où l'instantané est essentiel. Cela peut inclure des contacts via des plateformes d'échange (Quillins).
+
+###  Rôle des Équipes et Support
+
+Les équipes sont indispensables pour accompagner les candidatures et assurer un support aux candidats. La communication est un élément clé.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Gestion des Candidatures et Données Excessives
+
+La discussion porte sur l’optimisation du suivi des candidatures, en particulier face à un volume de données significatif et à des taux de réussite faibles. L’objectif principal est de réduire la surcharge de données et d’améliorer l’efficacité du processus.
+
+### Campuses et Double Candidature
+
+Il existe deux campus concernés : celui où le candidat a déjà effectué une candidature et un autre campus. Le système prend en compte la possibilité d’une candidature multiple par le même candidat, notamment en raison de l’utilisation de critères de sélection aléatoires. Il est noté que certains candidats effectuent plusieurs candidatures, souvent via des processus d’admission non-déterministes.
+
+### Gestion des "Bêtes" et Interventions Immédiates
+
+L’utilisation des “bêtes” (probablement des assistants ou interlocuteurs) est soulignée. Leur rôle est d’intervenir de manière instantanée pour faciliter le processus de candidature, en particulier en permettant de prendre contact avec les candidats qui ne sont pas présents. L’objectif est de capturer les opportunités de candidature dès que possible.
+
+### Suivi des Candidatures et Gestion des Dates
+
+Le système suit les candidatures sur deux campus, avec un volume important de données. Des convocations sont programmées, mais le suivi des candidats non-présents est une source de problèmes. En cas d’absence, la date de convocation n’est pas automatiquement renouvelée et il n’y a pas de relance automatique.
+
+### Intervention des Équipes et Gestion des Messages
+
+Les équipes sont chargées de contacter les candidats via des messages pour les inciter à compléter leur candidature avant le rendez-vous. Il est crucial d’enregistrer les échanges et d’adapter les messages en fonction des spécificités de chaque candidat.
+
+### Gestion des Données et Profils Internationaux
+
+Des efforts sont déployés pour gérer les données provenant de candidats de diverses origines, notamment des étudiants de La Réunion ou de la Martinique, qui sont considérés comme des zones proches. L’enregistrement précis des informations est essentiel pour un suivi optimal.
+
+### Gestion des Contacts et Suivi des Rendez-vous
+
+L’enregistrement des contacts et le suivi des rendez-vous sont des éléments cruciaux. Il est important de noter que l’utilisation de données peut engendrer une surcharge et qu’il faut des mécanismes pour gérer ces volumes.
+
+### Temps Limité et Optimisation des Sessions
+
+La durée des sessions est limitée (8 minutes), et il est crucial de gérer le temps de manière efficace. Les échanges sont enregistrés pour un suivi et une possible utilisation ultérieure.
+
+### Gestion des Contacts de Dernière Minute
+
+Il y a une attention particulière aux contacts de dernière minute, où l’instantané est essentiel. Cela peut inclure des contacts via des plateformes d’échange (Quillins).
+
+### Rôle des Équipes et Support
+
+Les équipes sont indispensables pour accompagner les candidatures et assurer un support aux candidats. La communication est un élément clé.

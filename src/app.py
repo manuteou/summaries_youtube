@@ -53,7 +53,20 @@ device = st.sidebar.selectbox("Device", ["cpu", "cuda"], index=0)
 model = st.sidebar.selectbox("Whisper Model", ["tiny", "base", "small", "medium", "large"], index=0)
 ollama_model = st.sidebar.text_input("Ollama Model", value="gemma3:4b")
 
-summary_type = st.sidebar.selectbox("Summary Type", ["short", "medium", "long", "news"], index=2)
+summary_type_disp = st.sidebar.selectbox(
+    "Type de document", 
+    ["Synthèse Courte", "Synthèse Moyenne", "Synthèse Longue", "Actualité/News", "Compte-Rendu (Meeting)"], 
+    index=2
+)
+
+type_map = {
+    "Synthèse Courte": "short", 
+    "Synthèse Moyenne": "medium", 
+    "Synthèse Longue": "long", 
+    "Actualité/News": "news",
+    "Compte-Rendu (Meeting)": "meeting"
+}
+summary_type = type_map[summary_type_disp]
 
 # Initialize Workflow Manager
 @st.cache_resource
@@ -81,7 +94,7 @@ def get_workflow(device, model, ollama_model, summary_type, version=1):
     # 2. Inject into WorkflowManager
     return WorkflowManager(processor, transcriber, summarizer, exporter)
 
-workflow = get_workflow(device, model, ollama_model, summary_type, version=6)
+workflow = get_workflow(device, model, ollama_model, summary_type, version=11)
 
 # Branding
 st.markdown("""
@@ -125,7 +138,16 @@ if st.session_state.nav_selection == "🔍 Sourcing":
 
             st.button("Aller à la Synthèse 👉", on_click=_go_synth, type="primary")
 
-    st.header("Sourcing Vidéos")
+    st.markdown("""
+    <div style="background: linear-gradient(90deg, rgba(255, 75, 75, 0.1), rgba(255, 145, 77, 0.1)); padding: 15px; border-radius: 10px; border-left: 5px solid #FF4B4B; margin-bottom: 20px;">
+        <h2 style="margin: 0; padding: 0; font-weight: 700; color: #FAFAFA;">
+            🔍 Sourcing De Vos Vidéos <span style="font-weight: 300; opacity: 0.8;">& Importation</span> 📥
+        </h2>
+        <p style="margin: 5px 0 0 0; color: #A3A8B8; font-size: 0.9em;">
+            Recherchez du contenu pertinent sur YouTube 🎥 ou importez vos propres fichiers 📂 pour démarrer.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
     
     # --- Manual Input ---
     with st.expander("➕ Ajouter via URL (Youtube / Local)", expanded=False):
@@ -199,7 +221,7 @@ if st.session_state.nav_selection == "🔍 Sourcing":
     st.divider()
 
     # --- Search Section ---
-    st.subheader("🔍 Rechercher")
+    st.subheader("🔍 Rechercher Sur YouTube")
     
     # Wrap search input and button
     col_search_inner, col_btn_inner = st.columns([4, 1])
@@ -504,7 +526,8 @@ if st.session_state.nav_selection == "⚙️ Synthèse":
                             
                             summary, title, source_info = workflow.synthesize_videos(
                                 st.session_state.selection_basket, 
-                                context_input 
+                                context_input,
+                                title_override=custom_title
                             )
                             
                             # Post-process

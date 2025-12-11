@@ -1,0 +1,57 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici une capture factuelle de la réunion :
+
+*   **Objectif Principal :** Valoriser l'engagement des Pédagogues et encourager la participation à des initiatives d'échange et de collaboration.
+*   **Définition du succès :**  Mettre en place un système de valorisation permettant de récompenser les Pédagogues impliqués.
+*   **Propositions Actuelles :**
+    *   Participation à des projets d'amélioration continue des programmes.
+    *   Contribution à des "semi-nirpédagogiques".
+    *   Développement de correctifs pour des outils existants.
+    *   Organisation et animation de concours (ex : Robo-Karen, compétition du meilleur Gomoku).
+    *   Élaboration du Kit pour la Gautique Nationale.
+    *   Participation à des conférences techniques et présentations extérieures.
+    *   Contributions à des fondations (ex : Fondation Moisi, Woz-Ar).
+    *   Mobilités à l'étranger (Universités partenaires, Chine notamment).
+*   **Mouvements de décision:**
+    *   **Acceptation** d'un objectif de 50-60% de participation des Pédagogues.
+    *   **Revoir** le budget/financement pour atteindre cet objectif (variable symbolique).
+    *   **Revoir** le processus de dépôt des propositions pédagogiques (pour éviter frustration).
+*   **Blocages/Questions soulevées:**
+    *   Difficulté à maintenir un niveau de financement/budget pour les initiatives.
+    *   Besoin de clarifier le processus de dépôt des propositions pédagogiques.
+*   **Actions Futures :**
+    *   Revoir le budget/financement pour atteindre l'objectif de 50-60%.
+    *   Analyser/revoir le processus de dépôt des propositions pédagogiques.
+    *   Suivi de la participation des Pédagogues aux différentes initiatives.
+*   **Informations Additionnelles :**
+    *   Des échanges ont eu lieu avec Nancy concernant les collaborations et la mise en place d'échanges entre universités.
+    *   Des opportunités de mobilité à l'étranger (Chine en particulier) sont proposées.
+    *   La personne en charge du sujet attend des retours sur l'opportunité de proposer des moyens de financement.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+Voici une capture factuelle de la réunion :
+
+L'objectif principal de cette initiative est de valoriser l'engagement des Pédagogues et d'encourager leur participation à des initiatives d'échange et de collaboration. Pour mesurer le succès, il est prévu de mettre en place un système de valorisation permettant de récompenser les Pédagogues activement impliqués dans ces activités.
+
+Plusieurs propositions ont été identifiées pour stimuler cette participation. Les Pédagogues pourraient notamment contribuer à des projets d'amélioration continue des programmes, participer à des "semi-nirpédagogiques", développer des correctifs pour des outils existants, organiser et animer des concours (par exemple, Robo-Karen ou une compétition du meilleur Gomoku), élaborer le Kit pour la Gautique Nationale, participer à des conférences techniques et des présentations extérieures, et apporter des contributions à des fondations telles que la Fondation Moisi ou Woz-Ar. Des opportunités de mobilité à l'étranger sont également envisagées, notamment via des collaborations avec des universités partenaires et des programmes en Chine.
+
+Les mouvements de décision constatés lors de la réunion se résument à l'acceptation d'un objectif de participation des Pédagogues s'établissant entre 50 et 60%, ainsi qu'à la nécessité de revoir le budget et le financement afin d'atteindre cet objectif, en prenant en compte des ressources symboliques. Il est également impératif de revoir le processus de dépôt des propositions pédagogiques, afin de minimiser les frustrations potentielles.
+
+Plusieurs blocages et questions ont été soulevés. Il persiste une difficulté à maintenir un niveau de financement suffisant pour soutenir les initiatives, et il est nécessaire de clarifier le processus de dépôt des propositions pédagogiques.
+
+Les actions futures prévues consistent à revoir le budget et le financement pour atteindre l'objectif de participation, à analyser et revoir le processus de dépôt des propositions pédagogiques, et à assurer un suivi régulier de la participation des Pédagogues aux différentes initiatives. Des échanges ont eu lieu avec Nancy concernant les collaborations et la mise en place d'échanges entre universités. Des opportunités de mobilité à l'étranger, en particulier en Chine, sont également en cours d'exploration. La personne en charge du sujet attend des retours sur l'opportunité de proposer des moyens de financement complémentaires.

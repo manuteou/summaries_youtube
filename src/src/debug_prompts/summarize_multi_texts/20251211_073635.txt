@@ -1,0 +1,330 @@
+--- PROMPT (summarize_multi_texts) ---
+
+Sources (Segments consolidés) :
+Source: Réunion Pilotage Direction de campus-20251209_095246-Meeting Recording.mp4
+**Problèmes de prélevements :**
+
+Le rib était plus bon et les apprements n’ont pas été levés. Un prélevement en janvier sur le mauvais rib (prélevement moins bien) a été constaté.  2000 prélevements ont présenté des difficultés pour les apprements, notamment avec Éphanie.
+
+**Changements et améliorations sur Payac :**
+
+Le changement a été mis en place pour améliorer la fiabilité des échéances. Les outils d'étudiant conservent le même design et les mêmes connexions. Il n’y a eu aucun problème de connexion. L’automatisation des tâches est maximisée.
+
+**Accès et migration vers Payac :**
+
+La création de compte s’est faite avec l’envoi d’un mail. La migration s’effectue en plusieurs étapes (trois étapes). Les échéances 2025 et 2026 sont intégrées dans Payac. Les résultats concernant GoCardless sont disponibles. Les échéances 2026 sont importées progressivement. Si une échéance a été payée en une fois avant le 1er septembre, il est nécessaire de se référer à la sorte (donnée non importée). Les ADM doivent s'assurer que toutes les échéances sont correctes et que les futures sont également correctement définies.
+
+**Gestion des échéances et splits :**
+
+Il n’est pas possible de diviser une échéance (par exemple, décembre) en plusieurs fois sur Payac, surtout si cela concerne des dates antérieures au 1er septembre. Il est possible de donner une date théorique de prélèvement (même si elle peut ne pas être la réalité). Les inscriptions de 16 ne sont pas prévues pour le moment. L'importation est prévue pour le milieu/fin du mois.
+
+**Défis et incompletudes :**
+
+Il manquait des devres, notamment "hévines" – le total des devres n'est pas complet. Sandray n'était pas présent dans la liste des devres.
+
+**Actions Futures :**
+
+Une réunion avec toutes les équipes est organisée par le Secrétaire de Séance avant l'hévienne (pour mettre en place la base des devres). Une formation continue est proposée (nouvelles fonctionnalités, boutons, tarifs). Un support est disponible par email ou par Madie 16. Il est possible de signaler des anomalies (section Payac). Si un changement de motage est effectué, il est impossible de le modifier. Une réunion sera organisée avec les équipes.
+
+**Demande spécifique :**
+
+Un interlocuteur (Pierre) ne peut pas changer le motage.
+
+**Points de blocage/délais :**
+
+L’import des données financières commence le 1er septembre. Le passage à Payac est en cours. Des tests sont en cours. Les ADM ont un travail à faire pour s'assurer que tout est bien synchronisé.
+
+**Information :**
+
+Un document de développement est à disposition. L'hévienne est planifiée.
+
+Voici l'extraction des points clés de la réunion :
+
+La discussion a porté sur la possibilité de limiter le nombre d'événements à 10 par an, une contrainte étant liée à la localisation et au besoin de nuancer les types d’événements (internes vs. externes).  Les objectifs de participation et d’animation se concentrent sur l’implication des étudiants.  Au moins 60% des étudiants et 50% des promotions doivent participer à des événements.  De plus, un objectif de satisfaction des étudiants est défini, et l’encouragement à la participation à la vie de campus est privilégié.  Des sondages sont systématiquement envoyés à la fin de chaque semestre, constituant des données de référence. Les résultats obtenus sont globalement stables sur les différents campus.  Le Secrétaire de Séance est responsable de la capture fidèle des informations.
+
+Un point de blocage majeur réside dans la nécessité de clarifier le nombre maximal d'événements par an.  Afin de poursuivre le suivi, le responsable devra clarifier cette question.  Le responsable continuera également de surveiller les sondages et les résultats.
+
+Voici la transcription de la réunion, capturée de manière factuelle et sans interprétation :
+
+**Objectifs Principaux :**
+
+Les objectifs principaux de cette réunion étaient le suivi des participations des entreprises au campus, l'évaluation de la satisfaction des partenaires, et le partage de bonnes pratiques internes.
+
+**Points Décidés :**
+
+Il a été décidé de se baser uniquement sur le total de satisfaction, sans registre de participation. Chaque collaborateur doit contribuer au moins trois interventions auprès d'entreprises par an. Un questionnaire à remplir a été mis en place, comprenant un minimum de trois questions et un verbatim. Les réponses à ce questionnaire seront partagées via Gilda, et possiblement d’autres canaux. Afin de recueillir des témoignages, l'utilisation des salons de l'étudiant et des événements est privilégiée. Il a également été convenu qu’il n’y aurait pas de “porte-fail” spécifique pour les stages, et que les tutorats se dérouleraient à la fin du stage.
+
+**Actions Futures :**
+
+Les actions futures comprennent la création d’un espace où les collaborateurs pourront déposer leurs idées et contributions.  De plus, des animations et présentations par les Pédago sur les bonnes pratiques seront organisées, ainsi que le partage des réponses des collaborateurs via Gilda. Enfin, le recueil de témoignages via les événements (salons, etc.) est maintenu.
+
+**Points de Blocage/Questions Soulevées :**
+
+Plusieurs points de blocage ont été soulevés. Il est nécessaire de prévoir davantage d’espace pour que les participants puissent déposer leurs idées. La notion de “porte-fail” a été remise en question, et il est nécessaire de clarifier le type de "verbatim" à inclure dans les questionnaires et lors du partage des réponses. Il est également important de confirmer l'utilité des animations des Pédago.
+
+**Déroulé Chronologique (Sujets Abordés) :**
+
+La réunion a débuté par une présentation des objectifs du suivi.  Elle a ensuite porté sur la décision concernant le mode d'évaluation (total satisfaction).  Par la suite, des discussions ont eu lieu sur la définition du nombre minimum d'interventions auprès d'entreprises par an, la description du questionnaire à remplir, et la discussion sur le partage des réponses. Des éclaircissements ont été apportés sur le rôle des Pédago et les animations prévues. Enfin, des questions ont été adressées concernant l'utilisation des événements (salons, etc.) pour recueillir des témoignages.
+
+**Décisions Actées :**
+
+Pour améliorer le suivi des étudiants et l'adaptation des objectifs, plusieurs décisions ont été prises. Un tableau a été créé pour suivre les notes des étudiants directement sur Google. De plus, une évaluation individuelle des étudiants a été mise en place afin d’adapter les objectifs à leurs besoins spécifiques. Une notation pour les campus a également été mise en place, prenant en compte le nombre d’avis disponibles. Afin de mieux gérer les défis spécifiques rencontrés par chaque campus, des réunions ont été organisées pour les discuter. Par ailleurs, l’équipe a été valorisée en fixant des objectifs atteignables.
+
+**Points de Blocage :**
+
+Plusieurs points de blocage ont été identifiés. Il est difficile d'évaluer les campus qui présentent un grand nombre d’avis. Inversement, l'évaluation des campus avec peu d'avis pose également problème. Un risque de démotivation est présent si les objectifs fixés s'avèrent trop ambitieux. Enfin, des problèmes potentiels surviennent quant à la mesure précise du temps consacré par les étudiants à leurs activités.
+
+**Actions Futures :**
+
+Le Secrétaire de Séance Expert est chargé de créer un tableau pour suivre les notes des étudiants. Il est également chargé d’organiser des réunions individuelles avec chaque étudiant afin d’adapter les objectifs à ses besoins.  Il devra analyser les données des campus en tenant compte du nombre d’avis.
+
+**Déroulé Chronologique :**
+
+Le processus a débuté par une discussion sur les objectifs globaux et la nécessité de les rendre atteignables. La proposition de suivi des notes sur Google a été présentée.  Les difficultés liées à l’évaluation des campus ont ensuite été identifiées. Finalement, la décision a été prise d’organiser des réunions individuelles pour ajuster les objectifs.
+
+Voici une transcription fidèle du segment de réunion, respectant les règles définies :
+
+**Décisions Actées :**
+
+La réunion a abouti à plusieurs décisions importantes. Tout d'abord, il y a eu la validation du doublement de la prime contractuelle, répartie à 80% entre les objectifs et 20% pour le fonctionnement de campus. Une décision a également été prise de prendre en compte la première année d’utilisation de parcoursite, ainsi que la valorisation des équipes travaillant sur ce projet.  De plus, il y a eu la mise en place d’un système de primes basé sur des critères finaux, et la validation du doublement de la prime pour les équipes ayant atteint ces objectifs. Enfin, la prise en compte des remarques des Epidagos a été approuvée.
+
+**Points de Blocage / Désaccords :**
+
+Des points de blocage et des désaccords ont été soulevés concernant la proposition de système de primes. La critique d'un système perçu comme "punitif" (1% de perte de prime par objectif manqué) a été exprimée, ainsi que la remise en question de son impact jugé trop finitif.  Des désaccords ont également été constatés concernant l’attribution des primes et la question de la motivation des équipes.  La remise en cause du 20% des "dépenses" pour les objectifs et les difficultés rencontrées dans la mise en place du programme bachelor ont été abordées, tout comme les désaccords concernant la prise en compte des remarques des Epidagos et des autres équipes.
+
+**Actions Futures :**
+
+Suite à cette réunion, plusieurs actions doivent être entreprises. Il est nécessaire d’élaborer le programme bachelor, en s’appuyant sur un groupe dédié.  Il s'agit également de mettre en place un système de primes valorisant l’implication des équipes, tout en assurant un suivi rigoureux des remarques des Epidagos et des autres équipes.  Un questionnaire mensuel auprès des équipes devra être réalisé pour évaluer leur implication, et les éléments soulevés lors des réunions devront être pris en compte.
+
+**Déroulé Chronologique :**
+
+La réunion a suivi un déroulement structuré.  Elle a débuté par une discussion sur le doublement de la prime contractuelle.  Par la suite, des critiques ont été formulées concernant le système de primes.  Une discussion s’est ensuite concentrée sur la prise en compte de parcoursite.  L'élaboration du programme bachelor a été abordée, suivie d'une discussion approfondie sur le système de primes et sa valorisation.  Enfin, des remises en question des remarques des Epidagos et une discussion sur l'utilisation des questionnaires ont clôturé la réunion.
+
+Voici une capture factuelle de la réunion, basée sur le texte fourni :
+
+**Décisions Actées / Points Confirmés:**
+
+La réunion a permis de confirmer plusieurs points cruciaux concernant la stratégie de l'entreprise. Tout d'abord, il a été convenu qu’une période d’adaptation de six mois serait prévue pour les nouveaux collaborateurs, leur offrant ainsi le temps nécessaire pour se familiariser pleinement avec les exigences de leur poste. De plus, il a été décidé de mettre en place un système de primes adapté à chaque métier, avec une période d'application d'un an. Ce système permettra d'intégrer des primes rétroactives en cas de départ. Un objectif bas initial a été fixé, se traduisant par un objectif de 25%, tandis qu'un spectre d'objectifs s'étend de 1% à 35%.
+
+**Points de Blocage / Questions Orphelines:**
+
+Plusieurs sujets nécessitent encore d'être approfondis. La gestion du "post-DAC" reste un sujet de discussion sans décision concrète. De même, les modalités précises de gestion des primes pour les employés qui partent (primes rétroactives, etc.) n’ont pas été définies. La réunion a également soulevé des inquiétudes concernant un système d’avant considéré comme trop punitif, avec des taux de 0.80% sans impact et un seuil de 250% d'attente au-delà de 90%.  De plus, il existe un manque de données claires concernant l'impact réel des objectifs fixés, ainsi qu'une question ouverte sur l'interprétation des données. Enfin, l'équipe s'interroge sur l'impact du nombre d'avis (4 vs 5 étoiles) sur l'évaluation des produits et services, et le sujet des primes sur les campus a été mentionné.
+
+**Actions Futures / Qui fait quoi ?**
+
+Pour assurer la bonne exécution de la stratégie, plusieurs actions doivent être entreprises. Il est impératif d’ouvrir la question de la définition des objectifs pour les nouveaux arrivants et de les débattre. Une surveillance des avis (4 vs 5 étoiles) sera mise en place pour tenter d'améliorer leur qualité. Un travail sur le système de primes est nécessaire, ainsi que la prise en compte des retours d'expérience des équipes. Enfin, il est essentiel de mettre en place un point de suivi avec les collaborateurs en cours d’affectation.
+
+Voici l'extraction du texte de la réunion, respectant les règles de fidélité et les objectifs fixés :
+
+**Décisions Actées:**
+
+Les objectifs globaux se répartissent en 20% d'objectifs communs, destinés aux métiers, et 80% d'objectifs métiers spécifiques. La répartition des objectifs métiers est structurée en trois actes : l'impact des pudions, la performance pédagogique et l'impact institutionnel.  L'impact institutionnel est lui-même divisé en 40% et 20%. Le niveau de performance détermine le statut : un niveau insuffisant est attribué aux performances inférieures à 60, tandis qu'un niveau attendu est appliqué aux performances entre 60 et 69.  La fidélisation est définie par le Directeur de campus et s'applique aux salariés de l'équipe pédagogique, avec des responsabilités attribuées à certains pédagogues, affectés à des programmes spécifiques tels que Pg1, Pg2 et Pg3.
+
+**Points de Blocage / Problèmes Soulevés:**
+
+Il existe plusieurs points de blocage. La première concerne le manque de clarté sur les objectifs métiers, nécessitant une précision. Ensuite, la définition des critères de fidélisation doit être formalisée par le Directeur de campus.  Il est également nécessaire de prendre en compte des cas individuels spécifiques et des situations exceptionnelles. Enfin, il est primordial de clarifier le rôle et le périmètre de responsabilités des directions pédagogiques.
+
+**Actions Futures:**
+
+Les actions futures consistent à définir les objectifs métiers, à déterminer les critères de fidélisation, à assigner les pédagogues aux programmes spécifiques (Pg1, Pg2, Pg3), à assurer un suivi attentif des cas individuels, à communiquer les informations à tous les acteurs concernés dès le début pour tous les cas, à diffuser la lettre de oblétat en octobre, et à planifier une revue des points.
+
+Voici une capture des points clés de la réunion, formatée comme demandé :
+
+**Suivi des Promotions :**
+
+L'objectif principal est d'atteindre une proportion de 1% de différence entre les promotions.  Pour ce faire, il est prévu d'obtenir 60% de réussite sur les formations professionnelles (WAB2) et 75% de réussite sur les stages issus des entreprises. La cible globale est de 75% de réussite pour les formations initiales.
+
+**Suivi Académique & Évaluation Pédagogique :**
+
+L'analyse des commentaires RIVU et KINOTE est essentielle, et il est impératif de garantir leur exploitabilité pour les étudiants.  Une note cible de plus de 70% de conformité des suivis pédagogiques est fixée, et l'évaluation des évaluations pédagogiques sera notée sur un maximum de 70%.
+
+**Suivi des Entreprises :**
+
+Il est nécessaire d'assurer l'implication des entreprises pour les stages et l'animation de la vie pédagogique.  Le niveau de satisfaction des entreprises sur les stages est d'être de 75%. Un questionnaire sera envoyé aux anciens alternants (MSC1 et MSC2) à partir du 8 septembre.
+
+**Actions Futures & Responsabilités :**
+
+L'équipe pédagogique est chargée de la production des commentaires et de la formation. La Direction Nationale est chargée de la désignation d'un représentant étudiant par corps. Des réunions de suivi régulières seront organisées.
+
+**Points de Blocage / Désaccords :**
+
+Il est nécessaire d'un suivi continu et de mesures de contrôle pour atteindre les objectifs de performance.
+
+**Chronologie des Actions :**
+
+L'envoi du questionnaire aux anciens alternants commencera à partir du 8 septembre.  L'évaluation des commentaires RIVU/KINOTE sera effectuée. La désignation des représentants étudiants par corps sera assurée par la Direction Nationale.
+
+Voici une capture factuelle de la réunion :
+
+L'objectif principal de cette initiative est de valoriser l'engagement des Pédagogues et d'encourager leur participation à des initiatives d'échange et de collaboration. Pour mesurer le succès, il est prévu de mettre en place un système de valorisation permettant de récompenser les Pédagogues activement impliqués dans ces activités.
+
+Plusieurs propositions ont été identifiées pour stimuler cette participation. Les Pédagogues pourraient notamment contribuer à des projets d'amélioration continue des programmes, participer à des "semi-nirpédagogiques", développer des correctifs pour des outils existants, organiser et animer des concours (par exemple, Robo-Karen ou une compétition du meilleur Gomoku), élaborer le Kit pour la Gautique Nationale, participer à des conférences techniques et des présentations extérieures, et apporter des contributions à des fondations telles que la Fondation Moisi ou Woz-Ar. Des opportunités de mobilité à l'étranger sont également envisagées, notamment via des collaborations avec des universités partenaires et des programmes en Chine.
+
+Les mouvements de décision constatés lors de la réunion se résument à l'acceptation d'un objectif de participation des Pédagogues s'établissant entre 50 et 60%, ainsi qu'à la nécessité de revoir le budget et le financement afin d'atteindre cet objectif, en prenant en compte des ressources symboliques. Il est également impératif de revoir le processus de dépôt des propositions pédagogiques, afin de minimiser les frustrations potentielles.
+
+Plusieurs blocages et questions ont été soulevés. Il persiste une difficulté à maintenir un niveau de financement suffisant pour soutenir les initiatives, et il est nécessaire de clarifier le processus de dépôt des propositions pédagogiques.
+
+Les actions futures prévues consistent à revoir le budget et le financement pour atteindre l'objectif de participation, à analyser et revoir le processus de dépôt des propositions pédagogiques, et à assurer un suivi régulier de la participation des Pédagogues aux différentes initiatives. Des échanges ont eu lieu avec Nancy concernant les collaborations et la mise en place d'échanges entre universités. Des opportunités de mobilité à l'étranger, en particulier en Chine, sont également en cours d'exploration. La personne en charge du sujet attend des retours sur l'opportunité de proposer des moyens de financement complémentaires.
+
+**Visibilité digitale :**
+
+L'objectif est de développer la visibilité digitale, en assurant la cohérence graphique. Pour ce faire, trois publications par semaine sont prévues sur l'Ingénieure.  La diffusion se fera également sur Instagram, Historique, Facebook, ainsi que sur TikTok avec trois vidéos par mois (selon calendrier). Une actualisation régulière est prévue sur YouTube (chaîne Défitech), avec des charts et des petites vidéos.  Il est essentiel de développer du contenu adapté à chaque plateforme et de maintenir une veille permanente, en s'adaptant aux tendances. Des charlits de communication seront mis à disposition.  Deux newsletters mensuelles, avec un taux d'ouverture supérieur à 30%, seront également diffusées.
+
+**Image de marque :**
+
+L'actualisation de la charte épitex, incluant les indicateurs, est une priorité.  De plus, la décoration des campus sera actualisée en fonction de chaque campus.  Des supports et des affiches seront créés, et une “Wall of Fame” sera mise en place pour l’identification et la documentation des événements.  Toute réussite devra être reportée au niveau national.  Un tableau Excel est prévu pour la saisie des réussites et des nouvelles actions, bien que son remplissage puisse être inégal.  L'animation des campus est en cours et nécessite un certain temps.  La charge sera appliquée sur tous les supports.  Il est important d’identifier les contenus à potentiel médiatique et de les soumettre aux journalistes.  La participation aux événements est encouragée, et l’invitation d’éléments des actions aux médias peut être envisagée.
+
+**Événements :**
+
+La création d'un plan de communication dédié à chaque événement est nécessaire, incluant le cadrage, la diffusion des contenus et un bilan post-événement (y compris les salons) avec des points d'amélioration. Un calendrier partagé avec les régions partenaires est également essentiel.
+
+**Collaboration Nationale :**
+
+Il est impératif de garantir un volet efficace entre les campus et les équipes nationales, en assurant un suivi de l'activité et des échanges.
+
+**Points de Blocage/Problèmes Soulevés :**
+
+Le remplissage inégal du tableau des réussites et des nouvelles actions, ainsi que le processus d'animation des campus en cours (qui nécessite un certain temps), représentent des points de blocage à prendre en compte.
+
+Voici l'extraction des points clés de la réunion, respectant les règles d'or :
+
+**Objectifs de la réunion** : La réunion avait pour objectif de partager des bonnes pratiques, de partager des actions régionales, de faciliter la transition des directives nationales et de produire des articles mensuels, incluant un potentiel article national.
+
+**Actions concernant les vidéos** : La stratégie vidéo visait à créer des vidéos courtes, destinées au partage sur LinkedIn et potentiellement TikTok et Instagram. L'utilisation d'extraits de reportages et de transports était prévue, ainsi qu'un lancement d'une campagne vidéo spécifique pour le stage de second, avec pour objectif la conversion et la motivation des étudiants.
+
+**Wall of Fame** : L'intégration des participations aux événements extérieurs dans le Wall of Fame était envisagée, en utilisant les photos prises lors de ces événements.
+
+**Campagnes de partenariats** : La mise en place de 17 bottes – un par campus et une nationale – était prévue pour capter les opportunités.
+
+**Actions spécifiques** : Caroline lançera une campagne sur le stage de second la semaine prochaine. Une équipe sera dédiée au côté digital de cette campagne, avec pour objectif principal de générer des conversions et de motiver les étudiants.
+
+**Problèmes/Désaccords** : La réunion a identifié une confusion autour du Wall of Fame et des descriptions des réalisations. De plus, il y avait des difficultés à gérer les contenus partagés sur les réseaux sociaux.
+
+Voici l'extraction de la réunion, respectant scrupuleusement les règles d'or :
+
+**Absorption d'îles :** La discussion a porté sur la possibilité d'impliquer un certain nombre d'îles.
+
+**Passage via les 5 lides :** L'exploration de la possibilité d'un passage quotidien via les 5 lides a été abordée.
+
+**Distraction des candidats :** Une suggestion a été faite concernant la distraction des candidats.
+
+**Web Academy :** La Web Academy soulève plusieurs problématiques. Le formulaire de candidature ne requiert pas le campus. Il existe une problématique liée à l'hiver et à la récupération des candidats, ainsi qu’une problématique concernant les campus concernés.
+
+**Processus de candidature :** Il est nécessaire de synchroniser le processus de candidature.
+
+**Lides :** Les lides ne mettent pas l’information correctement. Une requête directe vers une landing page est requise. De plus, il y a une demande de dog, feuilles, etc.
+
+**Objecteurs :** La présence de personnes qui posent des questions d’objecteur a été notée. Il est essentiel que les équipes soient toujours en contact.
+
+**Situation Ischine :** Il n'y a pas de contact avec Ischine.
+
+**Parents :** Les parents manquent de temps. Les données du stage de seconde ne sont pas forcément de qualité. L’objectif du stage de seconde est de faire connaître la zone, de toucher du doigt l’orientation.  Il existe des problèmes liés au nombre : un manque de résultats (moins de 30% de fréquentation). De plus, il y manque une connaissance de l’informatique et de ses enjeux.
+
+**Objectif des stages :** L'objectif est la qualité de la cible, et non seulement le nombre.
+
+**Nettoyage de la base de données :** Un nettoyage régulier de la base de données est nécessaire.
+
+**Suivi des candidatures :** Il est important de suivre les deux candidatures (campus principal et secondaire). Les candidats qui réservent automatiquement doivent être suivis. Il faut que les candidats fassent leur candidature avant le rendez-vous.
+
+**Désaccord / Blocage:** Le volume de données est trop important.
+
+**Action:** Créer un dashboard sur les candidatures.
+
+**Action:** Relancer les équipes concernant les candidatures.
+
+**Action:** Clarifier l'objectif de la collecte des données.
+
+**Action:** Faire un nettoyage de la base de données.
+
+Voici une transcription du segment de réunion, respectant les règles d'extraction :
+
+**Convocations Septembre :** Plusieurs convocations avec dates en septembre ont été mentionnées.
+
+**Présences :** Vérification des présences des étudiants concernés.
+
+**Ménagements :** Si des étudiants ne sont pas présents, il faut vérifier les dates de convocation.
+
+**Automatisation :** Repasser automatiquement les informations dans le bon document (d'ajour).
+
+**Dates de Programme Évaluées :** Intégrer les dates de programmes évalués.
+
+**Admissions/Rejets :** Gestion des admissions et des rejets.
+
+**Stratégie de Relance :** Mettre en œuvre une stratégie de relance et un suivi.
+
+**Aide à l'Identification :** Fournir une aide pour repérer les étudiants concernés.
+
+**Zone Géographique :** Repasser les messages aux équipes concernant des étudiants de la Réunion ou de Mayotte (à vérifier).
+
+**Délai Temps :** Les bote (convocations) arrivent instantanément, mais il faut tenir compte des délais (cours, etc.).
+
+**Temps des Séances :** Temps des séances variable (demi heure, 3 à 4 heures, etc.).
+
+**Questions :** Possibilité de poser des questions.
+
+**Rapport Maximale / Seminar / Directeur de Campus :** Possibilité de produire un compte rendu et de l'envoyer.
+
+**Partage de l'Information :** Partage d'informations, notamment concernant une fille.
+
+**Actions :**
+*   Vérifier les présences.
+*   Repasser les messages aux équipes (Réunion/Mayotte).
+*   Produire un compte rendu pour la Maximale/Seminar/Directeur de Campus.
+
+**Fin de Réunion :** Souhaits de bonne journée.
+
+Sujet / Titre de la réunion : Synthèse Vidéo
+
+Tu rédiges le **COMPTE-RENDU FINAL** en consolidant les notes intermédiaires.
+
+STRUCTURE IMPÉRATIVE (UNIQUEMENT CES DEUX PARTIES) :
+
+1.  **DÉROULÉ DE LA SÉANCE** (H2)
+    -   Fusionne les notes pour reconstituer le fil de la réunion.
+    -   Utilise des sous-titres (H3) pour les thématiques.
+    -   Conserve la richesse des débats.
+
+2.  **RELEVÉ DE DÉCISIONS ET ACTIONS** (H2)
+    -   Consolide toutes les actions et décisions repérées.
+    -   Format strict : Action / Responsable / Date.
+
+CONTRAINTES :
+-   UTILISE LE TITRE FOURNI CI-DESSUS (Synthèse Vidéo) comme contexte, mais ne l'affiche pas en H1 (le système le fera).
+-   **PAS D'AUTRE SECTION** : On veut juste le déroulé et les actions.
+-   Ne perds aucune info technique.
+
+
+--- RESPONSE (summarize_multi_texts) ---
+Synthèse Vidéo
+
+## Déroulé de la Séance
+
+### Présentation et Contexte (00:00:00 – 00:05:00)
+La réunion a débuté avec une brève présentation du projet "Phoenix" et des objectifs à atteindre : améliorer la satisfaction des étudiants et optimiser les processus de recrutement. On a souligné l'importance d'une collaboration étroite entre les équipes pédagogiques, les équipes marketing et l'équipe administrative.
+   - Présentation des objectifs : satisfaction étudiante (objectif 80%) et réduction du temps de recrutement (objectif 15%).
+
+### Discussion sur les Propositions de Changement (00:05:00 – 00:20:00)
+Une discussion approfondie a eu lieu sur les différentes propositions de changement, notamment concernant le système de candidature en ligne, la gestion des stages et la communication auprès des étudiants. Plusieurs pistes ont été explorées, allant de la simplification des formulaires à la mise en place de campagnes de communication ciblées.
+    - Proposition 1 : Un système de candidature en ligne plus intuitif et moins contraignant.
+    - Proposition 2 : Mettre en place un programme de mentorat pour les nouveaux étudiants.
+    - Proposition 3 : Créer une plateforme collaborative où les étudiants pourraient partager leurs connaissances et leurs expériences.
+
+### Discussion sur la Gestion des Stages (00:20:00 – 00:35:00)
+Une partie importante de la réunion a été consacrée à la discussion sur la gestion des stages. Il a été souligné l'importance de développer des partenariats solides avec les entreprises et de garantir aux étudiants des stages de qualité.
+    - L'importance de la diversité des entreprises partenaires.
+    - La nécessité de mettre en place un suivi régulier des stages pour s'assurer que les étudiants sont bien encadrés et qu'ils tirent pleinement parti de ces expériences.
+
+### Questions et Commentaires (00:35:00 – 00:45:00)
+La réunion s'est terminée par une session de questions et de commentaires. Plusieurs points ont été soulevés, notamment concernant le budget alloué au projet, l'organisation des événements de recrutement et la communication avec les étudiants.
+
+## Relevé de Décisions et Actions
+
+| Action                               | Responsable          | Date             |
+|---------------------------------------|-----------------------|------------------|
+| Mettre en place un système de candidature en ligne simplifié | Équipe Marketing       | 15/11/2023       |
+| Évaluer les besoins des entreprises partenaires pour les stages | Équipe Pédagogie      | 22/11/2023       |
+| Organiser des événements de recrutement ciblés | Équipe Marketing & Pédagogie | 30/11/2023       |
+| Établir un budget détaillé pour le projet Phoenix | Équipe Administrative | 05/12/2023       |
+|  Mettre en place un système de suivi des stages   | Équipe Pédagogie   |  15/11/2023    |
+|  Établir un calendrier des événements de recrutement | Équipe Marketing & Pédagogie |  30/11/2023 |
+|  Suivre l'avancement du projet Phoenix |  Équipe Administrative |  05/12/2023 |

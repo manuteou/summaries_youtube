@@ -1,0 +1,75 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici une transcription du segment de réunion, respectant les règles d'extraction :
+
+*   **Convocations Septembre :** Plusieurs convocations avec dates en septembre ont été mentionnées.
+*   **Présences :** Vérification des présences des étudiants concernés.
+*   **Ménagements :**  Si des étudiants ne sont pas présents, il faut vérifier les dates de convocation.
+*   **Automatisation :** Repasser automatiquement les informations dans le bon document (d'ajour).
+*   **Dates de Programme Évaluées :**  Intégrer les dates de programmes évalués.
+*   **Admissions/Rejets :** Gestion des admissions et des rejets.
+*   **Stratégie de Relance :**  Mettre en œuvre une stratégie de relance et un suivi.
+*   **Aide à l'Identification :**  Fournir une aide pour repérer les étudiants concernés.
+*   **Zone Géographique :**  Repasser les messages aux équipes concernant des étudiants de la Réunion ou de Mayotte (à vérifier).
+*   **Délai Temps :**  Les bote (convocations) arrivent instantanément, mais il faut tenir compte des délais (cours, etc.).
+*   **Temps des Séance :** Temps des séances variable (demi heure, 3 à 4 heures, etc.).
+*   **Questions :**  Possibilité de poser des questions.
+*   **Rapport Maximale / Seminar / Directeur de Campus :**  Possibilité de produire un compte rendu et de l'envoyer.
+*   **Partage de l'information :** Partage d'informations, notamment concernant une fille.
+*   **Actions :**
+    *   Vérifier les présences.
+    *   Repasser les messages aux équipes (Réunion/Mayotte).
+    *   Produire un compte rendu pour la Maximale/Seminar/Directeur de Campus.
+*   **Fin de Réunion :**  Souhaits de bonne journée.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+Voici une transcription du segment de réunion, respectant les règles d'extraction :
+
+**Convocations Septembre :** Plusieurs convocations avec dates en septembre ont été mentionnées.
+
+**Présences :** Vérification des présences des étudiants concernés.
+
+**Ménagements :** Si des étudiants ne sont pas présents, il faut vérifier les dates de convocation.
+
+**Automatisation :** Repasser automatiquement les informations dans le bon document (d'ajour).
+
+**Dates de Programme Évaluées :** Intégrer les dates de programmes évalués.
+
+**Admissions/Rejets :** Gestion des admissions et des rejets.
+
+**Stratégie de Relance :** Mettre en œuvre une stratégie de relance et un suivi.
+
+**Aide à l'Identification :** Fournir une aide pour repérer les étudiants concernés.
+
+**Zone Géographique :** Repasser les messages aux équipes concernant des étudiants de la Réunion ou de Mayotte (à vérifier).
+
+**Délai Temps :** Les bote (convocations) arrivent instantanément, mais il faut tenir compte des délais (cours, etc.).
+
+**Temps des Séances :** Temps des séances variable (demi heure, 3 à 4 heures, etc.).
+
+**Questions :** Possibilité de poser des questions.
+
+**Rapport Maximale / Seminar / Directeur de Campus :** Possibilité de produire un compte rendu et de l'envoyer.
+
+**Partage de l'Information :** Partage d'informations, notamment concernant une fille.
+
+**Actions :**
+*   Vérifier les présences.
+*   Repasser les messages aux équipes (Réunion/Mayotte).
+*   Produire un compte rendu pour la Maximale/Seminar/Directeur de Campus.
+
+**Fin de Réunion :** Souhaits de bonne journée.

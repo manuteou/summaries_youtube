@@ -1,0 +1,71 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Nouvelle Structure d'Incitation aux Objectifs de Vie Campus
+
+La nouvelle stratégie repose sur l'attribution de primes contractuelles de 20% aux équipes du campus, liées à la réalisation d'un ensemble de critères visant à impliquer les étudiants dans la vie du campus. Le système a pour objectif de réduire les silos et d'encourager une participation plus active.
+
+### Critères d'Éligibilité aux Primes
+
+Pour prétendre à la prime de 20%, les équipes doivent atteindre au moins 6 critères parmi les 8 suivants :
+
+1.  **Participation aux Événements Internes du Campus :** Inclut la participation à la "raste du club", les "ateliers thématiques" et autres événements internes organisés par le campus.
+2.  **Contribution à une Idée d'Événement Annuel :** Chaque membre de l'équipe doit proposer au moins une idée d'événement pour l'année.
+3.  **Soutien à une Société Locale :**  L'équipe doit supporter une organisation à but non lucratif locale.
+4.  **Accompagnement d'un Étudiant :** Un membre de l'équipe doit accompagner un étudiant (sur les événements ou autres).
+5.  **Mobilisation :**  L'équipe doit être mobilisée pour des actions spécifiques.
+6.  **Participation aux Soirées Étudiantes :**  La participation à des événements étudiants, même si l'équipe n'est pas directement impliquée.
+7. **Événements :** Participation à l'événement de la journée.
+8.  **Événements :** Participation à l'événement de la journée.
+
+### Niveau d'Éligibilité et Montant de la Prime
+
+*   **6 à 8 critères atteints :**  L'équipe reçoit une prime de 20% de sa prime contractuelle.
+*   **8 critères atteints :** L'équipe reçoit une prime de 25% de sa prime contractuelle.
+*   **Moins de 6 critères :**  L'équipe ne reçoit aucune prime de 20%.
+
+### Calendrier et Exécution du Système
+
+Le système est mis en place à partir du 31 octobre midi. Les objectifs sont fixés et suivis, et les primes sont versées en décembre midi. Le système inclut également des mesures de suivi des événements,  les critères ne sont pas flexibles et ne peuvent pas être modifiés localement. La communication de la nouvelle stratégie est assurée par la première équipe comptable, et des objectifs sont envoyés à ce qui est rapidement en équipe des arrêts.
+
+### Évaluation et Suivi
+
+La performance des équipes est évaluée sur la base de ces critères, assurant une évaluation objective et standardisée.  L'accent est mis sur le suivi des événements, l'importance des actions individuelles et la participation globale des équipes.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Nouvelle Structure d'Incitation aux Objectifs de Vie Campus
+
+La nouvelle stratégie repose sur l'attribution de primes contractuelles de 20% aux équipes du campus, liées à la réalisation d'un ensemble de critères visant à impliquer les étudiants dans la vie du campus. Le système a pour objectif de réduire les silos et d'encourager une participation plus active.
+
+### Critères d'Éligibilité aux Primes
+
+Pour prétendre à la prime de 20%, les équipes doivent atteindre au moins 6 critères parmi les 8 suivants :
+
+La participation aux événements internes du campus, incluant la participation à la "raste du club", les "ateliers thématiques" et autres événements internes organisés par le campus, est un critère important.  De plus, les équipes qui contribuent à une idée d'événement annuel, où chaque membre de l'équipe propose au moins une idée d'événement pour l'année, sont également éligibles.  Le soutien à une société locale, via le parrainage d'une organisation à but non lucratif locale, constitue un autre critère.  L'accompagnement d'un étudiant, par un membre de l'équipe lors d'événements ou autres, est également pris en compte.  La mobilisation des équipes pour des actions spécifiques est également valorisée. La participation aux soirées étudiantes, même si l'équipe n'est pas directement impliquée, est également considérée. La participation à l'événement de la journée est un autre critère.
+
+### Niveau d'Éligibilité et Montant de la Prime
+
+*   **6 à 8 critères atteints :** L'équipe reçoit une prime de 20% de sa prime contractuelle.
+*   **8 critères atteints :** L'équipe reçoit une prime de 25% de sa prime contractuelle.
+*   **Moins de 6 critères :** L'équipe ne reçoit aucune prime de 20%.
+
+### Calendrier et Exécution du Système
+
+Le système est mis en place à partir du 31 octobre midi. Les objectifs sont fixés et suivis, et les primes sont versées en décembre midi.  Le système inclut également des mesures de suivi des événements, et les critères ne sont pas flexibles et ne peuvent pas être modifiés localement. La communication de la nouvelle stratégie est assurée par la première équipe comptable, et des objectifs sont envoyés à ce qui est rapidement en équipe des arrêts.
+
+### Évaluation et Suivi
+
+La performance des équipes est évaluée sur la base de ces critères, assurant une évaluation objective et standardisée. L'accent est mis sur le suivi des événements, l'importance des actions individuelles et la participation globale des équipes.

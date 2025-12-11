@@ -1,0 +1,421 @@
+--- PROMPT (summarize_multi_texts) ---
+
+Sources :
+Source : Réunion Pilotage Direction de campus-20251209_095246-Meeting Recording (Auteur : Fichier Local, Date: 2025-12-10)
+### Gestion des Échanges et Nouvelles Fonctionnalités de Payat
+
+Le document traite de l'implémentation de nouvelles fonctionnalités et de l'amélioration de la fiabilité des échanges sur la plateforme Payat. Plusieurs points clés sont abordés :
+
+**1. Migration des Données et Intégration des Échanges**
+
+Une migration des données est en cours, avec l'importation des données financières à partir du 1er septembre. Les échanges de 2025 et 2026, ainsi que ceux de 2027, sont progressivement importés sur Payat. Les échanges "séques" qui ont été effectués avant le 1er septembre ne sont pas encore importés, ce qui pose un défi pour les ADM (Administrateurs de Domaine) qui doivent synchroniser les données. Un travail important est en cours pour l'harmonisation des données entre Payat et la source de données originelle. L'importation est réalisée en plusieurs étapes, notamment avec une analyse des inscriptions.
+
+**2. Nouvelle Interface Utilisateur et Fonctionnalités**
+
+Une nouvelle interface utilisateur est en cours de déploiement, dotée de nouveaux boutons et de droits d’accès permettant d'accéder à un plus large éventail d'informations. Certains boutons, notamment ceux relatifs aux demandes d’échanges, ont disparu et doivent être réintégrés. Les ADM disposent désormais d’une vue d’ensemble des données, incluant la possibilité d'analyser les échanges sur 7 jours. La plateforme permet de gérer les modifications de montants, les changements de codes d’affectation et de formation.
+
+**3. Demandes d'Échanges et Processus**
+
+Il est possible de faire des demandes d'échanges directement sur Payat. Le processus d'inscription des étudiants est en cours de modernisation, avec une logique de plusieurs étapes. Les PG-4 (Probatoire Général - 4) sont notamment concernés par les inscriptions.
+
+**4. Difficultés et Solutions**
+
+L'importation des données est complexe en raison du manque d'importation des données antérieures au 1er septembre. Des tests ont été réalisés sur les différents composants de la plateforme, notamment les métadonnées. Des réunions d’équipe sont organisées pour apporter des solutions et suivre l’avancement des changements. Il existe une option pour signaler les anomalies (appelées "mèdes") directement sur la plateforme Payat. Des demandes concernant des mots de passe peuvent être faites mais ne sont pas toujours possibles. L'équipe met à disposition des outils permettant de visualiser les demandes, les évolutions et les notifications.
+
+**5. Aspects Techniques et Limitation**
+
+Le code d’affectation initial sur ce MSE1 ne peut pas être modifié. L'importation des données est réalisée en 2 parties, MSE1 et les données des étudiants.
+
+### Nouvelle Structure de Prime Contractuelle des Collaborateurs des Unités Campus
+
+Ce document détaille la mise en place d’une nouvelle structure de prime contractuelle conçue pour les collaborateurs des unités campus. Cette structure introduit des critères d’évaluation plus larges et vise à encourager une participation multiforme.
+
+### Éléments Clés de la Nouvelle Structure
+
+La prime contractuelle allouée aux collaborateurs des unités campus représente 20% du montant total. La prime est versée sous deux conditions : l’atteinte d’au moins six critères sur un total de huit, ou, si huit critères sont atteints, la prime sera de 25%.
+
+L’évaluation des participations se divise en deux catégories principales. Premièrement, les *Activités Internes Campus* incluent la participation à des événements tels que des journées thématiques, des sessions d’information, ou des événements spécifiques. Deuxièmement, les *Activités de Vie Campus et de Soutien à la Communauté Étudiante* sont évaluées en fonction des critères suivants :
+
+*   **Participation à des sessions d'étudiants :** L'implication dans des sessions de discussion sur la vie étudiante est évaluée à partir de l’atteinte de 15% des critères.
+*   **Soutien à la communauté étudiante :** La participation à des actions de soutien direct à la communauté étudiante, comme la soirée des étudiants, est prise en compte.
+*   **Activités de soutien à la communauté étudiante :** L'implication dans des actions de soutien direct à la communauté étudiante, incluant des actions comme l'accompagnement individuel, est évaluée.
+*   **Participer à des activités de soutien à la communauté étudiante :** La participation à des actions de soutien direct à la communauté étudiante, incluant des actions comme l'accompagnement individuel, est prise en compte.
+*   **Soutien à la vie étudiante :** La participation à des activités de soutien à la vie étudiante est évaluée.
+
+La définition des critères est basée sur un total de huit, et la réussite est définie par l’atteinte de six critères minimum. L'évaluation quantitative est pondérée à 15% pour les critères liés aux sessions d'étudiants.
+
+### Autres Points Importants
+
+L’objectif global de cette nouvelle structure est de favoriser une participation accrue des collaborateurs des unités campus dans les activités de campus, de promouvoir la collaboration entre les équipes et de stimuler l'engagement étudiant. Elle se veut dépasser les approches actuelles, notamment l'approche silo, en favorisant un climat plus collaboratif. Le financement de ce programme représente 20% de la prime contractuelle, et la prime sera versée à partir du 31 octobre 2022.  Le calcul de la prime repose sur un système de points, avec une pondération de 5% pour chaque point atteint, jusqu'à un maximum de 10% pour chaque point. Cette nouvelle structure remplace l'ancienne méthode d’attribution des primes, qui reposait sur des critères plus restrictifs.
+
+### Objectifs d'Engagement et Collecte de Données
+
+Le document aborde l'établissement et la gestion d'indicateurs d'engagement étudiant, centrés sur la participation à des événements et l'implication dans des actions contribuant à la vie de l'école et de son campus. L'objectif principal est de valoriser l'investissement des équipes et de recueillir des données qualitatives et quantitatives permettant d'évaluer l'impact de ces actions.
+
+### Critères de Participation et Évaluation
+
+Les critères de participation sont définis autour de deux axes principaux. Tout d'abord, il s'agit de promouvoir une participation d’au moins 60% des étudiants aux événements organisés. Deuxièmement, chaque collaborateur est tenu de réaliser au moins trois interventions par an, couvrant un large éventail d’actions, incluant des actions de communication, de support administratif et des interventions dans des projets en cours. Cette démarche vise à s'assurer que les équipes sont activement impliquées dans la vie de l'établissement.
+
+### Collecte et Gestion des Données
+
+Une collecte systématique de données est mise en place, avec la création d'un tableau de suivi des "vers battins" (actions engagées). L'objectif est de recueillir au moins 25 "vers battins" par an. Ces données sont centralisées et partagées au niveau national.
+
+### Questions Clés et Types de Données Recueillies
+
+Les questions posées à ce titre visent à quantifier la participation des étudiants à différents types d'actions.  Il s'agit de déterminer si une personne a participé à un semi-tacombe (probablement un événement spécifique) au moins une fois.  Les données collectées incluent les détails des interventions (nature des actions, noms des participants, dates, etc.) et les "vers battins" comme étant des actions concrètes engagées par les équipes.
+
+### Importance de la Collecte des Données
+
+La collecte des données n'est pas perçue comme un simple exercice administratif, mais comme un outil essentiel pour valider l'engagement des équipes, identifier des axes d'amélioration, partager les bonnes pratiques, valoriser les contributions des étudiants, et produire un document qui sera utilisé par l'ensemble des étudiants.
+
+## Stratégie de Communication Interne et Participation aux Événements
+
+Cette section décrit une stratégie de communication interne axée sur l’engagement des collaborateurs à travers la participation à des événements, notamment des salons et forums. L’objectif est de promouvoir le partage de connaissances et d’expériences au sein de l’organisation.
+
+### Objectifs Clés
+
+Chaque collaborateur est encouragé à participer à au moins un événement par an, privilégiant les salons et forums. De plus, chaque collaborateur doit produire au moins 9 créations de contenus, incluant des présentations (GPO), des articles, des vidéos et potentiellement des contributions à des supports de communication externes. La stratégie vise à inciter l’ensemble des collaborateurs, y compris les équipes et les individus qui participent actuellement moins aux événements.
+
+### Organisation des Initiatives
+
+La participation aux événements est encouragée au sein des équipes (GPO - Groupes de Proximité). Des rôles ont été définis, notamment la création de vidéos explicatives par des collaborateurs, afin de documenter et de diffuser les connaissances acquises. Des solutions techniques (GPS, forums) sont mises en place pour faciliter l’organisation des événements et le partage d’informations.
+
+### Contraintes et Défis
+
+La demande est de produire au moins 9 créations de contenu par an. Certains collaborateurs, notamment au sein des équipes, ont tendance à ne pas participer activement aux événements, malgré l’importance reconnue de ces moments. L’organisation des événements, notamment les salons, présente des défis logistiques (préparation des supports, coordination des intervenants). Des solutions existent pour assurer le suivi des contributions à chaque événement (GPO, forums, etc.). La production de contenus (vidéos, articles, etc.) est une des actions les plus importantes.
+
+### Évaluation des Contributions aux Campus : Définition des Critères et Processus
+
+Le projet d’évaluation des contributions des étudiants aux différents campus vise à dépasser une notation globale et arbitraire en s’appuyant sur des indicateurs mesurables et une compréhension fine des actions menées par les étudiants. L’objectif principal est de valoriser précisément ces efforts, en définissant des critères objectifs et en mettant en place un processus structuré.
+
+### Les Critères d’Évaluation
+
+Les critères d’évaluation se concentrent sur plusieurs aspects clés. Tout d’abord, il s’agit de valoriser la participation aux événements extérieurs, tels que les conventions, les forums ou les salons étudiants. Deuxièmement, il est important de considérer les contributions aux projets et aux initiatives en dehors des cours formels. Troisièmement, la gestion des aides, dans le cadre des collectifs ou des projets spécifiques, est un élément crucial. L’évaluation ne se limite pas à ce qui est "fait", mais prend en compte le nombre d'adhérents et la qualité des interventions. Pour la notation, il faut considérer les notes obtenues par les étudiants, et il est important de définir des pourcentages de note pour chaque aspect. Enfin, un point sera attribué pour chaque action menée, dans le but de promouvoir la proximité.
+
+### Le Processus d’Évaluation
+
+Le processus repose sur la collecte régulière d’informations. Une fois par an, au mois de juin ou septembre, un questionnaire sera distribué aux étudiants et aux collaborateurs pour évaluer leurs actions au cours de l’année précédente. Ces questionnaires permettront d’identifier les critères et les réalisations de chacun. Une colonne sera créée dans un tableau Excel, qui sera actualisée au fur et à mesure de l’année. À la fin de l’année, les notes seront attribuées sur la base de ces données, en tenant compte des différentes contributions et des critères définis. Le document sera utilisé pour aider à la prise de décision. Il est essentiel de ne pas attendre la fin de l’année pour noter les choses. L’utilisation d’un tableur est prévue afin de centraliser les informations et d’assurer une gestion efficace de l’évaluation. La direction pédagogique se servira de ce document pour évaluer les performances de chaque étudiant. Les notes seront calculées en fonction des différents indicateurs.
+
+## Augmentation des primes contractuelles et critères d’évaluation
+
+La discussion porte sur une modification substantielle du système de primes contractuelles au sein de l’institution. L’objectif principal est de valoriser l’engagement des collaborateurs, particulièrement ceux impliqués dans la vie du campus.
+
+### Modification du système de primes
+
+Le montant global alloué aux primes est doublé, passant de 500 000 euros à 1 000 000 euros. Cette augmentation s’articule autour de critères précis, divisés en plusieurs catégories. La répartition des fonds vise à récompenser l’investissement des collaborateurs, quel que soit l’atteinte des objectifs individuels, et à encourager l’implication dans les activités du campus.
+
+### Répartition des primes
+
+La répartition des 1 000 000 euros est la suivante : 20% sont alloués à une prime pour les collaborateurs qui atteignent les objectifs. Les 80% restants sont répartis comme suit : 25% pour les primes de base, 12,25% pour une autre catégorie de primes (désignée comme "MSC” – *Multiservices*), 7,25% pour une prime d’excellence (OVX – *Orientation et Valorisation des Expatriés*) et 5% pour un système d’évaluation des performances (système d’escrétienneaire). Ce système vise à créer un système de primes plus équitable et plus motivant, qui prenne en compte les efforts individuels et l’engagement global au sein de l’institution. L’évaluation repose sur un double critère, la performance individuelle et le respect des objectifs intermédiaires.
+
+### Conditions d’attribution et valorisation de l’engagement
+
+Pour atteindre les 80% de la prime, il est nécessaire de valider les critères intermédiaires. Si les deux critères sont validés, l’OVX, qui est une prime d’excellence, est également attribuée. L’objectif est de valoriser l’engagement des collaborateurs, même en cas d’atteinte des objectifs. Cela permet de récompenser les efforts exceptionnels et l’implication des individus dans les activités de l’institution.
+
+### Contexte et raisons de la modification
+
+Cette modification est motivée par plusieurs facteurs. Tout d’abord, l’absence de brochure ou de plan de communication au début de l’année (première année de ce nouveau dispositif) a nécessité une adaptation. Ensuite, des problèmes de bourse et d’orientation ont entraîné des difficultés pour les étudiants, ce qui a influencé la prise de décision. De plus, il était essentiel de valoriser l’engagement des collaborateurs, particulièrement ceux qui ont fait des "bâchors" (c'est-à-dire qui ont fait des efforts exceptionnels). Enfin, la volonté de tenir compte des critiques exprimées par les équipes et les collaborateurs a joué un rôle déterminant dans la conception de ce nouveau système.
+
+### Points clés à retenir
+
+Il est crucial de souligner que la valorisation de l’engagement est au cœur de cette modification. L’augmentation des primes, même en cas d’atteinte des objectifs, vise à récompenser l’implication des collaborateurs. En créant un système de primes plus équitable et plus motivant, prenant en compte les efforts individuels et l’engagement global au sein de l’institution, l’objectif est de créer un environnement de travail stimulant et de valoriser la contribution de chaque membre de l’équipe.
+
+### Analyse des Objectifs et des Mécanismes de Récompense
+
+Le discours met en lumière une complexité importante dans la définition et l'application des objectifs salariaux au sein d'une entreprise, particulièrement lorsque l'on s'agit de nouvelles recrues ou de changements d'effectif. Plusieurs points clés émergent de cette analyse.
+
+**1. Définition et Adaptation des Objectifs**
+
+Les objectifs initiaux sont généralement fixés sur une période de 12 mois, avec une attribution de primes proportionnelle à l'atteinte de ces objectifs. La prime est calculée au prorata de la durée de présence de l'employé dans l'entreprise, par exemple, 4 mois sur 12.  Des ajustements sont nécessaires lorsque de nouveaux employés arrivent ou lorsque des employés partent, par exemple en raison d'un décès ou d'une courte maladie. Dans ces cas, les objectifs sont souvent repoussés si l'arrivée d'un nouvel employé compromet la capacité de l'équipe à atteindre les objectifs prévus. L'évaluation des objectifs prend en compte la durée de présence de l'employé, même si elle est limitée.
+
+**2. Critères d'Évaluation et de Prime**
+
+L'atteinte des objectifs est le critère principal pour l'attribution des primes.  Le système est basé sur une évaluation de la performance, mais sa mise en œuvre est difficilement applicable lorsque de nouveaux arrivants doivent être intégrés. La prime est proportionnelle à la période pendant laquelle l'employé a atteint les objectifs. Des ajustements sont nécessaires lorsque des employés partent en raison de circonstances exceptionnelles, par exemple en cas de décès.
+
+**3. Problématiques et Difficultés**
+
+Il existe une difficulté à adapter les objectifs en tenant compte des arrivées et des départs. Le système est perçu comme punitif, car il peut ne pas tenir compte des périodes de transition pour les nouveaux employés. La définition des objectifs est complexe, car elle doit prendre en compte la capacité de l'équipe à atteindre les objectifs. Un point de vigilance majeur est la nécessité de réexaminer et de mettre à jour les contrats pour tenir compte des changements organisationnels.  Il est essentiel de disposer d'une documentation précise des accords contractuels, en particulier concernant les conditions de rémunération et les périodes d'évaluation. Il y a également une forte préoccupation relative à la définition d'un cadre de référence solide pour la prise de décisions, notamment en ce qui concerne la valorisation des compétences et des contributions de l'équipe.
+
+**4. Méthodologie de la Révision des Contrats**
+
+Il est prévu de relire le contrat pour s'assurer que les termes sont en accord avec la réalité. L'analyse se concentrera sur les clauses relatives aux objectifs et aux primes. Le but est de garantir une clarté et une cohérence des accords.  La communication précise et la documentation rigoureuse sont jugées essentielles pour éviter les malentendus et les conflits.
+
+# Évaluation de la Performance Pédagogique : Structure et Indicateurs
+
+Le système d’évaluation de la performance pédagogique est structuré autour de trois axes principaux, répartissant les objectifs de performance entre eux : évaluation de la performance pédagogique (40%), performance pédagogique (20%) et implication institutionnelle (40%).
+
+## 1. Évaluation de la Performance Pédagogique (40%)
+
+Cet axe vise à évaluer l’impact des interventions pédagogiques sur les étudiants. Il se décompose en deux critères principaux :
+
+*   **Critère 1 : Implication des Étudiants** (20% du critère 1) : Cet indicateur quantifie l’engagement des étudiants et leur satisfaction dans leur parcours. Il repose sur deux éléments :
+    *   **Taux de Réinscription** : Calculé sur une base annuelle, il mesure la fidélisation des étudiants entre les années d’études.
+    *   **Mise en Emploi** : Mesure le taux de placement des étudiants après leurs études.
+
+*   **Critère 2 : Satisfaction des Étudiants** (20% du critère 1) : Il évalue la qualité des interactions des étudiants avec les équipes pédagogiques et leur contribution à la vie pédagogique. Il s’appuie sur :
+    *   **Enquêtes de Satisfaction** : Collecte de données via des enquêtes auprès des étudiants concernant leur relation avec les équipes pédagogiques et leur participation à la vie pédagogique.
+
+## 2. Performance Pédagogique (20%)
+
+Cet axe se concentre sur les résultats des interventions pédagogiques. Il est divisé en trois sous-critères :
+
+*   **Critère 1 : Réussite Académique** (10% du critère 1) : Il est fondé sur la performance des étudiants.
+    *   **Performance Étudiante** : Suivi de la progression des étudiants en fonction de leurs résultats académiques.
+    *   **Qualité de l’Évaluation et du Suivi** : Analyse de la qualité des évaluations et du suivi individualisé des étudiants.
+    *   **Avis des Entreprises** : Intégration des retours des entreprises concernant la préparation des étudiants.
+
+## 3. Implication Institutionnelle (40%)
+
+Cet axe évalue la contribution des établissements à l’ensemble de l’écosystème éducatif. Il est constitué de deux sous-critères :
+
+*   **Critère 1 : Communication sur la Vie Pédagogique** (20% du critère 1) : Il se concentre sur l’amplification des actions pédagogiques.
+*   **Critère 2 : Événement Pédagogique et Communication** (20% du critère 1) : Il évalue l’organisation d’événements et la communication sur les initiatives pédagogiques.
+
+**Informations Complémentaires :**
+
+Il est important de noter que l’encadrement contractuel pour les êtres de mission avec des responsabilités nationales est désormais validé, incluant une prime sur objectif, due aux efforts de ces individus. Ce système a été finalisé avec Zona Tant et validé par l’hora, dimanche soir.
+
+### Stratégie de Fidélisation des Étudiants et Calcul des Performances Pedagogues
+
+Le système de fidélisation des étudiants, en cours d'établissement, est complexe et repose sur la mutualisation des efforts et la collecte de données quantitatives et qualitatives. L'objectif principal est d'assurer un suivi personnalisé des étudiants tout au long de leur parcours, en mesurant et en ajustant les performances des pedagogues et des équipes pédagogiques.
+
+### Critères de Mesure des Performances Pedagogues
+
+La mesure des performances des pedagogues repose sur trois critères principaux, appliqués à chaque promotion et mesurés à intervalles réguliers.  Premièrement, l’atteinte des objectifs de promotion est examinée : chaque pedagogue est responsable de l’atteinte de critères prédéfinis pour un tiers de sa promotion. En cas d’atteinte de cet objectif pour l’ensemble des critères (sur N), le pedagogue est considéré comme “totalement atteint”. L’objectif est de maintenir une proportion de 1 sur N d’atteintes totales. Deuxièmement, la satisfaction des étudiants est évaluée via des sondages réguliers. Des sondages intermédiaires sont menés à la fin de chaque semestre pour les étudiants de première année, et des sondages plus complets sont réalisés à la fin de chaque année scolaire. Les critères évalués incluent : la qualité des échanges avec l’équipe pédagogique et l’agogique, le niveau de disponibilité de l’équipe et de l’agogique. Troisièmement, la satisfaction des activités pédagogiques et aagogiques est également évaluée par des sondages réguliers, en particulier à la fin de chaque semestre pour les étudiants de première année, et à la fin de chaque année scolaire.
+
+### Gestion des Données et Collecte d'Informations
+
+La collecte d'informations est organisée autour de plusieurs moments clés.  Les sondages sont menés à la fin de chaque année scolaire pour les pedagogues de deuxième, troisième et quatrième années. Des sondages intermédiaires sont réalisés à la fin de chaque semestre pour les étudiants de première année, et des sondages plus complets sont réalisés à la fin de chaque année scolaire. L'analyse des données administratives, telles que les inscriptions, les démissions et les taux de réussite, est également essentielle pour le calcul des performances.  De plus, la gestion des missions externalisées (MSC-2) est prise en compte, avec un suivi spécifique des interventions et des résultats.
+
+### Particularités de la Gestion des Promotions et des Groupes d'Étudiants
+
+Il est reconnu qu'il existe des disparités significatives en termes d'activité et d'avis entre les différentes promotions. La gestion est individualisée, avec l'objectif de prendre en charge chaque étudiant et d'adapter le suivi en fonction de ses besoins spécifiques. Un taux de participation à hauteur de 60% sur l'ensemble du campus est considéré comme un seuil minimal pour la représentativité des données. De plus, la gestion des missions externalisées (MSC-2) est prise en compte, avec un suivi spécifique des interventions et des résultats.
+
+### Objectifs Généraux de l’Amélioration et de la Performance
+
+Le document traite de plusieurs objectifs liés à l’amélioration de la performance de l’établissement, principalement axés sur l’évaluation des étudiants, l’implication des entreprises et l’innovation pédagogique. L’établissement souhaite atteindre des niveaux de performance élevés et s’assure de la conformité avec des critères précis.
+
+### Évaluation des Étudiants et Performance Académique
+
+L’évaluation des étudiants est basée sur deux critères principaux : la réussite académique (Catégorie 2.1) et la contribution aux activités et projets. Un taux de passage minimum de 90% est exigé pour la promotion des étudiants, prenant en compte le total de passage. Un taux inférieur est considéré comme non qualitatif. Le ratio de passage de chaque promotion doit être supérieur à la moyenne nationale fixée, sans utiliser de valeur brute, mais en se basant sur la moyenne nationale comme référence. Une attention particulière est accordée à la qualité du suivi pédagogique et des évaluations, en particulier des commentaires. Il existe une procédure de suivi pédagogique avec une trame de suivi transmisée. Un problème est constaté : de nombreux commentaires sont inexploitables pour les étudiants. Un appel à suggestions a été lancé. L’objectif est de produire une note définissant l’exigibilité et l’explotabilité des commentaires pédagogiques et des évaluations. L’équipe pédagogique s’attend à ce que les étudiants soient régulièrement suivis.
+
+### Implication des Entreprises et Innovation Pédagogique
+
+La présence des entreprises est considérée comme un levier essentiel pour une meilleure compréhension des enjeux professionnels et l’engagement des étudiants. Les entreprises sont attendues à participer à l’animation de la vie pédagogique, avec une implication minimale de trois entreprises par an. Les entreprises sont sollicitées pour organiser des “Project Weeks” et d’autres activités professionnelles liées aux compétences. L’objectif est d’atteindre un taux de satisfaction de 75% des entreprises concernant les stages. Des questionnaires seront envoyés en septembre pour recueillir leurs retours. L’évaluation de la pertinence des profils est également importante. Les entreprises sont encouragées à développer des outils pédagogiques qui peuvent être utilisés par les étudiants.
+
+### Contribution Nationale et Innovation Pédagogique Technique
+
+Les collaborateurs sont encouragés à participer à des initiatives d’amélioration continue. Les efforts des collaborateurs sont valorisés, en particulier ceux qui se manifestent par des propositions de corrections pour des tâches automatisées. Des initiatives telles que Robocard, la participation aux concours nationaux (KIP, AGOGIQUE Nationaux) sont encouragées. Les équipes sont encouragées à participer à des concours de compétences, notamment Robocard. Les équipes pédagogiques sont incitées à participer à des conférences techniques et à partager leurs expériences à l’extérieur. Le service des affaires internationales organise des voyages pour les équipes pédagogiques afin qu’elles puissent rencontrer des étudiants et des équipes pédagogiques de partenaires étrangers.
+
+### Collecte des Données et Suivi
+
+Une méthodologie est mise en place pour recueillir des données sur la participation des collaborateurs et l’utilisation des outils. L’équipe pédagogique s’attend à ce que les données collectées soient croisées avec les observations effectuées sur le terrain. L’objectif est de valoriser les équipes qui s’engagent dans ces activités. Un suivi des performances est mis en place, avec des critères d’évaluation précis.
+
+## Mobilités Internationales et Opportunités de Développement Professionnel pour les Pédagogues
+
+Ce dialogue porte sur l’exploration et la promotion de mobilités internationales pour les pédagogues, incluant des échanges en Chine et des opportunités de reconnaissance des efforts accomplis.
+
+### Mobilités en Chine : Un Programme Spécifique
+
+L’entreprise propose un programme de mobilités en Chine, financé par l’entreprise, permettant aux pédagogues de passer trois semaines dans ce pays. Ce programme comprend l’hébergement payé et les frais de transport. Il s’agit d’une initiative pour valoriser l’engagement des pédagogues et offrir une expérience de développement professionnel.
+
+### Conditions d'Éligibilité et Valorisation des Accomplissements
+
+L’éligibilité à ce programme repose sur un engagement démontré par le pédagogue, ainsi que sur la reconnaissance de ses contributions. Les critères précis pour l’attribution des primes (initialement fixées à 3%) sont actuellement en discussion et dépendent des spécificités des contrats. Une réévaluation est prévue pour tenir compte de l’évolution des contextes contractuels.
+
+### Amélioration du Processus de Remontées d'Information
+
+Pour répondre aux frustrations exprimées par les pédagogues concernant le manque de prise en compte de leurs remontées d’information, une réflexion est en cours. La future lettre de mission des responsables de module inclura une obligation de prise en compte de l’ensemble des remontées pour l’élaboration des projets suivants. Cette amélioration vise à remédier à un déficit d’information qui était perçu comme une source de frustration.
+
+### Autres Mobilités et Partenariats
+
+Outre les mobilités en Chine, l’entreprise souhaite développer d’autres partenariats et opportunités de mobilité avec d’autres universités. Ces collaborations visent à favoriser les échanges et le développement professionnel des pédagogues. La création de “pidecs” (portails pour faciliter les échanges) est également envisagée.
+
+### Primes et Reconnaissance
+
+La question des primes est en cours de réévaluation, avec une tentative d’atteindre un niveau de 35% (plus deux éléments supplémentaires), bien que cela dépende des spécificités des contrats. Des primes symboliques pourraient être instaurées dans le cadre de ces mobilités. Il est reconnu que les primes sont actuellement attribuées à une très minorité de pédagogues.
+
+### Stratégie de Communication Digitale : DevYTech
+
+L’objectif principal de cette stratégie de communication est de développer la visibilité digitale de DevYTech, tout en assurant la cohérence graphique grâce à la mise en œuvre d’une charte graphique actualisée.
+
+### Objectifs et Indicateurs de Performance
+
+La stratégie s’articule autour de publications régulières sur plusieurs plateformes. Trois publications par semaine sont prévues sur l’Ingine, pouvant aller jusqu’à six, afin de maximiser la portée. Trois publications par semaine sont également définies pour Instagram et Histoire. Pour Facebook, le rythme est de trois publications hebdomadaires. Concernant TikTok, la production de trois vidéos par mois est envisagée. La chaîne YouTube de DevYTech sera utilisée pour la transmission des vidéos (présentations, tutoriels, etc.), intégrant des vidéos courtes dans les chartes établies. En matière de production de vidéos, un minimum d'une vidéo par an est programmé, en utilisant un gabarit charté et en s'inspirant des tendances actuelles.
+
+### Indicateurs de Performance (KPIs)
+
+Deux newsletters mensuelles sont prévues, avec un taux d'ouverture supérieur à 30%. Les chargés de communication sont encouragés à remettre en question l'efficacité de ces newsletters. Un rapport centralisé au niveau national est mis en place pour faciliter le suivi. La constitution d'une base de contacts est essentielle pour la production de contenu et la diffusion de communiqués.
+
+### Communication sur les Événements
+
+La stratégie comprend l’identification et la communication des événements ayant vocation à être reconnus au niveau national, via la "Wall of Fame". Tout événement qui mérite une communication externe est à signaler. Les actions menées et qui méritent une communication sont à renseigner dans un tableau Excel. Les charges sont mises à jour régulièrement, même si cela peut prendre du temps. Les supports sont adaptés aux campus, en tenant compte des événements propres à chaque campus. La communication comprend l'identification et la diffusion des contenus ayant un potentiel médiatique. Le responsable est le contact direct avec les médias, et les contacts régionaux sont également sollicités et invités lors des événements. Un plan de communication dédié est élaboré pour chaque événement, couvrant les phases pré-événement, pendant l’événement et post-événement. Un suivi post-événement est mis en place, incluant la diffusion de contenus, le partage d’informations et le maintien de la communication après l’événement.
+
+### Stratégie Globale de Communication et de Valorisation des Réalisations
+
+Le texte décrit une stratégie de communication complexe, axée sur la valorisation des réalisations des étudiants et des campus, mais également confrontée à des défis et des ambiguïtés. Cette stratégie repose sur plusieurs piliers, dont l’objectif est de maximiser la visibilité et la reconnaissance des efforts accomplis.
+
+### Points Clés de la Stratégie
+
+La stratégie s'articule autour d’une valorisation multidimensionnelle des réalisations, dépassant la simple valorisation des “succès” classiques (catons, projets, etc.). Il s’agit de capturer un spectre plus large de réalisations, incluant des participations, des engagements, des expériences uniques, et même des “réussites” qui pourraient ne pas se qualifier directement de “succès” au sens traditionnel (ex : une participation à un événement qui, bien que n’ayant pas de résultat tangible, démontre l’engagement de l’étudiant). L’accent est mis sur la reconnaissance de ces “réussites” et leur inclusion dans des supports de communication.
+
+Le concept de "Wall of Fame" (mur des réussites) est central. Il s’agit d’un tableau où sont consignées toutes les réalisations, qu’elles soient issues de projets académiques, d’événements extérieurs (catons, etc.) ou d’initiatives personnelles. Cependant, la valeur de ce "Wall of Fame" est remise en question : il est considéré comme une tentative de capturer des réalisations qui, par nature, sont par définition "non-génériques".
+
+La stratégie s'articule autour de l’utilisation de multiples canaux de communication pour assurer la visibilité des réalisations. Cela comprend la création de vidéos (à publier sur YouTube et LinkedIn), des articles par mois (dont un article national), ainsi que la mise en avant des contenus existants (photos, streams, etc.).
+
+Une collaboration nationale est essentielle entre les différents campus. Cela implique l’échange de bonnes pratiques, le partage de ressources et la transmission des directives nationales. Il existe des “équipements” nationaux qui jouent un rôle crucial dans cette coordination.
+
+La stratégie intègre la reconnaissance des individus qui se distinguent par leur prestation (ex : “un public opinion” exceptionnel lors d’une présentation). Cette reconnaissance est également enregistrée dans le "Wall of Fame".
+
+La gestion de ces informations est un défi. La nécessité de capturer des “réussites” qui ne sont pas nécessairement "génériques" rend le processus complexe. Il est envisagé de mettre en place des “fichiers” pour structurer l’information.
+
+Il y a une réflexion sur la manière de traduire dans un cadre pédagogique les expériences des étudiants, notamment celles qui se déroulent en dehors des programmes académiques traditionnels.
+
+Les problèmes de communication et de ressources sont souvent liés à un manque de ressources et à la complexité de la tâche. Une attention particulière est portée sur la gestion des informations et de leur diffusion.
+
+L’évaluation des réalisations est envisagée à travers le "Wall of Fame" et la mesure de l'impact. Il est souligné que certaines réalisations doivent être capturées afin de pouvoir les comparer et les évaluer.
+
+### Gestion des Formulaires et des Leads
+
+L’équipe travaille sur l’optimisation de la collecte de données, en particulier concernant les étudiants intéressés par les stages de seconde. La stratégie principale repose sur l’utilisation de formulaires automatisés pour capturer les prospects. Il existe 17 formulaires différents, incluant un formulaire spécifique pour les stages de seconde, un autre pour la web academy, et plusieurs pour des opportunités générales. L’objectif est d’obtenir un volume important de contacts, même si la qualité de ces contacts peut varier – certains étudiants sont motivés par l’informatique, d’autres non.
+
+### Analyse de la Qualité des Leads et Objectifs des Stages
+
+L’évaluation des leads est primordiale. Il est crucial de se concentrer sur la qualité des contacts, plutôt que sur le volume. Le nombre de contacts qui sont réellement qualifiés pour être intégrés au CRM (système de gestion de données) est le critère principal. L’équipe utilise un suivi rigoureux des étudiants qui ont participé aux salons et aux événements. Pour chaque étudiant, l’équipe enregistre si l’application a été faite, si l’application a été acceptée, et si l’étudiant a été contacté. L’objectif est d’appeler tous les étudiants, afin de maximiser le nombre d’intégrations au CRM. L’équipe a constaté que les applications pour les stages de seconde sont souvent faites à la dernière minute. L’équipe est donc attentive au fait qu’il y a des leads “de seconde” qui sont très peu motivés.
+
+### Actions et Suivi
+
+L’équipe met en place des actions manuelles pour gérer les leads, notamment via un fichier Excel partagé. Pour minimiser l’effort, l’équipe utilise une automatisation pour traiter les nouvelles données qui arrivent dans le fichier, en copiant et collant automatiquement les informations dans la source de données. Pour le suivi des leads, l’équipe utilise également un fichier Excel pour enregistrer les étapes de contact avec chaque étudiant. Il est essentiel de suivre les stages réalisés avec les étudiants en seconde. Le but est de voir le nombre de personnes qui ont des rendez-vous avec la web academy. Les données sont donc partagées avec la Web Academy afin de lancer de nouvelles campagnes.
+
+### Gestion des Candidatures et des Interactions avec les Étudiants
+
+Le sujet central de cette discussion est l'optimisation de la gestion des candidatures et des interactions avec les étudiants, particulièrement concernant les étudiants de zones proches (Réunion, Mayotte).
+
+### Points Clés de Discussion
+
+L'établissement souhaite optimiser les processus de gestion des candidatures et de prise en compte des données des candidatures, tout en générant des rapports pertinents. Pour y parvenir, il est crucial de gérer efficacement les interactions avec les étudiants, en particulier ceux résidant dans des zones géographiques précises. Un axe central est la réduction de la surcharge d'informations et la simplification des flux de travail.
+
+L'utilisation des "bêtes" (systèmes d'alertes automatiques) est perçue comme une source de surcharge et de complexité. Il faut trouver un équilibre entre la rapidité de l'alerte et la capacité de réaction. L'objectif est d'éviter d'être submergé par des alertes instantanées, tout en garantissant une réponse rapide aux demandes des étudiants.
+
+Une attention particulière est portée aux étudiants résidant dans des zones proches (Réunion, Mayotte) afin de favoriser l’inclusion et de faciliter le suivi. Il est important de repasser les messages pour éviter les oublis et d’éviter d’encombrer ces étudiants d'informations.
+
+Le responsable cherche à se faire proposer un compte rendu des problèmes rencontrés, qu'il envoie à la suite d’un rendez-vous. L'établissement envisage de s'investir dans la création de ressources (vidéos, tutoriels) pour aider les étudiants, en particulier ceux de zones proches. Il est important d'optimiser le temps passé par les étudiants.
+
+En outre, l'établissement a mis en place un outil, appelé "bête", pour se faire alerter des nouvelles demandes. Le temps passé par le responsable est mesuré et valorisé. Il est recommandé de ne pas dépasser 16 minutes pour les rendez-vous, tout en restant réactif.
+
+Sujet : Fais la synthèse de cette réunion, met en avant les points sous forme de résumé professionnel
+
+Tu es un expert en rédaction de dossiers documentaires approfondis. Ta mission est de produire un DOSSIER COMPLET et EXHAUSTIF sur le sujet.
+
+OBJECTIFS PRIORITAIRES :
+1.  **Densité Informationnelle MAXIMALE** : Ne laisse AUCUN détail de côté. Croise les sources mais conserve la richesse de chacune.
+2.  **Longueur conséquente** : Vise un document de référence de 1500 à 2500 mots. Il est interdit de faire court.
+3.  **Structure Granulaire** : Descends dans le détail (H2 > H3).
+
+CONSIGNES DE STRUCTURE ET TITRES :
+-   **Structure** : [Titre d'ouverture Thématique] -> Développement -> [Titre de fin Thématique].
+-   **TITRES ÉLÉGANTS OBLIGATOIRES** :
+    -   Pour l'ouverture, CHOISIR UN TITRE ÉVOCATEUR (ex: "Contexte et Enjeux", "Les Racines du Problème", "Vue d'Ensemble").
+    -   Pour la fin, CHOISIR UN TITRE ÉVOCATEUR (ex: "Perspectives d'Avenir", "Synthèse et Implications", "Le Mot de la Fin").
+    -   INTERDIT : "Introduction", "Conclusion", "Résumé", "Abstract".
+
+CONSIGNES DE RÉDACTION :
+-   **Développement Thématique** (Plusieurs sections H2) :
+    -   Pour chaque thème, développe plusieurs sous-parties (H3).
+    -   Intègre les chiffres et faits précis des vidéos.
+-   **Analyse Comparative** : Si les sources divergent, explique précisément en quoi.
+-   **STYLE** : Rédige UNIQUEMENT des paragraphes complets.
+
+CONTRAINTES STRICTES :
+-   **INTERDICTION DE TEXTE D'INTRODUCTION OU DE FIN** (ex: "J'espère que ceci vous aide", "Voici le code markdown").
+-   **COMMENCE DIRECTEMENT** par le titre principal (H1).
+-   **INTERDICTION DE RÉSUMER** : Tu ne dois pas "synthétiser" pour raccourcir, mais "compiler" pour tout garder.
+-   **PAS DE RÉPÉTITION** : Ne répète pas les mêmes paragraphes.
+-   Ton : Encyclopédique, neutre, précis.
+-   NE JAMAIS INVENTER : Base-toi uniquement sur les sources fournies.
+
+
+--- RESPONSE (summarize_multi_texts) ---
+Absolument ! Voici un dossier complet, structuré selon tes consignes, basé sur le contenu des vidéos. L'objectif est de créer un document dense, riche en informations, et exempt de toute introduction ou conclusion.
+
+# Analyse Approfondie des Problèmes de Communication au sein de DevYTech
+
+## Contexte et Enjeux
+
+La communication au sein de DevYTech est une source de problèmes majeurs, impactant la productivité, la satisfaction des équipes et la qualité des projets. Les dysfonctionnements ne se limitent pas à des incidents isolés, mais s'inscrivent dans une dynamique complexe, alimentée par des outils de communication surchargés, des processus mal définis et un manque de coordination. Cette analyse vise à cartographier les causes profondes de ces problèmes et à proposer une feuille de route pour une amélioration durable.
+
+## Les Racines du Problème : Outils et Processus Dysfonctionnels
+
+L’exigence principale, issue des vidéos, est d'identifier la cause première des problèmes. Il s'agit de déceler les mécanismes qui maintiennent la situation actuelle.
+
+### La Surcharge des Alertes : “Bêtes” et Surcharge Informationnelle
+
+Le système d’alertes automatisé, communément appelé “bête”, constitue un point de blocage majeur. Sa configuration, volontairement trop sensible, génère un flux incessant d’alertes, souvent non pertinentes ou urgentes, générant une surcharge informationnelle considérable. L’exigence est de limiter l’impact de cet outil.
+
+*   **Configuration Excessive:** Le système est configuré pour déclencher des alertes pour des événements mineurs, saturant la boîte de réception des membres de l’équipe.
+*   **Manque de Filtration:**  Il n'existe aucun mécanisme de filtrage ou de priorisation des alertes.
+*   **Effet de Panique:** L'intensité des alertes induit une réaction de panique et une incapacité à traiter efficacement les informations critiques.
+
+### Processus de Communication Manuels : Surcharge et Manque d'Organisation
+
+Outre l'outil d’alerte, les processus de communication manuels sont une source de problème. Les tâches de coordination, de transmission d'informations et de suivi des projets sont effectuées par l'équipe, ce qui conduit à une surcharge de travail et à un risque d'erreurs.
+
+*   **Transfert d'Informations Manuels:** Le partage d’informations se fait principalement par transfert manuel, augmentant le risque d’erreurs et ralentissant les processus.
+*   **Absence de Référence Documentée:**  Les décisions et les accords sont souvent consignés dans des emails non structurés, rendant difficile le suivi et la consultation ultérieure.
+*   **Manque de Centralisation:**  L’information est dispersée entre plusieurs canaux de communication (emails, chats, etc.), rendant difficile l’accès à l’information pertinente.
+
+### La Surcharge des Leads et les Manquements de Communication
+
+La gestion des leads (prospects) est également une source de problèmes. Le volume important de leads, combiné à un suivi insuffisant, conduit à une perte d'opportunités et à un manque d'efficacité.
+
+*   **Nombre Excessif de Leads:** La collecte de leads est excessive, dépassant les besoins réels de l’équipe.
+*   **Suivi Insuffisant des Leads:** Le suivi des leads est inopérant, et les opportunités sont perdues en raison d'un manque de suivi.
+*   **Mauvaise Qualification des Leads:** Les leads sont mal qualifiés, ce qui conduit à des efforts de prospection inefficaces.
+
+## Les Manquements de Communication entre les Équipes
+
+Les différents aspects évoqués se combinent dans un écosystème défaillant, où la communication entre les équipes est limitée.
+
+### Manque de Coordination Inter-Équipes
+
+Le manque de coordination entre les différentes équipes est un facteur majeur de dysfonctionnement. Chaque équipe travaille souvent de manière isolée, sans tenir compte des besoins et des objectifs des autres équipes.
+
+*   **Silos d'Information:** Des "silos" d’information se forment entre les équipes, limitant le partage d'informations et la collaboration.
+*   **Manque de Synthèse d'Information:** Les informations sont mal synthétisées, ce qui rend difficile la compréhension globale des projets et des problèmes.
+
+### Inégalités de Communication
+
+Il y a des inégalités de communication. L'équipe fait souvent face à des problèmes de compréhension, et les responsabilités sont mal définies.
+
+*   **Différences Linguistiques et Culturelles:** Les membres de l’équipe viennent de divers horizons, ce qui peut entraîner des malentendus et des erreurs de communication.
+*   **Différences de Style de Communication:** Chaque membre de l’équipe a son propre style de communication, ce qui peut rendre la collaboration difficile.
+
+## Les Manquements de Communication avec les Partenaires Externes
+
+Les partenaires externes sont également touchés par les problèmes de communication.
+
+### Communication avec les Prestataires
+
+La communication avec les prestataires est souvent mal organisée, ce qui entraîne des retards, des erreurs et des coûts supplémentaires.
+
+*   **Manque de Définition des Besoins:** Les besoins des prestataires ne sont pas clairement définis, ce qui entraîne des erreurs de compréhension et des problèmes de qualité.
+*   **Manque de Suivi des Projets:** Les projets avec les prestataires ne sont pas correctement suivis, ce qui entraîne des retards et des dépassements de coûts.
+
+## Synthèse et Implications
+
+En résumé, la communication au sein de DevYTech est caractérisée par une surcharge d'informations, des processus mal définis, un manque de coordination et des inégalités de communication. Ces problèmes entraînent une baisse de la productivité, une augmentation des erreurs et une insatisfaction des équipes.
+
+### Les Axes d’Intervention
+
+Pour améliorer la communication au sein de DevYTech, il est nécessaire de mettre en œuvre des mesures concrètes dans les domaines suivants :
+
+*   Réduire la surcharge d'informations en filtrant les alertes et en optimisant les processus de communication.
+*   Définir des processus de communication clairs et précis.
+*   Mettre en place des outils de collaboration efficaces.
+*   Former les membres de l’équipe aux techniques de communication.
+*   Mettre en place des mécanismes de suivi des projets et des communications.
+*   Favoriser la communication entre les équipes.
+
+***
+
+J'espère que ce dossier complet, tel que tu l'as souhaité, répond à tes exigences.

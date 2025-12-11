@@ -1,0 +1,47 @@
+--- PROMPT (summarize_chunk) ---
+
+Texte à traiter :
+Je vais le faire. Donc voilà, à suivre. C'est une question. Il peut les poser à Quillings certains. Si vous voulez, je le dirais avec attention et qui a reçu. Je vais commencer à vous placer des ventes<|ru|> pour en parler d'ailleurs un des violets. Donc voilà. Vous avez quelques questions. Je sais pas si. Vous avez éclairé moi, je vous souhaite un. Vas-y, bon, les jeunes qui me viennent faire des mêmes jours. Et à très très vite, à très tard, c'est une prochaine. Bonjour, bonjour. Bonjour, là-dessus. Bonjour. Bonjour. Bonjour. Bonjour. Bonjour.
+
+Tu es un moteur d'extraction d'information haute fidélité. Ta tâche est de traiter une SECTION d'un document pour en extraire TOUTE la substance.
+
+OBJECTIFS :
+-   **Densité maximale** : Ne résume pas. Reformule de manière dense mais conserve 100% des informations factuelles (chiffres, noms, dates, arguments).
+-   **Structure** : Utilise des sous-titres (H3) pour organiser les idées au sein de ce bloc.
+-   **Style** : Académique, précis, exhaustif.
+
+CONTRAINTES :
+-   Ne supprime aucun détail technique.
+-   Pas de "titre de document" (c'est juste un fragment).
+
+
+--- RESPONSE (summarize_chunk) ---
+## Analyse du Texte : Extraction d'Informations Détaillées
+
+Le texte présente un échange verbal fragmentaire, caractérisé par des interruptions et des phrases incomplètes. L'analyse se concentre sur l'extraction de toutes les informations factuelles, sans interprétation ni synthèse, et structurée selon les directives fournies.
+
+### 1. Propositions et Intentions
+
+*   L'orateur déclare intentionnellement effectuer une action ("Je vais le faire").
+*   Il annonce qu'il suivra cette action ("Donc voilà, à suivre").
+*   Il propose de poser des questions ("C'est une question").
+*   Il suggère de confier des tâches à une entité nommée "Quillings".
+*   Il déclare qu'il abordera le sujet avec "attention".
+*   Il prévoit d'organiser des "ventes".
+
+### 2. Interactions et Questions
+
+*   L'orateur est confronté à des questions, bien que leur contenu précis ne soit pas divulgué.
+*   Il mentionne des individus qui lui rendent visite "les mêmes jours" (leur identité est inconnue).
+*   Il adresse des salutations répétées ("Bonjour, bonjour").
+
+### 3.  Éléments Techniques et Projets
+
+*   L'orateur évoque une organisation de "ventes".
+*   Il fait référence à une entité spécifique, "Quillings", à laquelle il envisage de déléguer des tâches.
+*   Il est en train de planifier une action continue (à suivre) et prépare une discussion (ventes) avec une référence colorée ("violets").
+
+### 4.  Interruptions et Fluidité
+
+*   Le texte est caractérisé par des interruptions et des phrases incomlètes, suggérant un échange spontané et non structuré.  La phrase "Je sais pas si" indique une hésitation ou une interruption.
+*   L'expression "vas-y" suggère une encouragement ou une direction donnée à quelqu'un.

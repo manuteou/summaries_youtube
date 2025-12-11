@@ -1,0 +1,64 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ## Mobilités Internationales et Opportunités de Développement Professionnel pour les Pédagogues
+
+Ce dialogue porte sur l’exploration et la promotion de mobilités internationales pour les pédagogues, incluant des échanges en Chine et des opportunités de reconnaissance des efforts accomplis.
+
+### Mobilités en Chine : Un Programme Spécifique
+
+L’entreprise propose un programme de mobilités en Chine, financé par l’entreprise, permettant aux pédagogues de passer trois semaines dans ce pays.  Ce programme comprend l’hébergement payé et les frais de transport. Il s’agit d’une initiative pour valoriser l’engagement des pédagogues et offrir une expérience de développement professionnel.
+
+### Conditions d'Éligibilité et Valorisation des Accomplissements
+
+L’éligibilité à ce programme repose sur un engagement démontré par le pédagogue, ainsi que sur la reconnaissance de ses contributions. Les critères précis pour l’attribution des primes (initialement fixées à 3%) sont actuellement en discussion et dépendent des spécificités des contrats. Une réévaluation est prévue pour tenir compte de l’évolution des contextes contractuels.
+
+### Amélioration du Processus de Remontées d'Information
+
+Pour répondre aux frustrations exprimées par les pédagogues concernant le manque de prise en compte de leurs remontées d’information, une réflexion est en cours. La future lettre de mission des responsables de module inclura une obligation de prise en compte de l’ensemble des remontées pour l’élaboration des projets suivants.  Cette amélioration vise à remédier à un déficit d’information qui était perçu comme une source de frustration.
+
+###  Autres Mobilités et Partenariats
+
+Outre les mobilités en Chine, l’entreprise souhaite développer d'autres partenariats et opportunités de mobilité avec d’autres universités.  Ces collaborations visent à favoriser les échanges et le développement professionnel des pédagogues. La création de "pidecs" (portails pour faciliter les échanges) est également envisagée.
+
+### Primes et Reconnaissance
+
+La question des primes est en cours de réévaluation, avec une tentative d'atteindre un niveau de 35% (plus deux éléments supplémentaires), bien que cela dépende des spécificités des contrats.  Des primes symboliques pourraient être instaurées dans le cadre de ces mobilités.  Il est reconnu que les primes sont actuellement attribuées à une très minorité de pédagogues.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+## Mobilités Internationales et Opportunités de Développement Professionnel pour les Pédagogues
+
+Ce dialogue porte sur l’exploration et la promotion de mobilités internationales pour les pédagogues, incluant des échanges en Chine et des opportunités de reconnaissance des efforts accomplis.
+
+### Mobilités en Chine : Un Programme Spécifique
+
+L’entreprise propose un programme de mobilités en Chine, financé par l’entreprise, permettant aux pédagogues de passer trois semaines dans ce pays. Ce programme comprend l’hébergement payé et les frais de transport. Il s’agit d’une initiative pour valoriser l’engagement des pédagogues et offrir une expérience de développement professionnel.
+
+### Conditions d'Éligibilité et Valorisation des Accomplissements
+
+L’éligibilité à ce programme repose sur un engagement démontré par le pédagogue, ainsi que sur la reconnaissance de ses contributions. Les critères précis pour l’attribution des primes (initialement fixées à 3%) sont actuellement en discussion et dépendent des spécificités des contrats. Une réévaluation est prévue pour tenir compte de l’évolution des contextes contractuels.
+
+### Amélioration du Processus de Remontées d'Information
+
+Pour répondre aux frustrations exprimées par les pédagogues concernant le manque de prise en compte de leurs remontées d’information, une réflexion est en cours. La future lettre de mission des responsables de module inclura une obligation de prise en compte de l’ensemble des remontées pour l’élaboration des projets suivants. Cette amélioration vise à remédier à un déficit d’information qui était perçu comme une source de frustration.
+
+### Autres Mobilités et Partenariats
+
+Outre les mobilités en Chine, l’entreprise souhaite développer d’autres partenariats et opportunités de mobilité avec d’autres universités. Ces collaborations visent à favoriser les échanges et le développement professionnel des pédagogues. La création de “pidecs” (portails pour faciliter les échanges) est également envisagée.
+
+### Primes et Reconnaissance
+
+La question des primes est en cours de réévaluation, avec une tentative d’atteindre un niveau de 35% (plus deux éléments supplémentaires), bien que cela dépende des spécificités des contrats. Des primes symboliques pourraient être instaurées dans le cadre de ces mobilités. Il est reconnu que les primes sont actuellement attribuées à une très minorité de pédagogues.

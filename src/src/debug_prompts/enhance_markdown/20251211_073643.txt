@@ -1,0 +1,69 @@
+--- PROMPT (enhance_markdown) ---
+
+            Tu es une MACHINE DE FORMATAGE MARKDOWN. Tu n'es PAS un humain. Tu n'es PAS un critique littéraire.
+            Ta SEULE et UNIQUE fonction est de prendre le texte en entrée et de le reformater en Markdown propre.
+
+            Texte à traiter :
+            ## Synthèse Vidéo
+
+### Déroulé de la Séance
+
+La réunion a débuté avec une brève présentation du projet “Phoenix” et des objectifs ambitieux à atteindre : améliorer la satisfaction des étudiants et optimiser les processus de recrutement. Une collaboration étroite entre les équipes pédagogiques, les équipes marketing et l’équipe administrative a été soulignée comme un élément clé de succès. Les objectifs précis étaient d’atteindre un niveau de satisfaction étudiant de 80% et de réduire le temps de recrutement de 15%.
+
+Une discussion approfondie a ensuite eu lieu concernant les différentes propositions de changement visant à améliorer l’efficacité des processus. Plusieurs pistes ont été explorées, allant de la simplification des formulaires de candidature à la mise en place de campagnes de communication ciblées. Parmi ces propositions, on a envisagé un système de candidature en ligne plus intuitif et moins contraignant, ainsi qu’un programme de mentorat pour les nouveaux étudiants et la création d’une plateforme collaborative permettant aux étudiants de partager leurs connaissances et leurs expériences.
+
+Une partie importante de la réunion a été consacrée à la discussion sur la gestion des stages. Les participants ont souligné l'importance de développer des partenariats solides avec les entreprises et de garantir aux étudiants des stages de qualité. Il a été jugé essentiel de mettre en place un suivi régulier des stages afin de s’assurer que les étudiants sont bien encadrés et qu’ils tirent pleinement parti de ces expériences.
+
+Enfin, la réunion s'est terminée par une session de questions et de commentaires. Plusieurs points ont été soulevés, notamment concernant le budget alloué au projet, l'organisation des événements de recrutement et la communication avec les étudiants.
+
+### Relevé de Décisions et Actions
+
+| Action                               | Responsable          | Date             |
+|---------------------------------------|-----------------------|------------------|
+| Mettre en place un système de candidature en ligne simplifié | Équipe Marketing       | 15/11/2023       |
+| Évaluer les besoins des entreprises partenaires pour les stages | Équipe Pédagogie      | 22/11/2023       |
+| Organiser des événements de recrutement ciblés | Équipe Marketing & Pédagogie | 30/11/2023       |
+| Établir un budget détaillé pour le projet Phoenix | Équipe Administrative | 05/12/2023       |
+|  Mettre en place un système de suivi des stages   | Équipe Pédagogie   |  15/11/2023    |
+|  Établir un calendrier des événements de recrutement | Équipe Marketing & Pédagogie |  30/11/2023 |
+|  Suivre l'avancement du projet Phoenix |  Équipe Administrative |  05/12/2023 |
+
+            CONSIGNES ABSOLUES :
+            1.  **RECOPIE ET FORMATE** le texte complet. Ne change PAS le sens. Ne supprime PAS d'informations.
+            2.  **STRUCTURE** : Utilise des titres H1, H2, H3 pour structurer le document.
+            3.  **STYLE** : Rédige UNIQUEMENT des paragraphes complets. **INTERDICTION ABSOLUE DE LISTES À PUCES**.
+            4.  **NETTOYAGE** : Supprime impitoyablement toute ligne vide inutile ou puce vide.
+            5.  **INTERDICTION DE PARLER** : Tu ne dois JAMAIS dire "Voici le texte", "C'est parfait", "J'ai fini".
+            6.  **SORTIE PURE** : Ton output doit commencer par le premier caractère du document Markdown et finir par le dernier. RIEN D'AUTRE.
+
+            Si tu écris une phrase comme "Ce document est parfait", TU AS ÉCHOUÉ.
+            Si tu écris une phrase comme "Voici la version formatée", TU AS ÉCHOUÉ.
+            Si tu mets une liste à puces, TU AS ÉCHOUÉ.
+
+            FORMATAGE UNIQUEMENT. COMMENCE MAINTENANT.
+            
+
+--- RESPONSE (enhance_markdown) ---
+# Synthèse Vidéo
+
+## Déroulé de la Séance
+
+La réunion a débuté avec une brève présentation du projet “Phoenix” et des objectifs ambitieux à atteindre : améliorer la satisfaction des étudiants et optimiser les processus de recrutement. Une collaboration étroite entre les équipes pédagogiques, les équipes marketing et l’équipe administrative a été soulignée comme un élément clé de succès. Les objectifs précis étaient d’atteindre un niveau de satisfaction étudiant de 80% et de réduire le temps de recrutement de 15%.
+
+Une discussion approfondie a ensuite eu lieu concernant les différentes propositions de changement visant à améliorer l’efficacité des processus. Plusieurs pistes ont été explorées, allant de la simplification des formulaires de candidature à la mise en place de campagnes de communication ciblées. Parmi ces propositions, on a envisagé un système de candidature en ligne plus intuitif et moins contraignant, ainsi qu’un programme de mentorat pour les nouveaux étudiants et la création d’une plateforme collaborative permettant aux étudiants de partager leurs connaissances et leurs expériences.
+
+Une partie importante de la réunion a été consacrée à la discussion sur la gestion des stages. Les participants ont souligné l'importance de développer des partenariats solides avec les entreprises et de garantir aux étudiants des stages de qualité. Il a été jugé essentiel de mettre en place un suivi régulier des stages afin de s’assurer que les étudiants sont bien encadrés et qu’ils tirent pleinement parti de ces expériences.
+
+Enfin, la réunion s'est terminée par une session de questions et de commentaires. Plusieurs points ont été soulevés, notamment concernant le budget alloué au projet, l'organisation des événements de recrutement et la communication avec les étudiants.
+
+## Relevé de Décisions et Actions
+
+| Action                               | Responsable          | Date             |
+|---------------------------------------|-----------------------|------------------|
+| Mettre en place un système de candidature en ligne simplifié | Équipe Marketing       | 15/11/2023       |
+| Évaluer les besoins des entreprises partenaires pour les stages | Équipe Pédagogie      | 22/11/2023       |
+| Organiser des événements de recrutement ciblés | Équipe Marketing & Pédagogie | 30/11/2023       |
+| Établir un budget détaillé pour le projet Phoenix | Équipe Administrative | 05/12/2023       |
+| Mettre en place un système de suivi des stages   | Équipe Pédagogie   |  15/11/2023    |
+| Établir un calendrier des événements de recrutement | Équipe Marketing & Pédagogie |  30/11/2023 |
+| Suivre l'avancement du projet Phoenix | Équipe Administrative | 05/12/2023 |

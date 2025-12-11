@@ -1,0 +1,68 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici une capture des points clés de la réunion, formatée comme demandé :
+
+*   **Suivi des promotions :**
+    *   Objectif : Atteindre une proportion de 1% de différence entre les promotions.
+    *   Cible : 60% de réussite sur les formations professionnelles (WAB2).
+    *   75% de réussite sur les stages issus des entreprises.
+    *   Cible globale : 75% de réussite pour les formations initiales.
+*   **Suivi Académique & Évaluation Pédagogique :**
+    *   Analyse des commentaires RIVU et KINOTE : Nécessité de garantir leur exploitabilité pour les étudiants.
+    *   Note cible : Plus de 70% de conformité des suivis pédagogiques.
+    *   Évaluation des évaluations pédagogiques : Notée sur un maximum de 70%
+*   **Suivi des Entreprises :**
+    *   Exigence d’implication des entreprises pour les stages et l'animation de la vie pédagogique.
+    *   Niveau de satisfaction des entreprises sur les stages : 75% de satisfaction.
+    *   Questionnaire pour les anciens alternants (MSC1 et MSC2) : Envoi à partir du 8 septembre.
+*   **Actions Futures & Responsabilités :**
+    *   Équipe pédagogique : Production des commentaires, formation.
+    *   Direction Nationale : Désignation d'un représentant étudiant par corps.
+    *   Réunions de suivi régulières.
+*   **Points de Blocage / Désaccords:**
+    *   Nécessité d’un suivi continu et de mesures de contrôle pour atteindre les objectifs de performance.
+*   **Chronologie des Actions :**
+    *   Envoi du questionnaire aux anciens alternants à partir du 8 septembre.
+    *   Évaluation des commentaires RIVU/KINOTE.
+    *   Désignation des représentants étudiants par corps (Direction Nationale).
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+Voici une capture des points clés de la réunion, formatée comme demandé :
+
+**Suivi des Promotions :**
+
+L'objectif principal est d'atteindre une proportion de 1% de différence entre les promotions.  Pour ce faire, il est prévu d'obtenir 60% de réussite sur les formations professionnelles (WAB2) et 75% de réussite sur les stages issus des entreprises. La cible globale est de 75% de réussite pour les formations initiales.
+
+**Suivi Académique & Évaluation Pédagogique :**
+
+L'analyse des commentaires RIVU et KINOTE est essentielle, et il est impératif de garantir leur exploitabilité pour les étudiants.  Une note cible de plus de 70% de conformité des suivis pédagogiques est fixée, et l'évaluation des évaluations pédagogiques sera notée sur un maximum de 70%.
+
+**Suivi des Entreprises :**
+
+Il est nécessaire d'assurer l'implication des entreprises pour les stages et l'animation de la vie pédagogique.  Le niveau de satisfaction des entreprises sur les stages est d'être de 75%. Un questionnaire sera envoyé aux anciens alternants (MSC1 et MSC2) à partir du 8 septembre.
+
+**Actions Futures & Responsabilités :**
+
+L'équipe pédagogique est chargée de la production des commentaires et de la formation. La Direction Nationale est chargée de la désignation d'un représentant étudiant par corps. Des réunions de suivi régulières seront organisées.
+
+**Points de Blocage / Désaccords :**
+
+Il est nécessaire d'un suivi continu et de mesures de contrôle pour atteindre les objectifs de performance.
+
+**Chronologie des Actions :**
+
+L'envoi du questionnaire aux anciens alternants commencera à partir du 8 septembre.  L'évaluation des commentaires RIVU/KINOTE sera effectuée. La désignation des représentants étudiants par corps sera assurée par la Direction Nationale.

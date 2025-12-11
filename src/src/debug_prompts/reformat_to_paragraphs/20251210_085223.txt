@@ -1,0 +1,48 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Récapitulatif de la Discussion sur les Objectifs et la Prime
+
+Cette discussion porte sur plusieurs points concernant les objectifs, la prime et le processus d'intégration des nouveaux collaborateurs, principalement au sein d'une équipe impliquée dans des activités de formation et d'assistance aux étudiants.
+
+### 1. Gestion des Objectifs et Période d'Essai
+
+L’argument principal est que le système actuel est pénalisant, notamment pour les nouveaux collaborateurs durant leur période d’essai. Il y a une critique du système de prime, où une performance inférieure à 80% entraîne un manque de prime, alors que les objectifs sont souvent inatteignables.  Le problème réside dans la difficulté pour les nouveaux arrivants de satisfaire pleinement les attentes, et le fait que la prime ne soit pas proportionnellement attribuée en fonction de la période d'essai.  Il est souligné qu'il est crucial de clarifier la situation dans le contrat de travail, spécifiquement concernant l'attribution de la prime en cas de rupture de la période d'essai. L'équipe a reconnu avoir eu une approche trop restrictive, conduisant à la démotivation des nouveaux employés. Il est évoqué le besoin d'une approche plus flexible, en particulier pendant la période d'essai, avec des objectifs adaptés et une prime proportionnelle à la performance et à la durée de la période.
+
+### 2. La Prime et ses Critères
+
+La prime est calculée sur une base proportionnelle à un objectif de performance, avec un seuil de 80% pour l'attribution de la totalité de la prime.  En dessous de 80%, l’attribution est réduite à 50% de la prime. La discussion aborde les difficultés liées à l'évaluation de la performance, particulièrement pour les nouveaux employés, et la complexité liée à la prise en compte des différentes activités (DEL, ADM) et des interactions avec les étudiants ayant été admis sur des formations. Le besoin d'une approche plus pragmatique dans l'évaluation est mis en évidence. Il est également question de la prime non versée suite à une rupture de la période d'essai.
+
+### 3. Clarification des Contrats et Protocoles
+
+Il est souligné la nécessité d’intégrer des clauses contractuelles précises concernant l'attribution de la prime en cas de rupture de la période d'essai.  Le processus actuel est considéré comme opaque et peu adapté aux situations nouvelles. Il est envisagé de mettre en place un document d’accueil standardisé, incluant des informations précises sur les critères d’évaluation de la performance et la procédure d’attribution de la prime.  Il est également discuté de la possibilité de mettre en place une "note de cladrage" pour les cas spécifiques, afin de mieux comprendre les raisons d’une rupture de la période d’essai et d’adapter les objectifs en conséquence. Il est suggéré de prévoir une période spécifique (de 20 jours selon l'expression) durant laquelle l'employé est en "période de décès" où il prend son poste et attend un peu son militaire. Enfin, il est confirmé que la prime est versée au plus tard après 6 mois, en accord avec le contrat.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Récapitulatif de la Discussion sur les Objectifs et la Prime
+
+Cette discussion porte sur plusieurs points concernant les objectifs, la prime et le processus d’intégration des nouveaux collaborateurs, principalement au sein d’une équipe impliquée dans des activités de formation et d’assistance aux étudiants.
+
+### 1. Gestion des Objectifs et Période d’Essai
+
+L’argument principal est que le système actuel est pénalisant, notamment pour les nouveaux collaborateurs durant leur période d’essai. Il y a une critique du système de prime, où une performance inférieure à 80% entraîne un manque de prime, alors que les objectifs sont souvent inatteignables. Le problème réside dans la difficulté pour les nouveaux arrivants de satisfaire pleinement les attentes, et le fait que la prime ne soit pas proportionnellement attribuée en fonction de la durée de la période d’essai. Il est crucial de clarifier la situation dans le contrat de travail, spécifiquement concernant l’attribution de la prime en cas de rupture de la période d’essai. L’équipe a reconnu avoir eu une approche trop restrictive, conduisant à la démotivation des nouveaux employés. Il est évoqué le besoin d’une approche plus flexible, en particulier pendant la période d’essai, avec des objectifs adaptés et une prime proportionnelle à la performance et à la durée de la période.
+
+### 2. La Prime et ses Critères
+
+La prime est calculée sur une base proportionnelle à un objectif de performance, avec un seuil de 80% pour l’attribution de la totalité de la prime. En dessous de 80%, l’attribution est réduite à 50% de la prime. La discussion aborde les difficultés liées à l’évaluation de la performance, particulièrement pour les nouveaux employés, et la complexité liée à la prise en compte des différentes activités (DEL, ADM) et des interactions avec les étudiants ayant été admis sur des formations. Il est mis en évidence le besoin d’une approche plus pragmatique dans l’évaluation. La discussion a également porté sur la prime non versée suite à une rupture de la période d’essai.
+
+### 3. Clarification des Contrats et Protocoles
+
+Il est souligné la nécessité d’intégrer des clauses contractuelles précises concernant l’attribution de la prime en cas de rupture de la période d’essai. Le processus actuel est considéré comme opaque et peu adapté aux situations nouvelles. Il est envisagé de mettre en place un document d’accueil standardisé, incluant des informations précises sur les critères d’évaluation de la performance et la procédure d’attribution de la prime. Il est également discuté de la possibilité de mettre en place une "note de cladrage" pour les cas spécifiques, afin de mieux comprendre les raisons d’une rupture de la période d’essai et d’adapter les objectifs en conséquence.  Enfin, il est suggéré de prévoir une période spécifique (de 20 jours selon l'expression) durant laquelle l'employé est en "période de décès" où il prend son poste et attend un peu son militaire. Il est confirmé que la prime est versée au plus tard après 6 mois, en accord avec le contrat.

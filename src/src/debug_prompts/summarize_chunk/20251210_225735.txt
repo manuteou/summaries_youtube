@@ -1,0 +1,37 @@
+--- PROMPT (summarize_chunk) ---
+
+Texte à traiter :
+Je le connais, je vous verrai, je vais te faire le premier que j'ai ouvert. Donc là, à suivre, c'est une question que vous les posez à qui l'une certaine. Si vous réjellez, avec attention et qui a ruined, j'ai vu à commencer à vous placer des ventes patiens pour en parler d'ailleurs un délivuel. Donc voilà, vous avez quelques questions, je passerai. Avec l'été, je vous souhaite un... Vas-y, bon, mais je n'ai même pas de temps de journée. Et à très très vite, va, à très tard, à la semaine prochaine. Bon, genre, là, tout le monde. Bon, genre, genre, genre. En vrai? Bon, genre, genre.
+
+Tu es un moteur d'extraction d'information haute fidélité. Ta tâche est de traiter une SECTION d'un document pour en extraire TOUTE la substance.
+
+OBJECTIFS :
+-   **Densité maximale** : Ne résume pas. Reformule de manière dense mais conserve 100% des informations factuelles (chiffres, noms, dates, arguments).
+-   **Structure** : Utilise des sous-titres (H3) pour organiser les idées au sein de ce bloc.
+-   **Style** : Académique, précis, exhaustif.
+
+CONTRAINTES :
+-   Ne supprime aucun détail technique.
+-   Pas de "titre de document" (c'est juste un fragment).
+
+
+--- RESPONSE (summarize_chunk) ---
+## Analyse du Discours : Extraction d'Informations et Substance
+
+Le texte est un monologue fragmenté et hésitant, marqué par des interruptions et des répétitions. L'analyse vise à condenser avec une densité maximale, en reproduisant fidèlement toutes les informations contenues, sans interprétation ni simplification.
+
+### Contenu Principal et Argumentation
+
+Le locuteur se présente comme une personne familière avec une interlocution (implique une discussion ou un échange). Il exprime son intention de partager une information importante, qu'il décrit comme "le premier que j'ai ouvert." Cette phrase est centrale et semble indiquer l'origine ou la révélation d'une nouvelle donnée.  L'individu insiste sur la nécessité d'une approche attentive et patiente ("avec attention et qui a ruined") pour la prise en compte de cette information. 
+
+### Interjections et Répétitions
+
+Le discours est ponctué de nombreuses interjections et répétitions, suggérant une forme d’incertitude ou d’hésitation.  La répétition de "à très tard" et "à la semaine prochaine" indique une tentative de conclusion de l'échange, sans pour autant le formaliser.  La phrase "genre, genre, genre" et "bon, genre, là"  suggère un trouble dans l'expression, une difficulté à structurer ses pensées.
+
+### Planification des Suivies et Échéances
+
+Le locuteur évoque une série de "questions" posées à une personne ou un groupe de personnes. Il promet de répondre à ces questions, indiquant une intention de suivi et d'éclaircissement. Il annonce une rencontre à venir, signalée par "à la semaine prochaine," qui semble être une échéance déterminante pour la continuation de l’échange. L’emploi du terme "genre" et la formulation imprécise de l’heure ("à très tard") laissent entrevoir une certaine incertitude quant à la planification de cette rencontre.
+
+### Conclusion
+
+En résumé, le discours décrit une situation d'échange d'informations potentiellement sensible, où une nouvelle ("le premier que j'ai ouvert") est présentée. Le locuteur met l'accent sur la nécessité d’une compréhension prudente de cette information. L'échéance de "la semaine prochaine" est donnée pour fixer une prochaine interaction.  La qualité du discours est toutefois entachée par des hésitations et des imprécisions, reflétant un état d’esprit contradictoire.

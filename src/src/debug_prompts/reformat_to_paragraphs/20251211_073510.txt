@@ -1,0 +1,98 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici une transcription fidèle de la conversation, respectant les règles d'extraction :
+
+*   **Problèmes de prélevements :**
+    *   Le rib était plus bon et les apprements n'ont pas été levés.
+    *   Prélevement en janvier sur le mauvais rib (prélevement moins bien).
+    *   2000 prélevements : difficultés pour les apprements.
+    *   Éphanie également.
+*   **Changements et améliorations sur Payac :**
+    *   Changement pour améliorer la fiabilité des échéances.
+    *   Les outils d'étudiant sont les mêmes (design, connexions).
+    *   Pas de problèmes de connexion.
+    *   Automatisation maximale des tâches.
+*   **Accès et migration vers Payac :**
+    *   Création de compte : mail envoyé.
+    *   Migration en plusieurs étapes (3 étapes).
+    *   Échéances 2025 et 2026 intégrées dans Payac.
+    *   GoCardless : résultats disponibles.
+    *   Échéances 2026 : importées progressivement.
+    *   Si une échéance a été payée en une fois avant le 1er septembre, il faudra se référer à la sorte (donnée non importée).
+    *   Les ADM doivent s'assurer que tout est présent, échéances correctes, futures correctes.
+*   **Gestion des échéances et splits :**
+    *   **NON** possible de diviser une échéance (ex : décembre) en plusieurs fois sur Payac, surtout si cela concerne des dates antérieures au 1er septembre.
+    *   On peut donner une date théorique de prélèvement (même si elle peut ne pas être la réalité).
+    *   Les inscriptions de 16 ne sont pas prévues pour le moment.
+    *   L'importation est prévue pour le milieu/fin du mois.
+*   **Défis et incompletudes :**
+    *   Manque de devres, notamment "hévines" – le total des devres n'est pas complet.
+    *   Sandray n'est pas présent dans la liste des devres.
+*   **Actions Futures :**
+    *   Réunion avec toutes les équipes avant l'hévienne (pour mettre en place la base des devres) – organisée par le Secrétaire de Séance.
+    *   Formation continue proposée (nouvelles fonctionnalités, boutons, tarifs).
+    *   Support par email ou par Madie 16.
+    *   Possibilité de signaler des anomalies (section Payac).
+    *   Si changement de motage, il est impossible de le modifier.
+    *   Une réunion sera organisée avec les équipes.
+*   **Demande spécifique :**
+    *   Un interlocuteur (Pierre) ne peut pas changer le motage.
+*   **Points de blocage/délais :**
+    *   L'import des données financières commence le 1er septembre.
+    *   Le passage à Payac est en cours.
+    *   Des tests sont en cours.
+    *   Les ADM ont un travail à faire pour s'assurer que tout est bien synchronisé.
+*   **Information :**
+    *   Un document de développement est à disposition.
+    *   L'hévienne est planifiée.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+**Problèmes de prélevements :**
+
+Le rib était plus bon et les apprements n’ont pas été levés. Un prélevement en janvier sur le mauvais rib (prélevement moins bien) a été constaté.  2000 prélevements ont présenté des difficultés pour les apprements, notamment avec Éphanie.
+
+**Changements et améliorations sur Payac :**
+
+Le changement a été mis en place pour améliorer la fiabilité des échéances. Les outils d'étudiant conservent le même design et les mêmes connexions. Il n’y a eu aucun problème de connexion. L’automatisation des tâches est maximisée.
+
+**Accès et migration vers Payac :**
+
+La création de compte s’est faite avec l’envoi d’un mail. La migration s’effectue en plusieurs étapes (trois étapes). Les échéances 2025 et 2026 sont intégrées dans Payac. Les résultats concernant GoCardless sont disponibles. Les échéances 2026 sont importées progressivement. Si une échéance a été payée en une fois avant le 1er septembre, il est nécessaire de se référer à la sorte (donnée non importée). Les ADM doivent s'assurer que toutes les échéances sont correctes et que les futures sont également correctement définies.
+
+**Gestion des échéances et splits :**
+
+Il n’est pas possible de diviser une échéance (par exemple, décembre) en plusieurs fois sur Payac, surtout si cela concerne des dates antérieures au 1er septembre. Il est possible de donner une date théorique de prélèvement (même si elle peut ne pas être la réalité). Les inscriptions de 16 ne sont pas prévues pour le moment. L'importation est prévue pour le milieu/fin du mois.
+
+**Défis et incompletudes :**
+
+Il manquait des devres, notamment "hévines" – le total des devres n'est pas complet. Sandray n'était pas présent dans la liste des devres.
+
+**Actions Futures :**
+
+Une réunion avec toutes les équipes est organisée par le Secrétaire de Séance avant l'hévienne (pour mettre en place la base des devres). Une formation continue est proposée (nouvelles fonctionnalités, boutons, tarifs). Un support est disponible par email ou par Madie 16. Il est possible de signaler des anomalies (section Payac). Si un changement de motage est effectué, il est impossible de le modifier. Une réunion sera organisée avec les équipes.
+
+**Demande spécifique :**
+
+Un interlocuteur (Pierre) ne peut pas changer le motage.
+
+**Points de blocage/délais :**
+
+L’import des données financières commence le 1er septembre. Le passage à Payac est en cours. Des tests sont en cours. Les ADM ont un travail à faire pour s'assurer que tout est bien synchronisé.
+
+**Information :**
+
+Un document de développement est à disposition. L'hévienne est planifiée.

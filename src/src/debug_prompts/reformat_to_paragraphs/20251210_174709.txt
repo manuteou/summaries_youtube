@@ -1,0 +1,88 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici une transcription détaillée de la réunion, capturant les informations clés, les acteurs et les points d'attention :
+
+**I. Analyse Globale & Points Clés**
+
+*   **Objectif Principal :** Amélioration continue des processus pédagogiques, évaluation des performances (étudiants, personnel pédagogique) et impliquer les acteurs dans le processus.
+*   **Nouveaux Critères d'Évaluation :**
+    *   **Suivi des Étudiants :** Satisfaction des étudiants (qualité des échanges, disponibilité de l'équipe pédagogique), réussite académique (taux de passage > 90% national), suivi régulier et exhaustif des étudiants par les équipes pédagogiques (avec un objectif de 75% de satisfaction sur les évaluations de stage).
+    *   **Suivi des Pédagogues :** Participation à des projets d'amélioration continue, proposition de correctifs aux outils et processus, participation à des concours et événements nationaux.
+    *   **Contribution Nationale :** Implication des pédagos dans des initiatives d'amélioration continue (4 ou 5 projets, projets d’amélioration continue)
+*   **Niveau de Conformité Attendu :** 70% de conformité minimum sur les aspects du "droit à l'héreur" (évaluation des étudiants).
+*   **Objectif de Participation des Étudiants :**  Un taux de réponse supérieur à 60% aux sondages.
+
+**II. Détails par Intervenant & Sujet**
+
+*   **[Présentateur Principal : Non nommé, "l'intervenant principal"] :**  Présente les objectifs globaux, les critères d'évaluation, et les attentes.  Insiste sur l'importance de la participation active des équipes pédagogiques et la nécessité d'atteindre des taux de participation et de satisfaction élevés. Il souligne qu'un taux de 60% des réponses aux sondages ne sera pas retenu comme étant représentatif.
+*   **[Mention de Camille - Non nommé] :**  Met l'accent sur le suivi régulier et exhaustif des étudiants, l'importance des commentaires de qualité (ex: Riveau & Quinoetre), et la mise en place d'un processus pour transformer ces commentaires en actions concrètes. Propose de structurer les processus pour que les suggestions soient systématiquement prises en compte.
+*   **[Présentateur Principal] :** Souligne la nécessité de la collaboration avec les entreprises pour des expériences professionnelles enrichissantes (project weeks, participation aux concours). Le taux de satisfaction des entreprises doit atteindre 75%.
+*   **[Mention de l'intervenant principal] :** Rappelle que les formations doivent être au service des entreprises, et les entreprises doivent apporter leur expertise.
+*   **[Mention du rat – Non nommé] :** Point de blocage – le taux de participation aux sondages devrait être de 60% pour donner des résultats qui seraient représentatifs.
+
+**III. Actions Futures & Points de Blocage**
+
+*   **Prochaines Étapes :**
+    *   Production de notes de suivi des commentaires et évaluations pédagogiques (Camille).
+    *   Mise en place d'un système de suivi des étudiants (Camille).
+    *   Mise en œuvre du suivi des entreprises et des taux de satisfaction.
+    *   Organisation de projets d'amélioration continue (définition des 4 ou 5 projets).
+    *   Atteinte du taux de participation de 60% aux sondages.
+*   **Points de Blocage :**
+    *   **Taux de Participation aux Sondages :**  Le taux de 60% minimum pour les sondages est un critère de validation.
+    *   **Qualité des Commentaires :**  L'exploitation des commentaires de Riveau & Quinoetre est un point de blocage - ils doivent être exploitables.
+    *   **Définition des Projets :** La définition des 4 ou 5 projets d'amélioration continue doit être prioritaire.
+    *   **Efficacité de la Participation :** Il faut s'assurer que la participation réelle des pédagos aux initiatives soit effective et quantifiable.
+
+**IV.  Résumé des actions (par acteur)**
+
+*   **Camille :** Production des notes de suivi, suivi des étudiants, mise en place des mécanismes de suivi des commentaires.
+*   **Équipe Pédagogique:** Définir et piloter les 4 ou 5 projets d'amélioration continue.
+*   **Direction Nationale:**  Suivi de la conformité, soutien aux équipes, implication des entreprises.
+
+Cette transcription détaillée capture précisément ce qui a été discuté, y compris les nuances et les désaccords soulevés.
+
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+        Voici une transcription détaillée de la réunion, capturant les informations clés, les acteurs et les points d'attention :
+
+**I. Analyse Globale & Points Clés**
+
+L'objectif principal de la réunion était d'améliorer continuellement les processus pédagogiques, d'évaluer les performances des étudiants et du personnel pédagogique, et d'impliquer les acteurs dans ce processus.  De nouveaux critères d'évaluation ont été définis, centrés sur le suivi des étudiants, la réussite académique (avec un objectif de taux de passage supérieur à 90% national), et le suivi régulier et exhaustif des étudiants par les équipes pédagogiques, en visant un objectif de 75% de satisfaction sur les évaluations de stage.  La conformité attendue est de 70% minimum sur les aspects du "droit à l'héreur" (évaluation des étudiants). Un taux de réponse supérieur à 60% est requis pour les sondages.
+
+**II. Détails par Intervenant & Sujet**
+
+[Présentateur Principal : Non nommé, "l'intervenant principal"] a présenté les objectifs globaux, les critères d'évaluation et les attentes, soulignant l'importance de la participation active des équipes pédagogiques et la nécessité d'atteindre des taux de participation et de satisfaction élevés. Il a précisé qu'un taux de 60% des réponses aux sondages ne serait pas retenu comme étant représentatif.  Il a également insisté sur la collaboration avec les entreprises pour des expériences professionnelles enrichissantes, notamment via des "project weeks" et la participation aux concours, avec un objectif de taux de satisfaction des entreprises à 75%. L'intervenant principal a rappelé que les formations devaient être au service des entreprises, et que les entreprises devaient apporter leur expertise.
+
+[Mention de Camille - Non nommé] a mis l'accent sur le suivi régulier et exhaustif des étudiants, l'importance des commentaires de qualité, notamment ceux de Riveau & Quinoetre, et la nécessité de mettre en place un processus pour transformer ces commentaires en actions concrètes. Elle a proposé de structurer les processus afin que les suggestions soient systématiquement prises en compte.
+
+[Présentateur Principal] a souligné la nécessité de la collaboration avec les entreprises pour des expériences professionnelles enrichissantes. Le taux de satisfaction des entreprises doit atteindre 75%.
+
+[Mention de l’intervenant principal] a rappelé que les formations devaient être au service des entreprises, et les entreprises doivent apporter leur expertise.
+
+[Mention du rat – Non nommé] a identifié un point de blocage : le taux de participation aux sondages devrait être de 60% pour donner des résultats qui seraient représentatifs.
+
+**III. Actions Futures & Points de Blocage**
+
+Les prochaines étapes prévues comprenaient la production de notes de suivi des commentaires et évaluations pédagogiques (Camille), la mise en place d'un système de suivi des étudiants (Camille), la mise en œuvre du suivi des entreprises et des taux de satisfaction, l'organisation de projets d'amélioration continue (définition des 4 ou 5 projets), et l'atteinte du taux de participation de 60% aux sondages.
+
+Les points de blocage identifiés étaient le taux de participation aux sondages (60% minimum), la qualité des commentaires de Riveau & Quinoetre (ils doivent être exploitables), la définition des 4 ou 5 projets d'amélioration continue (définition prioritaire), et l'efficacité de la participation réelle des pédagos aux initiatives, et qu'elle soit quantifiable.
+
+**IV. Résumé des actions (par acteur)**
+
+*   **Camille :** Production des notes de suivi, suivi des étudiants, mise en place des mécanismes de suivi des commentaires.
+*   **Équipe Pédagogique :** Définir et piloter les 4 ou 5 projets d'amélioration continue.
+*   **Direction Nationale :** Suivi de la conformité, soutien aux équipes, implication des entreprises.

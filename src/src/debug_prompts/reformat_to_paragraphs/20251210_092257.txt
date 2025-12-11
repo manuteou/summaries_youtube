@@ -1,0 +1,61 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Stratégie de Communication Digitale : DevYTech
+
+L'objectif principal de cette stratégie de communication est de développer la visibilité digitale de DevYTech, tout en assurant la cohérence graphique grâce à la mise en œuvre d’une charte graphique actualisée.
+
+### Objectifs et Indicateurs de Performance
+
+*   **Publications sur l’Ingine :** Trois publications par semaine sur l’Ingine, pouvant aller jusqu’à six, afin de maximiser la portée.
+*   **Instagram et Histoire :** Trois publications par semaine sur Instagram et Histoire.
+*   **Facebook :** Trois publications par semaine sur Facebook.
+*   **TikTok :** Trois vidéos par mois sur TikTok.
+*   **YouTube :** Transmission des vidéos (présentations, tutoriels, etc.) sur la chaîne YouTube de DevYTech, en intégrant les vidéos courtes dans les chartes YouTube.
+*   **Production de Vidéos :** Production d’au moins une vidéo par an, utilisant un gabarit charté. L’inspiration s’inspire des tendances actuelles.
+
+### Indicateurs de Performance (KPIs)
+
+*   **Newsletters :** Deux newsletters mensuelles, avec un taux d'ouverture supérieur à 30%. Les chargés de communication peuvent appeler à la remise en question des newsletters.
+*   **Reporting Centralisé :** Un rapport centralisé au niveau national est mis en place.
+*   **Gestion des Contacts :** La constitution d'une base de contacts est essentielle pour la production de contenu et la diffusion de communiqués.
+
+### Communication sur les Événements
+
+*   **Wall of Fame :** Identification et communication des événements ayant vocation à être reconnus au niveau national.
+*   **Actions de Communication :** Tout événement qui mérite une communication externe est à signaler. Les actions menées et qui méritent une communication sont à renseigner dans un tableau Excel.
+*   **Mise à Jour des Charges :** Les charges sont mises à jour régulièrement, même si cela peut prendre du temps.
+*   **Adaptation des Supports :** Les supports sont adaptés aux campus, en tenant compte des événements propres à chaque campus.
+*   **Communiqué des Contenus :** Identification et diffusion des contenus ayant un potentiel médiatique.
+*   **Contact des Médias :** Le responsable est le contact direct avec les médias. Les contacts régionaux sont également sollicités et invités lors des événements.
+*   **Planification des Événements :** Un plan de communication dédié est élaboré pour chaque événement, couvrant les phases pré-événement, pendant l’événement et post-événement.
+*   **Suivi Post-Événement :** Diffusé des contenus, partage des informations, maintien de la communication après l'événement.
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Stratégie de Communication Digitale : DevYTech
+
+L’objectif principal de cette stratégie de communication est de développer la visibilité digitale de DevYTech, tout en assurant la cohérence graphique grâce à la mise en œuvre d’une charte graphique actualisée.
+
+### Objectifs et Indicateurs de Performance
+
+La stratégie s’articule autour de publications régulières sur plusieurs plateformes. Trois publications par semaine sont prévues sur l’Ingine, pouvant aller jusqu’à six, afin de maximiser la portée. Trois publications par semaine sont également définies pour Instagram et Histoire. Pour Facebook, le rythme est de trois publications hebdomadaires. Concernant TikTok, la production de trois vidéos par mois est envisagée. La chaîne YouTube de DevYTech sera utilisée pour la transmission des vidéos (présentations, tutoriels, etc.), intégrant des vidéos courtes dans les chartes établies. En matière de production de vidéos, un minimum d'une vidéo par an est programmé, en utilisant un gabarit charté et en s'inspirant des tendances actuelles.
+
+### Indicateurs de Performance (KPIs)
+
+Deux newsletters mensuelles sont prévues, avec un taux d'ouverture supérieur à 30%. Les chargés de communication sont encouragés à remettre en question l'efficacité de ces newsletters. Un rapport centralisé au niveau national est mis en place pour faciliter le suivi. La constitution d'une base de contacts est essentielle pour la production de contenu et la diffusion de communiqués.
+
+### Communication sur les Événements
+
+La stratégie comprend l’identification et la communication des événements ayant vocation à être reconnus au niveau national, via la "Wall of Fame". Tout événement qui mérite une communication externe est à signaler. Les actions menées et qui méritent une communication sont à renseigner dans un tableau Excel. Les charges sont mises à jour régulièrement, même si cela peut prendre du temps. Les supports sont adaptés aux campus, en tenant compte des événements propres à chaque campus. La communication comprend l'identification et la diffusion des contenus ayant un potentiel médiatique. Le responsable est le contact direct avec les médias, et les contacts régionaux sont également sollicités et invités lors des événements. Un plan de communication dédié est élaboré pour chaque événement, couvrant les phases pré-événement, pendant l’événement et post-événement. Un suivi post-événement est mis en place, incluant la diffusion de contenus, le partage d’informations et le maintien de la communication après l’événement.

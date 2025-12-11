@@ -1,0 +1,57 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        Voici l'extraction des propos, respectant scrupuleusement les règles :
+
+*   **Décisions actées :**
+    *   Création d'un tableau pour suivre les notes des étudiants sur Google.
+    *   Évaluation individuelle des étudiants pour adapter les objectifs.
+    *   Mise en place d'une notation pour les campus, en tenant compte du nombre d'avis.
+    *   Organisation de réunions pour discuter des difficultés spécifiques de chaque campus.
+    *   Valorisation de l'équipe en fixant des objectifs atteignables.
+
+*   **Points de blocage :**
+    *   Difficulté à évaluer les campus ayant un grand nombre d'avis.
+    *   Difficulté à évaluer les campus ayant peu d'avis.
+    *   Risque de démotivation si les objectifs sont trop ambitieux.
+    *   Problèmes potentiels liés à la mesure du temps consacré par les étudiants.
+
+*   **Actions futures :**
+    *   Le Secrétaire de Séance Expert doit créer un tableau pour suivre les notes.
+    *   Organiser des réunions individuelles avec chaque étudiant pour adapter les objectifs.
+    *   Analyser les données des campus en tenant compte du nombre d’avis.
+
+*   **Déroulé chronologique :**
+    *   Discussion sur les objectifs globaux et la nécessité de les rendre atteignables.
+    *   Présentation de la proposition de suivi des notes sur Google.
+    *   Identification des difficultés liées à l’évaluation des campus.
+    *   Décision d'organiser des réunions individuelles pour ajuster les objectifs.
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+**Décisions Actées :**
+
+Pour améliorer le suivi des étudiants et l'adaptation des objectifs, plusieurs décisions ont été prises. Un tableau a été créé pour suivre les notes des étudiants directement sur Google. De plus, une évaluation individuelle des étudiants a été mise en place afin d’adapter les objectifs à leurs besoins spécifiques. Une notation pour les campus a également été mise en place, prenant en compte le nombre d’avis disponibles. Afin de mieux gérer les défis spécifiques rencontrés par chaque campus, des réunions ont été organisées pour les discuter. Par ailleurs, l’équipe a été valorisée en fixant des objectifs atteignables.
+
+**Points de Blocage :**
+
+Plusieurs points de blocage ont été identifiés. Il est difficile d'évaluer les campus qui présentent un grand nombre d’avis. Inversement, l'évaluation des campus avec peu d'avis pose également problème. Un risque de démotivation est présent si les objectifs fixés s'avèrent trop ambitieux. Enfin, des problèmes potentiels surviennent quant à la mesure précise du temps consacré par les étudiants à leurs activités.
+
+**Actions Futures :**
+
+Le Secrétaire de Séance Expert est chargé de créer un tableau pour suivre les notes des étudiants. Il est également chargé d’organiser des réunions individuelles avec chaque étudiant afin d’adapter les objectifs à ses besoins.  Il devra analyser les données des campus en tenant compte du nombre d’avis.
+
+**Déroulé Chronologique :**
+
+Le processus a débuté par une discussion sur les objectifs globaux et la nécessité de les rendre atteignables. La proposition de suivi des notes sur Google a été présentée.  Les difficultés liées à l’évaluation des campus ont ensuite été identifiées. Finalement, la décision a été prise d’organiser des réunions individuelles pour ajuster les objectifs.

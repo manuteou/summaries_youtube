@@ -1,0 +1,42 @@
+--- PROMPT (summarize_chunk) ---
+
+Texte à traiter :
+Je le connais, je vous verrai, je vais te faire le premier que j'ai ouvert. Donc là, à suivre, c'est une question que vous les posez à qui l'une certaine. Si vous réjellez, avec attention et qui a ruined, j'ai vu à commencer à vous placer des ventes patiens pour en parler d'ailleurs un délivuel. Donc voilà, vous avez quelques questions, je passerai. Vous avez été moi, je vous souhaite un... Je vais aller bon, mais je n'ai même pas de temps de journée. Et à très très vite, à la pita de la semaine prochaine, hein? Bon, genre de la tout monde. Bon, genre de journée. Bon, genre de journée. En vrai. Bon, genre de journée. Bon, genre de journée.
+
+Tu es un moteur d'extraction d'information haute fidélité. Ta tâche est de traiter une SECTION d'un document pour en extraire TOUTE la substance.
+
+OBJECTIFS :
+-   **Densité maximale** : Ne résume pas. Reformule de manière dense mais conserve 100% des informations factuelles (chiffres, noms, dates, arguments).
+-   **Structure** : Utilise des sous-titres (H3) pour organiser les idées au sein de ce bloc.
+-   **Style** : Académique, précis, exhaustif.
+
+CONTRAINTES :
+-   Ne supprime aucun détail technique.
+-   Pas de "titre de document" (c'est juste un fragment).
+
+
+--- RESPONSE (summarize_chunk) ---
+## Analyse et Extraction de Substance du Texte Fourni
+
+Ce texte présente un discours spontané, imprécis et fragmenté, mais il est possible d'en extraire les informations factuelles et de les structurer pour une analyse exhaustive.
+
+###  Contenu du Discours
+
+Le discours est caractérisé par une incohérence narrative et une répétition excessive. Il se structure autour de plusieurs thèmes, dont la reconnaissance d'une personne ("Je le connais") et la promesse d'une action future ("Je vais te faire le premier que j'ai ouvert").  Le discours est ponctué de remarques apparemment non liées, soulignant une possible perte de concentration ou une tentative de maintenir l'attention du public.
+
+###  Points Clés et Déclarations
+
+*   **Reconnaissance d'une Personne:**  Le locuteur déclare explicitement "Je le connais," suggérant une relation préexistante avec une personne spécifique, non identifiée.
+*   **Promesse d'Action Future:** Une promesse est faite : "Je vais te faire le premier que j'ai ouvert."  La nature de cette action est imprécise et potentiellement ambiguë.  Il est clair que le locuteur s'engage à réaliser une action spécifique à une personne (laquelle est encore inconnue).
+*   **Réponse à des Questions:** Le locuteur indique qu'il va répondre à des questions posées par un groupe de personnes ("vous les posez à qui").
+*   **Conseils et Observations:** Le locuteur formule des "conseils" ou des observations, formulées de manière très approximative : "Si vous réjellez, avec attention et qui a ruined" (phrase incomplète et difficile à interpréter). Il souligne la nécessité d'une approche patiente.
+*   **Répétitions et Interjections:** Le discours est rythmé par des répétitions excessives de phrases courtes ("Bon, genre de la tout monde. Bon, genre de journée"). Ces répétitions semblent indiquer un manque de clarté ou une tentative de maintenir l'attention.  L'interjection "à la pita de la semaine prochaine, hein?" suggère un appel à un événement futur.
+*   **Imprécision Terminologique:**  Le locuteur utilise des termes tels que "ruined" dans une phrase qui n'est pas entièrement comprise, suggérant un manque de précision dans son expression.
+
+###  Analyse du Style et de la Cohérence
+
+La cohérence du discours est très faible. L'utilisation extensive de formulations telles que "Bon, genre de..." indique un style conversationnel, presque informel, et contribue à la fragmentation des idées.  Le manque de liens logiques entre les différentes déclarations rend l'interprétation du message complexe. Le ton est spontané et le discours ne paraît pas structuré.
+
+###  Conclusion
+
+Ce fragment de discours est une production orale complexe, marquée par l'imprécision, la répétition et une incohérence narrative. L'extraction des informations factuelles révèle un engagement à une action future et une reconnaissance d'une personne, mais l'absence de contexte et la structure fragmentée du discours rendent difficile toute interprétation profonde.

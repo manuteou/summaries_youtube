@@ -1,0 +1,57 @@
+--- PROMPT (reformat_to_paragraphs) ---
+
+        Tu es un éditeur expert. Ta mission est de reformuler le texte suivant pour améliorer sa fluidité.
+        
+        Texte à traiter :
+        ### Stratégie d'évaluation des aides et des performances des campus
+
+Le projet consiste à mettre en place un système d'évaluation des aides et des performances des différents campus, avec pour objectif de valoriser les contributions et de faciliter la gestion des ressources. L'approche est basée sur une évaluation continue et nuancée, et non sur une notation globale et potentiellement simpliste.
+
+### Mise en Place du Système d'Évaluation
+
+Le système repose sur plusieurs étapes clés :
+
+1.  **Collecte des Données:**
+    *   La première action est de collecter les données concernant les aides et les performances sur les différents campus.
+    *   Il s'agit de suivre les différents indicateurs et critères d’évaluation, et de les enregistrer systématiquement lorsqu’un événement ou une action se produit. Cela inclut les divers types d'aides (financières, matérielles, logistiques) allouées.
+2.  **Création d'un Tableau Excel :**
+    *   Un tableau Excel est envisagé, initialement pour Paris, mais potentiellement adaptable à d'autres campus. Ce tableau servira de base pour le suivi des données.
+    *   Le tableau comprendra des colonnes pour les campus, les aides reçues, et les performances évaluées.
+3.  **Définition des Indicateurs et des Critères :**
+    *   L’équipe doit définir clairement les indicateurs et les critères d'évaluation. Il est prévu des objectifs de 20%, 25% et 50% pour les aides allouées à différentes catégories (acquisition, uscite, robots).
+    *   Il est précisé qu’il ne s’agira pas d’une attribution de notes globales à la fin de l’année, mais d’un suivi continu et individualisé.
+4.  **Implication des Directeurs Pédagogiques :**
+    *   Le projet implique une collaboration avec les directeurs pédagogiques, qui seront responsables de l'implémentation et du suivi des données.
+5.  **Analyse Continue et Ajustements :**
+    *   Le système est conçu pour être mis à jour et ajusté en fonction des besoins et des observations. La discussion autour des points à clarifier sera continue.
+
+### Remarques et Précisions
+
+*   Il est crucial d'éviter de reporter l'évaluation à la fin de l'année, car cela rendrait l'exercice impossible.
+*   Le projet nécessite une approche pragmatique et flexible.
+*   L'implication des différents acteurs (directeurs pédagogiques, campus) est essentielle pour le succès du projet.
+*   Le système repose sur un tableau Excel et une analyse continue des données pour une prise de décision éclairée.
+*   L'objectif est d'éviter de tomber dans des catégories simplistes et de prendre en compte la complexité des contextes de chaque campus.
+        
+        CONSIGNES STRICTES :
+        1. **TRANSFORME TOUTES LES LISTES À PUCES EN PARAGRAPHES**. C'est ta priorité absolue.
+        2. Si une liste à puces est vide, supprime la.
+        3. **CONSERVE IMPÉRATIVEMENT LA STRUCTURE MARKDOWN** : Ne touche PAS aux titres (H1, H2, H3) ni au gras (**texte**).
+        4. Ne change PAS le sens du texte. Garde toutes les informations.
+        5. Supprime les lignes vides inutiles.
+        6. Ne fais AUCUN commentaire (pas de "Voici le texte", "J'ai reformulé...").
+        7. Renvoie UNIQUEMENT le texte réécrit.
+        
+
+--- RESPONSE (reformat_to_paragraphs) ---
+### Stratégie d’évaluation des aides et des performances des campus
+
+Le projet consiste à mettre en place un système d’évaluation des aides et des performances des différents campus, avec pour objectif de valoriser les contributions et de faciliter la gestion des ressources. L’approche est basée sur une évaluation continue et nuancée, et non sur une notation globale et potentiellement simpliste.
+
+### Mise en Place du Système d’Évaluation
+
+Le système repose sur plusieurs étapes clés. Tout d’abord, il s’agit de collecter les données concernant les aides et les performances sur les différents campus. Cette démarche implique de suivre les différents indicateurs et critères d’évaluation, et de les enregistrer systématiquement lorsqu’un événement ou une action se produit, incluant ainsi les divers types d’aides (financières, matérielles, logistiques) allouées. Ensuite, un tableau Excel est envisagé, initialement pour Paris, mais potentiellement adaptable à d’autres campus. Ce tableau servira de base pour le suivi des données et comprendra des colonnes pour les campus, les aides reçues, et les performances évaluées.
+
+Ensuite, l’équipe doit définir clairement les indicateurs et les critères d’évaluation. Il est prévu des objectifs de 20%, 25% et 50% pour les aides allouées à différentes catégories (acquisition, uscite, robots). Il est précisé qu’il ne s’agira pas d’une attribution de notes globales à la fin de l’année, mais d’un suivi continu et individualisé. Par ailleurs, le projet implique une collaboration avec les directeurs pédagogiques, qui seront responsables de l’implémentation et du suivi des données.
+
+Enfin, le système est conçu pour être mis à jour et ajusté en fonction des besoins et des observations.  L’analyse continue des données permettra une prise de décision éclairée. Il est crucial d'éviter de reporter l’évaluation à la fin de l’année, car cela rendrait l'exercice impossible. Le projet nécessite une approche pragmatique et flexible, et l'implication des différents acteurs (directeurs pédagogiques, campus) est essentielle pour le succès du projet.
