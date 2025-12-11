@@ -189,12 +189,11 @@ if st.session_state.nav_selection == "🔍 Sourcing":
                     v = LocalVideo(file_path, uploaded_file.name)
                     
                     # Check if already in basket
-                    if any(existing.watch_url == v.watch_url for existing in st.session_state.selection_basket):
-                         st.warning("Ce fichier est déjà dans votre panier.")
-                    else:
-                        st.session_state.selection_basket.append(v)
-                        st.success(f"Fichier ajouté : {v.title}")
-                        st.rerun()
+                    # Enforce strict limit of 1 for local files (replace existing)
+                    st.session_state.selection_basket = []
+                    st.session_state.selection_basket.append(v)
+                    st.success(f"Fichier ajouté (Panier limité à 1 pour le mode local) : {v.title}")
+                    st.rerun()
 
     st.divider()
 
@@ -493,6 +492,8 @@ if st.session_state.nav_selection == "⚙️ Synthèse":
                     st.error("Veuillez définir un sujet ou un contexte pour guider la synthèse.")
                 else:
                     with st.spinner("Génération de la synthèse en cours..."):
+                        # Cleanup temp files before starting
+                        workflow.cleanup()
                         try:
                             # Use the unified synthesize_videos method
                             # It expects (videos, subject_or_title)
@@ -502,10 +503,27 @@ if st.session_state.nav_selection == "⚙️ Synthèse":
                             # We should probably pass the context as the 'query' so the LLM knows what to focus on.
                             # And we set the title explicitly afterwards.
                             
-                            summary, title, source_info = workflow.synthesize_videos(
-                                st.session_state.selection_basket, 
-                                context_input 
-                            )
+                            # Check if processing local file (prioritize first video property)
+                            is_local_mode = False
+                            if st.session_state.selection_basket:
+                                first_video = st.session_state.selection_basket[0]
+                                # Check existence or common extensions
+                                if os.path.exists(first_video.watch_url) or \
+                                   first_video.watch_url.lower().endswith(('.mp3', '.mp4', '.m4a', '.wav', '.mov', '.avi')):
+                                    is_local_mode = True
+                            
+                            if is_local_mode:
+                                st.info(f"Traitement du fichier local avec la méthode détaillée ({summary_type})...")
+                                summary, title, source_info = workflow.process_video_path(
+                                    st.session_state.selection_basket[0].watch_url,
+                                    title=custom_title
+                                )
+                            else:
+                                summary, title, source_info = workflow.synthesize_videos(
+                                    st.session_state.selection_basket, 
+                                    context_input,
+                                    custom_title
+                                )
                             
                             # Post-process
                             summary = clean_markdown_text(summary)

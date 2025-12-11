@@ -21,23 +21,8 @@ class Summarizer:
             return 15000
         return 6000
 
-    def generate_global_analysis(self, text: str) -> str:
-        prompt = f"""
-        Tu es un analyste expert. Voici un compte-rendu détaillé composé de plusieurs sections :
-        {text}
-        
-        Ta tâche est de rédiger une SYNTHÈSE ANALYTIQUE GLOBALE qui servira d'introduction au document.
-        
-        Objectifs :
-        1. Identifier les thèmes majeurs transversaux.
-        2. Résumer les décisions clés et les actions à entreprendre.
-        3. Offrir une vue d'hélicoptère du contenu.
-        
-        CONTRAINTES STRICTES :
-        - Titre : "Synthèse Analytique Globale" (H1)
-        - Pas d'hallucinations.
-        - Ne pas utiliser "Compte-Rendu Exhaustif".
-        """
+    def generate_global_analysis(self, text: str, context: str = "") -> str:
+        prompt = self.prompt_manager.get_prompt("analysis", "global", text)
         response = self.client.chat(model=self.model, messages=[{"role": "user", "content": prompt}], options={"num_ctx": 8192, "num_predict":-1})
         return self._reformat_to_paragraphs(response["message"]["content"])
 

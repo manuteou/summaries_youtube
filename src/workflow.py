@@ -24,6 +24,7 @@ FORMAT = os.getenv("FORMAT", "md")
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "gemma3:4b")
 FFMPEG_DIR = os.getenv("FFMPEG")
+DEBUG = os.getenv("DEBUG", "False")
 
 if FFMPEG_DIR:
     os.environ["PATH"] += os.pathsep + FFMPEG_DIR
@@ -39,6 +40,20 @@ class WorkflowManager:
         self.transcriber = transcriber
         self.summarizer = summarizer
         self.exporter = exporter
+
+    def _log_debug(self, var_name, content):
+        """Helper to log variables to a file if DEBUG is enabled."""
+        if DEBUG:
+            debug_dir = Path("./debug")
+            debug_dir.mkdir(exist_ok=True)
+            log_file = debug_dir / "debug_log.txt"
+            
+            timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            try:
+                with open(log_file, "a", encoding="utf-8") as f:
+                    f.write(f"[{timestamp}] {var_name}:\n{content}\n{'-'*40}\n")
+            except Exception as e:
+                print(f"Failed to write to debug log: {e}")
 
     def get_video_text(self, url):
         """Extracts text from a video (subtitles or audio transcription)."""
@@ -206,78 +221,67 @@ class WorkflowManager:
         """Wrapper for processor.get_video_info"""
         return self.processor.get_video_info(url)
 
-    def synthesize_videos(self, selected_videos, search_term):
+    def synthesize_videos(self, selected_videos, search_term, title_doc):
         """Synthesizes multiple videos into a single document."""
         texts = []
         source_info = []
-        
-        # Prepare processing order
-        processing_list = selected_videos
-        
-        # If News mode, prioritizing RECENT videos is crucial.
-        # We sort them by date descending (newest first).
-        if self.summarizer.summary_type == "news":
-            # Assuming publish_date is datetime or comparable. If strings, ensure ISO format.
-            # pytubefix dates are datetime objects usually.
-            try:
-                processing_list = sorted(
-                    selected_videos, 
-                    key=lambda v: v.publish_date if v.publish_date else datetime.min, 
-                    reverse=True
-                )
-            except Exception as e:
-                # If sorting fails, stick to selection order but warn
-                print(f"Warning: Could not sort by date for News mode: {e}") 
-
-        for video in processing_list:
-            text, title, author, date, method = self.get_video_text(video.watch_url)
-            # Summarize each video individually first (long text summary)
-            video_summary = self.summarizer.summarize_long_text(text, author)
-            texts.append(f"Source : {title} (Auteur : {author}, Date: {date})\n{video_summary}")
-            source_info.append({"title": title, "url": video.watch_url, "date": video.publish_date})
-        
-        # Combine summaries
-        check = False
-        final_search_term = search_term if search_term else "Synthèse Manuelle"
-        
-        summary = ""
-        # Iterative summarization loop (from original cli.py)
+        final_search_term = search_term if search_term else "est de rédiger une SYNTHÈSE ANALYTIQUE GLOBALE"
         for attempt in range(3):
-            if not check:
-                summary = "\n\n== Text suivant ==".join(texts)
-            for _ in range(2):
-                summary = self.summarizer.summarize_multi_texts(final_search_term, summary)
+            for video in  selected_videos:
+                text, title, author, date, method = self.get_video_text(video.watch_url)
+                video_summary = self.summarizer.summarize_long_text(text, author)
+                texts.append(f"Source : {title} (Auteur : {author}, Date: {date})\n{video_summary}")
+                source_info.append({"title": title, "url": video.watch_url, "date": video.publish_date})
+
+            summary_of_texts = "\n\n== Text suivant ==".join(texts)
             
-            # Check validity
-            check_valide_search = self.summarizer.check_synthese(summary, final_search_term)
-            check = eval(check_valide_search)
+            # Pass instructions via a dict
+            final_search_term = search_term if search_term else ""
+            analysis_input = {
+                'content': summary_of_texts,
+                'instructions': final_search_term
+            }
+            
+            global_analysis = self.summarizer.generate_global_analysis(analysis_input, "global")
+            
+            # Validate if needed (optional, keeping logic similar but maybe less strict on title check)
+            check_valide_search = self.summarizer.check_synthese(global_analysis, title_doc)
+            check = eval(check_valide_search) # Caveat: eval is risky but keeping legacy logic for now
             if check:
                 break
-
-        summary = self.summarizer.enhance_markdown(summary)
-        return summary, final_search_term, source_info
+        
+        # Concatenate Global Analysis + Details
+        # We do NOT run enhance_markdown on the whole thing to avoid losing structure/details
+        # But we might want to enhance the global analysis part if it's raw
+        
+        full_summary = global_analysis
+        
+        return full_summary, final_search_term, source_info
 
     def refine_summary(self, current_summary, instructions):
         """Refines the summary based on user instructions."""
         return self.summarizer.refine_summary(current_summary, instructions)
 
-    def process_video_path(self, video_path_str, type_summary="short"):
+    def process_video_path(self, video_path_str, title):
         """Processes a local video file."""
         video_path = Path(video_path_str)
         segments = self.processor.extract_audio_from_mp4(video_path)
         summary_segments = self.transcriber.transcribe_segments(segments)
-        title = video_path.stem
+    
+        self._log_debug("TITLE", title)
+        self._log_debug("SEGMENTS", segments)
+        
         full_text = "\n\n".join(summary_segments)
+        self._log_debug("SUMMARY_SEGMENTS", summary_segments)
         
-        # 1. Generate detailed summary
+   
         detailed_summary = self.summarizer.summarize_long_text(full_text, author=title)
+        self._log_debug("DETAILED_SUMMARY", detailed_summary)
         
-        # 2. Generate global analysis if type is long
-        if type_summary == "long":
-            global_analysis = self.summarizer.generate_global_analysis(detailed_summary)
-            final_output = f"{global_analysis}\n\n---\n\n# Détails des Sections\n\n{detailed_summary}"
-        else:
-            final_output = detailed_summary
+    
+        global_analysis = self.summarizer.generate_global_analysis(detailed_summary)
+        self._log_debug("GLOBAL_ANALYSIS", global_analysis)
+        final_output = f"{global_analysis}\n\n---\n\n# Détails des Sections\n\n{detailed_summary}"
             
         source_info = [{"title": title, "url": str(video_path.absolute())}]
         return final_output, title, source_info

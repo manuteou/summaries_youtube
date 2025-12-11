@@ -1,3 +1,5 @@
+from typing import List, Union
+
 class PromptManager:
     def get_prompt(self, summary_type: str, context: str, text: str) -> str:
         """
@@ -11,6 +13,8 @@ class PromptManager:
             return self._get_long_prompt(context, text)
         elif summary_type == "news":
             return self._get_news_prompt(context, text)
+        elif summary_type == "analysis":
+             return self._get_analysis_prompt(context, text)
         else:
             return self._get_short_prompt(context, text) # Default
 
@@ -122,7 +126,7 @@ Texte à résumer :
 OBJECTIFS :
 - Fournir une vue d'ensemble complète et STRUCTURÉE.
 - Détailler les informations descendantes et les actions attendues.
-- Hiérarchiser l'information par importance.
+- Hiérarchiser l'information.
 
 STRUCTURE OBLIGATOIRE :
 - Utilise des **Titres H2 (##)** pour les sections principales.
@@ -211,29 +215,31 @@ CONTRAINTES :
 Texte à traiter :
 {text}
 
-Tu es un rédacteur technique chargé de produire la DOCUMENTATION DE RÉFÉRENCE définitive de ce contenu.
+Tu es un Éditeur Senior dans un grand média d'analyse. Ta mission est de transformer ce contenu brut en un ARTICLE DE FOND de qualité "Premium", destiné à être publié.
 
-OBJECTIFS PRIORITAIRES :
-1.  **Exhaustivité Totale** : Le lecteur ne doit plus jamais avoir besoin de consulter l'original. Tout doit être là.
-2.  **Volume** : Produis un texte long (minimum 1500 mots si le contenu le permet), dense et fouillé.
-3.  **Clarté Structurelle** : Utilise abondamment les titres (H2) et sous-titres (H3).
+OBJECTIFS EDITORIAUX :
+1.  **Exhaustivité Narrée** : Tu dois tout dire, mais avec style. Ne fais pas une liste, RACONTE le contenu.
+2.  **Longueur & Profondeur** : Nous visons un article "Long-Form" (minimum 1500-2000 mots). Prends le temps d'expliquer chaque concept.
+3.  **Ton** : Sophistiqué, fluide, analytique mais accessible. Comme un excellent article du "Harvard Business Review" ou du "Monde Diplomatique".
 
-CONSIGNES DE STRUCTURE ET TITRES :
--   **Structure** : [Titre d'ouverture Thématique] -> Développement -> [Titre de fin Thématique].
--   **TITRES ÉLÉGANTS OBLIGATOIRES** :
-    -   Pour l'ouverture, CHOISIR UN TITRE ÉVOCATEUR (ex: "Contexte et Enjeux", "Les Racines du Problème", "Vue d'Ensemble").
-    -   Pour la fin, CHOISIR UN TITRE ÉVOCATEUR (ex: "Perspectives d'Avenir", "Synthèse et Implications", "Le Mot de la Fin").
-    -   INTERDIT : "Introduction", "Conclusion", "Résumé", "Abstract".
+CONSIGNES DE STRUCTURE :
+-   **TITRE** : Trouve un titre accrocheur et élégant (Pas de "Résumé de...", sois créatif).
+-   **INTRODUCTION** : Une vraie introduction journalistique qui pose le contexte, les enjeux et la problématique, sans dire "ce texte parle de...". Plonge le lecteur dedans.
+-   **CORPS DU TEXTE** :
+    -   Utilise des intertitres (H2) thématiques forts.
+    -   Utilise des sous-titres (H3) pour aérer.
+    -   Rédige des PARAGRAPHES CONSISTANTS. Pas de phrases isolées.
+    -   Intègre les citations clés ou les chiffres marquants naturellement dans le récit.
+-   **CONCLUSION** : Une ouverture vers l'avenir ou une synthèse des impacts majeurs.
 
-CONSIGNES DE RÉDACTION :
--   **Développement** : Suis le déroulé logique. Chaque argument doit être développé dans sa propre sous-section.
--   **Détails Techniques** : Conserve tous les chiffres, dates, noms propres et terminologies spécifiques.
--   **STYLE** : Rédige UNIQUEMENT des paragraphes complets.
+INTERDITS :
+-   PAS DE LISTES À PUCES (sauf si absolument nécessaire pour une énumération technique). Privilégie la rédaction.
+-   PAS DE PHRASES ROBOTIQUES comme "Dans cette section...", "L'auteur nous dit que...". Écris directement les faits.
+-   PAS DE "INTRODUCTION" ou "CONCLUSION" comme titres de section. Trouve des titres plus élégants.
 
-INTERDITS ABSOLUS :
--   **PAS DE TEXTE D'INTRODUCTION** (ex: "Voici le code..."). Commence DIRECTEMENT par le Titre du document.
--   **PAS DE RÉPÉTITION** : Vérifie qu'aucune section ne duplique le contenu d'une autre.
--   Pas d'hallucinations.
+RÉGLAGE DE LA LONGUEUR :
+-   Il est CRITIQUE que tu fournisses le maximum de détails. Si le texte original est long, ton article DOIT être long. Ne synthétise pas pour raccourcir, mais reformule pour clarifier.
+
 """
         elif context == "multi":
             return f"""
@@ -242,34 +248,32 @@ Sources :
 
 Sujet : {text['search']}
 
-Tu es un expert en rédaction de dossiers documentaires approfondis. Ta mission est de produire un DOSSIER COMPLET et EXHAUSTIF sur le sujet.
+Tu es un Journaliste d'Investigation Spécialisé. Tu dois rédiger un DOSSIER COMPLET sur le sujet, en croisant ces sources.
 
-OBJECTIFS PRIORITAIRES :
-1.  **Densité Informationnelle MAXIMALE** : Ne laisse AUCUN détail de côté. Croise les sources mais conserve la richesse de chacune.
-2.  **Longueur conséquente** : Vise un document de référence de 1500 à 2500 mots. Il est interdit de faire court.
-3.  **Structure Granulaire** : Descends dans le détail (H2 > H3).
+OBJECTIF : Créer le dossier de référence ultime sur ce thème.
 
-CONSIGNES DE STRUCTURE ET TITRES :
--   **Structure** : [Titre d'ouverture Thématique] -> Développement -> [Titre de fin Thématique].
--   **TITRES ÉLÉGANTS OBLIGATOIRES** :
-    -   Pour l'ouverture, CHOISIR UN TITRE ÉVOCATEUR (ex: "Contexte et Enjeux", "Les Racines du Problème", "Vue d'Ensemble").
-    -   Pour la fin, CHOISIR UN TITRE ÉVOCATEUR (ex: "Perspectives d'Avenir", "Synthèse et Implications", "Le Mot de la Fin").
-    -   INTERDIT : "Introduction", "Conclusion", "Résumé", "Abstract".
+LA FORME :
+-   Un véritable ARTICLE DE PRESSE ou un CHAPITRE DE LIVRE.
+-   Longueur : Vise 2000 mots ou plus. Sois intarissable sur les détails.
 
-CONSIGNES DE RÉDACTION :
--   **Développement Thématique** (Plusieurs sections H2) :
-    -   Pour chaque thème, développe plusieurs sous-parties (H3).
-    -   Intègre les chiffres et faits précis des vidéos.
--   **Analyse Comparative** : Si les sources divergent, explique précisément en quoi.
--   **STYLE** : Rédige UNIQUEMENT des paragraphes complets.
+STRUCTURE NARRATIVE :
+1.  **Titre Percutant** (H1).
+2.  **Chapeau** : Résumé exécutif de 3-4 lignes en gras pour donner envie de lire.
+3.  **Le Dossier** :
+    -   Organise ton propos par thèmes logiques (H2), pas source par source.
+    -   Développe chaque point avec précision (H3).
+    -   Si les sources sont d'accord, fusionne l'info.
+    -   Si elles divergent, mets en scène le débat ("Alors que X soutient ceci, Y nuance par cela...").
+4.  **Des encadrés** : Tu peux utiliser des citations en italique pour donner de la vie.
 
-CONTRAINTES STRICTES :
--   **INTERDICTION DE TEXTE D'INTRODUCTION OU DE FIN** (ex: "J'espère que ceci vous aide", "Voici le code markdown").
--   **COMMENCE DIRECTEMENT** par le titre principal (H1).
--   **INTERDICTION DE RÉSUMER** : Tu ne dois pas "synthétiser" pour raccourcir, mais "compiler" pour tout garder.
--   **PAS DE RÉPÉTITION** : Ne répète pas les mêmes paragraphes.
--   Ton : Encyclopédique, neutre, précis.
--   NE JAMAIS INVENTER : Base-toi uniquement sur les sources fournies.
+TON ET STYLE :
+-   Élégant, riche, vocabulaire précis.
+-   Fluidité absolue : Les transitions entre paragraphes doivent être invisibles.
+-   JAMAIS de "Dans la première vidéo...". Intègre les sources comme si tu avais fait les interviews toi-même.
+
+ATTENTION :
+-   Ceci n'est pas un résumé scolaire. C'est une œuvre de rédaction.
+-   Prends de la hauteur. Analyse les implications.
 """
         return ""
 
@@ -337,5 +341,53 @@ RÈGLES D'OR :
 -   Utilise le **gras** pour les infos cruciales.
 -   Hésite pas à utiliser des encadrés markdown ( > Citation) pour les déclarations chocs.
 -   Si les sources se contredisent, la source la plus RÉCENTE a raison (mais mentionne le changement).
+"""
+        return ""
+
+    def _get_analysis_prompt(self, context: str, text: Union[str, dict]) -> str:
+        if context == "global":
+            # Handle both string (legacy) and dict (with instructions)
+            content = text
+            instructions = ""
+            if isinstance(text, dict):
+                content = text.get('content', '')
+                instructions = text.get('instructions', '')
+
+            instruction_block = ""
+            if instructions:
+                instruction_block = f"\n\nCONSIGNE SPÉCIFIQUE DU RÉDACTEUR EN CHEF :\n{instructions}\n(Tu DOIS respecter cette consigne priorité)\n"
+
+            return f"""
+Tu es un Rédacteur en Chef d'un grand média.
+Voici un ensemble de notes détaillées provenant de plusieurs sources ou sections :
+{content}
+
+{instruction_block}
+Ta mission est de RÉDIGER LE DOCUMENT FINAL COMPLET. Il s'agit d'une fusion intégrale de toutes les informations.
+
+OBJECTIF SUPRÊME :
+Produire un **ARTICLE DE FOND UNIQUE** (Type Long-Form) qui intègre TOUTES les informations des notes fournies.
+
+CE N'EST PAS UNE INTRODUCTION. C'EST LE DOCUMENT ENTIER.
+
+CONSIGNES DE RÉDACTION :
+1.  **FUSION DES SOURCES** : Ne fais pas de sections "Source 1", "Source 2". Organise le texte par **THÈMES**.
+    -   Exemple : Si la Source A et la Source B parlent de "Prix", fais une section "Analyse des Prix" qui combine les deux.
+2.  **LONGUEUR MASSIVE** : Vise un texte très long et détaillé (minimum 1500-2000 mots). Ne synthétise pas pour réduire, mais pour organiser.
+    -   Si tu as 3 pages de notes, produis 3 pages d'article.
+    -   Garde TOUS les chiffres, TOUS les exemples, TOUTES les nuances.
+3.  **STYLE** : Fluide, narratif, expert. Pas de listes à puces.
+4.  **TITRES** : Utilise une hiérarchie claire (H1 Titre, H2 Parties, H3 Sous-parties).
+
+INTERDIT :
+-   Pas de section "Détails des sources" à la fin. Tout doit être intégré DANS le texte principal.
+-   Pas de "Introduction" / "Conclusion" génériques.
+-   Pas de répétitions.
+
+STRUCTURE SUGGÉRÉE :
+-   **TITRE PERCUTANT** (H1)
+-   **CHAPEAU** (Résumé 3 lignes)
+-   **LE CŒUR DU SUJET** (Organisé par thèmes H2/H3 - 90% du texte)
+-   **SYNTHÈSE FINALE** (Ouverture)
 """
         return ""
