@@ -1,24 +1,87 @@
+"""
+downloader.py - Refactored YouTube download and audio processing services
+
+Ce module a été refactorisé pour suivre le principe SRP (Single Responsibility Principle).
+Chaque classe a une responsabilité unique et bien définie.
+"""
+
 import os
 import datetime
 import time
+import concurrent.futures
+from typing import List, Tuple, Optional, Any, Dict
 from pytubefix import YouTube
 from pytubefix.cli import on_progress
 from pytubefix.contrib.search import Search, Filter
 from pytubefix.exceptions import RegexMatchError
 import subprocess
 from pydub import AudioSegment
+
 from utils import slugify
+from constants import (
+    MIN_VIDEO_DURATION_SECONDS,
+    SHORT_VIDEO_MAX_SECONDS,
+    MEDIUM_VIDEO_MAX_SECONDS,
+    SEGMENT_LENGTH_MS,
+    DEFAULT_AUDIO_SAMPLE_RATE,
+    AUDIO_COMPRESSION_LEVEL,
+    THREAD_POOL_SIZE,
+    MAX_DOWNLOAD_RETRIES,
+    RETRY_DELAY_SECONDS,
+)
 
-class YouTubeAudioProcessor:
-    def __init__(self, output_dir: str, num_segments: int = 10, source: int = 3):
+
+class YouTubeSearchService:
+    """Service de recherche YouTube uniquement (SRP)."""
+    
+    def search(self, query: str, filters: Optional[Filter] = None) -> Search:
+        """Crée un objet de recherche YouTube."""
+        if filters is None:
+            filters = Filter.create().type(Filter.Type.VIDEO)
+        return Search(query, filters=filters)
+    
+    def create_filters(
+        self, 
+        sort_by: str = "relevance", 
+        upload_date: Optional[str] = None
+    ) -> Filter:
+        """Crée des filtres de recherche."""
+        filters = Filter.create().type(Filter.Type.VIDEO)
+        
+        sort_mapping = {
+            "date": Filter.SortBy.UPLOAD_DATE,
+            "views": Filter.SortBy.VIEW_COUNT,
+            "relevance": Filter.SortBy.RELEVANCE,
+        }
+        filters = filters.sort_by(sort_mapping.get(sort_by, Filter.SortBy.RELEVANCE))
+        
+        date_mapping = {
+            "today": Filter.UploadDate.TODAY,
+            "week": Filter.UploadDate.THIS_WEEK,
+            "month": Filter.UploadDate.THIS_MONTH,
+            "year": Filter.UploadDate.THIS_YEAR,
+        }
+        if upload_date and upload_date in date_mapping:
+            filters = filters.upload_date(date_mapping[upload_date])
+        
+        return filters
+    
+    def fetch_next(self, search_obj: Search) -> List[Any]:
+        """Récupère la page suivante de résultats."""
+        search_obj.get_next_results()
+        return [v for v in search_obj.results if v not in search_obj.shorts]
+
+
+class YouTubeDownloader:
+    """Service de téléchargement audio YouTube (SRP)."""
+    
+    def __init__(self, output_dir: str):
         self.output_dir = output_dir
-        self.num_segments = num_segments
-        self.source = source
         os.makedirs(output_dir, exist_ok=True)
-
-    def download_audio(self, url: str) -> tuple[str, str, str, str]:
-        max_retries = 3
-        for attempt in range(max_retries):
+    
+    def download_audio(self, url: str) -> Tuple[str, str, str, Optional[datetime.datetime]]:
+        """Télécharge l'audio d'une vidéo YouTube avec retry."""
+        for attempt in range(MAX_DOWNLOAD_RETRIES):
             try:
                 yt = YouTube(url, on_progress_callback=on_progress)
                 ys = yt.streams.get_audio_only()
@@ -27,66 +90,85 @@ class YouTubeAudioProcessor:
                 audio_file = ys.download(output_path=self.output_dir, filename=filename)
                 return audio_file, yt.title, yt.author, yt.publish_date
             except Exception as e:
-                print(f"Details of retry {attempt+1}/{max_retries} : {e}")
-                if attempt == max_retries - 1:
-                    raise e
-                time.sleep(2)
-        return "", "", "", ""
-
-    def get_video_info(self, url: str):
+                print(f"Retry {attempt + 1}/{MAX_DOWNLOAD_RETRIES}: {e}")
+                if attempt == MAX_DOWNLOAD_RETRIES - 1:
+                    raise
+                time.sleep(RETRY_DELAY_SECONDS)
+        return "", "", "", None
+    
+    def get_video_info(self, url: str) -> Optional[YouTube]:
+        """Récupère les métadonnées d'une vidéo."""
         try:
-            yt = YouTube(url)
-            return yt
+            return YouTube(url)
         except RegexMatchError:
-             print(f"Erreur : URL YouTube invalide ou vidéo non trouvée ('{url}')")
-             return None
+            print(f"Erreur : URL YouTube invalide ('{url}')")
+            return None
         except Exception as e:
             print(f"Erreur lors de la récupération des infos : {e}")
             return None
+    
+    def check_subtitles(self, url: str) -> Optional[str]:
+        """Vérifie la disponibilité des sous-titres FR/EN."""
+        yt = YouTube(url, on_progress_callback=on_progress)
+        codes_fr_en = [k for k in yt.captions.keys() if "fr" in k.code or "en" in k.code]
+        return codes_fr_en[0].code if codes_fr_en else None
+    
+    def get_subtitles(
+        self, url: str, code: str
+    ) -> Tuple[str, str, str, Optional[datetime.datetime]]:
+        """Récupère les sous-titres d'une vidéo."""
+        yt = YouTube(url, on_progress_callback=on_progress)
+        caption = yt.captions[code]
+        title = yt.title or "inconnue"
+        return caption.generate_srt_captions(), title, yt.author, yt.publish_date
 
-    def search_subject(self, subject: str):
-        filters = Filter.create().type(Filter.Type.VIDEO).sort_by(Filter.SortBy.UPLOAD_DATE)
-        s = Search(subject, filters=filters)
-        # raw_results = [v for v in s.results if v not in s.shorts] # Shorts filter is already good
-      
-        return self.filter_videos(s.results, duration_mode="any")
 
-    def get_search_object(self, subject: str, sort_by: str = "relevance", upload_date: str = None, exclude_terms: str = None):
-        if exclude_terms:
-            terms = exclude_terms.split()
-            for term in terms:
-                subject += f" -{term}"
-
-        filters = Filter.create().type(Filter.Type.VIDEO)
-        
-        if sort_by == "date":
-            filters = filters.sort_by(Filter.SortBy.UPLOAD_DATE)
-        elif sort_by == "views":
-            filters = filters.sort_by(Filter.SortBy.VIEW_COUNT)
-        else:
-            filters = filters.sort_by(Filter.SortBy.RELEVANCE)
-            
-        if upload_date == "today":
-            filters = filters.upload_date(Filter.UploadDate.TODAY)
-        elif upload_date == "week":
-            filters = filters.upload_date(Filter.UploadDate.THIS_WEEK)
-        elif upload_date == "month":
-            filters = filters.upload_date(Filter.UploadDate.THIS_MONTH)
-        elif upload_date == "year":
-            filters = filters.upload_date(Filter.UploadDate.THIS_YEAR)
-            
-        return Search(subject, filters=filters)
-
-    def filter_videos(self, videos, duration_mode, days_limit=None):
-        # We always filter out shorts (less than 120s typically, or strictly shorts)
-        filtered = []
+class VideoFilter:
+    """Service de filtrage de vidéos (SRP)."""
+    
+    def filter_videos(
+        self, 
+        videos: List[Any], 
+        duration_mode: str = "any", 
+        days_limit: Optional[int] = None
+    ) -> List[Any]:
+        """Filtre les vidéos selon durée et date, avec récupération des métadonnées en parallèle."""
         now = datetime.datetime.now(datetime.timezone.utc)
         
-        # Helper function for parallel processing
+        # Récupération parallèle des métadonnées
+        videos_metadata = self._fetch_metadata_parallel(videos)
+        
+        # Filtrage
+        filtered = []
+        for item in videos_metadata:
+            if not item["success"]:
+                continue
+                
+            v = item["video"]
+            length = item["length"]
+            pub_date = item["publish_date"]
+            
+            # Attacher les métadonnées pour l'UI
+            self._attach_metadata(v, item)
+            
+            # Filtre durée minimale
+            if length < MIN_VIDEO_DURATION_SECONDS:
+                continue
+            
+            # Filtre date
+            if not self._passes_date_filter(pub_date, days_limit, now):
+                continue
+            
+            # Filtre mode durée
+            if self._passes_duration_filter(length, duration_mode):
+                filtered.append(v)
+        
+        return filtered
+    
+    def _fetch_metadata_parallel(self, videos: List[Any]) -> List[Dict]:
+        """Récupère les métadonnées en parallèle."""
         def get_meta(v):
             try:
-                # Pre-fetch all attributes to ensure they are cached in the object
-                # and to validate they exist.
                 return {
                     "video": v,
                     "title": v.title,
@@ -98,125 +180,190 @@ class YouTubeAudioProcessor:
                     "description": v.description,
                     "success": True
                 }
-            except Exception as e:
-                # Optional: print error for debugging
-                # print(f"Meta fetch error for {v}: {e}")
+            except Exception:
                 return {"success": False}
-
-        # 1. Extraction des métadonnées en parallèle
-        import concurrent.futures
-        videos_metadata = []
         
-        # Use ThreadPoolExecutor to fetch metadata in parallel
-        # max_workers=10 or 20 is reasonable for IO bound
-        with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
-            future_to_video = {executor.submit(get_meta, v): v for v in videos}
-            for future in concurrent.futures.as_completed(future_to_video):
+        results = []
+        with concurrent.futures.ThreadPoolExecutor(max_workers=THREAD_POOL_SIZE) as executor:
+            futures = {executor.submit(get_meta, v): v for v in videos}
+            for future in concurrent.futures.as_completed(futures):
                 res = future.result()
-                if res["success"]:
-                    videos_metadata.append(res)
+                if res.get("success"):
+                    results.append(res)
+        return results
+    
+    @staticmethod
+    def _attach_metadata(video: Any, metadata: Dict) -> None:
+        """Attache les métadonnées au video pour persistance UI."""
+        video.title_attr = metadata["title"]
+        video.author_attr = metadata["author"]
+        video.thumb_attr = metadata["thumbnail_url"]
+        video.views_attr = metadata["views"]
+        video.length_attr = metadata["length"]
+        video.publish_date_attr = metadata["publish_date"]
+        video.description_attr = metadata["description"]
+    
+    @staticmethod
+    def _passes_date_filter(
+        pub_date: Optional[datetime.datetime], 
+        days_limit: Optional[int], 
+        now: datetime.datetime
+    ) -> bool:
+        """Vérifie si la vidéo passe le filtre de date."""
+        if not days_limit or not pub_date:
+            return True
         
-        # 2. Filtrage via le dictionnaire
-        for item in videos_metadata:
-            v = item["video"]
-            length = item["length"]
-            pub_date = item["publish_date"]
-            
-            # Explicitly attach metadata for UI persistence
-            v.title_attr = item["title"]
-            v.author_attr = item["author"]
-            v.thumb_attr = item["thumbnail_url"]
-            v.views_attr = item["views"]
-            v.length_attr = item["length"]
-            v.publish_date_attr = item["publish_date"]
-            v.description_attr = item["description"]
+        if pub_date.tzinfo is None:
+            pub_date = pub_date.replace(tzinfo=datetime.timezone.utc)
+        
+        age = now - pub_date
+        return age.days <= days_limit
+    
+    @staticmethod
+    def _passes_duration_filter(length: int, duration_mode: str) -> bool:
+        """Vérifie si la vidéo passe le filtre de durée."""
+        if not duration_mode or duration_mode == "any":
+            return True
+        elif duration_mode == "short" and length < SHORT_VIDEO_MAX_SECONDS:
+            return True
+        elif duration_mode == "medium" and SHORT_VIDEO_MAX_SECONDS <= length <= MEDIUM_VIDEO_MAX_SECONDS:
+            return True
+        elif duration_mode == "long" and length > MEDIUM_VIDEO_MAX_SECONDS:
+            return True
+        return False
 
-            # Global Safety Check (> 120s)
-            if length < 120:
-                continue
-            
-            # Date Check
-            if days_limit and pub_date:
-                if pub_date.tzinfo is None:
-                    # Assume UTC if naive
-                    pub_date = pub_date.replace(tzinfo=datetime.timezone.utc)
-                
-                age = now - pub_date
-                if age.days > days_limit:
-                    continue
 
-            # Duration Mode Logic
-            if not duration_mode or duration_mode == "any":
-                filtered.append(v)
-            elif duration_mode == "short" and length < 300: # < 5 min
-                filtered.append(v)
-            elif duration_mode == "medium" and 300 <= length <= 1200: # 5-20 min
-                filtered.append(v)
-            elif duration_mode == "long" and length > 1200: # > 20 min
-                filtered.append(v)
-                
-        return filtered
-
-    def fetch_next(self, search_obj):
-        search_obj.get_next_results()
-        return [v for v in search_obj.results if v not in search_obj.shorts]
-
-    def check_subtitles(self, url: str):
-        yt = YouTube(url, on_progress_callback=on_progress)
-        cles_fr = [cle for cle in yt.captions.keys() if "fr" in cle.code or "en" in cle.code]
-        return cles_fr[0].code if cles_fr else None
-
-    def get_subtitles(self, url: str, code: str):
-        yt = YouTube(url, on_progress_callback=on_progress)
-        caption = yt.captions[code]
-        title = yt.title if yt.title else "inconnue"
-        return caption.generate_srt_captions(), title, yt.author, yt.publish_date
-
-    def extract_audio_from_mp4(self, input_video: str) -> list[str]:
+class AudioExtractor:
+    """Service d'extraction audio de fichiers locaux (SRP)."""
+    
+    def __init__(self, output_dir: str):
+        self.output_dir = output_dir
+        os.makedirs(output_dir, exist_ok=True)
+    
+    def extract_audio_from_video(self, input_video: str) -> List[str]:
+        """Extrait l'audio d'un fichier vidéo et retourne les segments."""
         audio_path = os.path.join(self.output_dir, "full_audio.flac")
         
         command = [
             "ffmpeg",
-            "-i", input_video,
+            "-i", str(input_video),
             "-vn",
             "-acodec", "flac",
-            "-ar", "16000",
-            "-compression_level", "0",
+            "-ar", str(DEFAULT_AUDIO_SAMPLE_RATE),
+            "-compression_level", str(AUDIO_COMPRESSION_LEVEL),
             "-y",
             audio_path
         ]
         subprocess.run(command, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        
         if not os.path.exists(audio_path) or os.path.getsize(audio_path) == 0:
-             if os.path.exists(audio_path): os.remove(audio_path)
-             raise Exception("Extraction audio échouée : Fichier audio vide ou non créé.")
-
-        segments = self.split_audio_equal(audio_path)
+            if os.path.exists(audio_path):
+                os.remove(audio_path)
+            raise Exception("Extraction audio échouée : fichier vide ou non créé.")
+        
+        segments = self.split_audio(audio_path)
         os.remove(audio_path)
         return segments
-
-    def split_audio_equal(self, input_file: str) -> list[str]:
+    
+    def split_audio(self, input_file: str) -> List[str]:
+        """Découpe un fichier audio en segments de 10 minutes."""
         audio = AudioSegment.from_file(input_file)
         duration = len(audio)
-        # 10 minutes in milliseconds
-        segment_length = 10 * 60 * 1000
         
-        # If video is shorter than segment_length, keep it as one segment
-        if duration <= segment_length:
+        if duration <= SEGMENT_LENGTH_MS:
             num_segments = 1
         else:
-            num_segments = (duration // segment_length) + 1
-
+            num_segments = (duration // SEGMENT_LENGTH_MS) + 1
+        
         segments = []
         for i in range(num_segments):
-            start = i * segment_length
-            end = min((i + 1) * segment_length, duration)
+            start = i * SEGMENT_LENGTH_MS
+            end = min((i + 1) * SEGMENT_LENGTH_MS, duration)
             
-            # Avoid creating empty segment if duration is exact multiple
             if start >= duration:
                 break
-                
+            
             segment = audio[start:end]
             segment_path = os.path.join(self.output_dir, f"segment_{i}.mp3")
             segment.export(segment_path, format="mp3")
             segments.append(segment_path)
+        
         return segments
+
+
+# =============================================================================
+# FACADE - Classe de compatibilité rétroactive
+# =============================================================================
+
+class YouTubeAudioProcessor:
+    """
+    Façade pour maintenir la compatibilité avec le code existant.
+    Délègue aux services spécialisés (SRP).
+    """
+    
+    def __init__(self, output_dir: str, num_segments: int = 10, source: int = 3):
+        self.output_dir = output_dir
+        self.num_segments = num_segments
+        self.source = source
+        os.makedirs(output_dir, exist_ok=True)
+        
+        # Services spécialisés
+        self._searcher = YouTubeSearchService()
+        self._downloader = YouTubeDownloader(output_dir)
+        self._filter = VideoFilter()
+        self._extractor = AudioExtractor(output_dir)
+    
+    # Délégation au YouTubeDownloader
+    def download_audio(self, url: str) -> Tuple[str, str, str, Optional[datetime.datetime]]:
+        return self._downloader.download_audio(url)
+    
+    def get_video_info(self, url: str) -> Optional[YouTube]:
+        return self._downloader.get_video_info(url)
+    
+    def check_subtitles(self, url: str) -> Optional[str]:
+        return self._downloader.check_subtitles(url)
+    
+    def get_subtitles(
+        self, url: str, code: str
+    ) -> Tuple[str, str, str, Optional[datetime.datetime]]:
+        return self._downloader.get_subtitles(url, code)
+    
+    # Délégation au YouTubeSearchService
+    def search_subject(self, subject: str) -> List[Any]:
+        filters = Filter.create().type(Filter.Type.VIDEO).sort_by(Filter.SortBy.UPLOAD_DATE)
+        search = self._searcher.search(subject, filters)
+        return self._filter.filter_videos(search.results, duration_mode="any")
+    
+    def get_search_object(
+        self, 
+        subject: str, 
+        sort_by: str = "relevance", 
+        upload_date: Optional[str] = None, 
+        exclude_terms: Optional[str] = None
+    ) -> Search:
+        if exclude_terms:
+            terms = exclude_terms.split()
+            for term in terms:
+                subject += f" -{term}"
+        
+        filters = self._searcher.create_filters(sort_by, upload_date)
+        return self._searcher.search(subject, filters)
+    
+    def fetch_next(self, search_obj: Search) -> List[Any]:
+        return self._searcher.fetch_next(search_obj)
+    
+    # Délégation au VideoFilter
+    def filter_videos(
+        self, 
+        videos: List[Any], 
+        duration_mode: str, 
+        days_limit: Optional[int] = None
+    ) -> List[Any]:
+        return self._filter.filter_videos(videos, duration_mode, days_limit)
+    
+    # Délégation à l'AudioExtractor
+    def extract_audio_from_mp4(self, input_video: str) -> List[str]:
+        return self._extractor.extract_audio_from_video(input_video)
+    
+    def split_audio_equal(self, input_file: str) -> List[str]:
+        return self._extractor.split_audio(input_file)

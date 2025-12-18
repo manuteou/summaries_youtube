@@ -1,25 +1,41 @@
-class PromptManager:
-    def get_prompt(self, summary_type: str, context: str, text: str) -> str:
-        """
-        Retrieves the appropriate prompt based on summary type and context.
-        """
-        if summary_type == "short":
-            return self._get_short_prompt(context, text)
-        elif summary_type == "medium":
-            return self._get_medium_prompt(context, text)
-        elif summary_type == "long":
-            return self._get_long_prompt(context, text)
-        elif summary_type == "news":
-            return self._get_news_prompt(context, text)
-        elif summary_type == "meeting":
-            return self._get_meeting_prompt(context, text)
-        else:
-            return self._get_short_prompt(context, text) # Default
+"""
+prompts.py - Refactored prompt management with Registry pattern (OCP)
 
-    def _get_short_prompt(self, context: str, text: str) -> str:
-        if context == "chunk":
-            return f"""
-   Tu es un assistant qui doit produire uniquement un résumé.
+Ce module utilise le pattern Registre pour permettre l'ajout de nouveaux
+types de prompts sans modifier le code existant (Open/Closed Principle).
+"""
+
+from abc import ABC, abstractmethod
+from typing import Dict, Type, Union, Any
+
+
+class PromptTemplate(ABC):
+    """
+    Classe de base abstraite pour tous les templates de prompts.
+    Chaque type de résumé hérite de cette classe (OCP).
+    """
+    
+    @abstractmethod
+    def get_chunk_prompt(self, text: str) -> str:
+        """Prompt pour traiter un chunk de texte."""
+        ...
+    
+    @abstractmethod
+    def get_full_text_prompt(self, text: str) -> str:
+        """Prompt pour traiter un texte complet."""
+        ...
+    
+    @abstractmethod
+    def get_multi_prompt(self, search: str, content: str) -> str:
+        """Prompt pour synthétiser plusieurs sources."""
+        ...
+
+
+class ShortPromptTemplate(PromptTemplate):
+    """Template pour les résumés courts."""
+    
+    def get_chunk_prompt(self, text: str) -> str:
+        return f"""Tu es un assistant qui doit produire uniquement un résumé.
 
 Texte à résumer (issu d'une transcription audio) :
 {text}
@@ -41,9 +57,9 @@ CONTRAINTES DE SORTIE :
 - Pas de conclusion.
 - La sortie doit être uniquement le résumé demandé.
 """
-        elif context == "full_text":
-            return f"""
-Tu es un assistant qui doit produire uniquement un résumé.
+
+    def get_full_text_prompt(self, text: str) -> str:
+        return f"""Tu es un assistant qui doit produire uniquement un résumé.
 
 Texte à résumer (issu d'une transcription audio) :
 {text}
@@ -69,11 +85,11 @@ CONTRAINTES DE SORTIE :
   1. Informations descendantes
   2. Actions attendues
 """
-        elif context == "multi":
-            return f"""
-Tu es un rédacteur professionnel. Ta mission est de créer une synthèse concise à partir des informations suivantes :
-Sujet : {text['search']}
-Sources : {text['content']}
+
+    def get_multi_prompt(self, search: str, content: str) -> str:
+        return f"""Tu es un rédacteur professionnel. Ta mission est de créer une synthèse concise à partir des informations suivantes :
+Sujet : {search}
+Sources : {content}
 
 OBJECTIF :
 Produire un texte fluide et direct qui synthétise les informations clés des différentes sources sur le sujet demandé.
@@ -85,12 +101,13 @@ CONTRAINTES STRICTES :
 
 Le résultat doit ressembler à un article de presse ou une note de synthèse professionnelle.
 """
-        return ""
 
-    def _get_medium_prompt(self, context: str, text: str) -> str:
-        if context == "chunk":
-            return f"""
-Tu es un assistant expert en synthèse de documents.
+
+class MediumPromptTemplate(PromptTemplate):
+    """Template pour les résumés moyens."""
+    
+    def get_chunk_prompt(self, text: str) -> str:
+        return f"""Tu es un assistant expert en synthèse de documents.
 
 Texte à résumer :
 {text}
@@ -114,9 +131,9 @@ CONTRAINTES :
 - Ton IMPERSONNEL et OBJECTIF. Pas de "Je", "Mon", "Nous".
 - NE JAMAIS inventer de dates, de lieux ou de noms s'ils ne sont pas explicitement dans le texte.
 """
-        elif context == "full_text":
-            return f"""
-Tu es un assistant expert en synthèse.
+
+    def get_full_text_prompt(self, text: str) -> str:
+        return f"""Tu es un assistant expert en synthèse.
 
 Texte à résumer :
 {text}
@@ -152,12 +169,12 @@ CONTRAINTES :
 - Ton IMPERSONNEL et OBJECTIF. Pas de "Je", "Mon", "Nous".
 - NE JAMAIS inventer de dates, de lieux ou de noms s'ils ne sont pas explicitement dans le texte.
 """
-        elif context == "multi":
-            return f"""
-Rédige une synthèse thématique sur : {text['search']}.
+
+    def get_multi_prompt(self, search: str, content: str) -> str:
+        return f"""Rédige une synthèse thématique sur : {search}.
 
 Sources :
-{text['content']}
+{content}
 
 OBJECTIFS :
 - Croiser les informations des différentes sources.
@@ -189,12 +206,13 @@ CONTRAINTES :
 - FUSIONNER les informations. NE PAS dire "Les sources disent", "La première vidéo...". Rédiger un texte unique et cohérent.
 - NE JAMAIS inventer de dates, de lieux ou de noms s'ils ne sont pas explicitement dans le texte.
 """
-        return ""
 
-    def _get_long_prompt(self, context: str, text: str) -> str:
-        if context == "chunk":
-            return f"""
-Texte à traiter :
+
+class LongPromptTemplate(PromptTemplate):
+    """Template pour les résumés longs et exhaustifs."""
+    
+    def get_chunk_prompt(self, text: str) -> str:
+        return f"""Texte à traiter :
 {text}
 
 Tu es un moteur d'extraction d'information haute fidélité. Ta tâche est de traiter une SECTION d'un document pour en extraire TOUTE la substance.
@@ -208,9 +226,9 @@ CONTRAINTES :
 -   Ne supprime aucun détail technique.
 -   Pas de "titre de document" (c'est juste un fragment).
 """
-        elif context == "full_text":
-            return f"""
-Texte à traiter :
+
+    def get_full_text_prompt(self, text: str) -> str:
+        return f"""Texte à traiter :
 {text}
 
 Tu es un rédacteur technique chargé de produire la DOCUMENTATION DE RÉFÉRENCE définitive de ce contenu.
@@ -237,12 +255,12 @@ INTERDITS ABSOLUS :
 -   **PAS DE RÉPÉTITION** : Vérifie qu'aucune section ne duplique le contenu d'une autre.
 -   Pas d'hallucinations.
 """
-        elif context == "multi":
-            return f"""
-Sources :
-{text['content']}
 
-Sujet : {text['search']}
+    def get_multi_prompt(self, search: str, content: str) -> str:
+        return f"""Sources :
+{content}
+
+Sujet : {search}
 
 Tu es un expert en rédaction de dossiers documentaires approfondis. Ta mission est de produire un DOSSIER COMPLET et EXHAUSTIF sur le sujet.
 
@@ -273,12 +291,13 @@ CONTRAINTES STRICTES :
 -   Ton : Encyclopédique, neutre, précis.
 -   NE JAMAIS INVENTER : Base-toi uniquement sur les sources fournies.
 """
-        return ""
 
-    def _get_news_prompt(self, context: str, text: str) -> str:
-        if context == "chunk":
-            return f"""
-Texte à analyser (fragment) :
+
+class NewsPromptTemplate(PromptTemplate):
+    """Template pour les actualités et news."""
+    
+    def get_chunk_prompt(self, text: str) -> str:
+        return f"""Texte à analyser (fragment) :
 {text}
 
 Tu es un journaliste d'investigation chargé de repérer les ACTUALITÉS et NOUVEAUTÉS.
@@ -290,9 +309,9 @@ OBJECTIFS :
 Sortie attendue :
 - Liste de points concis et factuels.
 """
-        elif context == "full_text":
-            return f"""
-Texte à traiter :
+
+    def get_full_text_prompt(self, text: str) -> str:
+        return f"""Texte à traiter :
 {text}
 
 Tu es Rédacteur en Chef d'un site d'actualité technologique/scientifique.
@@ -311,12 +330,12 @@ STYLE :
 - CITE TES SOURCES : "Selon la vidéo X...", "Comme annoncé le [Date]..."
 - METS EN AVANT LA DATE.
 """
-        elif context == "multi":
-            return f"""
-Sources (classées par ordre chronologique, les plus récentes en PREMIER) :
-{text['content']}
 
-Sujet : {text['search']}
+    def get_multi_prompt(self, search: str, content: str) -> str:
+        return f"""Sources (classées par ordre chronologique, les plus récentes en PREMIER) :
+{content}
+
+Sujet : {search}
 
 Tu es un JOURNALISTE EXPERT. Tu dois rédiger un article de synthèse sur les **DERNIÈRES ACTUALITÉS** concernant ce sujet.
 IMPORTANT : Les informations les plus récentes (en haut de la liste des sources) ont LA PRIORITÉ ABSOLUE.
@@ -340,12 +359,13 @@ RÈGLES D'OR :
 -   Hésite pas à utiliser des encadrés markdown ( > Citation) pour les déclarations chocs.
 -   Si les sources se contredisent, la source la plus RÉCENTE a raison (mais mentionne le changement).
 """
-        return ""
 
-    def _get_meeting_prompt(self, context: str, text: str) -> str:
-        if context == "chunk":
-            return f"""
-Texte à traiter (segment de réunion) :
+
+class MeetingPromptTemplate(PromptTemplate):
+    """Template pour les comptes-rendus de réunion."""
+    
+    def get_chunk_prompt(self, text: str) -> str:
+        return f"""Texte à traiter (segment de réunion) :
 {text}
 
 Tu es Secrétaire de Séance Expert. Ta mission est de CAPTURER STRICTEMENT ce qui est dit.
@@ -363,9 +383,9 @@ OBJECTIFS DE L'EXTRACTION :
 
 FORMAT : Liste à puces factuelle.
 """
-        elif context == "full_text":
-            return f"""
-Texte à traiter :
+
+    def get_full_text_prompt(self, text: str) -> str:
+        return f"""Texte à traiter :
 {text}
 
 Tu es le Secrétaire Général. Tu dois rédiger le **COMPTE-RENDU** de cette réunion.
@@ -389,12 +409,12 @@ CONTRAINTES :
 -   **Exhaustivité** : Rapporte les faits, ne les compresse pas.
 -   **Style** : Factuel, précis, sans fioritures.
 """
-        elif context == "multi":
-            return f"""
-Sources (Segments consolidés) :
-{text['content']}
 
-Sujet / Titre de la réunion : {text['search']}
+    def get_multi_prompt(self, search: str, content: str) -> str:
+        return f"""Sources (Segments consolidés) :
+{content}
+
+Sujet / Titre de la réunion : {search}
 
 Tu rédiges le **COMPTE-RENDU FINAL** en consolidant les notes intermédiaires.
 
@@ -410,8 +430,79 @@ STRUCTURE IMPÉRATIVE (UNIQUEMENT CES DEUX PARTIES) :
     -   Format strict : Action / Responsable / Date.
 
 CONTRAINTES :
--   UTILISE LE TITRE FOURNI CI-DESSUS ({text['search']}) comme contexte, mais ne l'affiche pas en H1 (le système le fera).
+-   UTILISE LE TITRE FOURNI CI-DESSUS ({search}) comme contexte, mais ne l'affiche pas en H1 (le système le fera).
 -   **PAS D'AUTRE SECTION** : On veut juste le déroulé et les actions.
 -   Ne perds aucune info technique.
 """
-        return ""
+
+
+# =============================================================================
+# REGISTRE DES PROMPTS (OCP - Open/Closed Principle)
+# =============================================================================
+
+class PromptManager:
+    """
+    Gestionnaire de prompts utilisant le pattern Registre.
+    
+    Pour ajouter un nouveau type de résumé :
+    1. Créer une classe héritant de PromptTemplate
+    2. L'enregistrer avec PromptManager.register("nom", MaClasse)
+    
+    Le code existant n'a pas besoin d'être modifié (OCP).
+    """
+    
+    _registry: Dict[str, Type[PromptTemplate]] = {
+        "short": ShortPromptTemplate,
+        "medium": MediumPromptTemplate,
+        "long": LongPromptTemplate,
+        "news": NewsPromptTemplate,
+        "meeting": MeetingPromptTemplate,
+    }
+    
+    @classmethod
+    def register(cls, name: str, template_class: Type[PromptTemplate]) -> None:
+        """
+        Enregistre un nouveau type de prompt.
+        
+        Args:
+            name: Identifiant du type de résumé
+            template_class: Classe héritant de PromptTemplate
+        """
+        cls._registry[name] = template_class
+    
+    @classmethod
+    def get_available_types(cls) -> list:
+        """Retourne la liste des types de résumés disponibles."""
+        return list(cls._registry.keys())
+    
+    def get_prompt(
+        self, 
+        summary_type: str, 
+        context: str, 
+        text: Union[str, Dict[str, str]]
+    ) -> str:
+        """
+        Récupère le prompt approprié selon le type et le contexte.
+        
+        Args:
+            summary_type: Type de résumé (short, medium, long, news, meeting)
+            context: Contexte du prompt (chunk, full_text, multi)
+            text: Texte à traiter ou dict avec 'search' et 'content'
+        
+        Returns:
+            Le prompt formaté
+        """
+        template_class = self._registry.get(summary_type, ShortPromptTemplate)
+        template = template_class()
+        
+        if context == "chunk":
+            return template.get_chunk_prompt(str(text))
+        elif context == "full_text":
+            return template.get_full_text_prompt(str(text))
+        elif context == "multi":
+            if isinstance(text, dict):
+                return template.get_multi_prompt(text.get("search", ""), text.get("content", ""))
+            return template.get_multi_prompt("", str(text))
+        
+        # Fallback
+        return template.get_chunk_prompt(str(text))
