@@ -92,7 +92,7 @@ class Summarizer:
         try:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             safe_context = slugify(context_name)
-            debug_dir = os.path.join("src", "debug_prompts", safe_context)
+            debug_dir = os.path.join("debug", "debug_prompts", safe_context)
             os.makedirs(debug_dir, exist_ok=True)
             
             filename = f"{timestamp}.txt"
@@ -286,7 +286,7 @@ Consigne stricte :
         """Log les chunks pour debug."""
         try:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            chunks_dir = os.path.join("src", "debug_prompts", "raw_chunks", timestamp)
+            chunks_dir = os.path.join("debug", "debug_prompts", "raw_chunks", timestamp)
             os.makedirs(chunks_dir, exist_ok=True)
             
             for i, chunk in enumerate(chunks):

@@ -258,3 +258,468 @@ div.stButton>button:not([kind="primary"]):hover {
     border-radius: 0 0 8px 8px;
     background-color: #0A0A0A;
 }
+
+/* =============================================================================
+   UX IMPROVEMENTS - Progress & Feedback
+   ============================================================================= */
+
+/* Progress Steps Container */
+.synthesis-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(180deg, rgba(20, 20, 20, 0.8) 0%, rgba(10, 10, 10, 0.9) 100%);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Individual Step */
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    position: relative;
+}
+
+.step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.step-circle.pending {
+    background: #1A1A1A;
+    border: 2px solid #333;
+    color: #666;
+}
+
+.step-circle.active {
+    background: linear-gradient(135deg, #FF4B4B 0%, #FF914D 100%);
+    border: none;
+    color: white;
+    box-shadow: 0 0 20px rgba(255, 75, 75, 0.5);
+    animation: pulse-glow 1.5s infinite;
+}
+
+.step-circle.completed {
+    background: #22C55E;
+    border: none;
+    color: white;
+}
+
+.step-label {
+    margin-top: 8px;
+    font-size: 0.75rem;
+    color: #888;
+    text-align: center;
+}
+
+.step-item.active .step-label {
+    color: #FF914D;
+    font-weight: 600;
+}
+
+.step-item.completed .step-label {
+    color: #22C55E;
+}
+
+/* Connector Line */
+.step-connector {
+    flex: 1;
+    height: 2px;
+    background: #333;
+    margin: 0 10px;
+    position: relative;
+    top: -20px;
+}
+
+.step-connector.completed {
+    background: linear-gradient(90deg, #22C55E 0%, #22C55E 100%);
+}
+
+.step-connector.active {
+    background: linear-gradient(90deg, #22C55E 0%, #FF914D 100%);
+}
+
+/* Progress Bar */
+.progress-bar-container {
+    width: 100%;
+    height: 6px;
+    background: #1A1A1A;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #FF4B4B 0%, #FF914D 50%, #FFD700 100%);
+    border-radius: 3px;
+    transition: width 0.5s ease;
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite linear;
+}
+
+/* Estimated Time */
+.estimated-time {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #A3A8B8;
+    margin-top: 10px;
+}
+
+.estimated-time strong {
+    color: #FF914D;
+}
+
+/* Animations */
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(255, 75, 75, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(255, 145, 77, 0.7);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Skeleton Loader */
+.skeleton {
+    background: linear-gradient(90deg, #1A1A1A 25%, #2A2A2A 50%, #1A1A1A 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: 8px;
+}
+
+.skeleton-card {
+    height: 200px;
+    margin-bottom: 15px;
+}
+
+.skeleton-text {
+    height: 16px;
+    margin: 8px 0;
+}
+
+.skeleton-text.short {
+    width: 60%;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* =============================================================================
+   UX IMPROVEMENTS - Navigation Breadcrumb/Stepper
+   ============================================================================= */
+
+.nav-stepper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    padding: 15px 20px;
+    background: rgba(10, 10, 10, 0.8);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 20px;
+}
+
+.nav-step {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #666;
+    font-weight: 500;
+}
+
+.nav-step:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #AAA;
+}
+
+.nav-step.active {
+    background: linear-gradient(135deg, rgba(255, 75, 75, 0.2) 0%, rgba(255, 145, 77, 0.2) 100%);
+    color: #FF914D;
+    font-weight: 600;
+}
+
+.nav-step.completed {
+    color: #22C55E;
+}
+
+.nav-step-icon {
+    font-size: 1.2rem;
+    margin-right: 8px;
+}
+
+.nav-step-arrow {
+    color: #333;
+    margin: 0 5px;
+    font-size: 1.2rem;
+}
+
+/* =============================================================================
+   UX IMPROVEMENTS - Accessibility
+   ============================================================================= */
+
+/* CSS Variables for Theming */
+:root {
+    --bg-primary: #0E1117;
+    --bg-secondary: #0A0A0A;
+    --bg-card: rgba(20, 20, 20, 0.6);
+    --text-primary: #F8F9FA;
+    --text-secondary: #CFCFCF;
+    --text-muted: #A3A8B8;
+    --accent-primary: #FF4B4B;
+    --accent-secondary: #FF914D;
+    --border-color: rgba(255, 255, 255, 0.05);
+    --font-size-base: 1rem;
+}
+
+/* Light Mode */
+.light-mode {
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F5F5F5;
+    --bg-card: rgba(245, 245, 245, 0.9);
+    --text-primary: #1A1A1A;
+    --text-secondary: #333333;
+    --text-muted: #666666;
+    --border-color: rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .stApp {
+    background-color: var(--bg-primary) !important;
+    background-image:
+        radial-gradient(at 0% 0%, rgba(255, 75, 75, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(255, 145, 77, 0.08) 0px, transparent 50%) !important;
+}
+
+.light-mode h1,
+.light-mode h2,
+.light-mode h3,
+.light-mode h4,
+.light-mode h5,
+.light-mode h6 {
+    color: var(--text-primary) !important;
+    text-shadow: none;
+}
+
+.light-mode p,
+.light-mode div,
+.light-mode label,
+.light-mode span,
+.light-mode li {
+    color: var(--text-secondary);
+}
+
+.light-mode .video-card {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+}
+
+.light-mode [data-testid="stSidebar"] {
+    background-color: var(--bg-secondary);
+    border-right-color: var(--border-color);
+}
+
+.light-mode .stTextInput>div>div>input,
+.light-mode .stSelectbox>div>div>div,
+.light-mode .stTextArea>div>div>textarea {
+    background-color: #FFFFFF !important;
+    border-color: #E0E0E0 !important;
+    color: #1A1A1A !important;
+}
+
+/* Font Size Variants */
+.font-small {
+    --font-size-base: 0.875rem;
+}
+
+.font-large {
+    --font-size-base: 1.125rem;
+}
+
+.font-small p,
+.font-small div,
+.font-small label,
+.font-small span,
+.font-small li {
+    font-size: 0.875rem;
+}
+
+.font-large p,
+.font-large div,
+.font-large label,
+.font-large span,
+.font-large li {
+    font-size: 1.125rem;
+}
+
+/* =============================================================================
+   Responsive Design
+   ============================================================================= */
+
+@media (max-width: 992px) {
+    .video-card {
+        margin-bottom: 15px;
+    }
+
+    .synthesis-progress {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .step-connector {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Stack video cards */
+    .video-card {
+        width: 100% !important;
+    }
+
+    /* Navigation adjustments */
+    .nav-stepper {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-step-arrow {
+        transform: rotate(90deg);
+    }
+
+    /* Sidebar full width on mobile */
+    [data-testid="stSidebar"] {
+        width: 100% !important;
+    }
+
+    /* Progress steps vertical */
+    .synthesis-progress {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .step-item {
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .step-label {
+        margin-top: 0;
+        margin-left: 12px;
+    }
+
+    /* Form adjustments */
+    .stForm [data-testid="column"] {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Extra small screens */
+    .card-title {
+        font-size: 0.9rem;
+    }
+
+    .nav-step {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    .step-circle {
+        width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
+    }
+}
+
+/* =============================================================================
+   History Panel
+   ============================================================================= */
+
+.history-item {
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.history-item:hover {
+    background: rgba(255, 145, 77, 0.1);
+    border-color: rgba(255, 145, 77, 0.3);
+}
+
+.history-item-title {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #E0E0E0;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.history-item-meta {
+    font-size: 0.75rem;
+    color: #888;
+}
+
+/* Template selector styling */
+.template-option {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 8px;
+    transition: all 0.2s ease;
+}
+
+.template-option:hover {
+    background: rgba(255, 145, 77, 0.08);
+    border-color: rgba(255, 145, 77, 0.3);
+}
+
+.template-option.selected {
+    background: rgba(255, 75, 75, 0.15);
+    border-color: #FF4B4B;
+}

@@ -80,10 +80,56 @@ def slugify(value: str) -> str:
         >>> slugify("Hello World!")
         'hello_world'
     """
+    if not value:
+        value = "document_sans_titre"
     value = value.lower()
     value = re.sub(r"[^\w\s-]", "", value)
     value = re.sub(r"\s+", "_", value)
     return value.strip("_")
+
+
+def sanitize_text(text: str) -> str:
+    """
+    Nettoie les caractères Unicode problématiques pour la console Windows (cp1252).
+    
+    Remplace les caractères non-ASCII par leurs équivalents ASCII ou les supprime.
+    
+    Args:
+        text: Texte à nettoyer
+        
+    Returns:
+        Texte nettoyé compatible avec cp1252
+    """
+    if not text:
+        return text
+    
+    # Mapping des caractères Unicode courants vers ASCII
+    replacements = {
+        '\u21b3': '->',  # ↳ flèche courbe
+        '\u2192': '->',  # → flèche droite
+        '\u2190': '<-',  # ← flèche gauche
+        '\u2022': '-',   # • bullet
+        '\u2713': '[OK]',  # ✓ checkmark
+        '\u2717': '[X]',   # ✗ cross
+        '\u2018': "'",   # ' apostrophe gauche
+        '\u2019': "'",   # ' apostrophe droite
+        '\u201c': '"',   # " guillemet gauche
+        '\u201d': '"',   # " guillemet droit
+        '\u2026': '...',  # … ellipse
+        '\u2014': '-',   # — tiret long
+        '\u2013': '-',   # – tiret moyen
+        '\u00a0': ' ',   # nbsp
+    }
+    
+    for char, replacement in replacements.items():
+        text = text.replace(char, replacement)
+    
+    # Encodage/décodage pour supprimer les caractères restants non supportés
+    try:
+        return text.encode('cp1252', errors='replace').decode('cp1252')
+    except:
+        # Fallback: garder uniquement les caractères ASCII
+        return text.encode('ascii', errors='replace').decode('ascii')
 
 
 def format_views(views: Optional[int]) -> str:

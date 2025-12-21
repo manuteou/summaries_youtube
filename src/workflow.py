@@ -18,7 +18,7 @@ from downloader import YouTubeAudioProcessor
 from transcriber import WhisperTranscriber
 from summarizer import Summarizer
 from exporter import Exporter
-from utils import clean_files, time_since
+from utils import clean_files, time_since, sanitize_text
 from prompts import PromptManager
 from config import PREFERRED_CHANNELS
 from constants import MIN_RESULTS_TARGET, MIN_BOOSTED_SOURCES, MAX_FETCH_ATTEMPTS
@@ -128,7 +128,7 @@ class WorkflowManager:
             
             return result, title, author, date, method
         except Exception as e:
-            raise Exception(f"Échec traitement YouTube : {e}")
+            raise Exception(f"Échec traitement YouTube : {sanitize_text(str(e))}")
 
     # =========================================================================
     # SINGLE VIDEO PROCESSING
@@ -305,21 +305,25 @@ class WorkflowManager:
         """
         texts = []
         source_info = []
+        source_list_header = "=== SOURCES DISPONIBLES (utiliser UNIQUEMENT ces références) ===\n"
         
-        for vid in selected_videos:
+        for idx, vid in enumerate(selected_videos, start=1):
             url = vid.watch_url
             title = vid.title
             # Use get_video_text which handles both YouTube and local files correctly
             text, _, _, date, _ = self.get_video_text(url)
             # Summarize the extracted text
             summary_text = self.summarizer.summarize_long_text(text, author=title)
-            texts.append(f"Source: {title}\n{summary_text}")
+            # Format avec numéro de source explicite
+            texts.append(f"[{idx}] Source: {title}\n{summary_text}")
+            source_list_header += f"[{idx}] {title}\n"
             # Create source info dict for exporter (not raw YouTube object)
             source_info.append({"title": title, "url": url, "date": date})
         
         final_search_term = search_term if search_term else "Synthèse Manuelle"
         prompt_context = title_override if title_override else final_search_term
-        summary = "\n\n== Text suivant ==".join(texts)
+        # Inclure la liste des sources en haut du texte
+        summary = source_list_header + "\n=== CONTENU DES SOURCES ===\n\n" + "\n\n".join(texts)
         
         # Boucle de validation avec retry
         for attempt in range(3):

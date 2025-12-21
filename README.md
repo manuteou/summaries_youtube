@@ -1,9 +1,9 @@
-# 🎬 YouTube Summarizer & Synthesizer
+# 🎬 SynthetIA - YouTube Summarizer & Synthesizer
 
 Une application puissante alimentée par l'IA pour **résumer**, **synthétiser** et **analyser** des vidéos YouTube ou des fichiers locaux. 
 Utilise **Ollama** (LLM local) et **Whisper** (Transcription) pour garantir confidentialité et performance sans frais d'API.
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue) ![Streamlit](https://img.shields.io/badge/Streamlit-App-red) ![Ollama](https://img.shields.io/badge/AI-Ollama-orange)
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue) ![Streamlit](https://img.shields.io/badge/Streamlit-App-red) ![Ollama](https://img.shields.io/badge/AI-Ollama-orange) ![Version](https://img.shields.io/badge/Version-2.0-green)
 
 ---
 
@@ -20,35 +20,49 @@ Ne perdez plus de temps à regarder des heures de vidéo pour trouver une inform
 
 ### 🔍 1. Recherche & Veille (Moteur Dynamique)
 *   **Recherche YouTube intégrée** : Plus besoin de copier-coller des liens.
-*   **Filtres Avancés** : Triez par *Date*, *Pertinence*, *Vues* ou filtrez par *Durée* (Court, Moyen, Long).
-*   **Affichage Dynamique** : Grille infinie de résultats. Chargez autant de vidéos que nécessaire.
-*   **Vignettes Intelligentes** : Aperçu de la durée, date de mise en ligne relative (ex: "il y a 2 jours") et description scrollable.
+*   **Filtres Avancés** : Triez par *Date*, *Pertinence*, *Vues* ou filtrez par *Durée*.
+*   **Affichage Dynamique** : Grille infinie de résultats avec vignettes intelligentes.
 
 ### 📝 2. Synthèse Multi-Sources
-Sélectionnez plusieurs vidéos (ex: 5 topos sur "L'IA en 2025") et générez une **synthèse unique** qui compile et structure les informations de toutes les sources.
+Sélectionnez plusieurs vidéos et générez une **synthèse unique** qui compile et structure les informations de toutes les sources.
 
 ### 🧠 3. Intelligence Artificielle (Local & Privé)
-*   **Transcription** : Utilise **Whisper** (modèle configurable : `base`, `small`, `medium`...) pour convertir l'audio en texte.
-*   **Analyse** : Utilise **Ollama** (ex: `mistral`, `llama3`) pour comprendre et résumer le contenu.
-*   **3 Modes de Résumés** :
-    *   `Short` : L'essentiel en quelques points.
-    *   `Medium` : Un résumé équilibré et structuré.
-    *   `Long` : Analyse approfondie type "compte-rendu" avec détails.
+*   **Transcription** : Whisper (modèle configurable : `base`, `small`, `medium`...)
+*   **Analyse** : Ollama (ex: `mistral`, `llama3`)
+*   **5 Modes de Résumés** : `Short`, `Medium`, `Long`, `News`, `Meeting`
 
-### 🎨 4. Édition & Raffinement (Onglet Result)
-Une fois le résumé généré, vous avez le contrôle total :
-*   **Éditeur Riche** : Modifiez le texte, ajoutez des titres, du gras, des listes...
-*   **✨ Refine / Regenerate** : Demandez à l'IA de réécrire le texte selon vos critères via des menus simples :
-    *   **Taille** : Plus court / Plus long
-    *   **Ton** : Professionnel, Formel, Familier
-    *   **Format** : Rapport Structuré, Dissertation, Article de Blog, Liste à puces...
-    *   **Langue** : Traduction instantanée (Anglais, Espagnol, Allemand...)
-    *   *Ou vos propres instructions manuelles !*
-*   **Export Multiformat** : Sauvegardez en **PDF**, **HTML**, **Markdown** ou **Texte**.
+### 🎨 4. Édition & Raffinement
+*   **Éditeur Riche** : Modifiez le texte avec Quill Editor
+*   **Refine / Regenerate** : Demandez à l'IA de réécrire selon vos critères
+*   **Templates** : Rapport Structuré, Note de Synthèse, Article de Blog, Email Exécutif
 
-### 🛠️ 5. Autres Modes
-*   **Mode Manuel** : Collez une liste d'URLs spécifiques.
-*   **Fichier Local** : Traitez vos propres fichiers `.mp4` (réunions, enregistrements...).
+---
+
+## 🆕 Nouveautés v2.0
+
+### 📤 Export Multi-Format
+- **Word (.docx)** et **PowerPoint (.pptx)** automatique
+- Génération de slides avec 1 slide par section H2
+
+### 📂 Gestion de Projets
+- **Base SQLite** pour persistance des synthèses
+- **Dossiers/Collections** pour organiser par thème
+- **Tags colorés** pour retrouver facilement
+
+### 🔬 Analyse & Comparaison
+- **Extraction de faits** : Tableau des dates, nombres, noms
+- **Comparaison côte à côte** avec score de similarité
+- **Détection de contradictions** entre sources
+
+### 🤖 Automatisation
+- **Scheduler** : Tâches planifiées (quotidien, hebdo, intervalle)
+- **Alertes** : Système de notifications
+- **API REST** : Intégration externe via FastAPI
+
+### 📊 Analytics Dashboard
+- **KPIs** : Synthèses, vidéos, temps gagné
+- **Graphiques Plotly** : Activité, sujets populaires
+- **Distribution** : Types de synthèse, formats d'export
 
 ---
 
@@ -56,53 +70,47 @@ Une fois le résumé généré, vous avez le contrôle total :
 
 ### Pré-requis
 *   Python 3.10+
-*   [FFmpeg](https://ffmpeg.org/download.html) installé et accessible dans le PATH.
-*   [Ollama](https://ollama.com/) installé et un modèle téléchargé (ex: `ollama pull mistral`).
+*   [FFmpeg](https://ffmpeg.org/download.html) installé et accessible dans le PATH
+*   [Ollama](https://ollama.com/) installé avec un modèle téléchargé
 
 ### 1. Cloner et Installer
 ```bash
 git clone https://github.com/votre-user/summaries_youtube.git
 cd summaries_youtube
 
-# Avec uv (recommandé)
-uv sync
-
-# Ou avec pip classique
+# Installer les dépendances
 pip install -r requirements.txt
+
+# Ou avec uv
+uv sync
 ```
 
 ### 2. Configuration (.env)
-Créez un fichier `.env` à la racine :
-
 ```env
-# Répertoires
 OUTPUT_DIR=src/summaries
-
-# Modèles IA
-MODEL=medium          # Modèle Whisper (tiny, base, small, medium, large)
-DEVICE=cpu            # cpu ou cuda (si GPU NVIDIA disponible)
+MODEL=base              # Modèle Whisper
+DEVICE=cuda             # cpu ou cuda
 OLLAMA_HOST=http://localhost:11434
-OLLAMA_MODEL=mistral  # Le modèle Ollama à utiliser
-
-# Export défaut
-FORMAT=md             # md, txt, html, pdf
+OLLAMA_MODEL=mistral
+FORMAT=md
 ```
 
 ---
 
 ## ▶️ Utilisation
 
-Lancer l'interface graphique (recommandé) :
-
+### Interface Streamlit (recommandé)
 ```bash
-# Avec uv
-uv run streamlit run src/app.py
-
-# Standard
 streamlit run src/app.py
 ```
+→ Ouvre sur `http://localhost:8501`
 
-L'application s'ouvre dans votre navigateur (généralement `http://localhost:8501`).
+### API REST
+```bash
+cd src
+python api.py
+```
+→ API sur `http://localhost:8001/docs`
 
 ---
 
@@ -111,20 +119,36 @@ L'application s'ouvre dans votre navigateur (généralement `http://localhost:85
 ```
 .
 ├── src/
-│   ├── app.py           # Point d'entrée Streamlit (Interface)
-│   ├── workflow.py      # Orchestrateur (Lien entre UI et Backend)
-│   ├── summarizer.py    # Logique IA (Prompts & Ollama)
-│   ├── transcriber.py   # Logique Whisper
-│   ├── downloader.py    # Gestion YouTube & Audio
-│   ├── exporter.py      # Génération PDF/HTML/MD
-│   └── utils.py         # Utilitaires
-├── summaries/           # Dossier de sortie des rapports
+│   ├── app.py           # Interface Streamlit (7 onglets)
+│   ├── workflow.py      # Orchestrateur
+│   ├── summarizer.py    # Logique IA
+│   ├── transcriber.py   # Whisper
+│   ├── downloader.py    # YouTube & Audio
+│   ├── exporter.py      # PDF/HTML/MD/DOCX/PPTX
+│   ├── database.py      # SQLite persistence
+│   ├── analyzer.py      # Faits & comparaison
+│   ├── scheduler.py     # Tâches planifiées
+│   ├── api.py           # REST API (FastAPI)
+│   ├── analytics.py     # Statistiques
+│   └── data/            # SQLite DB & configs
 └── README.md
 ```
 
+## 📦 Dépendances Principales
+
+| Package | Usage |
+|---------|-------|
+| streamlit | Interface |
+| openai-whisper | Transcription |
+| ollama | LLM local |
+| python-docx | Export Word |
+| python-pptx | Export PowerPoint |
+| fastapi | API REST |
+| plotly | Graphiques |
+
 ## ⚠️ Notes
-*   **Performance** : La transcription (Whisper) et le résumé (Ollama) sont des tâches lourdes. Un GPU (CUDA) est fortement recommandé pour le modèle `medium` ou `large`.
-*   **Contexte** : Attention à ne pas sélectionner trop de vidéos "Longues" pour une synthèse unique, cela pourrait dépasser la fenêtre de contexte du modèle LLM.
+*   **Performance** : GPU (CUDA) recommandé pour Whisper `medium` ou `large`
+*   **Contexte** : Attention aux vidéos longues (limite contexte LLM)
 
 ---
 *Fait avec ❤️ et beaucoup de café.*

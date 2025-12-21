@@ -3,10 +3,54 @@ prompts.py - Refactored prompt management with Registry pattern (OCP)
 
 Ce module utilise le pattern Registre pour permettre l'ajout de nouveaux
 types de prompts sans modifier le code existant (Open/Closed Principle).
+
+Optimisations v2.0:
+- Système de citations numérotées [1], [2], etc.
+- Anti-hallucination renforcé
+- Structure standardisée: OBJECTIFS > STRUCTURE > CONTRAINTES > INTERDITS
+- Titres flexibles et thématiques
 """
 
 from abc import ABC, abstractmethod
 from typing import Dict, Type, Union, Any
+
+
+# =============================================================================
+# BLOCS RÉUTILISABLES
+# =============================================================================
+
+CITATION_INSTRUCTIONS = """
+SYSTÈME DE CITATION OBLIGATOIRE :
+1. Les sources sont DÉJÀ NUMÉROTÉES au début du texte : [1], [2], [3], etc.
+2. Tu dois UNIQUEMENT utiliser ces numéros pour citer. Exemple : "L'IA progresse rapidement [1]."
+3. INTERDIT ABSOLU : N'invente JAMAIS de nouvelles sources ou références.
+4. INTERDIT : Ne cite pas des livres, articles, sites web, Wikipedia, ou toute source qui n'est pas dans la liste fournie.
+5. À LA FIN du document, recopie UNIQUEMENT les sources fournies dans une section "### Sources" :
+   [1] Titre exact de la vidéo 1
+   [2] Titre exact de la vidéo 2
+   ...
+6. RÈGLE D'OR : Si une information n'est pas dans les sources fournies, NE L'INCLUS PAS.
+"""
+
+ANTI_HALLUCINATION = """
+VÉRIFICATION ANTI-HALLUCINATION :
+- Chaque date, nom, chiffre que tu écris DOIT être présent dans le texte source.
+- En cas de doute sur une information, utilise "(non précisé dans la source)".
+- N'INVENTE JAMAIS de données, même si elles semblent logiques.
+- Si le texte est flou sur un point, reflète cette ambiguïté.
+
+SOURCES - RÈGLE ABSOLUE :
+- N'INVENTE JAMAIS de références bibliographiques (livres, articles, Wikipedia, etc.)
+- Utilise UNIQUEMENT les sources numérotées [1], [2], [3] fournies au début du texte.
+- Si tu cites [4] et qu'il n'y a que 3 sources, c'est une ERREUR.
+"""
+
+STYLE_IMPERSONNEL = """
+STYLE :
+- Ton IMPERSONNEL et OBJECTIF.
+- INTERDIT : "Je", "Mon", "Nous", "Vous".
+- COMMENCE DIRECTEMENT par le contenu (pas de "Voici...", "Je vais...").
+"""
 
 
 class PromptTemplate(ABC):
@@ -32,79 +76,96 @@ class PromptTemplate(ABC):
 
 
 class ShortPromptTemplate(PromptTemplate):
-    """Template pour les résumés courts."""
+    """Template pour les résumés courts - Optimisé pour la densité et la concision."""
     
     def get_chunk_prompt(self, text: str) -> str:
-        return f"""Tu es un assistant qui doit produire uniquement un résumé.
+        return f"""Tu es un assistant spécialisé dans la synthèse ultra-concise.
 
-Texte à résumer (issu d'une transcription audio) :
+Texte à résumer (transcription audio) :
 {text}
 
 OBJECTIFS :
-- **Synthèse courte des éléments** : Aller droit au but.
-- Synthèse claire, concise et percutante.
-- Mettre en avant les idées principales et les points clés uniquement.
-- Éliminer tout détail superflu.
-- Donner un titre thématique et descriptif (jamais générique) à toutes les parties.
-- Mettre en avant les actions attendues par les participants et les campus.
-- Les informations descendantes doivent être mises en avant dans le texte.
+- Synthèse COURTE et PERCUTANTE (3-5 paragraphes maximum).
+- Priorité aux données chiffrées, noms propres et faits concrets.
+- Éliminer tout détail superflu, anecdotes et répétitions.
+- Titres thématiques et descriptifs (JAMAIS génériques comme "Introduction").
 
-CONTRAINTES DE SORTIE :
+STRUCTURE :
+- Paragraphes courts et denses.
+- Pas de listes à puces sauf si absolument nécessaire.
+
+CONTRAINTES :
 - Langue : français
-- Style : rédigé en paragraphes clairs et professionnels.
-- Ton : neutre, direct et informatif.
-- Longueur : environ 200 mots (cible indicative, privilégier la concision).
+- Longueur : MAXIMUM 200 mots (vérifie avant de terminer).
 - Pas de conclusion.
-- La sortie doit être uniquement le résumé demandé.
+
+{ANTI_HALLUCINATION}
+{STYLE_IMPERSONNEL}
 """
 
     def get_full_text_prompt(self, text: str) -> str:
-        return f"""Tu es un assistant qui doit produire uniquement un résumé.
+        return f"""Tu es un assistant expert en synthèse concise.
 
-Texte à résumer (issu d'une transcription audio) :
+Texte à résumer (transcription audio) :
 {text}
 
 OBJECTIFS :
-- Synthèse claire, concise et fidèle au contenu
-- Mettre en avant les idées principales et les points clés
-- Éliminer les détails superflus ou les répétitions
-- Donner un titre thématique et descriptif (jamais générique) à toutes les parties
-- Mettre en avant les actions attendues par les participants et les campus
-- Identifier et hiérarchiser toutes les informations descendantes (directives, décisions, annonces)
-- Distinguer clairement les informations descendantes des actions attendues
-- Mentionner les responsables ou destinataires si précisés
+- Synthèse claire et fidèle au contenu.
+- Mettre en avant : 1) Informations descendantes 2) Actions attendues.
+- Identifier les responsables et destinataires si mentionnés.
+- Priorité aux données chiffrées et décisions concrètes.
 
-CONTRAINTES DE SORTIE :
+STRUCTURE OBLIGATOIRE :
+## Informations Clés
+(Directives, décisions, annonces importantes)
+
+## Actions Attendues
+(Qui doit faire quoi, avec échéances si mentionnées)
+
+CONTRAINTES :
 - Langue : français
-- Style : rédigé en paragraphes clairs et professionnels
-- Ton : neutre et informatif
-- Longueur : environ 200 mots
-- Pas de conclusion
-- La sortie doit être uniquement le résumé demandé
-- Le résumé doit être structuré en deux sections : 
-  1. Informations descendantes
-  2. Actions attendues
+- Longueur : MAXIMUM 200 mots.
+- Pas de conclusion ni de résumé final.
+
+{ANTI_HALLUCINATION}
+{STYLE_IMPERSONNEL}
 """
 
     def get_multi_prompt(self, search: str, content: str) -> str:
-        return f"""Tu es un rédacteur professionnel. Ta mission est de créer une synthèse concise à partir des informations suivantes :
+        return f"""Tu es un rédacteur professionnel.
+
 Sujet : {search}
-Sources : {content}
 
-OBJECTIF :
-Produire un texte fluide et direct qui synthétise les informations clés des différentes sources sur le sujet demandé.
+LISTE DES SOURCES AUTORISÉES :
+{content}
 
-CONTRAINTES STRICTES :
-- COMMENCE DIRECTEMENT par le contenu du sujet.
+⚠️ RÈGLE CRITIQUE - SOURCES ⚠️
+- Utilise UNIQUEMENT les sources numérotées [1], [2], [3] listées ci-dessus.
+- N'INVENTE JAMAIS de références (Wikipedia, livres, articles, etc.).
+
+{CITATION_INSTRUCTIONS}
+
+OBJECTIFS :
+- Créer une synthèse concise croisant les informations des sources.
+- Chaque fait doit être sourcé avec [1], [2], etc.
+- Produire un texte fluide, style note de synthèse professionnelle.
+
+SECTION SOURCES FINALE :
+À la fin, ajoute "### Sources" avec les titres exacts des vidéos.
+
+CONTRAINTES :
+- Langue : français
+- Longueur : 200-300 mots maximum.
+- Commence DIRECTEMENT par le contenu du sujet.
 - Ton neutre et informatif.
-- Langue : Français.
+- N'INVENTE AUCUNE source.
 
-Le résultat doit ressembler à un article de presse ou une note de synthèse professionnelle.
+{ANTI_HALLUCINATION}
 """
 
 
 class MediumPromptTemplate(PromptTemplate):
-    """Template pour les résumés moyens."""
+    """Template pour les résumés moyens - Équilibre détails/concision."""
     
     def get_chunk_prompt(self, text: str) -> str:
         return f"""Tu es un assistant expert en synthèse de documents.
@@ -113,326 +174,389 @@ Texte à résumer :
 {text}
 
 OBJECTIFS :
-- **Synthèse de longueur moyenne** : Équilibre parfait entre détails et concision.
-- Produire un résumé équilibré et STRUCTURÉ.
-- Capturer l'essentiel tout en conservant les nuances importantes.
+- Synthèse ÉQUILIBRÉE : ni trop courte, ni exhaustive.
+- Capturer l'essentiel avec les nuances importantes.
 - Développer les points clés avec des explications claires.
 
 STRUCTURE OBLIGATOIRE :
 - Utilise des **Titres H2 (##)** pour les grandes thématiques.
 - Utilise des **Titres H3 (###)** pour les sous-sections.
-- Le but est de générer un sommaire détaillé automatiquement.
+- CHOISIS des titres ÉVOCATEURS et THÉMATIQUES (jamais "Introduction", "Conclusion", "Partie 1").
 
 CONTRAINTES :
 - Langue : français
-- Longueur : environ 500 mots (ou plus si nécessaire pour la clarté).
-- Style : professionnel, fluide et agréable à lire.
-- COMMENCER DIRECTEMENT par le contenu.
-- Ton IMPERSONNEL et OBJECTIF. Pas de "Je", "Mon", "Nous".
-- NE JAMAIS inventer de dates, de lieux ou de noms s'ils ne sont pas explicitement dans le texte.
+- Longueur : environ 500 mots.
+- Style : professionnel, fluide, agréable à lire.
+
+{ANTI_HALLUCINATION}
+{STYLE_IMPERSONNEL}
 """
 
     def get_full_text_prompt(self, text: str) -> str:
-        return f"""Tu es un assistant expert en synthèse.
+        return f"""Tu es un assistant expert en synthèse structurée.
 
 Texte à résumer :
 {text}
 
 OBJECTIFS :
-- Fournir une vue d'ensemble complète et STRUCTURÉE.
-- Détailler les informations descendantes et les actions attendues.
+- Vue d'ensemble complète et STRUCTURÉE.
+- Détailler informations descendantes et actions attendues.
 - Hiérarchiser l'information par importance.
 
 STRUCTURE OBLIGATOIRE :
-- Utilise des **Titres H2 (##)** pour les sections principales.
-- Utilise des **Titres H3 (###)** pour les détails spécifiques.
-- Cela permettra de générer une table des matières claire.
+- **Titres H2 (##)** pour les sections principales.
+- **Titres H3 (###)** pour les détails spécifiques.
+- CHOISIS des titres ÉVOCATEURS qui reflètent le CONTENU SPÉCIFIQUE.
+- INTERDIT : "Introduction", "Conclusion", "Résumé", "Partie X".
+
+FORMAT :
+[Titre d'ouverture thématique] → Développement par thèmes → [Titre de clôture thématique]
 
 CONTRAINTES :
 - Langue : français
-- Longueur : environ 500-800 mots.
-- Structure : [Choisir un titre d'intro] -> Développement par thèmes -> [Choisir un titre de conclusion].
-- Pour l'Introduction, CHOISIR UN SEUL titre parmi cette liste :
-  * "Aux Sources de la Réflexion"
-  * "De Quoi Parlons-Nous ?"
-  * "Le Début du Chemin"
-  * "Les Fondations"
-  * "La Question Initiale"
-- Pour la Conclusion, CHOISIR UN SEUL titre parmi cette liste :
-  * "Ce Qu'il Faut Retenir"
-  * "Le Mots de la Fin"
-  * "Ainsi s'achève notre exploration"
-  * "Les Grandes Lignes"
-  * "L'Essentiel"
+- Longueur : 500-800 mots.
 - Style : Rédaction soignée, paragraphes bien construits.
-- COMMENCER DIRECTEMENT par le contenu.
-- Ton IMPERSONNEL et OBJECTIF. Pas de "Je", "Mon", "Nous".
-- NE JAMAIS inventer de dates, de lieux ou de noms s'ils ne sont pas explicitement dans le texte.
+
+{ANTI_HALLUCINATION}
+{STYLE_IMPERSONNEL}
 """
 
     def get_multi_prompt(self, search: str, content: str) -> str:
-        return f"""Rédige une synthèse thématique sur : {search}.
+        return f"""Tu es un rédacteur de synthèses thématiques.
 
-Sources :
+Sujet : {search}
+
+LISTE DES SOURCES AUTORISÉES (au début du texte ci-dessous) :
 {content}
+
+⚠️ RÈGLE CRITIQUE - SOURCES ⚠️
+- Les SEULES sources que tu peux citer sont celles listées ci-dessus avec [1], [2], [3], etc.
+- Tu NE PEUX PAS inventer de références à Wikipedia, Nature, Scientific American, livres, etc.
+- Tu NE PEUX PAS créer de nouvelles sources [4], [5], [6] si elles n'existent pas dans la liste.
+- Chaque [X] dans ton texte DOIT correspondre à une source de la liste ci-dessus.
+
+{CITATION_INSTRUCTIONS}
 
 OBJECTIFS :
 - Croiser les informations des différentes sources.
-- Identifier les tendances et les consensus.
+- Identifier tendances et consensus.
+- Chaque fait important doit être sourcé [1], [2], etc.
 - Produire un texte cohérent et fluide.
 
 STRUCTURE OBLIGATOIRE :
-- Utilise des **Titres H2 (##)** pour les axes d'analyse.
-- Utilise des **Titres H3 (###)** pour les points de détail.
+- **Titres H2 (##)** pour les axes d'analyse.
+- **Titres H3 (###)** pour les points de détail.
+- CHOISIR des titres ÉVOCATEURS (pas "Introduction", "Conclusion").
+
+SECTION SOURCES FINALE :
+À la fin, ajoute "### Sources" et recopie EXACTEMENT les titres des vidéos :
+[1] (titre exact de la source 1)
+[2] (titre exact de la source 2)
+...
 
 CONTRAINTES :
 - Langue : français
-- Longueur : Suffisante pour couvrir le sujet en profondeur (environ 1000 mots).
-- Structure : [Choisir un titre d'intro] -> Analyse thématique -> [Choisir un titre de conclusion].
-- Pour l'Introduction, CHOISIR UN SEUL titre parmi cette liste :
-  * "Aux Sources de la Réflexion"
-  * "De Quoi Parlons-Nous ?"
-  * "Le Début du Chemin"
-  * "Les Fondations"
-  * "La Question Initiale"
-- Pour la Conclusion, CHOISIR UN SEUL titre parmi cette liste :
-    * "Ce Qu'il Faut Retenir"
-    * "Le Mots de la Fin"
-    * "Ainsi s'achève notre exploration"
-    * "Les Grandes Lignes"
-    * "L'Essentiel"
-- COMMENCER DIRECTEMENT par le contenu.
-- Ton IMPERSONNEL et OBJECTIF. Pas de "Je", "Mon", "Nous".
-- FUSIONNER les informations. NE PAS dire "Les sources disent", "La première vidéo...". Rédiger un texte unique et cohérent.
-- NE JAMAIS inventer de dates, de lieux ou de noms s'ils ne sont pas explicitement dans le texte.
+- Longueur : environ 800-1000 mots.
+- FUSIONNER les informations : NE PAS dire "La première vidéo...", "Les sources disent...".
+- Rédiger un texte UNIQUE et cohérent.
+- N'INVENTE JAMAIS de sources académiques ou journalistiques.
+
+{ANTI_HALLUCINATION}
+{STYLE_IMPERSONNEL}
 """
 
 
 class LongPromptTemplate(PromptTemplate):
-    """Template pour les résumés longs et exhaustifs."""
+    """Template pour les résumés longs et exhaustifs - Documentation de référence."""
     
     def get_chunk_prompt(self, text: str) -> str:
-        return f"""Texte à traiter :
+        return f"""Tu es un moteur d'extraction d'information haute fidélité.
+
+Texte à traiter (SECTION d'un document) :
 {text}
 
-Tu es un moteur d'extraction d'information haute fidélité. Ta tâche est de traiter une SECTION d'un document pour en extraire TOUTE la substance.
-
 OBJECTIFS :
--   **Densité maximale** : Ne résume pas. Reformule de manière dense mais conserve 100% des informations factuelles (chiffres, noms, dates, arguments).
--   **Structure** : Utilise des sous-titres (H3) pour organiser les idées au sein de ce bloc.
--   **Style** : Académique, précis, exhaustif.
+- **Densité maximale** : Ne résume PAS. Reformule de manière dense mais conserve 100% des informations factuelles.
+- Conserver : tous les chiffres, noms, dates, arguments, exemples.
+- Structure : Utilise des sous-titres (H3) pour organiser les idées.
 
 CONTRAINTES :
--   Ne supprime aucun détail technique.
--   Pas de "titre de document" (c'est juste un fragment).
+- Ne supprime aucun détail technique.
+- Pas de "titre de document" (c'est juste un fragment).
+- Style : Académique, précis, exhaustif.
+
+{ANTI_HALLUCINATION}
 """
 
     def get_full_text_prompt(self, text: str) -> str:
-        return f"""Texte à traiter :
+        return f"""Tu es un rédacteur technique produisant une DOCUMENTATION DE RÉFÉRENCE.
+
+Texte à traiter :
 {text}
 
-Tu es un rédacteur technique chargé de produire la DOCUMENTATION DE RÉFÉRENCE définitive de ce contenu.
-
 OBJECTIFS PRIORITAIRES :
-1.  **Exhaustivité Totale** : Le lecteur ne doit plus jamais avoir besoin de consulter l'original. Tout doit être là.
-2.  **Volume** : Produis un texte long (minimum 1500 mots si le contenu le permet), dense et fouillé.
-3.  **Clarté Structurelle** : Utilise abondamment les titres (H2) et sous-titres (H3).
+1. **Exhaustivité Totale** : Le lecteur ne doit plus consulter l'original. Tout doit être là.
+2. **Volume** : Minimum 1500 mots si le contenu le permet.
+3. **Clarté Structurelle** : Titres (H2) et sous-titres (H3) abondants.
 
-CONSIGNES DE STRUCTURE ET TITRES :
--   **Structure** : [Titre d'ouverture Thématique] -> Développement -> [Titre de fin Thématique].
--   **TITRES ÉLÉGANTS OBLIGATOIRES** :
-    -   Pour l'ouverture, CHOISIR UN TITRE ÉVOCATEUR (ex: "Contexte et Enjeux", "Les Racines du Problème", "Vue d'Ensemble").
-    -   Pour la fin, CHOISIR UN TITRE ÉVOCATEUR (ex: "Perspectives d'Avenir", "Synthèse et Implications", "Le Mot de la Fin").
-    -   INTERDIT : "Introduction", "Conclusion", "Résumé", "Abstract".
+STRUCTURE :
+[Titre d'ouverture ÉVOCATEUR] → Développement détaillé → [Titre de fin ÉVOCATEUR]
+- INTERDIT : "Introduction", "Conclusion", "Résumé", "Abstract".
+- EXEMPLES de bons titres : "Contexte et Enjeux", "Les Racines du Problème", "Perspectives d'Avenir".
 
-CONSIGNES DE RÉDACTION :
--   **Développement** : Suis le déroulé logique. Chaque argument doit être développé dans sa propre sous-section.
--   **Détails Techniques** : Conserve tous les chiffres, dates, noms propres et terminologies spécifiques.
--   **STYLE** : Rédige UNIQUEMENT des paragraphes complets.
+CONSIGNES :
+- Chaque argument dans sa propre sous-section.
+- Conserver tous les chiffres, dates, noms propres, terminologies.
+- UNIQUEMENT des paragraphes complets (pas de listes).
+
+VÉRIFICATION FINALE (avant de terminer) :
+- RELIS ton texte et SUPPRIME toute phrase qui répète une idée déjà exprimée.
+- Chaque section H3 doit apporter une information NOUVELLE.
+
+{ANTI_HALLUCINATION}
+{STYLE_IMPERSONNEL}
 
 INTERDITS ABSOLUS :
--   **PAS DE TEXTE D'INTRODUCTION** (ex: "Voici le code..."). Commence DIRECTEMENT par le Titre du document.
--   **PAS DE RÉPÉTITION** : Vérifie qu'aucune section ne duplique le contenu d'une autre.
--   Pas d'hallucinations.
+- Pas de texte d'introduction ("Voici...", "Je vais...").
+- Pas de répétition entre sections.
 """
 
     def get_multi_prompt(self, search: str, content: str) -> str:
-        return f"""Sources :
-{content}
+        return f"""Tu es un expert en rédaction de dossiers documentaires approfondis.
 
 Sujet : {search}
 
-Tu es un expert en rédaction de dossiers documentaires approfondis. Ta mission est de produire un DOSSIER COMPLET et EXHAUSTIF sur le sujet.
+LISTE DES SOURCES AUTORISÉES (au début du texte ci-dessous) :
+{content}
+
+⚠️ RÈGLE CRITIQUE - SOURCES ⚠️
+- Les SEULES sources que tu peux citer sont celles listées ci-dessus avec [1], [2], [3], etc.
+- Tu NE PEUX PAS inventer de références à Wikipedia, Nature, Scientific American, etc.
+- Tu NE PEUX PAS créer de nouvelles sources [4], [5], [6] si elles n'existent pas dans la liste.
+- Chaque [X] dans ton texte DOIT correspondre à une source de la liste ci-dessus.
+
+{CITATION_INSTRUCTIONS}
 
 OBJECTIFS PRIORITAIRES :
-1.  **Densité Informationnelle MAXIMALE** : Ne laisse AUCUN détail de côté. Croise les sources mais conserve la richesse de chacune.
-2.  **Longueur conséquente** : Vise un document de référence de 1500 à 2500 mots. Il est interdit de faire court.
-3.  **Structure Granulaire** : Descends dans le détail (H2 > H3).
+1. **Densité Informationnelle MAXIMALE** : Ne laisse AUCUN détail de côté.
+2. **Volume** : 1500 à 2500 mots. Il est INTERDIT de faire court.
+3. **Structure Granulaire** : H2 > H3 avec citations [1], [2], etc.
 
-CONSIGNES DE STRUCTURE ET TITRES :
--   **Structure** : [Titre d'ouverture Thématique] -> Développement -> [Titre de fin Thématique].
--   **TITRES ÉLÉGANTS OBLIGATOIRES** :
-    -   Pour l'ouverture, CHOISIR UN TITRE ÉVOCATEUR (ex: "Contexte et Enjeux", "Les Racines du Problème", "Vue d'Ensemble").
-    -   Pour la fin, CHOISIR UN TITRE ÉVOCATEUR (ex: "Perspectives d'Avenir", "Synthèse et Implications", "Le Mot de la Fin").
-    -   INTERDIT : "Introduction", "Conclusion", "Résumé", "Abstract".
+STRUCTURE :
+[Titre d'ouverture ÉVOCATEUR] → Développement thématique → [Titre de fin ÉVOCATEUR]
+- INTERDIT : "Introduction", "Conclusion", "Résumé".
+- Pour chaque thème : plusieurs sous-parties H3 avec faits sourcés.
 
-CONSIGNES DE RÉDACTION :
--   **Développement Thématique** (Plusieurs sections H2) :
-    -   Pour chaque thème, développe plusieurs sous-parties (H3).
-    -   Intègre les chiffres et faits précis des vidéos.
--   **Analyse Comparative** : Si les sources divergent, explique précisément en quoi.
--   **STYLE** : Rédige UNIQUEMENT des paragraphes complets.
+CONSIGNES :
+- Intégrer chiffres et faits précis avec leurs sources [1], [2].
+- Si les sources divergent, expliquer précisément les différences.
+- UNIQUEMENT des paragraphes complets.
 
-CONTRAINTES STRICTES :
--   **INTERDICTION DE TEXTE D'INTRODUCTION OU DE FIN** (ex: "J'espère que ceci vous aide", "Voici le code markdown").
--   **COMMENCE DIRECTEMENT** par le titre principal (H1).
--   **INTERDICTION DE RÉSUMER** : Tu ne dois pas "synthétiser" pour raccourcir, mais "compiler" pour tout garder.
--   **PAS DE RÉPÉTITION** : Ne répète pas les mêmes paragraphes.
--   Ton : Encyclopédique, neutre, précis.
--   NE JAMAIS INVENTER : Base-toi uniquement sur les sources fournies.
+SECTION SOURCES FINALE :
+À la fin, ajoute "### Sources" et recopie EXACTEMENT les titres des vidéos :
+[1] (titre exact de la source 1)
+[2] (titre exact de la source 2)
+...
+
+VÉRIFICATION FINALE :
+- RELIS et SUPPRIME toute répétition.
+- Vérifie que chaque [X] correspond à une vraie source.
+- SUPPRIME toute référence à Wikipedia, livres, articles non fournis.
+
+{ANTI_HALLUCINATION}
+{STYLE_IMPERSONNEL}
+
+INTERDITS :
+- "Voici le code markdown", "J'espère que ceci vous aide".
+- Résumer pour raccourcir (tu dois COMPILER, pas synthétiser).
+- Inventer des sources académiques ou journalistiques.
 """
 
 
 class NewsPromptTemplate(PromptTemplate):
-    """Template pour les actualités et news."""
+    """Template pour les actualités - Style journalistique avec sources précises."""
     
     def get_chunk_prompt(self, text: str) -> str:
-        return f"""Texte à analyser (fragment) :
+        return f"""Tu es un journaliste d'investigation.
+
+Texte à analyser (fragment) :
 {text}
 
-Tu es un journaliste d'investigation chargé de repérer les ACTUALITÉS et NOUVEAUTÉS.
 OBJECTIFS :
-- Extraire UNIQUEMENT les faits récents, les annonces, les dates clés et les changements.
-- Ignorer le "bruit" (intros, blabla, contexte général connu).
-- Si une information est datée ou semble nouvelle, garde-la précieusement.
+- Extraire UNIQUEMENT les faits RÉCENTS : annonces, dates clés, changements.
+- Ignorer le "bruit" : intros, contexte général connu, blabla.
+- Si une information est datée ou semble nouvelle, GARDE-LA.
 
-Sortie attendue :
-- Liste de points concis et factuels.
+SORTIE : Liste de points concis et factuels avec dates si disponibles.
+
+{ANTI_HALLUCINATION}
 """
 
     def get_full_text_prompt(self, text: str) -> str:
-        return f"""Texte à traiter :
+        return f"""Tu es Rédacteur en Chef d'un site d'actualité.
+
+Texte à traiter :
 {text}
 
-Tu es Rédacteur en Chef d'un site d'actualité technologique/scientifique.
 OBJECTIF : Rédiger un ARTICLE D'ACTUALITÉ percutant.
 
 STRUCTURE DE L'ARTICLE :
-1. **TITRE ACCROCHEUR** (H1) : Doit donner l'info principale.
-2. **LEAD / CHAPÔ** (en gras) : Résumé de 2 phrases qui répond aux questions : Quoi ? Quand ? Qui ?
-3. **CORPS DE L'ARTICLE** (H2 pour les sections) :
-    - Les nouveautés en détail.
-    - Les implications concrètes.
-    - Ce qui change par rapport à avant.
+1. **TITRE ACCROCHEUR** (H1) : Contient l'info principale + verbe d'action.
+2. **CHAPÔ** (en gras) : 2 phrases répondant à Quoi ? Quand ? Qui ?
+3. **CORPS** (H2 pour les sections) :
+   - Les nouveautés en détail
+   - Les implications concrètes
+   - Ce qui change par rapport à avant
+
+CITATIONS OBLIGATOIRES :
+- Pour chaque fait : "[Source : Titre de la vidéo, à MM:SS]"
+- Si pas de timestamp disponible, mentionner juste la source.
 
 STYLE :
-- Journalistique, phrase courtes, présent de l'indicatif.
-- CITE TES SOURCES : "Selon la vidéo X...", "Comme annoncé le [Date]..."
-- METS EN AVANT LA DATE.
+- Journalistique, phrases courtes, présent de l'indicatif.
+- Mettre en **gras** les infos cruciales.
+- Mettre en avant les DATES.
+
+{ANTI_HALLUCINATION}
 """
 
     def get_multi_prompt(self, search: str, content: str) -> str:
-        return f"""Sources (classées par ordre chronologique, les plus récentes en PREMIER) :
-{content}
+        return f"""Tu es un JOURNALISTE EXPERT en synthèse d'actualités.
 
 Sujet : {search}
 
-Tu es un JOURNALISTE EXPERT. Tu dois rédiger un article de synthèse sur les **DERNIÈRES ACTUALITÉS** concernant ce sujet.
-IMPORTANT : Les informations les plus récentes (en haut de la liste des sources) ont LA PRIORITÉ ABSOLUE.
+LISTE DES SOURCES AUTORISÉES (les plus récentes EN PREMIER) :
+{content}
+
+⚠️ RÈGLE CRITIQUE - SOURCES ⚠️
+- Utilise UNIQUEMENT les sources numérotées [1], [2], [3] listées ci-dessus.
+- N'INVENTE JAMAIS de références (Reuters, AFP, journaux, Wikipedia, etc.).
+- Chaque [X] DOIT correspondre à une vraie source de la liste.
+
+{CITATION_INSTRUCTIONS}
 
 OBJECTIFS :
-1.  **NOUVEAUTÉ AVANT TOUT** : Commence par ce qui vient de se passer (cette semaine/ce mois).
-2.  **CONFRONTATION** : "Alors que [Source Ancienne] prévoyait X, [Source Récente] confirme Y."
-3.  **PRÉCISION** : Cite les dates et les acteurs.
+1. **NOUVEAUTÉ AVANT TOUT** : Commence par ce qui vient de se passer.
+2. **CONFRONTATION** : "Alors que [Source ancienne] prévoyait X [1], [Source récente] confirme Y [2]."
+3. **PRÉCISION** : Cite dates et acteurs avec sources [1], [2], etc.
 
 STRUCTURE OBLIGATOIRE :
--   **TITRE JOURNALISTIQUE** (H1) : Doit contenir un verbe d'action et l'info clé.
--   **DATELINE** : "Synthèse actualisée au [Date du jour]" (en italique).
--   **LEAD (Chapô)** : L'essentiel en 3 lignes.
--   **LE CŒUR DE L'ACTU** (H2) : Les faits les plus récents et importants.
--   **ANALYSE & CONTEXTE** (H2) : Pour comprendre pourquoi c'est important.
--   **CE QU'IL FAUT SURVEILLER** (H2) : Prochaines étapes/dates.
+- **TITRE JOURNALISTIQUE** (H1) : Verbe d'action + info clé.
+- **DATELINE** : "*Synthèse actualisée au [Date du jour]*"
+- **CHAPÔ** : L'essentiel en 3 lignes.
+- **LE CŒUR DE L'ACTU** (H2) : Faits récents et importants [1][2].
+- **ANALYSE & CONTEXTE** (H2) : Pourquoi c'est important.
+- **CE QU'IL FAUT SURVEILLER** (H2) : Prochaines étapes/dates.
 
-RÈGLES D'OR :
--   Ton : Dynamique, informatif, "Breaking News".
--   Utilise le **gras** pour les infos cruciales.
--   Hésite pas à utiliser des encadrés markdown ( > Citation) pour les déclarations chocs.
--   Si les sources se contredisent, la source la plus RÉCENTE a raison (mais mentionne le changement).
+SECTION SOURCES FINALE :
+À la fin, ajoute "### Sources" avec les titres exacts des vidéos.
+
+STYLE :
+- Dynamique, "Breaking News".
+- **Gras** pour les infos cruciales.
+- Utiliser > Citation pour les déclarations importantes.
+- Si sources contradictoires : la plus RÉCENTE a raison (mais mentionner le changement).
+- N'INVENTE AUCUNE source journalistique ou agence de presse.
+
+{ANTI_HALLUCINATION}
 """
 
 
 class MeetingPromptTemplate(PromptTemplate):
-    """Template pour les comptes-rendus de réunion."""
+    """Template pour les comptes-rendus de réunion - Exhaustif avec tableau d'actions."""
     
     def get_chunk_prompt(self, text: str) -> str:
-        return f"""Texte à traiter (segment de réunion) :
+        return f"""Tu es Secrétaire de Séance Expert.
+
+Texte à traiter (segment de réunion) :
 {text}
 
-Tu es Secrétaire de Séance Expert. Ta mission est de CAPTURER STRICTEMENT ce qui est dit.
+RÈGLES ANTI-HALLUCINATION :
+1. **FIDÉLITÉ ABSOLUE** : N'ajoute RIEN qui n'est pas dans le texte.
+2. **PAS DE RÉDACTION** : Fais des listes factuelles.
+3. **CITATIONS** : Garde les phrases clés entre guillemets.
 
-RÈGLES D'OR (ANTI-HALLUCINATION) :
-1.  **FIDÉLITÉ ABSOLUE** : N'ajoute RIEN qui n'est pas dans le texte. Si un sujet n'est pas clair, note ce qui est dit, n'interprète pas.
-2.  **PAS DE BLA-BLA** : Ne rédige pas. Fais des listes.
-3.  **CITATIONS** : Si une phrase est clé, garde-la entre guillemets.
-
-OBJECTIFS DE L'EXTRACTION :
-1.  **Décisions actées** : Note explicitement ce qui a été validé.
-2.  **Points de blocage** : Note les désaccords ou problèmes soulevés.
-3.  **Actions futures** : Qui doit faire quoi ? Pour quand ?
-4.  **Déroulé chronologique** : Note les sujets abordés dans l'ordre.
+OBJECTIFS D'EXTRACTION :
+1. **Décisions actées** : Ce qui a été validé.
+2. **Points de blocage** : Désaccords ou problèmes soulevés.
+3. **Actions futures** : Qui ? Quoi ? Pour quand ?
+4. **Déroulé chronologique** : Sujets dans l'ordre.
 
 FORMAT : Liste à puces factuelle.
+
+{ANTI_HALLUCINATION}
 """
 
     def get_full_text_prompt(self, text: str) -> str:
-        return f"""Texte à traiter :
+        return f"""Tu es le Secrétaire Général rédigeant un COMPTE-RENDU officiel.
+
+Texte à traiter :
 {text}
 
-Tu es le Secrétaire Général. Tu dois rédiger le **COMPTE-RENDU** de cette réunion.
+STRUCTURE IMPÉRATIVE (UNIQUEMENT CES PARTIES) :
 
-TITRE DU DOCUMENT À UTILISER : (Voir contexte ou titre fourni par l'utilisateur).
+## Déroulé de la Séance
+- Retrace chronologiquement les échanges.
+- Sous-titres (H3) pour séparer les sujets.
+- Précision sur les échanges (arguments, points de vue).
 
-STRUCTURE IMPÉRATIVE (UNIQUEMENT CES DEUX PARTIES) :
+## Relevé de Décisions et Actions
 
-1.  **DÉROULÉ DE LA SÉANCE** (H2)
-    -   Retrace chronologiquement les échanges.
-    -   Utilise des sous-titres (H3) pour séparer les sujets.
-    -   Sois précis sur les échanges (arguments, points de vue).
+### Décisions Actées
+(Liste des décisions validées)
 
-2.  **RELEVÉ DE DÉCISIONS ET ACTIONS** (H2)
-    -   **Décisions** : Ce qui est acté.
-    -   **Actions** : [Qui] [Quoi] [Pour quand].
-    -   **Points bloquants** : Ce qui reste en suspens.
+### Tableau des Actions
+| Action | Responsable | Échéance | Priorité |
+|--------|-------------|----------|----------|
+| ... | ... | ... | Haute/Moyenne/Basse |
+
+*Si l'échéance n'est pas mentionnée, indiquer "À définir".*
+
+### Points en Suspens
+(Ce qui reste à trancher)
 
 CONTRAINTES :
--   **PAS D'INTRODUCTION, PAS DE CONCLUSION, PAS DE RÉSUMÉ EXÉCUTIF**.
--   **Exhaustivité** : Rapporte les faits, ne les compresse pas.
--   **Style** : Factuel, précis, sans fioritures.
+- **PAS D'INTRODUCTION, PAS DE CONCLUSION, PAS DE RÉSUMÉ EXÉCUTIF.**
+- Exhaustivité : Rapporte les faits, ne les compresse pas.
+- Style : Factuel, précis, sans fioritures.
+
+{ANTI_HALLUCINATION}
 """
 
     def get_multi_prompt(self, search: str, content: str) -> str:
-        return f"""Sources (Segments consolidés) :
-{content}
+        return f"""Tu rédiges le COMPTE-RENDU FINAL consolidé.
 
-Sujet / Titre de la réunion : {search}
+Titre de la réunion : {search}
+Segments consolidés : {content}
 
-Tu rédiges le **COMPTE-RENDU FINAL** en consolidant les notes intermédiaires.
+{CITATION_INSTRUCTIONS}
 
-STRUCTURE IMPÉRATIVE (UNIQUEMENT CES DEUX PARTIES) :
+STRUCTURE IMPÉRATIVE :
 
-1.  **DÉROULÉ DE LA SÉANCE** (H2)
-    -   Fusionne les notes pour reconstituer le fil de la réunion.
-    -   Utilise des sous-titres (H3) pour les thématiques.
-    -   Conserve la richesse des débats.
+## Déroulé de la Séance
+- Fusionne les notes pour reconstituer le fil de la réunion.
+- Sous-titres (H3) pour les thématiques.
+- Conserve la richesse des débats avec sources [1], [2].
 
-2.  **RELEVÉ DE DÉCISIONS ET ACTIONS** (H2)
-    -   Consolide toutes les actions et décisions repérées.
-    -   Format strict : Action / Responsable / Date.
+## Relevé de Décisions et Actions
+
+### Décisions Actées
+(Liste consolidée des décisions avec source [X])
+
+### Tableau des Actions
+| Action | Responsable | Échéance | Priorité | Source |
+|--------|-------------|----------|----------|--------|
+| ... | ... | ... | Haute/Moyenne/Basse | [X] |
+
+### Points en Suspens
+(Ce qui reste à trancher)
 
 CONTRAINTES :
--   UTILISE LE TITRE FOURNI CI-DESSUS ({search}) comme contexte, mais ne l'affiche pas en H1 (le système le fera).
--   **PAS D'AUTRE SECTION** : On veut juste le déroulé et les actions.
--   Ne perds aucune info technique.
+- Utilise le titre "{search}" comme contexte.
+- **PAS D'AUTRE SECTION** : Déroulé + Actions uniquement.
+- Ne perds aucune info technique.
+
+{ANTI_HALLUCINATION}
 """
 
 
